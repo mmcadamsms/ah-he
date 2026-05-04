@@ -1,0 +1,30 @@
+services:
+  web-ux:
+    build:
+      context: ./services/web-ux
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+      - API_BASE_URL=http://web-api:8080
+    depends_on:
+      - web-api
+
+  web-api:
+    build:
+      context: ./services/web-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+
+  background-worker:
+    build:
+      context: ./services/background-worker
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+    depends_on:
+      - web-api
