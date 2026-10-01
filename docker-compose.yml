@@ -4,27 +4,53 @@ services:
       context: ./services/web-ux
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "${WEB_UX_PORT:-3000}:3000"
     environment:
       - SPRING_PROFILES_ACTIVE=local
       - API_BASE_URL=http://web-api:8080
     depends_on:
-      - web-api
+      web-api:
+        condition: service_healthy
 
   web-api:
     build:
-      context: ./services/web-api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: services/web-api/Dockerfile
     ports:
-      - "8080:8080"
+      - "${WEB_API_PORT:-18080}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=local
+      - SIMULATION_TICK_MS=100
+      - GEOMETRY_WORKER_URL=http://geometry-cam-worker:8090
+    depends_on:
+      geometry-cam-worker:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://localhost:8080/api/v1/manufacturing-jobs >/dev/null || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
 
-  background-worker:
+  geometry-cam-worker:
     build:
-      context: ./services/background-worker
+      context: ./services/geometry-cam-worker
       dockerfile: Dockerfile
     environment:
-      - SPRING_PROFILES_ACTIVE=local
-    depends_on:
-      - web-api
+      - PORT=8090
+    ports:
+      - "${GEOMETRY_WORKER_PORT:-18090}:8090"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "/bin/micromamba",
+          "run",
+          "-n",
+          "base",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8090/health', timeout=2)"
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 20

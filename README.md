@@ -1,10 +1,50 @@
-# ah-he — Approval & Hierarchy Engine
+# ah-he — Visible Design-to-Manufacturing Automation
 
-> An agent-first, harness-engineered platform for approval workflows.
+> An agent-first platform for turning customer intent into visible, controlled
+> design and manufacturing workflows.
 
 ## Project Overview
 
-This repository is the single source of truth for the **ah-he** platform — a multi-service, multi-platform application built using [harness engineering](https://openai.com/index/harness-engineering/) principles. Human engineers act as architects; AI agents handle day-to-day coding, testing, and deployment tasks.
+This repository is the single source of truth for the **ah-he** platform. The
+first vertical slice is a local CAD-to-CNC planning and simulation prototype;
+the service structure remains suitable for later approval, design,
+manufacturing, quality, and delivery workflows.
+
+## Run the CNC Prototype
+
+Prerequisite: Docker Desktop with Docker Compose.
+
+```powershell
+.\scripts\start-prototype.ps1
+```
+
+Open <http://localhost:3000>, then run the included bracket or upload an
+exported STEP/STL model.
+
+The cycle-time control defaults to 5x playback. Select 1x to watch the
+estimated commanded machine time directly, or increase the rate while a job is
+running. The estimated total remains unchanged because it is calculated from
+G-code distance, feed, rapid/rotary rates, drilling cycles, spindle changes,
+coolant, dwell, and tool changes.
+
+The start script compiles the Java service in a Java 21 container using the
+already approved local Gradle cache, then starts the API and dependency-free
+portal. This avoids downloading Maven or npm content from inside build
+containers on restricted corporate networks.
+
+The API is exposed at <http://localhost:18080> by default because port 8080 is
+commonly occupied on development workstations. Override either host port when
+needed:
+
+```powershell
+$env:WEB_UX_PORT = "3001"
+$env:WEB_API_PORT = "18081"
+docker compose up --build
+```
+
+The generated plan and G-code are demonstrative only. They are not safe for
+physical machine execution and do not replace qualified CAM, postprocessing,
+collision verification, or machinist prove-out.
 
 ## Repository Structure
 

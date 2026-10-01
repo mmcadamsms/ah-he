@@ -18,6 +18,7 @@
 | Coding standards | [docs/standards/coding-standards.md](docs/standards/coding-standards.md) |
 | Testing standards | [docs/standards/testing-standards.md](docs/standards/testing-standards.md) |
 | API conventions | [docs/standards/api-standards.md](docs/standards/api-standards.md) |
+| Requirements standards | [docs/standards/requirements-standards.md](docs/standards/requirements-standards.md) |
 | Product requirements | [requirements/](requirements/) |
 | Agent workflow prompts | [requirements/prompts/](requirements/prompts/) |
 | Service code (web-ux) | [services/web-ux/](services/web-ux/) |
@@ -27,6 +28,7 @@
 | iOS app | [iosApp/](iosApp/) |
 | Shared KMP module | [shared/](shared/) |
 | Operational runbooks | [docs/runbooks/](docs/runbooks/) |
+| CNC cycle-time model | [docs/manufacturing/umc-750-cycle-time-model.md](docs/manufacturing/umc-750-cycle-time-model.md) |
 
 ## Agent Workflow
 
@@ -50,6 +52,9 @@ See [requirements/prompts/README.md](requirements/prompts/README.md) for the ful
 4. **No tacit knowledge** — if an agent needs it, it must be written down in this repo
 5. **Mechanical enforcement** — prefer CI checks and linters over manual review
 6. **Tests are mandatory** — every change must include tests per [testing standards](docs/standards/testing-standards.md)
+7. **Conversations become requirements** — capture substantive product and
+   engineering decisions in structured Markdown per
+   [requirements standards](docs/standards/requirements-standards.md)
 
 ## Build & Run
 

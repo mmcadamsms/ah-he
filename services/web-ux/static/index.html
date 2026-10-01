@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Local CAD-to-machining planning and simulation prototype."
+    />
+    <title>ForgePath | Manufacturing visibility prototype</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main id="landing" class="landing">
+      <nav>
+        <div class="brand-mark">FP</div>
+        <div class="brand-copy">
+          <strong>ForgePath</strong>
+          <span>manufacturing visibility prototype</span>
+        </div>
+        <div class="prototype-pill">LOCAL PROTOTYPE</div>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">IDEA → MATERIAL → MOTION</div>
+          <h1>See how your part could be made.</h1>
+          <p>
+            Submit an exported CAD model. Follow every proposed stock, tool,
+            human handoff, program block, and machine movement.
+          </p>
+          <div class="machine-facts">
+            <span>2016 HAAS UMC-750</span>
+            <span>3+2 INDEXED</span>
+            <span>30+1 TOOLS</span>
+          </div>
+        </div>
+
+        <form id="intake-form" class="intake-card">
+          <div class="eyebrow">START A BUILD</div>
+          <h2>Give us the part model.</h2>
+          <p>
+            Export from SolidWorks or Fusion 360 as STEP or STL. This
+            demonstration estimates geometry and does not read native CAD
+            features or drawing tolerances.
+          </p>
+          <label>
+            Part model
+            <input id="part-file" type="file" accept=".step,.stp,.stl,.sldprt,.f3d" />
+          </label>
+          <label>
+            Material
+            <select id="material">
+              <option>6061 aluminum</option>
+              <option>1018 steel</option>
+              <option>409 stainless steel</option>
+              <option>Acetal plastic</option>
+            </select>
+          </label>
+          <label>
+            Simulation playback
+            <div class="range-control">
+              <input
+                id="initial-playback-rate"
+                type="range"
+                min="1"
+                max="100"
+                step="1"
+                value="5"
+              />
+              <output id="initial-playback-output">5×</output>
+            </div>
+            <small>
+              1× follows estimated machine time. Higher values accelerate only
+              the visualization.
+            </small>
+          </label>
+          <div id="selected-file" class="selected-file"></div>
+          <div id="form-error" class="error-banner" hidden></div>
+          <div class="button-row">
+            <button id="submit-button" class="primary-button" type="submit">
+              Analyze and simulate
+            </button>
+            <button id="sample-button" class="secondary-button" type="button">
+              Run included bracket
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="promise-strip">
+        <div><strong>01</strong><span>Geometry analyzed</span></div>
+        <div><strong>02</strong><span>Stock + tools planned</span></div>
+        <div><strong>03</strong><span>Operations generated</span></div>
+        <div><strong>04</strong><span>Machine simulated live</span></div>
+      </section>
+    </main>
+
+    <main id="dashboard" class="dashboard" hidden>
+      <section class="job-heading">
+        <div>
+          <div id="job-id" class="eyebrow"></div>
+          <h1 id="job-stage">Submission received</h1>
+          <p id="job-summary"></p>
+        </div>
+        <button id="reset-button" class="secondary-button">Start another</button>
+      </section>
+
+      <div class="progress-track">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+      <div class="progress-labels">
+        <span id="job-status"></span>
+        <strong id="job-progress">0%</strong>
+      </div>
+      <div id="job-error" class="error-banner" hidden></div>
+      <div id="safety-notice" class="safety-banner"></div>
+
+      <section class="panel cycle-control-panel">
+        <div>
+          <div class="eyebrow">CYCLE-TIME PLAYBACK</div>
+          <h2>Commanded machine time</h2>
+          <p id="timing-basis"></p>
+        </div>
+        <div>
+          <label for="playback-rate">Playback rate</label>
+          <div class="range-control">
+            <input
+              id="playback-rate"
+              type="range"
+              min="1"
+              max="100"
+              step="1"
+              value="5"
+            />
+            <output id="playback-output">5×</output>
+          </div>
+          <button id="resume-button" class="primary-button operator-resume" hidden>
+            Inspection complete — resume program
+          </button>
+        </div>
+        <div id="time-telemetry" class="time-telemetry"></div>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel machine-panel">
+          <div class="panel-title">
+            <div>
+              <div class="eyebrow">DIGITAL MACHINE</div>
+              <h2 id="machine-name">2016 Haas UMC-750</h2>
+            </div>
+            <span id="machine-status" class="status-pill">IDLE</span>
+          </div>
+          <canvas
+            id="machine-canvas"
+            class="machine-scene"
+            width="900"
+            height="320"
+            aria-label="UMC-750 process visualization"
+          ></canvas>
+          <div id="telemetry" class="telemetry-grid"></div>
+          <div class="current-block">
+            <span id="block-number">BLOCK 0/0</span>
+            <code id="current-block">Waiting for program...</code>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="eyebrow">CUSTOMER VISIBILITY</div>
+          <h2>Live activity</h2>
+          <div id="timeline" class="timeline"></div>
+        </article>
+      </section>
+
+      <section class="summary-grid">
+        <article class="panel">
+          <div class="eyebrow">MATERIAL + STOCK</div>
+          <h2 id="stock-grade">Selection pending</h2>
+          <div id="stock-dimensions" class="dimension-row"></div>
+          <p id="stock-instruction"></p>
+          <div id="geometry-warnings"></div>
+        </article>
+
+        <article class="panel">
+          <div class="eyebrow">MAGAZINE LOAD</div>
+          <h2 id="tool-count">— tools planned</h2>
+          <div id="tool-list" class="tool-list"></div>
+        </article>
+      </section>
+
+      <section class="panel operations-panel">
+        <div class="eyebrow">PROCESS ROUTER</div>
+        <h2>Human and machine operations</h2>
+        <div id="operation-list" class="operation-list"></div>
+      </section>
+
+      <section class="panel gcode-panel">
+        <div class="panel-title">
+          <div>
+            <div class="eyebrow">REPRESENTATIVE OUTPUT</div>
+            <h2>Haas-style G-code</h2>
+          </div>
+          <div class="gcode-controls">
+            <label class="checkbox-label">
+              <input id="verbose-gcode" type="checkbox" checked />
+              Verbose comments
+            </label>
+            <span id="removal-percent">Cutting-path progress: 0%</span>
+          </div>
+        </div>
+        <div id="program-manifest" class="program-manifest"></div>
+        <pre id="gcode">Program generation pending...</pre>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,16 +1,23 @@
 # Web UX Service
 
-A server-rendered web frontend for the ah-he platform.
+React/TypeScript customer portal for visible manufacturing planning and
+simulation.
+
+Docker serves a dependency-free browser implementation of the same API flow so
+the prototype can run on workstations where organization policy blocks npm.
+The React/Three.js implementation remains the target UX under `src/`.
 
 ## Tech Stack
-- Java 21
-- Spring Boot
-- Thymeleaf (or similar template engine)
+- React 18
+- TypeScript
+- Vite
+- Three.js
 
 ## Running Locally
 
 ```bash
-./gradlew :services:web-ux:bootRun
+npm install
+npm run dev
 ```
 
 Available at `http://localhost:3000`

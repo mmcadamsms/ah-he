@@ -33,10 +33,16 @@ The **ah-he** (Approval & Hierarchy Engine) platform provides approval workflow 
 ## Service Descriptions
 
 ### Web UX (`services/web-ux/`)
-Server-rendered web frontend. Handles UI rendering, session management, and proxies API calls.
+React/TypeScript customer portal. It submits manufacturing requests and
+visualizes live planning and simulation progress.
 
 ### Web API (`services/web-api/`)
 Core business logic API. Exposes RESTful endpoints for all clients (web, mobile). Stateless, horizontally scalable.
+
+For the CNC prototype, this service also hosts a bounded in-process asynchronous
+worker. See [ADR 0002](docs/architecture/decisions/0002-cnc-prototype-vertical-slice.md).
+The worker boundary is designed to move to the background-worker service when
+durable infrastructure is introduced.
 
 ### Background Worker (`services/background-worker/`)
 Async job processor for long-running tasks: notifications, report generation, data synchronization, scheduled workflows.

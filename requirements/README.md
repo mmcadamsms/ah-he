@@ -11,6 +11,7 @@ Product requirements are organized by **functional area** — logical groupings 
 | [user-management](functional-areas/user-management/) | User accounts, roles, profiles, authentication |
 | [approvals](functional-areas/approvals/) | Approval workflows, chains, delegation, escalation |
 | [notifications](functional-areas/notifications/) | Email, push, in-app notification delivery |
+| [manufacturing-automation](functional-areas/manufacturing-automation/) | CAD intake, manufacturing planning, machine simulation, and production visibility |
 
 > Add new functional areas as the product grows. Each area gets its own directory under `functional-areas/`.
 
@@ -26,3 +27,14 @@ A good requirement document:
 3. **Lists constraints** — performance, security, compatibility
 4. **References related requirements** — cross-link to dependencies
 5. **Is agent-legible** — clear enough that an AI agent can implement it
+
+## Conversation-Driven Updates
+
+Substantive product and engineering decisions made in conversations must be
+written into the relevant Markdown requirement during the same work session.
+Chat history is not the system of record.
+
+See
+[Requirements Documentation Standards](../docs/standards/requirements-standards.md)
+for the required structure, traceability rules, assumption handling, and review
+checklist.

@@ -1,0 +1,11 @@
+.git
+.gradle
+.idea
+**/build
+!services/web-api/build/
+!services/web-api/build/libs/
+!services/web-api/build/libs/web-api.jar
+**/node_modules
+**/dist
+iosApp/Pods
+
