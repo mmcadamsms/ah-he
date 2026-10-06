@@ -23,7 +23,7 @@ capture.
 | **Manufacturing and operations** | Process selection, CNC, additive, finishing, inspection, assembly, delivery | [Business-wide backlog](business-idea-question-backlog.md#manufacturing-process-selection) |
 | **Human, employee, and organization** | Roles, skills, staffing, training, working conditions, human approvals | [Business-wide backlog](business-idea-question-backlog.md#people-employees-and-organization) |
 | **Supply chain and geography** | Industrial clusters, manufacturing regions, domestic materials, suppliers | [Industrial geography and domestic supply chain](topics/industrial-geography-and-domestic-supply-chain.md) |
-| **Financial and capital** | Unit economics, cash flow, equipment investment, financing, risk reserves | [Business-wide backlog](business-idea-question-backlog.md#pricing-quoting-and-unit-economics) |
+| **Tax, financial, and capital** | Tax structure, unit economics, cash flow, equipment investment, financing, incentives | [Tax, finance, and capital](topics/tax-finance-and-capital.md) |
 | **Legal, safety, and compliance** | Liability, regulations, prohibited work, insurance, safe human oversight | [Business-wide backlog](business-idea-question-backlog.md#legal-liability-and-regulatory-boundaries) |
 | **Data, AI, and security** | Customer IP, data handling, AI limitations, auditability, privacy, security | [Business-wide backlog](business-idea-question-backlog.md#data-privacy-and-intellectual-property) |
 | **Lifecycle and sustainability** | Returns, repair, warranty, waste, recycling, environmental impact | [Business-wide backlog](business-idea-question-backlog.md#returns-warranty-and-lifecycle) |
@@ -44,7 +44,7 @@ Prefixes identify the subject, not the team that must answer it:
 | `MFG`, `CNC`, `ADD`, `FIN`, `QUA`, `ASM`, `OPS` | Manufacturing and operations |
 | `HUM` | Human, employee, workforce, and organization |
 | `GEO`, `SUP`, `MAT` | Geography, suppliers, and materials |
-| `PRI`, `SCH` | Financial, pricing, and scheduling |
+| `TAX`, `PRI`, `SCH` | Tax, financial, pricing, and scheduling |
 | `LEG`, `SAF` | Legal, safety, and compliance |
 | `DAT`, `AIA` | Data, security, and AI |
 | `LIF`, `SUS` | Lifecycle and sustainability |
