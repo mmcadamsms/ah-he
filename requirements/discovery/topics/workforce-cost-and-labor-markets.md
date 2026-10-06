@@ -157,6 +157,164 @@ workers based on actual law and working conditions.
 
 ## Workforce Availability and Productivity Questions
 
+### LAB-026 — Which US labor markets have workers willing and able to perform the planned work?
+
+**State:** Open
+
+**Concern supplied in conversation:** Identify areas where enough people are
+willing to perform the machining, manufacturing, fabrication, inspection,
+material-handling, and related work the business will offer.
+
+The analysis should define willingness and capability through observable
+evidence rather than assumptions about the character of an entire region.
+Potential indicators include:
+
+- qualified applicants per opening;
+- time required to fill positions;
+- acceptance and start rates;
+- first-year retention;
+- voluntary turnover;
+- attendance and unscheduled absence;
+- shift and overtime acceptance;
+- apprenticeship and training completion;
+- safety-rule adherence;
+- quality and rework performance;
+- progression from entry-level to independent work;
+- willingness to learn multiple processes;
+- employee-referral rates;
+- average commute and transportation reliability; and
+- employer reports corroborated by workforce and labor-market data.
+
+### LAB-027 — What does "hard-working" mean for this business?
+
+**State:** Open
+
+Define the desired behaviors in job-related terms, such as:
+
+- dependable attendance;
+- arriving prepared and on time;
+- following safety and quality procedures;
+- sustained attention around hazardous equipment;
+- completing accurate work at an agreed pace;
+- communicating problems early;
+- caring for machines, tools, and customer property;
+- learning and applying feedback;
+- documenting work;
+- helping teammates without bypassing authorization;
+- accepting reasonable schedule requirements; and
+- taking responsibility while reporting process or management failures.
+
+Avoid substituting personality, cultural style, age, background, political
+views, or regional reputation for evidence of job performance.
+
+### LAB-028 — Which labor markets have expectations aligned with the planned jobs?
+
+**State:** Open
+
+Compare what employees expect with what the business can honestly offer:
+
+- starting and experienced wages;
+- predictable versus variable schedules;
+- shift, weekend, and overtime requirements;
+- physical demands;
+- heat, noise, PPE, standing, lifting, and shop conditions;
+- precision, documentation, and safety discipline;
+- training and advancement;
+- autonomy and supervision;
+- paid time off and benefits;
+- job stability;
+- performance measurement; and
+- respect, communication, and treatment by management.
+
+Misalignment may indicate an unattractive or poorly designed job rather than a
+defect in the local workforce.
+
+### LAB-029 — How much does employer quality affect apparent workforce quality?
+
+**State:** Open
+
+Determine whether recruiting, attendance, retention, and performance improve
+with:
+
+- competitive pay;
+- safe and well-maintained equipment;
+- realistic staffing and schedules;
+- competent supervisors;
+- clear work instructions;
+- functioning tools and material availability;
+- predictable hours;
+- fair performance standards;
+- useful training;
+- advancement paths;
+- prompt correction of payroll or scheduling errors;
+- recognition of employee expertise; and
+- freedom to stop unsafe work.
+
+The location analysis must not attribute employer-created turnover or poor
+performance to the surrounding community.
+
+### LAB-030 — Which sources can measure workforce reliability without stereotyping?
+
+**State:** Open
+
+Potential evidence includes:
+
+- Bureau of Labor Statistics employment and turnover data;
+- state and local workforce agencies;
+- apprenticeship completion and placement;
+- technical-school enrollment and graduation;
+- employer surveys with transparent methodology;
+- time-to-fill and applicant-flow data;
+- unemployment and labor-force participation by occupation;
+- retention and attendance data from comparable employers;
+- temporary-to-permanent conversion;
+- safety and quality performance where comparable;
+- interviews with local manufacturers, educators, and workers; and
+- a small local hiring or training pilot.
+
+Do not rely on anecdotes, social-media claims, political stereotypes, or
+generalizations about entire states, cities, generations, or demographic
+groups.
+
+### LAB-031 — How should the business test a labor market before locating there?
+
+**State:** Open
+
+Possible validation steps:
+
+1. Publish realistic job previews with actual schedules, pay ranges, and
+   physical requirements.
+2. Measure qualified applicant flow and acceptance.
+3. Interview local manufacturers, workforce boards, schools, and workers.
+4. Run paid skills assessments that mirror the job.
+5. Sponsor a short training cohort or apprenticeship.
+6. Compare attendance, completion, safety, and placement.
+7. Test recruiting for multiple shifts.
+8. Validate commute and transportation constraints.
+9. Identify competing employers and likely wage responses.
+10. Record why candidates accept, decline, or leave.
+
+### LAB-032 — How should hiring evaluate work ethic and reliability fairly?
+
+**State:** Open
+
+Use consistent, job-related methods:
+
+- structured interviews;
+- realistic job previews;
+- validated skills tests;
+- paid work samples where lawful;
+- reference checks applied consistently;
+- attendance and schedule questions tied to actual job requirements;
+- safety and quality scenarios;
+- clear probationary expectations;
+- documented performance feedback; and
+- the same criteria for every candidate for the same role.
+
+Hiring and location decisions must comply with applicable employment and
+anti-discrimination law. Geographic location must not be used as a substitute
+for individual qualification or conduct.
+
 ### LAB-013 — Where is the relevant skilled workforce concentrated?
 
 **State:** Open
