@@ -20,6 +20,7 @@
 | API conventions | [docs/standards/api-standards.md](docs/standards/api-standards.md) |
 | Requirements standards | [docs/standards/requirements-standards.md](docs/standards/requirements-standards.md) |
 | Product requirements | [requirements/](requirements/) |
+| Open business and product questions | [requirements/discovery/](requirements/discovery/) |
 | Agent workflow prompts | [requirements/prompts/](requirements/prompts/) |
 | Service code (web-ux) | [services/web-ux/](services/web-ux/) |
 | Service code (web-api) | [services/web-api/](services/web-api/) |

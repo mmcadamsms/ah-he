@@ -19,6 +19,16 @@ Product requirements are organized by **functional area** — logical groupings 
 
 Requirements are translated into actionable **prompt files** that agents pick up and implement. See [prompts/README.md](prompts/README.md) for the full workflow.
 
+## Discovery Questions
+
+Questions that need investigation or a business decision before they can
+become requirements live in [discovery/](discovery/). This area is an
+intentional free-flow backlog for uncertainty, alternatives, and topics that
+must not be mistaken for approved product behavior.
+
+When a question is answered, record the decision and promote any resulting
+behavior into the appropriate document under `functional-areas/`.
+
 ## Writing Good Requirements
 
 A good requirement document:
