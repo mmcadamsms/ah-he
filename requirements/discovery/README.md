@@ -22,7 +22,7 @@ capture.
 | **Technical and product** | Engineering, CAD, platform architecture, integrations, automation boundaries | [Business-wide backlog](business-idea-question-backlog.md#design-and-engineering) |
 | **Manufacturing and operations** | Process selection, CNC, additive, finishing, inspection, assembly, delivery | [Business-wide backlog](business-idea-question-backlog.md#manufacturing-process-selection) |
 | **Human, employee, and organization** | Roles, skills, staffing, training, working conditions, human approvals | [Workforce cost and labor markets](topics/workforce-cost-and-labor-markets.md) |
-| **Supply chain and geography** | Industrial clusters, manufacturing regions, domestic materials, suppliers | [Industrial geography and domestic supply chain](topics/industrial-geography-and-domestic-supply-chain.md) |
+| **Supply chain, geography, and input costs** | Industrial clusters, domestic materials, wholesale steel/aluminum, fuel, electricity, suppliers | [Industrial geography](topics/industrial-geography-and-domestic-supply-chain.md) and [raw materials and energy](topics/raw-materials-energy-and-input-costs.md) |
 | **Tax, financial, and capital** | Tax structure, unit economics, cash flow, equipment investment, financing, incentives | [Tax, finance, and capital](topics/tax-finance-and-capital.md) |
 | **Legal, safety, and compliance** | Liability, regulations, prohibited work, insurance, safe human oversight | [Business-wide backlog](business-idea-question-backlog.md#legal-liability-and-regulatory-boundaries) |
 | **Data, AI, and security** | Customer IP, data handling, AI limitations, auditability, privacy, security | [Business-wide backlog](business-idea-question-backlog.md#data-privacy-and-intellectual-property) |
@@ -43,7 +43,7 @@ Prefixes identify the subject, not the team that must answer it:
 | `ENG`, `CAD`, `PLT` | Technical and product |
 | `MFG`, `CNC`, `ADD`, `FIN`, `QUA`, `ASM`, `OPS` | Manufacturing and operations |
 | `HUM`, `LAB` | Human, employee, workforce, labor markets, and organization |
-| `GEO`, `SUP`, `MAT` | Geography, suppliers, and materials |
+| `GEO`, `SUP`, `MAT`, `INP` | Geography, suppliers, materials, energy, and input costs |
 | `TAX`, `PRI`, `SCH` | Tax, financial, pricing, and scheduling |
 | `LEG`, `SAF` | Legal, safety, and compliance |
 | `DAT`, `AIA` | Data, security, and AI |
