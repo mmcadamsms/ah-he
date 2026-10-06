@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 437
+**Indexed questions:** 454
 
 ## Index
 
@@ -27,6 +27,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `AIA-007` | Open | How is automation confidence calibrated against actual manufacturing outcomes? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `AIA-008` | Open | What mechanisms prevent AI-generated content from directly controlling hazardous equipment? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `AIA-009` | Open | How are customer-facing explanations kept accurate but understandable? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `AIA-010` | Open | Where can AI allow a small company to perform at the level of a much larger organization? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `AIA-011` | Open | Which AI-assisted capabilities create durable advantage rather than temporary novelty? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `APR-001` | Open | What exactly must the customer approve before purchase? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `APR-002` | Open | Is there a separate approval for requirements, concept, final design, material, finish, manufacturing plan, price, and delivery? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `APR-003` | Open | What visualizations or evidence are required for informed approval? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
@@ -63,6 +65,15 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `BIZ-008` | Open | What evidence would demonstrate product-market fit? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `BIZ-009` | Open | What is the smallest service offering that teaches us the most while limiting capital and liability? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `BIZ-010` | Open | Which parts of the long-term vision should remain human services before they become software automation? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `BIZ-011` | Open | How should honoring God and family shape concrete business decisions and operating principles? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `BIZ-012` | Open | What governance and ownership model supports a family-oriented business without weakening accountability or fairness? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `BIZ-013` | Open | What does an automation-first operating philosophy require in practice? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `BIZ-014` | Open | What evidence would validate or disprove the US manufacturing reshoring thesis behind the business? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `BIZ-015` | Open | Is the initial niche small- and medium-run parts, custom metal work, design-to-part services, or a narrower offering? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `BIZ-016` | Open | Can the business simultaneously deliver very fast turnaround, high quality, and competitive pricing? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `BIZ-017` | Open | What capability-acquisition sequence allows the business to reach break-even or positive cash flow with acceptable risk? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `BIZ-018` | Open | Should laser cutting be the first major production capability? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `BIZ-019` | Open | What should a year-two or year-three vision video demonstrate and validate? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `CAD-001` | Open | Which native and neutral CAD formats will be accepted? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
 | `CAD-002` | Open | When must customers export STEP rather than submit a native CAD format? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
 | `CAD-003` | Open | How are units detected and confirmed? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
@@ -155,6 +166,7 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `HUM-013` | Open | How are invention ownership, confidentiality, customer IP, noncompetition concerns, and employee-created process improvements handled? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
 | `HUM-014` | Open | Which performance measures encourage quality, safety, and learning rather than only speed or utilization? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
 | `HUM-015` | Open | What parts of the customer relationship should always feel human even when much of the process is automated? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
+| `HUM-016` | Open | How should employing family members be governed, compensated, evaluated, and separated from family relationships? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
 | `INP-001` | Open | Where can the business find reasonably priced wholesale steel, aluminum, fuel, and electricity? | [raw-materials-energy-and-input-costs.md](topics/raw-materials-energy-and-input-costs.md) |
 | `INP-002` | Open | Which steel products will the business buy most often? | [raw-materials-energy-and-input-costs.md](topics/raw-materials-energy-and-input-costs.md) |
 | `INP-003` | Open | When should steel be purchased from a mill, master distributor, service center, or local supplier? | [raw-materials-energy-and-input-costs.md](topics/raw-materials-energy-and-input-costs.md) |
@@ -288,6 +300,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `MFG-008` | Open | How are one-time tooling and fixture costs represented? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MFG-009` | Open | When is a sacrificial feature or witness mark acceptable? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MFG-010` | Open | Which customer surfaces may contact clamps, jaws, mandrels, supports, or fixtures? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-011` | Open | What sequence of physical capabilities and equipment should the business acquire? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-012` | Open | What year-two or year-three facility layout best supports safe flow, automation, visibility, and expansion? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MKT-001` | Open | Where are the most customers for subtractively and additively manufactured parts? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-002` | Open | Which industries buy the relevant custom parts? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-003` | Open | Which customer types best fit the initial business? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
@@ -338,6 +352,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `PLT-008` | Open | How are model and algorithm versions recorded? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PLT-009` | Open | What evidence should accompany every automated decision? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PLT-010` | Open | What interfaces are needed for CAD tools, ERP/MRP, accounting, inventory, machines, metrology, suppliers, and shipping? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `PLT-011` | Open | What progressive levels of production history should customers and internal users be able to inspect? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `PLT-012` | Open | Which actual machine, process, image, video, and inspection records should be retained for part reproducibility? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PRI-001` | Open | Which activities are charged separately: discovery, design, engineering analysis, prototypes, tooling, manufacturing, finishing, inspection, assembly, and delivery? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-002` | Open | What can be estimated automatically, and what requires a human quote? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-003` | Open | How are uncertainty and contingency represented? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
@@ -348,6 +364,7 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `PRI-008` | Open | How are design changes priced after approval? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-009` | Open | Can customers choose cost, speed, quality, or risk profiles? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-010` | Open | What data is needed to compare estimated and actual cost? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `PRI-011` | Open | What is the projected ROI for each phase, major machine, facility investment, and automation capability? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `QUA-001` | Open | What is the default inspection level? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-002` | Open | Which dimensions, datums, finishes, and functional characteristics are critical? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-003` | Open | Who creates and approves the inspection plan? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |

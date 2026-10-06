@@ -68,6 +68,10 @@ These are discovery questions, not approved requirements. Question IDs are perma
 
 **State:** Open
 
+### HUM-016 — How should employing family members be governed, compensated, evaluated, and separated from family relationships?
+
+**State:** Open
+
 ## Operations and Organizational Process
 
 ### OPS-001 — Which roles are needed initially?

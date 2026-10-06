@@ -39,7 +39,9 @@ index.
 The complete canonical list is [Question Index](question-index.md). New or
 uncategorized questions temporarily go to [Question Inbox](question-inbox.md).
 Partial directions already established in conversation are recorded separately
-in [Emerging Directions](emerging-directions.md).
+in [Emerging Directions](emerging-directions.md). The current business concept,
+values, strategic hypotheses, and phased plan are preserved in
+[Draft Business Vision and Phased Plan](business-vision-and-phased-plan.md).
 
 ## Question Prefixes
 

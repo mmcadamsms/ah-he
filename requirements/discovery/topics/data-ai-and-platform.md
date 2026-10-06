@@ -82,6 +82,14 @@ These are discovery questions, not approved requirements. Question IDs are perma
 
 **State:** Open
 
+### PLT-011 — What progressive levels of production history should customers and internal users be able to inspect?
+
+**State:** Open
+
+### PLT-012 — Which actual machine, process, image, video, and inspection records should be retained for part reproducibility?
+
+**State:** Open
+
 ## AI and Automation Boundaries
 
 ### AIA-001 — Which tasks are suitable for generative AI versus deterministic engineering software?
@@ -117,5 +125,13 @@ These are discovery questions, not approved requirements. Question IDs are perma
 **State:** Open
 
 ### AIA-009 — How are customer-facing explanations kept accurate but understandable?
+
+**State:** Open
+
+### AIA-010 — Where can AI allow a small company to perform at the level of a much larger organization?
+
+**State:** Open
+
+### AIA-011 — Which AI-assisted capabilities create durable advantage rather than temporary novelty?
 
 **State:** Open

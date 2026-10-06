@@ -82,6 +82,14 @@ These are discovery questions, not approved requirements. Question IDs are perma
 
 **State:** Open
 
+### MFG-011 — What sequence of physical capabilities and equipment should the business acquire?
+
+**State:** Open
+
+### MFG-012 — What year-two or year-three facility layout best supports safe flow, automation, visibility, and expansion?
+
+**State:** Open
+
 ## CNC Planning, Workholding, and Tooling
 
 ### CNC-001 — Which machine configurations are initially supported?

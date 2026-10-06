@@ -48,6 +48,42 @@ These are discovery questions, not approved requirements. Question IDs are perma
 
 **State:** Open
 
+### BIZ-011 — How should honoring God and family shape concrete business decisions and operating principles?
+
+**State:** Open
+
+### BIZ-012 — What governance and ownership model supports a family-oriented business without weakening accountability or fairness?
+
+**State:** Open
+
+### BIZ-013 — What does an automation-first operating philosophy require in practice?
+
+**State:** Open
+
+### BIZ-014 — What evidence would validate or disprove the US manufacturing reshoring thesis behind the business?
+
+**State:** Open
+
+### BIZ-015 — Is the initial niche small- and medium-run parts, custom metal work, design-to-part services, or a narrower offering?
+
+**State:** Open
+
+### BIZ-016 — Can the business simultaneously deliver very fast turnaround, high quality, and competitive pricing?
+
+**State:** Open
+
+### BIZ-017 — What capability-acquisition sequence allows the business to reach break-even or positive cash flow with acceptable risk?
+
+**State:** Open
+
+### BIZ-018 — Should laser cutting be the first major production capability?
+
+**State:** Open
+
+### BIZ-019 — What should a year-two or year-three vision video demonstrate and validate?
+
+**State:** Open
+
 ## Customer Approval and Commercial Commitment
 
 ### APR-001 — What exactly must the customer approve before purchase?
@@ -125,6 +161,10 @@ These are discovery questions, not approved requirements. Question IDs are perma
 **State:** Open
 
 ### PRI-010 — What data is needed to compare estimated and actual cost?
+
+**State:** Open
+
+### PRI-011 — What is the projected ROI for each phase, major machine, facility investment, and automation capability?
 
 **State:** Open
 
