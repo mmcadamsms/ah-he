@@ -1,0 +1,287 @@
+# Manufacturing Processes and Quality Questions
+
+## Purpose
+
+Questions about materials, process selection, CNC, additive manufacturing, finishing, inspection, assembly, packaging, and delivery readiness.
+
+These are discovery questions, not approved requirements. Question IDs are permanent and canonical in this file.
+
+## Materials
+
+### MAT-001 — Which material families and grades are initially supported?
+
+**State:** Open
+
+### MAT-002 — When may the system recommend a material versus requiring qualified-human selection?
+
+**State:** Open
+
+### MAT-003 — How are strength, corrosion, temperature, wear, weight, cost, availability, machinability, printability, weldability, and appearance traded off?
+
+**State:** Open
+
+### MAT-004 — What certifications or mill test reports can customers request?
+
+**State:** Open
+
+### MAT-005 — How is material substitution approved?
+
+**State:** Open
+
+### MAT-006 — How are lot, heat, batch, and supplier traceability retained?
+
+**State:** Open
+
+### MAT-007 — Can customer-supplied material be accepted, and who bears the risk if it is unsuitable?
+
+**State:** Open
+
+### MAT-008 — How is stock availability incorporated before the design is finalized?
+
+**State:** Open
+
+## Manufacturing Process Selection
+
+### MFG-001 — How do we choose between CNC machining, additive manufacturing, fabrication, forming, casting, molding, or a hybrid process?
+
+**State:** Open
+
+### MFG-002 — Which processes are available in-house versus through qualified partners?
+
+**State:** Open
+
+### MFG-003 — What capabilities define the initial manufacturing envelope: size, weight, materials, tolerances, geometry, and quantity?
+
+**State:** Open
+
+### MFG-004 — When should manufacturability feedback change the design?
+
+**State:** Open
+
+### MFG-005 — How do we present manufacturing alternatives to the customer without implying equivalent performance?
+
+**State:** Open
+
+### MFG-006 — What level of human review is mandatory before releasing work to a physical machine?
+
+**State:** Open
+
+### MFG-007 — How are prototype, bridge-production, and production processes distinguished?
+
+**State:** Open
+
+### MFG-008 — How are one-time tooling and fixture costs represented?
+
+**State:** Open
+
+### MFG-009 — When is a sacrificial feature or witness mark acceptable?
+
+**State:** Open
+
+### MFG-010 — Which customer surfaces may contact clamps, jaws, mandrels, supports, or fixtures?
+
+**State:** Open
+
+## CNC Planning, Workholding, and Tooling
+
+### CNC-001 — Which machine configurations are initially supported?
+
+**State:** Open
+
+### CNC-002 — How are exact machine options and serial-specific limits verified?
+
+**State:** Open
+
+### CNC-003 — How are feasible stock forms and dimensions selected?
+
+**State:** Open
+
+### CNC-004 — How are physical setups minimized without sacrificing safety, rigidity, inspectability, or finish?
+
+**State:** Open
+
+### CNC-005 — Which planar, cylindrical, internal, hole-based, irregular, and sacrificial workholding methods are supported?
+
+**State:** Open
+
+### CNC-006 — How does the planner know which surfaces may remain as-stock and which must be machined?
+
+**State:** Open
+
+### CNC-007 — How are required tools compared with available magazine, crib, holder, and insert inventory?
+
+**State:** Open
+
+### CNC-008 — When should a special tool or fixture be purchased, manufactured, rented, or avoided by redesign?
+
+**State:** Open
+
+### CNC-009 — What verification is required before generated NC code can leave a simulation-only environment?
+
+**State:** Open
+
+### CNC-010 — How are probing, work offsets, tool offsets, runout, warmup, and inspection represented?
+
+**State:** Open
+
+### CNC-011 — Which remaining-stock and collision checks are required?
+
+**State:** Open
+
+### CNC-012 — How are feeds, speeds, tool life, coolant, chip evacuation, and material variability calibrated?
+
+**State:** Open
+
+## Additive Manufacturing
+
+### ADD-001 — Which additive processes and materials are initially supported?
+
+**State:** Open
+
+### ADD-002 — How are orientation, support, anisotropy, warpage, shrinkage, porosity, and surface finish incorporated?
+
+**State:** Open
+
+### ADD-003 — When is additive appropriate for a functional final part versus a prototype, pattern, fixture, or visual model?
+
+**State:** Open
+
+### ADD-004 — What postprocessing is required?
+
+**State:** Open
+
+### ADD-005 — How are build failures and material-property uncertainty priced and communicated?
+
+**State:** Open
+
+### ADD-006 — What dimensional and mechanical validation is required?
+
+**State:** Open
+
+## Finishing, Coatings, and Heat Treatment
+
+### FIN-001 — Which finishes, coatings, plating, painting, passivation, anodizing, polishing, and treatments are offered?
+
+**State:** Open
+
+### FIN-002 — How are masking requirements captured?
+
+**State:** Open
+
+### FIN-003 — How are coating thickness and dimensional effects applied to fits and tolerances?
+
+**State:** Open
+
+### FIN-004 — Which heat treatments require allowance for distortion or post-treatment machining?
+
+**State:** Open
+
+### FIN-005 — What certifications or process records are retained?
+
+**State:** Open
+
+### FIN-006 — How are cosmetic standards represented and approved?
+
+**State:** Open
+
+### FIN-007 — Which treatments introduce environmental, safety, or regulatory constraints?
+
+**State:** Open
+
+## Inspection, Testing, and Quality
+
+### QUA-001 — What is the default inspection level?
+
+**State:** Open
+
+### QUA-002 — Which dimensions, datums, finishes, and functional characteristics are critical?
+
+**State:** Open
+
+### QUA-003 — Who creates and approves the inspection plan?
+
+**State:** Open
+
+### QUA-004 — When are CMM reports, material certificates, first article reports, process certificates, or photographs required?
+
+**State:** Open
+
+### QUA-005 — How are measurement uncertainty and instrument calibration handled?
+
+**State:** Open
+
+### QUA-006 — What constitutes acceptance for parts whose function is easier to test than fully dimension?
+
+**State:** Open
+
+### QUA-007 — How are nonconformances, deviations, rework, use-as-is decisions, and scrap communicated and approved?
+
+**State:** Open
+
+### QUA-008 — What records are retained, for how long, and for whom?
+
+**State:** Open
+
+### QUA-009 — How are destructive tests, life tests, pressure tests, load tests, and environmental tests priced?
+
+**State:** Open
+
+### QUA-010 — When is independent third-party testing required?
+
+**State:** Open
+
+## Assembly
+
+### ASM-001 — Will the business ship individual parts, kits, subassemblies, complete assemblies, or all of these?
+
+**State:** Open
+
+### ASM-002 — How are purchased components and approved vendors selected?
+
+**State:** Open
+
+### ASM-003 — How are torque, adhesive, welding, alignment, cleanliness, lubrication, and test requirements recorded?
+
+**State:** Open
+
+### ASM-004 — How is assembly sequence validated?
+
+**State:** Open
+
+### ASM-005 — What functional testing is performed after assembly?
+
+**State:** Open
+
+### ASM-006 — How are serialized components and as-built configurations traced?
+
+**State:** Open
+
+### ASM-007 — What service, repair, replacement, and disassembly information accompanies the product?
+
+**State:** Open
+
+## Packaging, Delivery, and Installation
+
+### DEL-001 — What packaging protection is required for corrosion, impact, contamination, cosmetic surfaces, and precision features?
+
+**State:** Open
+
+### DEL-002 — Which shipping methods, regions, sizes, weights, and hazardous materials are supported?
+
+**State:** Open
+
+### DEL-003 — When is reusable packaging justified?
+
+**State:** Open
+
+### DEL-004 — What documentation ships with the product?
+
+**State:** Open
+
+### DEL-005 — How are title, risk of loss, insurance, damage claims, and delivery acceptance handled?
+
+**State:** Open
+
+### DEL-006 — Will installation, commissioning, or field service ever be offered?
+
+**State:** Open
