@@ -21,6 +21,9 @@ requirements or completed discovery answers.
 - Early repetitive work may be accepted at break-even or a small, controlled
   loss when it produces measurable learning and a credible path to lower future
   cost and sustainable margin.
+- A privacy-controlled digital inventory of prior parts and actual production
+  outcomes should improve future estimating, planning, and quoting through
+  explainable historical analogs.
 - The business thesis includes US manufacturing reshoring as AI, automation,
   and robotics reduce the importance of low-cost labor arbitrage.
 - Customer visibility throughout the process is a core product principle.

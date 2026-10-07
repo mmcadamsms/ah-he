@@ -40,6 +40,22 @@ These are discovery questions, not approved requirements. Question IDs are perma
 
 **State:** Open
 
+### DAT-009 — Which historical customer-part data may be reused for internal estimating and learning?
+
+**State:** Open
+
+Distinguish raw customer geometry, identity, drawings, pricing, contractual
+restrictions, derived geometric features, anonymized cost data, process
+metrics, and aggregated benchmarks.
+
+### DAT-010 — How are customer permissions and confidentiality enforced in the historical-part inventory?
+
+**State:** Open
+
+Define tenant isolation, access, retention, deletion, derived-data policy,
+contract terms, export-controlled data, audit, and behavior when a customer
+prohibits reuse beyond fulfilling the order.
+
 ## Platform and Architecture
 
 ### PLT-001 — What is the authoritative digital thread for a project?
@@ -124,6 +140,22 @@ The platform should preserve the baseline, evidence, model or rule version,
 candidate interventions, ROI assumptions, human decision, implementation,
 post-change measurements, and final conclusion.
 
+### PLT-017 — What is the canonical digital record for a previously manufactured part?
+
+**State:** Open
+
+Include revisions, geometry descriptors, requirements, material, stock,
+setups, tooling, programs, actual machine and labor events, inspection,
+outside processing, costs, price, margin, delivery, quality, and lessons.
+
+### PLT-018 — How are historical actuals normalized for new estimates?
+
+**State:** Open
+
+Account for inflation, current material and energy prices, labor rates, machine
+differences, tool cost, supplier changes, batch quantity, utilization, process
+improvements, geography, and changed overhead.
+
 ## AI and Automation Boundaries
 
 ### AIA-001 — Which tasks are suitable for generative AI versus deterministic engineering software?
@@ -177,3 +209,19 @@ post-change measurements, and final conclusion.
 Account for occlusion, lighting, camera movement, changing layouts, PPE,
 similar-looking states, privacy, model drift, rare events, false positives,
 false negatives, and independent validation.
+
+### AIA-013 — How should the system find and rank comparable historical parts?
+
+**State:** Open
+
+Compare exact identity, part family, geometry, feature vector, material,
+process, size, tolerance, setup, tooling, NC complexity, quantity, and actual
+performance. Expose why each analog is considered similar.
+
+### AIA-014 — How should similarity confidence and missing historical data affect a quote?
+
+**State:** Open
+
+Low confidence, sparse analogs, poor actual-cost capture, or unusual geometry
+must widen estimate ranges and require human review rather than producing a
+false-precision quote.

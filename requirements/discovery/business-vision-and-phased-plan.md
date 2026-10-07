@@ -310,6 +310,42 @@ Proposed levels of detail:
 The appropriate retention, customer access, security, and cost at each level
 remain unresolved.
 
+### Historical-part intelligence
+
+The digital history of prior customer parts should become an estimating and
+planning asset.
+
+When a customer requests a new part, the business should be able to compare it
+with previously manufactured parts using factors such as:
+
+- material and grade;
+- raw-stock form and dimensions;
+- finished-part size and volume;
+- material removal;
+- cuts and operations;
+- recognized geometry and features;
+- tolerances and finish;
+- setups and workholding;
+- tools;
+- NC/G-code size and complexity;
+- programmed and actual cycle time;
+- attended labor;
+- scrap and rework;
+- outside processes;
+- inspection;
+- queue and turnaround time;
+- historical input costs;
+- actual total cost;
+- customer price;
+- realized margin; and
+- process improvements made after the job.
+
+Historical customer price may inform commercial positioning, but it must not be
+confused with the underlying cost to manufacture. Proprietary customer
+geometry, identity, pricing, and process details must not be exposed to another
+customer merely because the system uses privacy-controlled historical
+comparisons internally.
+
 ### Continuous improvement
 
 Every completed part should create structured learning:

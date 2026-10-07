@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 520
+**Indexed questions:** 528
 
 ## Index
 
@@ -30,6 +30,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `AIA-010` | Open | Where can AI allow a small company to perform at the level of a much larger organization? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `AIA-011` | Open | Which AI-assisted capabilities create durable advantage rather than temporary novelty? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `AIA-012` | Open | When can camera and AI observations be trusted for operational decisions? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `AIA-013` | Open | How should the system find and rank comparable historical parts? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `AIA-014` | Open | How should similarity confidence and missing historical data affect a quote? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `APR-001` | Open | What exactly must the customer approve before purchase? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `APR-002` | Open | Is there a separate approval for requirements, concept, final design, material, finish, manufacturing plan, price, and delivery? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `APR-003` | Open | What visualizations or evidence are required for informed approval? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
@@ -118,6 +120,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `DAT-006` | Open | Can customers require regional storage, isolated processing, or offline handling? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `DAT-007` | Open | How are AI providers, CAD services, suppliers, and other subprocessors governed? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `DAT-008` | Open | How can a customer export the complete project record? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `DAT-009` | Open | Which historical customer-part data may be reused for internal estimating and learning? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `DAT-010` | Open | How are customer permissions and confidentiality enforced in the historical-part inventory? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `DEL-001` | Open | What packaging protection is required for corrosion, impact, contamination, cosmetic surfaces, and precision features? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `DEL-002` | Open | Which shipping methods, regions, sizes, weights, and hazardous materials are supported? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `DEL-003` | Open | When is reusable packaging justified? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
@@ -408,6 +412,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `PLT-014` | Open | What common machine-state and job interface should every retrofit expose? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PLT-015` | Open | What low-cost observability architecture supports bottleneck analysis? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PLT-016` | Open | How are bottleneck evidence, recommendations, approvals, and outcomes traced? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `PLT-017` | Open | What is the canonical digital record for a previously manufactured part? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `PLT-018` | Open | How are historical actuals normalized for new estimates? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PRI-001` | Open | Which activities are charged separately: discovery, design, engineering analysis, prototypes, tooling, manufacturing, finishing, inspection, assembly, and delivery? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-002` | Open | What can be estimated automatically, and what requires a human quote? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-003` | Open | How are uncertainty and contingency represented? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
@@ -420,6 +426,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `PRI-010` | Open | What data is needed to compare estimated and actual cost? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-011` | Open | What is the projected ROI for each phase, major machine, facility investment, and automation capability? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-012` | Open | What financial guardrails apply to learning jobs? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `PRI-013` | Open | How should historical part actuals influence a new quote? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `PRI-014` | Open | How are manufacturing cost, target margin, market price, and prior customer price kept separate? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `QUA-001` | Open | What is the default inspection level? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-002` | Open | Which dimensions, datums, finishes, and functional characteristics are critical? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-003` | Open | Who creates and approves the inspection plan? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |

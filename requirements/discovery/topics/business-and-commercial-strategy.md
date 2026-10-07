@@ -184,6 +184,22 @@ Define variable-cost coverage, expected loss, maximum loss, monthly learning
 budget, cash reserve, approval authority, payment terms, customer concentration,
 price-expiration terms, and stop conditions.
 
+### PRI-013 — How should historical part actuals influence a new quote?
+
+**State:** Open
+
+Use comparable geometry, material, stock, process, quantity, setup, program,
+cycle, labor, scrap, outside service, inspection, lead time, and cost while
+normalizing for current conditions.
+
+### PRI-014 — How are manufacturing cost, target margin, market price, and prior customer price kept separate?
+
+**State:** Open
+
+Prior customer payment can inform willingness to pay and commercial strategy,
+but it must not overwrite the current cost estimate or reveal confidential
+customer pricing.
+
 ## Scheduling and Capacity
 
 ### SCH-001 — How is a promised delivery date calculated?
