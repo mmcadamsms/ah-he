@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 646
+**Indexed questions:** 656
 
 ## Index
 
@@ -229,6 +229,11 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `FAC-059` | Open | What improvements and costs are required before occupancy? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
 | `FAC-060` | Open | How is a candidate facility scored? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
 | `FAC-061` | Open | What acceptance testing is required before installing or operating equipment? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-062` | Open | What ambient temperature range is acceptable for each manufacturing process? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-063` | Open | Which areas require continuous temperature monitoring and logging? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-064` | Open | Should precision machining and general fabrication use different thermal zones? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-065` | Open | How quickly may shop temperature change? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-066` | Open | How should exterior doors, receiving, HVAC cycling, sunlight, and machine heat be isolated from precision work? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
 | `FIN-001` | Open | Which finishes, coatings, plating, painting, passivation, anodizing, polishing, and treatments are offered? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `FIN-002` | Open | How are masking requirements captured? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `FIN-003` | Open | How are coating thickness and dimensional effects applied to fits and tolerances? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
@@ -556,6 +561,11 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `QUA-012` | Open | How are tolerances and surface finishes made sufficiently explicit before quoting? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-013` | Open | How are customer and supplier measurement methods reconciled? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-014` | Open | When does a customer's acceptance history justify additional inspection or approval steps? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `QUA-015` | Open | How does temperature affect the machinability and measured size of each part? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `QUA-016` | Open | When must a part and measuring equipment acclimate before inspection? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `QUA-017` | Open | When may dimensional measurements be corrected to the 20°C reference temperature? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `QUA-018` | Open | How do coolant temperature and machine warmup affect process control? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `QUA-019` | Open | Which jobs require thermal compensation, in-process probing, or temperature-conditioned inspection? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `SAF-001` | Open | Which decisions must always be made or approved by a qualified human? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |
 | `SAF-002` | Open | How are hazards identified across design, manufacturing, use, maintenance, and disposal? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |
 | `SAF-003` | Open | How is severity distinguished from probability and detectability? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |

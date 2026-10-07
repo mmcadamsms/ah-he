@@ -9,3 +9,4 @@ facilities, physical safety, security, and expansion.
 ## Requirements
 
 - [Facility Site, Utilities, and Layout](facility-site-utilities-and-layout.md)
+- [Thermal Environment and Dimensional Control](thermal-environment-and-dimensional-control.md)

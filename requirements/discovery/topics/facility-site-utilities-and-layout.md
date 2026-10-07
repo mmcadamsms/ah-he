@@ -281,6 +281,45 @@ Consider compressors, saws, lasers, machining, grinding, forklifts, cranes,
 neighbors, offices, metrology, hearing conservation, foundations, and
 isolation.
 
+### FAC-062 — What ambient temperature range is acceptable for each manufacturing process?
+
+**State:** Open
+
+Derive the range from part size, material thermal expansion, tolerance,
+machine thermal behavior, fixture, process heat, coolant, cycle duration, and
+inspection method rather than selecting one universal shop temperature.
+
+### FAC-063 — Which areas require continuous temperature monitoring and logging?
+
+**State:** Open
+
+Potential areas include machine zones, coolant systems, raw stock, WIP,
+metrology, gauge storage, additive processes, heat-producing equipment, and
+shipping or receiving acclimation.
+
+### FAC-064 — Should precision machining and general fabrication use different thermal zones?
+
+**State:** Open
+
+Compare whole-building control with a controlled metrology room, precision
+cell, machine enclosure, coolant chiller, localized conditioning, and process-
+specific scheduling.
+
+### FAC-065 — How quickly may shop temperature change?
+
+**State:** Open
+
+Daily rate and spatial gradients may matter as much as the average because
+machine castings, fixtures, stock, coolant, and air do not change temperature
+at the same rate.
+
+### FAC-066 — How should exterior doors, receiving, HVAC cycling, sunlight, and machine heat be isolated from precision work?
+
+**State:** Open
+
+Evaluate vestibules, air curtains, zoning, insulation, equipment placement,
+thermal mass, operating schedule, and acclimation areas.
+
 ## Floors, Structure, Height, and Lifting
 
 ### FAC-030 — What floor loading and slab conditions are required?

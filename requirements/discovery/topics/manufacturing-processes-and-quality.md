@@ -400,6 +400,45 @@ article, source inspection, increased sampling, 100-percent inspection,
 photographs, measurement report, retained sample, or explicit deviation
 approval.
 
+### QUA-015 — How does temperature affect the machinability and measured size of each part?
+
+**State:** Open
+
+Consider material coefficient of thermal expansion, feature length, tolerance,
+part temperature, machine temperature, fixture temperature, gauge temperature,
+coolant, cutting heat, gradients, and the 20°C dimensional reference.
+
+### QUA-016 — When must a part and measuring equipment acclimate before inspection?
+
+**State:** Open
+
+Define evidence-based soak or stabilization criteria rather than one arbitrary
+time for every material, size, and geometry.
+
+### QUA-017 — When may dimensional measurements be corrected to the 20°C reference temperature?
+
+**State:** Open
+
+Require known material expansion data, measured part and instrument
+temperature, traceable calculation, uncertainty, and customer acceptance where
+applicable.
+
+### QUA-018 — How do coolant temperature and machine warmup affect process control?
+
+**State:** Open
+
+Distinguish control of cutting heat and part temperature from ambient effects
+on the machine structure, spindle, ballscrews, fixture, probes, stock, and
+measurement system.
+
+### QUA-019 — Which jobs require thermal compensation, in-process probing, or temperature-conditioned inspection?
+
+**State:** Open
+
+Base the decision on tolerance-to-thermal-error ratio, geometry, material,
+cycle, machine behavior, customer requirement, and demonstrated process
+capability.
+
 ## Assembly
 
 ### ASM-001 — Will the business ship individual parts, kits, subassemblies, complete assemblies, or all of these?
