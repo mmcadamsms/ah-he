@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 482
+**Indexed questions:** 505
 
 ## Index
 
@@ -196,6 +196,29 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `INP-026` | Open | Which public sources establish market context? | [raw-materials-energy-and-input-costs.md](topics/raw-materials-energy-and-input-costs.md) |
 | `INP-027` | Open | What private or commercial price sources are justified? | [raw-materials-energy-and-input-costs.md](topics/raw-materials-energy-and-input-costs.md) |
 | `INP-028` | Open | How should actual quotes and invoices become business intelligence? | [raw-materials-energy-and-input-costs.md](topics/raw-materials-energy-and-input-costs.md) |
+| `INS-001` | Open | Does business insurance cost decrease when the shop becomes highly automated and employs fewer people? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-002` | Open | How do fewer employees affect workers' compensation premiums? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-003` | Open | Can automation reduce injury exposure while increasing injury severity? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-004` | Open | How do contractors, integrators, and temporary labor change insurance structure? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-005` | Open | How does higher installed equipment value per square foot affect property insurance? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-006` | Open | How should older machines with new automation be valued? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-007` | Open | Which automation components require equipment-breakdown coverage? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-008` | Open | How do insurers evaluate dense automated cells? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-009` | Open | Does automation increase business-interruption exposure? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-010` | Open | How should business-income limits be calculated for an automated shop? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-011` | Open | What extra-expense and contingency plans reduce insured loss? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-012` | Open | How do insurers treat dependent suppliers and customers? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-013` | Open | How does connected automation change cyber insurance? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-014` | Open | Are cyber-caused physical damage and bodily injury covered? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-015` | Open | What cybersecurity controls will insurers require? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-016` | Open | Does automation change product-liability exposure? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-017` | Open | What professional liability is created by design and engineering services? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-018` | Open | Who bears liability for retrofit automation design and integration? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-019` | Open | Which insurers and brokers understand small automated manufacturers? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-020` | Open | What data should be requested in insurance quotes? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-021` | Open | How should total cost of risk be compared? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-022` | Open | At what automation level does the insurance mix materially change? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
+| `INS-023` | Open | Which risk controls create the greatest premium or insurability benefit? | [insurance-and-risk-financing.md](topics/insurance-and-risk-financing.md) |
 | `LAB-001` | Open | Which states and localities impose higher employee-labor costs for machining and manufacturing? | [workforce-cost-and-labor-markets.md](topics/workforce-cost-and-labor-markets.md) |
 | `LAB-002` | Open | What are prevailing wages for each relevant occupation? | [workforce-cost-and-labor-markets.md](topics/workforce-cost-and-labor-markets.md) |
 | `LAB-003` | Open | How much wage premium is required for scarce manufacturing skills? | [workforce-cost-and-labor-markets.md](topics/workforce-cost-and-labor-markets.md) |

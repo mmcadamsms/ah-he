@@ -29,6 +29,7 @@ capture.
 | **Workforce and labor markets** | Labor cost, skill availability, reliability, productivity, recruiting, retention | [Workforce cost and labor markets](topics/workforce-cost-and-labor-markets.md) |
 | **Supply chain, geography, and logistics** | Industrial clusters, domestic materials, wholesale inputs, fuel, electricity, freight, customer delivery | [Industrial geography](topics/industrial-geography-and-domestic-supply-chain.md), [raw materials and energy](topics/raw-materials-energy-and-input-costs.md), and [freight and shipping](topics/freight-shipping-and-customer-delivery.md) |
 | **Tax, financial, and capital** | Tax structure, unit economics, cash flow, equipment investment, financing, incentives | [Tax, finance, and capital](topics/tax-finance-and-capital.md) |
+| **Insurance and risk financing** | Workers' compensation, property concentration, equipment breakdown, interruption, cyber, product liability | [Insurance and risk financing](topics/insurance-and-risk-financing.md) |
 | **Legal, safety, and compliance** | Liability, regulation, prohibited work, insurance, safe human oversight | [Legal, safety, and compliance](topics/legal-safety-and-compliance.md) |
 | **Lifecycle and sustainability** | Returns, repair, warranty, waste, recycling, environmental impact | [Lifecycle and sustainability](topics/lifecycle-and-sustainability.md) |
 
@@ -56,6 +57,7 @@ Prefixes identify the subject, not the team that must answer it:
 | `HUM`, `LAB` | Human, employee, workforce, labor markets, and organization |
 | `GEO`, `SUP`, `MAT`, `INP`, `LOG` | Geography, suppliers, materials, energy, input costs, freight, and delivery |
 | `TAX`, `PRI`, `SCH` | Tax, financial, pricing, and scheduling |
+| `INS` | Insurance, risk transfer, and risk financing |
 | `LEG`, `SAF` | Legal, safety, and compliance |
 | `DAT`, `AIA` | Data, security, and AI |
 | `LIF`, `SUS` | Lifecycle and sustainability |
