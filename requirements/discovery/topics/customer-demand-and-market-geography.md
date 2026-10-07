@@ -64,6 +64,11 @@ Investigate demand from:
 
 **State:** Open
 
+**Aliases:**
+
+- What kind of customer would take a chance on a small company with no reputation?
+- Is another job shop with more work than it can fill the best first customer?
+
 Compare:
 
 - individual inventors;
@@ -337,6 +342,10 @@ terms, diversity status, domestic sourcing, and incumbent relationships.
 
 **State:** Open
 
+Include the specific problem of a new shop with no delivery history, quality
+history, references, certifications, audited systems, or demonstrated
+financial stability.
+
 Potential barriers include qualification cost, risk, audits, drawing or IP
 concerns, approved-vendor lists, first-article requirements, switching cost,
 tooling ownership, quality history, and procurement policy.
@@ -348,6 +357,159 @@ tooling ownership, quality history, and procurement policy.
 Consider prototypes, noncritical tooling, fixtures, replacement parts,
 overflow work, emergency work, cost-reduction trials, and design-assistance
 engagements.
+
+## Initial Customers and Reputation Building
+
+### MKT-032 — Are established job shops with overflow work the best initial customers?
+
+**State:** Open
+
+Evaluate shops that have:
+
+- won a large order beyond their available capacity;
+- experienced machine downtime;
+- lost a supplier;
+- need a process they do not own;
+- need second-operation work;
+- face a delivery recovery problem;
+- need temporary bridge capacity; or
+- prefer to subcontract low-volume or noncore work.
+
+### MKT-033 — Which overflow jobs are appropriate for an inexperienced supplier?
+
+**State:** Open
+
+Prefer work with clear drawings, stable materials, achievable tolerances,
+accessible inspection, manageable quantities, limited regulatory burden, and
+enough schedule for setup and learning.
+
+Identify work that is inappropriate because of safety consequences, difficult
+materials, extreme tolerances, hidden process knowledge, unrealistic lead
+time, uncontrolled revisions, inadequate inspection, or liability.
+
+### MKT-034 — What evidence can substitute for reputation on the first order?
+
+**State:** Open
+
+Potential evidence includes:
+
+- sample parts;
+- capability studies;
+- calibrated inspection reports;
+- material traceability;
+- documented processes;
+- machine and tooling capability;
+- photographs and video;
+- transparent schedules;
+- clear communication;
+- references from technical partners;
+- limited trial quantities;
+- customer source inspection; and
+- willingness to accept defined first-article approval before completing the
+  lot.
+
+### MKT-035 — Should initial work be priced below the long-term target?
+
+**State:** Open
+
+If discounted pricing is used, define:
+
+- the learning or customer-acquisition objective;
+- normal price and explicit discount;
+- maximum quantity;
+- maximum loss or investment;
+- expiration;
+- change-order rules;
+- material and outside-process treatment;
+- payment terms;
+- the data, reference, or repeat opportunity expected in return; and
+- conditions under which the business stops accepting the work.
+
+Avoid disguising structurally unprofitable work as experience.
+
+### MKT-036 — How should the business calculate the value of an early reputation-building job?
+
+**State:** Open
+
+Include:
+
+- cash contribution;
+- learning;
+- setup and process development;
+- inspection evidence;
+- portfolio value;
+- customer reference;
+- repeat-order potential;
+- access to an industry or supplier network;
+- operational distraction;
+- opportunity cost;
+- liability; and
+- risk that the customer expects the introductory price permanently.
+
+### MKT-037 — How can the business earn trust from another job shop without threatening the relationship?
+
+**State:** Open
+
+Address confidentiality, non-solicitation where appropriate, protection of the
+prime shop's customer identity, drawing and data security, packaging and
+branding, communication channels, delivery, quality responsibility, and who
+handles technical questions.
+
+### MKT-038 — Which second-operation or specialist services are easiest entry points?
+
+**State:** Open
+
+Potential entry services include:
+
+- sawing and blank preparation;
+- deburring;
+- simple milling or turning;
+- drilling and tapping;
+- fixture or soft-jaw production;
+- laser cutting;
+- inspection;
+- packaging;
+- overflow setup replication; and
+- processes where the prime shop supplies programs, fixtures, tools, material,
+  or detailed work instructions.
+
+### MKT-039 — How does early overflow work become sustainable repeat business?
+
+**State:** Open
+
+Track on-time delivery, accepted quality, communication, process capability,
+actual margin, repeat orders, broader awarded scope, normal-price conversion,
+and referrals.
+
+### MKT-040 — How do we avoid permanent dependence on low-margin overflow work?
+
+**State:** Open
+
+Define target customer mix, minimum margin, concentration limits, normal-price
+conversion, direct-market development, proprietary capabilities, automation
+advantage, and the point where emergency subcontract work interferes with
+better customers.
+
+### MKT-041 — What supplier-qualification package should a new shop prepare?
+
+**State:** Open
+
+Potential contents:
+
+- capability statement;
+- machine and process list;
+- size, material, tolerance, and quantity envelope;
+- inspection equipment and calibration;
+- sample inspection report;
+- quality procedures;
+- cybersecurity and confidentiality practices;
+- insurance certificates;
+- safety practices;
+- material and outside-process traceability;
+- contact and escalation information;
+- capacity and lead-time statement;
+- terms and payment information; and
+- representative sample work.
 
 ## Market Size and Economics
 

@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 505
+**Indexed questions:** 515
 
 ## Index
 
@@ -369,6 +369,16 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `MKT-029` | Open | Which segments should be avoided initially? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-030` | Open | Which sources can identify customer concentration? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-031` | Open | How should actual demand be validated? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
+| `MKT-032` | Open | Are established job shops with overflow work the best initial customers? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
+| `MKT-033` | Open | Which overflow jobs are appropriate for an inexperienced supplier? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
+| `MKT-034` | Open | What evidence can substitute for reputation on the first order? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
+| `MKT-035` | Open | Should initial work be priced below the long-term target? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
+| `MKT-036` | Open | How should the business calculate the value of an early reputation-building job? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
+| `MKT-037` | Open | How can the business earn trust from another job shop without threatening the relationship? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
+| `MKT-038` | Open | Which second-operation or specialist services are easiest entry points? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
+| `MKT-039` | Open | How does early overflow work become sustainable repeat business? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
+| `MKT-040` | Open | How do we avoid permanent dependence on low-margin overflow work? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
+| `MKT-041` | Open | What supplier-qualification package should a new shop prepare? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `OPS-001` | Open | Which roles are needed initially? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
 | `OPS-002` | Open | Which responsibilities require engineering, machining, quality, welding, procurement, legal, or customer-service qualifications? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
 | `OPS-003` | Open | What work instructions and checklists are mandatory? | [people-and-operating-model.md](topics/people-and-operating-model.md) |

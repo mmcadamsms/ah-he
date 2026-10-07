@@ -36,6 +36,7 @@ plans over time.
 | Older machinery plus carefully engineered retrofit automation can create a capital-efficient competitive advantage | Strategic hypothesis |
 | Small/medium runs plus custom metal work form an attractive niche | Strategic hypothesis |
 | Fast turnaround, high quality, and competitive price can coexist | Strategic hypothesis |
+| Established job shops with temporary overflow may be practical first customers for a new supplier without a reputation | Strategic hypothesis |
 | Begin physical production with a laser cutter | Candidate capacity-ramp choice |
 | Year-two/year-three equipment list | Candidate target state |
 | Virtual systems should lead physical build-out | Open sequencing decision |
@@ -196,6 +197,28 @@ The currently imagined niche combines:
 - competitive pricing;
 - visible order progress; and
 - an automation-centric cost structure.
+
+### Initial-customer hypothesis
+
+One possible first market is established job shops or manufacturers that have
+won more work than their internal capacity can deliver.
+
+They may be willing to try a new supplier when:
+
+- the overflow is clearly defined;
+- drawings and acceptance criteria are complete;
+- the work is noncritical or can be independently inspected;
+- lead time matters;
+- incumbent suppliers are full;
+- the new shop communicates quickly;
+- pricing compensates for qualification risk; and
+- the first order is small enough to limit customer exposure.
+
+Early overflow work may provide machining experience, process data, references,
+inspection evidence, and cash flow. However, accepting lower initial margins
+must be a deliberate customer-acquisition investment with limits. The business
+must avoid becoming permanently dependent on low-margin, last-minute,
+high-liability work that stronger shops do not want.
 
 The concept is loosely analogous to the ease and speed associated with
 SendCutSend, while potentially expanding into broader machining, fabrication,
