@@ -90,6 +90,23 @@ These are discovery questions, not approved requirements. Question IDs are perma
 
 **State:** Open
 
+### PLT-013 — How should the platform integrate heterogeneous legacy machine controls and add-on automation?
+
+**State:** Open
+
+Distinguish read-only monitoring, approved supervisory commands, direct machine
+control, edge gateways, protocol conversion, machine state models, timestamp
+alignment, network isolation, offline operation, versioning, and fail-safe
+behavior.
+
+### PLT-014 — What common machine-state and job interface should every retrofit expose?
+
+**State:** Open
+
+Potential states include unavailable, idle, setup, ready, running, waiting for
+material, waiting for operator, inspection, blocked, faulted, maintenance,
+complete, and safely stopped.
+
 ## AI and Automation Boundaries
 
 ### AIA-001 — Which tasks are suitable for generative AI versus deterministic engineering software?

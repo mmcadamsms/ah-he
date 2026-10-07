@@ -32,6 +32,7 @@ plans over time.
 | Reproducible history of how each part was made | Stated operating principle |
 | AI lets a small company perform above its apparent size | Strategic hypothesis |
 | US reshoring will accelerate with AI and robotics | Strategic hypothesis |
+| Older machinery plus carefully engineered retrofit automation can create a capital-efficient competitive advantage | Strategic hypothesis |
 | Small/medium runs plus custom metal work form an attractive niche | Strategic hypothesis |
 | Fast turnaround, high quality, and competitive price can coexist | Strategic hypothesis |
 | Begin physical production with a laser cutter | Candidate capacity-ramp choice |
@@ -120,6 +121,40 @@ Related hypotheses:
 
 These are hypotheses requiring market, customer, cost, workforce, technology,
 and capital validation.
+
+### Scrappy capital efficiency and retrofit automation
+
+The current hunch is that the business may need to start small and win work by
+combining non-new equipment—potentially ten years old or more—with carefully
+selected add-on automation.
+
+The intended advantage is not merely buying inexpensive machines. It is
+assembling a coherent production system in which older, less inherently
+automated machines become less operator-intensive through:
+
+- standardized controls and data collection;
+- probing and in-process measurement;
+- bar feeders, part catchers, pallet systems, or external work queues;
+- robot or cobot tending where technically and economically justified;
+- automatic door, chuck, vise, fixture, and material-handling interfaces;
+- tool-life, spindle-load, vibration, coolant, chip, and fault monitoring;
+- vision, presence, orientation, and completion checks;
+- low-cost sensors and edge controllers;
+- remote status and escalation;
+- reliable restart and recovery procedures; and
+- software that coordinates work across heterogeneous equipment.
+
+This is a strategic hypothesis, not permission to bypass safety systems,
+machine limits, qualified integration, or human review. Some older machines
+will be poor automation candidates because of unsupported controls, weak
+reliability, missing interlocks, poor repeatability, unavailable parts, or an
+unfavorable total retrofit cost.
+
+The proposed differentiator is therefore:
+
+> Buy selectively, integrate intelligently, automate incrementally, measure
+> the real result, and retain humans for judgment, setup, maintenance, quality,
+> exception handling, and safety-critical decisions.
 
 ## Potential Market Position
 

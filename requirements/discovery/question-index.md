@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 463
+**Indexed questions:** 475
 
 ## Index
 
@@ -302,6 +302,14 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `MFG-010` | Open | Which customer surfaces may contact clamps, jaws, mandrels, supports, or fixtures? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MFG-011` | Open | What sequence of physical capabilities and equipment should the business acquire? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MFG-012` | Open | What year-two or year-three facility layout best supports safe flow, automation, visibility, and expansion? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-013` | Open | Can older machinery plus add-on automation create competitive unit economics? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-014` | Open | Which add-on automation techniques are appropriate for each machine and process? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-015` | Open | What standard automation-cell architecture can span heterogeneous legacy machines? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-016` | Open | Which operator tasks should automation reduce, and which should remain human? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-017` | Open | What is the safest and most economical order for retrofitting automation? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-018` | Open | What must be true before a legacy machine can run with reduced supervision? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-019` | Open | How should retrofit automation performance and ROI be measured? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-020` | Open | How does a retrofitted cell degrade safely when automation fails? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MKT-001` | Open | Where are the most customers for subtractively and additively manufactured parts? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-002` | Open | Which industries buy the relevant custom parts? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-003` | Open | Which customer types best fit the initial business? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
@@ -354,6 +362,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `PLT-010` | Open | What interfaces are needed for CAD tools, ERP/MRP, accounting, inventory, machines, metrology, suppliers, and shipping? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PLT-011` | Open | What progressive levels of production history should customers and internal users be able to inspect? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PLT-012` | Open | Which actual machine, process, image, video, and inspection records should be retained for part reproducibility? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `PLT-013` | Open | How should the platform integrate heterogeneous legacy machine controls and add-on automation? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `PLT-014` | Open | What common machine-state and job interface should every retrofit expose? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PRI-001` | Open | Which activities are charged separately: discovery, design, engineering analysis, prototypes, tooling, manufacturing, finishing, inspection, assembly, and delivery? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-002` | Open | What can be estimated automatically, and what requires a human quote? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-003` | Open | How are uncertainty and contingency represented? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
@@ -383,6 +393,7 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `SAF-006` | Open | What prevents demonstration G-code or simulation output from being mistaken for production-ready instructions? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |
 | `SAF-007` | Open | How are emergency stops, machine interlocks, and operator procedures kept outside unsafe software control? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |
 | `SAF-008` | Open | How are incidents, near misses, and corrective actions recorded? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |
+| `SAF-009` | Open | How are legacy-machine automation retrofits designed and validated safely? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |
 | `SCH-001` | Open | How is a promised delivery date calculated? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `SCH-002` | Open | How are engineering, purchasing, machining, outside processing, inspection, assembly, and shipping dependencies scheduled? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `SCH-003` | Open | How are machine, operator, fixture, tool, and supplier capacity represented? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
@@ -407,6 +418,7 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `SUP-015` | Open | When is a used machine better than a new, leased, or outsourced capability? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
 | `SUP-016` | Open | What acceptance test must a used machine pass? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
 | `SUP-017` | Open | How should used-equipment opportunities be tracked? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
+| `SUP-018` | Open | Which used machines are good candidates for retrofit automation? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
 | `SUS-001` | Open | How are material yield, scrap, energy, coolant, support material, coatings, and shipping impact considered? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `SUS-002` | Open | Can customers choose lower-impact materials or processes? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `SUS-003` | Open | How are scrap and failed parts recycled or disposed? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |

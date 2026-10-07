@@ -77,3 +77,16 @@ These are discovery questions, not approved requirements. Question IDs are perma
 ### SAF-008 — How are incidents, near misses, and corrective actions recorded?
 
 **State:** Open
+
+### SAF-009 — How are legacy-machine automation retrofits designed and validated safely?
+
+**State:** Open
+
+Require qualified risk assessment for guarding, interlocks, emergency stops,
+unexpected startup, stored energy, robot or cobot interaction, pinch and crush
+points, door automation, material ejection, fire, coolant and chips, network or
+control failure, power recovery, manual mode, maintenance, lockout/tagout, and
+changes to the original machine safety design.
+
+No retrofit may bypass or weaken required safety functions merely to reduce
+operator involvement.

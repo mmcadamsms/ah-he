@@ -216,3 +216,31 @@ Record:
 - target capability and business phase;
 - estimated utilization and ROI; and
 - reason purchased, rejected, or deferred.
+
+### SUP-018 — Which used machines are good candidates for retrofit automation?
+
+**State:** Open
+
+Evaluate:
+
+- control generation, interfaces, option availability, and documentation;
+- ability to expose safe machine-ready, cycle-start, feed-hold, alarm, door,
+  chuck, vise, pallet, and completion signals;
+- supported read-only monitoring versus command interfaces;
+- electrical drawings and spare I/O;
+- physical access for tending and material flow;
+- automatic doors or feasibility of approved door automation;
+- workholding automation;
+- probing and tool measurement;
+- chip and coolant reliability;
+- repeatability and process capability;
+- alarm recovery;
+- replacement parts and technical support;
+- safety interlocks and guarding;
+- compatibility with robots, cobots, feeders, pallet systems, and edge
+  controllers;
+- total retrofit cost; and
+- whether the machine remains useful if the add-on automation is unavailable.
+
+Do not select a machine for low purchase price if its age, condition, control,
+or safety architecture makes dependable automation uneconomical.

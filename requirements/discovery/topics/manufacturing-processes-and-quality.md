@@ -90,6 +90,101 @@ These are discovery questions, not approved requirements. Question IDs are perma
 
 **State:** Open
 
+### MFG-013 — Can older machinery plus add-on automation create competitive unit economics?
+
+**State:** Open
+
+Compare acquisition, retrofit, integration, maintenance, downtime, labor,
+quality, throughput, financing, energy, support, and residual value against
+new equipment and outsourcing.
+
+### MFG-014 — Which add-on automation techniques are appropriate for each machine and process?
+
+**State:** Open
+
+Potential techniques include:
+
+- bar feeders and part catchers;
+- pallet pools and external queues;
+- robot or cobot tending;
+- automatic doors;
+- automated chucks, vises, fixtures, and clamps;
+- probing and tool measurement;
+- vision and part-presence checks;
+- conveyors and bin handling;
+- coolant, chip, and mist management;
+- tool-life and process monitoring;
+- low-cost sensors and edge controllers; and
+- remote status and escalation.
+
+### MFG-015 — What standard automation-cell architecture can span heterogeneous legacy machines?
+
+**State:** Open
+
+Define modular mechanical, electrical, safety, controls, networking, software,
+workholding, material-presentation, and recovery interfaces so every retrofit
+does not become an unrelated custom project.
+
+### MFG-016 — Which operator tasks should automation reduce, and which should remain human?
+
+**State:** Open
+
+Distinguish repetitive loading, unloading, monitoring, data entry, inspection,
+and material movement from setup, judgment, maintenance, problem solving,
+quality release, safety, and exception recovery.
+
+### MFG-017 — What is the safest and most economical order for retrofitting automation?
+
+**State:** Open
+
+Potential progression:
+
+1. observe and measure the manual process;
+2. stabilize the machine and process;
+3. add monitoring and data collection;
+4. improve workholding, probing, chip control, and tool-life management;
+5. automate material presentation;
+6. automate tending;
+7. add coordinated scheduling and escalation; and
+8. consider unattended operation only after demonstrated reliability.
+
+### MFG-018 — What must be true before a legacy machine can run with reduced supervision?
+
+**State:** Open
+
+Include process capability, tool-life confidence, workholding verification,
+part presence, probing, chip evacuation, coolant, fire risk, door and guarding,
+alarm handling, safe stop, remote notification, restart authorization,
+inspection, and proven recovery behavior.
+
+### MFG-019 — How should retrofit automation performance and ROI be measured?
+
+**State:** Open
+
+Measure:
+
+- operator attendance minutes per good part;
+- setup time;
+- spindle utilization;
+- good-part throughput;
+- scrap and rework;
+- downtime and mean time to recovery;
+- unattended productive time;
+- maintenance labor;
+- quality escapes;
+- safety events;
+- integration cost;
+- payback and return; and
+- performance with automation disabled.
+
+### MFG-020 — How does a retrofitted cell degrade safely when automation fails?
+
+**State:** Open
+
+Define safe stop, alarm, part retention, tool and spindle state, loss of
+communications, sensor failure, robot or feeder fault, power recovery, manual
+fallback, restart authorization, and evidence needed before resuming.
+
 ## CNC Planning, Workholding, and Tooling
 
 ### CNC-001 — Which machine configurations are initially supported?
