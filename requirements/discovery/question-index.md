@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 528
+**Indexed questions:** 556
 
 ## Index
 
@@ -100,6 +100,34 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `CNC-010` | Open | How are probing, work offsets, tool offsets, runout, warmup, and inspection represented? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `CNC-011` | Open | Which remaining-stock and collision checks are required? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `CNC-012` | Open | How are feeds, speeds, tool life, coolant, chip evacuation, and material variability calibrated? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `CRD-001` | Open | How should a customer's past payment history affect future work and payment terms? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-002` | Open | Which internal payment metrics should be retained? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-003` | Open | How should legitimate invoice disputes affect payment history? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-004` | Open | How should related customer entities be treated? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-005` | Open | How long should payment history remain relevant? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-006` | Open | What terms apply to a customer with no history? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-007` | Open | Which external credit sources are appropriate? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-008` | Open | How should a customer's requested order size compare with demonstrated credit capacity? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-009` | Open | How is a customer credit limit established? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-010` | Open | Which work should require deposits or milestone payments? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-011` | Open | What portion should be collected before purchasing material or releasing production? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-012` | Open | When should terms move from prepaid to net terms or vice versa? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-013` | Open | Should early-payment discounts or late-payment charges be offered? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-014` | Open | When should quoting, material purchase, production, or shipment be placed on credit hold? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-015` | Open | Which activities may continue while a customer is on credit hold? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-016` | Open | Who may override payment terms or a credit hold? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-017` | Open | How are customer-owned tools, material, data, and finished parts handled during nonpayment? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-018` | Open | What is the collections sequence? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-019` | Open | How should payment concerns be communicated without damaging good customer relationships? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-020` | Open | When is a payment plan appropriate? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-021` | Open | How does payment behavior affect customer profitability? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-022` | Open | How should customer concentration interact with credit exposure? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-023` | Open | Which customers should be prepaid even if they offer valuable learning work? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-024` | Open | How should credit risk affect a quote? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-025` | Open | Who may view or change customer credit information? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-026` | Open | How are incorrect payment or credit records disputed and corrected? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-027` | Open | Which factors are prohibited from credit decisions? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
+| `CRD-028` | Open | How long are credit and collections records retained? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
 | `CUS-001` | Open | How does a customer initially explain the idea: text, voice, sketches, photographs, existing parts, CAD, video, measurements, or some combination? | [customer-intent-and-experience.md](topics/customer-intent-and-experience.md) |
 | `CUS-002` | Open | What questions must always be asked before design starts? | [customer-intent-and-experience.md](topics/customer-intent-and-experience.md) |
 | `CUS-003` | Open | How do we distinguish what the customer explicitly said from assumptions inferred by the system or an engineer? | [customer-intent-and-experience.md](topics/customer-intent-and-experience.md) |

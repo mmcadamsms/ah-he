@@ -12,6 +12,7 @@ Product requirements are organized by **functional area** — logical groupings 
 | [approvals](functional-areas/approvals/) | Approval workflows, chains, delegation, escalation |
 | [notifications](functional-areas/notifications/) | Email, push, in-app notification delivery |
 | [manufacturing-automation](functional-areas/manufacturing-automation/) | CAD intake, manufacturing planning, machine simulation, and production visibility |
+| [commercial-operations](functional-areas/commercial-operations/) | Customer credit, payment terms, quoting controls, collections, and commercial risk |
 
 > Add new functional areas as the product grows. Each area gets its own directory under `functional-areas/`.
 
