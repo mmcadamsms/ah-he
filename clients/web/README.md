@@ -1,4 +1,4 @@
-# Web UX Service
+# Web Client
 
 React/TypeScript customer portal for visible manufacturing planning and
 simulation.

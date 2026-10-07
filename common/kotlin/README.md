@@ -10,7 +10,7 @@ Kotlin Multiplatform module containing shared business logic, data models, and n
 ## Building
 
 ```bash
-./gradlew :shared:build
+./gradlew :common:kotlin:build
 ```
 
 ## What Belongs Here
@@ -20,5 +20,5 @@ Kotlin Multiplatform module containing shared business logic, data models, and n
 - Shared constants and utilities
 
 ## What Does NOT Belong Here
-- UI code (belongs in `androidApp/` or `iosApp/`)
+- UI code (belongs in `clients/android/` or `clients/ios/`)
 - Platform-specific system APIs (use `expect`/`actual` pattern)

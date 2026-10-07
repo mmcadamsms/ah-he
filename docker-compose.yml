@@ -1,7 +1,7 @@
 services:
   web-ux:
     build:
-      context: ./services/web-ux
+      context: ./clients/web
       dockerfile: Dockerfile
     ports:
       - "${WEB_UX_PORT:-3000}:3000"
@@ -15,7 +15,7 @@ services:
   web-api:
     build:
       context: .
-      dockerfile: services/web-api/Dockerfile
+      dockerfile: backend/web-api/Dockerfile
     ports:
       - "${WEB_API_PORT:-18080}:8080"
     environment:
@@ -33,7 +33,7 @@ services:
 
   geometry-cam-worker:
     build:
-      context: ./services/geometry-cam-worker
+      context: ./backend/geometry-cam-worker
       dockerfile: Dockerfile
     environment:
       - PORT=8090

@@ -25,12 +25,13 @@ docker compose up
 
 | Directory | What it contains |
 |-----------|-----------------|
-| `services/web-ux/` | Web frontend service (Java/Spring Boot) |
-| `services/web-api/` | REST API service (Java/Spring Boot) |
-| `services/background-worker/` | Async job processor (Java/Spring Boot) |
-| `androidApp/` | Android app (Kotlin/Jetpack Compose) |
-| `iosApp/` | iOS app (Swift/SwiftUI) |
-| `shared/` | Shared Kotlin Multiplatform module |
+| `clients/web/` | Web client (React/TypeScript and local static runtime) |
+| `clients/android/` | Android app (Kotlin/Jetpack Compose) |
+| `clients/ios/` | iOS app (Swift/SwiftUI) |
+| `backend/web-api/` | REST API service (Java/Spring Boot) |
+| `backend/background-worker/` | Async job processor |
+| `backend/geometry-cam-worker/` | CAD-kernel geometry service (Python) |
+| `common/kotlin/` | Shared Kotlin Multiplatform module |
 | `docs/` | All project documentation |
 | `requirements/` | Product requirements and agent prompts |
 
@@ -38,10 +39,11 @@ docker compose up
 
 ```bash
 # Web API only
-cd services/web-api && ../gradlew bootRun
+./gradlew :backend:web-api:bootRun
 
 # Web UX only
-cd services/web-ux && ../gradlew bootRun
+cd clients/web
+npm run dev
 ```
 
 ## Running Tests
@@ -51,7 +53,7 @@ cd services/web-ux && ../gradlew bootRun
 ./gradlew test
 
 # Specific service
-./gradlew :services:web-api:test
+./gradlew :backend:web-api:test
 ```
 
 ## For AI Agents

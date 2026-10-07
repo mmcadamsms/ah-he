@@ -16,7 +16,7 @@ try {
         --volume "${gradleCache}:/home/gradle/.gradle" `
         --workdir /workspace `
         gradle:8.8-jdk21-alpine `
-        gradle :services:web-api:bootJar --offline --no-daemon
+        gradle :backend:web-api:bootJar --offline --no-daemon
 
     if ($LASTEXITCODE -ne 0) {
         throw "The offline backend build failed."
@@ -26,4 +26,3 @@ try {
 } finally {
     Pop-Location
 }
-

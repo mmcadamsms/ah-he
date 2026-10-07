@@ -10,12 +10,12 @@ Native Android client for the ah-he platform, built with Kotlin and Jetpack Comp
 ## Building
 
 ```bash
-./gradlew :androidApp:assembleDebug
+./gradlew :clients:android:assembleDebug
 ```
 
 ## Project Structure
 ```
-androidApp/
+clients/android/
 ├── src/main/
 │   ├── kotlin/com/ahhe/android/   # App code
 │   └── res/                        # Resources

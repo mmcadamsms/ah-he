@@ -20,13 +20,15 @@
 | API conventions | [docs/standards/api-standards.md](docs/standards/api-standards.md) |
 | Requirements standards | [docs/standards/requirements-standards.md](docs/standards/requirements-standards.md) |
 | Product requirements | [requirements/](requirements/) |
+| Open business and product questions | [requirements/discovery/](requirements/discovery/) |
 | Agent workflow prompts | [requirements/prompts/](requirements/prompts/) |
-| Service code (web-ux) | [services/web-ux/](services/web-ux/) |
-| Service code (web-api) | [services/web-api/](services/web-api/) |
-| Service code (worker) | [services/background-worker/](services/background-worker/) |
-| Android app | [androidApp/](androidApp/) |
-| iOS app | [iosApp/](iosApp/) |
-| Shared KMP module | [shared/](shared/) |
+| Web client | [clients/web/](clients/web/) |
+| Android client | [clients/android/](clients/android/) |
+| iOS client | [clients/ios/](clients/ios/) |
+| Web API | [backend/web-api/](backend/web-api/) |
+| Background worker | [backend/background-worker/](backend/background-worker/) |
+| Geometry/CAM worker | [backend/geometry-cam-worker/](backend/geometry-cam-worker/) |
+| Shared KMP module | [common/kotlin/](common/kotlin/) |
 | Operational runbooks | [docs/runbooks/](docs/runbooks/) |
 | CNC cycle-time model | [docs/manufacturing/umc-750-cycle-time-model.md](docs/manufacturing/umc-750-cycle-time-model.md) |
 

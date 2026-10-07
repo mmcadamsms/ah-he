@@ -2,10 +2,9 @@
 .gradle
 .idea
 **/build
-!services/web-api/build/
-!services/web-api/build/libs/
-!services/web-api/build/libs/web-api.jar
+!backend/web-api/build/
+!backend/web-api/build/libs/
+!backend/web-api/build/libs/web-api.jar
 **/node_modules
 **/dist
-iosApp/Pods
-
+clients/ios/Pods

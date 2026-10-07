@@ -2,7 +2,7 @@
 
 ## Included sample model
 
-`services/web-ux/public/samples/T8_housing_bracket.step`
+`clients/web/public/samples/T8_housing_bracket.step`
 
 - Work: T8 housing bracket
 - Author: GitHub user `hasecilu`

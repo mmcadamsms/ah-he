@@ -14,7 +14,7 @@ See [docs/standards/api-standards.md](../../docs/standards/api-standards.md)
 ## Running Locally
 
 ```bash
-./gradlew :services:web-api:bootRun
+./gradlew :backend:web-api:bootRun
 ```
 
 Available at `http://localhost:8080`

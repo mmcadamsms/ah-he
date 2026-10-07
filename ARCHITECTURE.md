@@ -9,7 +9,7 @@ The **ah-he** (Approval & Hierarchy Engine) platform provides approval workflow 
 ```
 ┌─────────────┐  ┌─────────────┐  ┌──────────────┐
 │  Android App │  │   iOS App   │  │   Web UX     │
-│  (Kotlin)    │  │   (Swift)   │  │   (Java)     │
+│  (Kotlin)    │  │   (Swift)   │  │ (TS/browser) │
 └──────┬───────┘  └──────┬──────┘  └──────┬───────┘
        │                 │                 │
        └────────┬────────┴────────┬────────┘
@@ -32,11 +32,11 @@ The **ah-he** (Approval & Hierarchy Engine) platform provides approval workflow 
 
 ## Service Descriptions
 
-### Web UX (`services/web-ux/`)
+### Web UX (`clients/web/`)
 React/TypeScript customer portal. It submits manufacturing requests and
 visualizes live planning and simulation progress.
 
-### Web API (`services/web-api/`)
+### Web API (`backend/web-api/`)
 Core business logic API. Exposes RESTful endpoints for all clients (web, mobile). Stateless, horizontally scalable.
 
 For the CNC prototype, this service also hosts a bounded in-process asynchronous
@@ -44,17 +44,33 @@ worker. See [ADR 0002](docs/architecture/decisions/0002-cnc-prototype-vertical-s
 The worker boundary is designed to move to the background-worker service when
 durable infrastructure is introduced.
 
-### Background Worker (`services/background-worker/`)
+### Background Worker (`backend/background-worker/`)
 Async job processor for long-running tasks: notifications, report generation, data synchronization, scheduled workflows.
 
-### Android App (`androidApp/`)
+### Geometry/CAM Worker (`backend/geometry-cam-worker/`)
+CAD-kernel service for exact STEP topology and geometry analysis.
+
+### Android App (`clients/android/`)
 Native Android client built with Kotlin and Jetpack Compose. Shares business logic via Kotlin Multiplatform.
 
-### iOS App (`iosApp/`)
+### iOS App (`clients/ios/`)
 Native iOS client built with Swift and SwiftUI. Integrates shared Kotlin Multiplatform module.
 
-### Shared Module (`shared/`)
+### Shared Module (`common/kotlin/`)
 Kotlin Multiplatform module containing shared business logic, data models, and networking used by Android and (via KMP) iOS.
+
+## Repository Code Boundaries
+
+- `clients/` contains user-facing delivery channels. Customer, staff, and
+  supplier experiences should share these clients unless a channel has an
+  independent build, release, or security boundary.
+- `backend/` contains independently deployable server-side runtimes.
+- `common/` contains reusable libraries and contracts. It does not contain
+  deployable services, client applications, or business documentation.
+- `requirements/` and `docs/` remain the authoritative business, operational,
+  engineering, and architectural knowledge structure.
+
+See [ADR 0005](docs/architecture/decisions/0005-organize-code-by-runtime-boundary.md).
 
 ## Cross-Cutting Concerns
 
