@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 575
+**Indexed questions:** 585
 
 ## Index
 
@@ -306,6 +306,14 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `LIF-011` | Open | When should a return trigger corrective action or a broader product review? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `LIF-012` | Open | What evidence is required to distinguish manufacturing defects from shipping or handling damage? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `LIF-013` | Open | How should inadequate outbound or return packaging affect responsibility? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-014` | Open | How does a customer initiate a return through the customer application? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-015` | Open | What determines whether a return is eligible? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-016` | Open | What unique return information must accompany every package? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-017` | Open | How can a customer return a package without printing a label? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-018` | Open | How are multiple parts, orders, or packages handled in one return? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-019` | Open | When is a refund, replacement, repair, credit, or rejection issued? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-020` | Open | What happens when a package arrives without valid return authorization? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-021` | Open | How are refund amount, tax, freight, discounts, and payment method calculated? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `LOG-001` | Open | Where are shipping costs to customers high or low across the United States? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LOG-002` | Open | What representative shipment profiles should be modeled? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LOG-003` | Open | When does dimensional weight control instead of actual weight? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
@@ -345,6 +353,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `LOG-037` | Open | How should carrier performance be measured in both directions? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LOG-038` | Open | When should shock, tilt, temperature, humidity, or tamper indicators be used? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LOG-039` | Open | When is continuous video excessive compared with staged photographs? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
+| `LOG-040` | Open | How is a carrier return label or QR code bound to an authorized return and exact package? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
+| `LOG-041` | Open | Which return methods can enforce use of the business-issued authorization? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LRN-001` | Open | What is the next smallest prototype that answers a meaningful business question? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `LRN-002` | Open | Which assumptions are most dangerous if wrong? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `LRN-003` | Open | Which assumptions can be tested with customer interviews rather than software? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |

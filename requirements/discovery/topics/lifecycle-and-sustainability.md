@@ -99,6 +99,69 @@ Consider who selected packaging, whether instructions were followed, whether
 packaging was reusable, carrier handling, customer repacking, and whether the
 original packaging was retained.
 
+## Return Authorization and Refund Workflow
+
+### LIF-014 — How does a customer initiate a return through the customer application?
+
+**State:** Open
+
+The request should identify the exact order, line item, part, revision, quantity,
+reason, requested remedy, condition, and supporting evidence.
+
+### LIF-015 — What determines whether a return is eligible?
+
+**State:** Open
+
+Consider approved requirements, warranty, nonconformance, damage, timing,
+custom-made status, cancellation terms, customer-caused damage, prior
+authorization, and applicable law.
+
+### LIF-016 — What unique return information must accompany every package?
+
+**State:** Open
+
+Potential identifiers include return authorization number, barcode or QR,
+order, line item, package sequence, tracking, customer, quantity, and part or
+serial references.
+
+### LIF-017 — How can a customer return a package without printing a label?
+
+**State:** Open
+
+Evaluate carrier QR codes, staffed drop-off label printing, pickup service,
+mailed labels, and exceptions for freight or specialized packaging.
+
+### LIF-018 — How are multiple parts, orders, or packages handled in one return?
+
+**State:** Open
+
+Define whether items may be combined, package-level content declaration,
+package sequence, partial returns, multiple tracking numbers, and receiving
+verification.
+
+### LIF-019 — When is a refund, replacement, repair, credit, or rejection issued?
+
+**State:** Open
+
+Distinguish immediate authorized remedies from those requiring receipt,
+inspection, investigation, carrier claim, or customer approval.
+
+### LIF-020 — What happens when a package arrives without valid return authorization?
+
+**State:** Open
+
+Define quarantine, identification attempt, customer contact, storage, safety
+inspection, evidence, fees where lawful, disposition, and prohibited disposal
+or refund assumptions.
+
+### LIF-021 — How are refund amount, tax, freight, discounts, and payment method calculated?
+
+**State:** Open
+
+Address partial quantity, original freight, return freight, restocking where
+lawful, tax adjustment, promotional discount, credits, financed invoices,
+chargebacks, and refund to original or approved alternate payment method.
+
 ## Sustainability and Waste
 
 ### SUS-001 — How are material yield, scrap, energy, coolant, support material, coatings, and shipping impact considered?

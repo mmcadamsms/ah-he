@@ -487,6 +487,24 @@ indication, data retention, and carrier-claim usefulness.
 Use risk-based evidence that balances proof, labor, storage, privacy,
 customer-property confidentiality, and practical claim requirements.
 
+### LOG-040 — How is a carrier return label or QR code bound to an authorized return and exact package?
+
+**State:** Open
+
+Link return authorization, order, line, part, quantity, package sequence,
+carrier, service, tracking, declared value, and payer. Prevent reuse after
+cancellation, expiration, refund, or completed receipt.
+
+### LOG-041 — Which return methods can enforce use of the business-issued authorization?
+
+**State:** Open
+
+Compare printable labels, carrier QR codes, scheduled pickup, staffed drop-off,
+LTL bill of lading, freight pickup number, and customer-arranged shipping.
+Business-paid shipping should require an issued credential, while separately
+shipped unidentified packages still need a safe receiving and identification
+process.
+
 ## Research Sources
 
 Potential evidence includes:
