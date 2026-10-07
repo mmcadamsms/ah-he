@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 585
+**Indexed questions:** 646
 
 ## Index
 
@@ -168,6 +168,67 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `ENG-010` | Open | Can approval be conditional, and how are the conditions tracked? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
 | `ENG-011` | Open | What changes after approval require reapproval and a new price or schedule? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
 | `ENG-012` | Open | How do we prevent a visual rendering from being mistaken for a fully engineered design? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
+| `FAC-001` | Open | What does the physical space need in order to run this business? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-002` | Open | How much total square footage is required at each business phase? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-003` | Open | What utilization and storage assumptions determine square footage? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-004` | Open | How much expansion should be possible without relocating? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-005` | Open | Which zoning and permitted uses are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-006` | Open | What property boundaries and neighbors are compatible? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-007` | Open | Is leasing, buying, or building the facility preferable? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-008` | Open | What due diligence is required before committing to a site? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-009` | Open | What three-phase electrical service is required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-010` | Open | Which machines require which voltage, phase, frequency, and connection? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-011` | Open | Are transformers or power conditioning required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-012` | Open | How are electrical distribution and machine drops laid out? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-013` | Open | What backup power or controlled shutdown is required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-014` | Open | Which equipment requires compressed air? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-015` | Open | What pressure, flow, quality, and duty cycle are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-016` | Open | How should the compressed-air system be distributed? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-017` | Open | Which operations require water? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-018` | Open | What water quality and treatment are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-019` | Open | Which discharges may enter sanitary sewer? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-020` | Open | Are floor drains desirable, permitted, or prohibited? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-021` | Open | How are stormwater and outdoor material areas controlled? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-022` | Open | Which bottled or bulk gases are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-023` | Open | How are cylinders stored and distributed? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-024` | Open | Which flammable, combustible, corrosive, or hazardous materials are stored? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-025` | Open | What cabinets, rooms, containment, ventilation, and reporting are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-026` | Open | Which processes require source capture or dedicated exhaust? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-027` | Open | How are makeup air, heating, and cooling sized? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-028` | Open | Which areas require tighter temperature or humidity control? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-029` | Open | How are noise and vibration controlled? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-030` | Open | What floor loading and slab conditions are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-031` | Open | What clear height and structural capacity are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-032` | Open | Is an overhead crane required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-033` | Open | What material-handling paths and capacities are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-034` | Open | What truck and delivery access is required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-035` | Open | How many docks and drive-in doors are needed? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-036` | Open | What dock, ramp, door, and yard dimensions are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-037` | Open | How are receiving, quarantine, inspection, storage, and production connected? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-038` | Open | What is the preferred high-level process flow? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-039` | Open | Which flows must be separated? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-040` | Open | How much service and maintenance clearance does every machine require? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-041` | Open | How should modular automation cells influence layout? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-042` | Open | How should customer-visible flow differ from actual secure production flow? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-043` | Open | What metrology and inspection space is required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-044` | Open | What office and collaboration space is required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-045` | Open | Is a customer viewing or acceptance area needed? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-046` | Open | What IT, server, network, and security space is required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-047` | Open | How many restrooms are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-048` | Open | What break room or kitchen facilities are appropriate? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-049` | Open | Are lockers, changing rooms, showers, or laundry needed? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-050` | Open | What employee parking and transportation access is required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-051` | Open | What first-aid, wellness, and emergency facilities are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-052` | Open | What fire detection and suppression are required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-053` | Open | What egress and emergency-access requirements shape layout? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-054` | Open | What physical security is required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-055` | Open | How does reduced-supervision or unattended operation change facility requirements? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-056` | Open | How are metal chips, scrap, coolant, oil, filters, chemicals, packaging, and ordinary waste handled? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-057` | Open | What housekeeping and cleaning infrastructure is required? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-058` | Open | What mandatory criteria disqualify a building? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-059` | Open | What improvements and costs are required before occupancy? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-060` | Open | How is a candidate facility scored? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
+| `FAC-061` | Open | What acceptance testing is required before installing or operating equipment? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
 | `FIN-001` | Open | Which finishes, coatings, plating, painting, passivation, anodizing, polishing, and treatments are offered? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `FIN-002` | Open | How are masking requirements captured? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `FIN-003` | Open | How are coating thickness and dimensional effects applied to fits and tolerances? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |

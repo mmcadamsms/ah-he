@@ -13,6 +13,7 @@ Product requirements are organized by **functional area** — logical groupings 
 | [notifications](functional-areas/notifications/) | Email, push, in-app notification delivery |
 | [manufacturing-automation](functional-areas/manufacturing-automation/) | CAD intake, manufacturing planning, machine simulation, and production visibility |
 | [commercial-operations](functional-areas/commercial-operations/) | Customer credit, payment terms, quoting controls, collections, and commercial risk |
+| [facility-operations](functional-areas/facility-operations/) | Site selection, utilities, shop layout, receiving, employee space, safety, and expansion |
 
 > Add new functional areas as the product grows. Each area gets its own directory under `functional-areas/`.
 

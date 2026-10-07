@@ -19,6 +19,7 @@ capture.
 |---|---|---|
 | **Business and commercial** | Business model, initial offering, approvals, pricing, scheduling, learning | [Business and commercial strategy](topics/business-and-commercial-strategy.md) |
 | **Business climate and community** | Zoning, permitting, local acceptance, economic development, industrial compatibility | [Business climate and community acceptance](topics/business-climate-and-community-acceptance.md) |
+| **Facility, utilities, and layout** | Square footage, power, loading, water, air, gases, employee areas, safety, and expansion | [Facility, site, utilities, and layout](topics/facility-site-utilities-and-layout.md) |
 | **Customer and market** | Customer segments, demand clusters, buyer needs, proximity, trust, underserved markets | [Customer demand and market geography](topics/customer-demand-and-market-geography.md) |
 | **Customer credit and payment** | Payment history, credit exposure, deposits, terms, delinquency, collections | [Customer credit and payment risk](topics/customer-credit-and-payment-risk.md) |
 | **Customer intent and experience** | Requirements discovery, assumptions, communication, trust, visibility | [Customer intent and experience](topics/customer-intent-and-experience.md) |
@@ -52,6 +53,7 @@ Prefixes identify the subject, not the team that must answer it:
 | Prefix examples | Topic |
 |---|---|
 | `BIZ`, `APR`, `BCL` | Business model, commercial approval, and business climate |
+| `FAC` | Facility, site, utilities, building systems, and physical layout |
 | `CUS`, `MKT`, `TRU`, `CRD` | Customer, demand, market geography, trust, credit, and payment |
 | `ENG`, `CAD`, `PLT` | Technical and product |
 | `MFG`, `CNC`, `ADD`, `FIN`, `QUA`, `ASM`, `OPS` | Manufacturing and operations |
