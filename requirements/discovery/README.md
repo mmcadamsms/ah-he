@@ -18,6 +18,7 @@ capture.
 | Broad topic area | Typical questions | Current location |
 |---|---|---|
 | **Business and commercial** | Business model, initial offering, approvals, pricing, scheduling, learning | [Business and commercial strategy](topics/business-and-commercial-strategy.md) |
+| **External pricing and competitive benchmarks** | Comparable quote baskets, marketplace pricing, scope normalization, make/buy signals, permitted access | [External pricing and competitive benchmarking](topics/external-pricing-and-competitive-benchmarking.md) |
 | **Business climate and community** | Zoning, permitting, local acceptance, economic development, industrial compatibility | [Business climate and community acceptance](topics/business-climate-and-community-acceptance.md) |
 | **Facility, utilities, and layout** | Square footage, power, loading, water, air, gases, employee areas, safety, and expansion | [Facility, site, utilities, and layout](topics/facility-site-utilities-and-layout.md) |
 | **Customer and market** | Customer segments, demand clusters, buyer needs, proximity, trust, underserved markets | [Customer demand and market geography](topics/customer-demand-and-market-geography.md) |
@@ -54,6 +55,7 @@ Prefixes identify the subject, not the team that must answer it:
 | Prefix examples | Topic |
 |---|---|
 | `BIZ`, `APR`, `BCL` | Business model, commercial approval, and business climate |
+| `BEN` | External pricing, market quotes, and competitive benchmarking |
 | `FAC` | Facility, site, utilities, building systems, and physical layout |
 | `CUS`, `MKT`, `TRU`, `CRD` | Customer, demand, market geography, trust, credit, and payment |
 | `ENG`, `CAD`, `PLT` | Technical and product |

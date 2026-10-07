@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 780
+**Indexed questions:** 809
 
 ## Index
 
@@ -58,6 +58,35 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `BCL-008` | Open | Which local requirements increase cost or limit flexibility? | [business-climate-and-community-acceptance.md](topics/business-climate-and-community-acceptance.md) |
 | `BCL-009` | Open | Which locations allow expansion without relocation? | [business-climate-and-community-acceptance.md](topics/business-climate-and-community-acceptance.md) |
 | `BCL-010` | Open | How should the business build durable community support? | [business-climate-and-community-acceptance.md](topics/business-climate-and-community-acceptance.md) |
+| `BEN-001` | Open | Can SendCutSend's CNC quoting be used to benchmark our pricing for specific part types? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-002` | Open | Which external manufacturers and platforms should be included? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-003` | Open | Which part families should form the benchmark basket? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-004` | Open | Which quantities should be quoted? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-005` | Open | Which materials, sizes, tolerances, and finishes make quotes comparable? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-006` | Open | Which CAD files may be uploaded to an external quote platform? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-007` | Open | What do each platform's terms permit? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-008` | Open | Should the business request an official API, partner, reseller, or commercial integration? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-009` | Open | How are credentials and external quote accounts controlled? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-010` | Open | Which facts must be stored with every external quote? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-011` | Open | How often should benchmarks be refreshed? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-012` | Open | How are custom quotes distinguished from instant quotes? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-013` | Open | What is the normalized delivered benchmark price? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-014` | Open | How are lead times compared? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-015` | Open | How are tolerance and quality differences normalized? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-016` | Open | How are provider design-rule changes handled? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-017` | Open | How are geography and shipping normalized? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-018` | Open | How do we avoid comparing promotional or loss-leading prices with sustainable pricing? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-019` | Open | How should external quotes influence our customer quote? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-020` | Open | When should an external quote trigger a review of our estimate? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-021` | Open | When should the business outsource rather than manufacture internally? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-022` | Open | When is our higher price justified? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-023` | Open | What should happen when our price is lower than the external market? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-024` | Open | What should happen when our price is much higher? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-025` | Open | How are benchmark results separated from competitor imitation? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-026` | Open | How do we know whether a quoted part would actually be accepted and manufactured? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-027` | Open | Should benchmark orders be placed periodically? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-028` | Open | How are quote-versus-order-versus-delivery differences retained? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
+| `BEN-029` | Open | How should benchmark uncertainty be represented? | [external-pricing-and-competitive-benchmarking.md](topics/external-pricing-and-competitive-benchmarking.md) |
 | `BIZ-001` | Open | What precise customer problem are we solving first? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `BIZ-002` | Open | Who is the first customer segment: consumers, inventors, startups, maintenance teams, manufacturers, engineers, schools, artists, or another group? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `BIZ-003` | Open | Which first use cases are valuable enough that customers will pay before the entire end-to-end vision exists? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
