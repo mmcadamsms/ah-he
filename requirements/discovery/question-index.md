@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 454
+**Indexed questions:** 463
 
 ## Index
 
@@ -398,6 +398,15 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `SUP-006` | Open | How are supplier substitutions and process changes approved? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
 | `SUP-007` | Open | Who owns scrap, overruns, fixtures, and special tooling held by suppliers? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
 | `SUP-008` | Open | What incoming inspection is required? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
+| `SUP-009` | Open | Where can the business find a good market for second-hand machinery? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
+| `SUP-010` | Open | Which types of equipment are reasonable to buy used? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
+| `SUP-011` | Open | What inspection is required before purchasing used machinery? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
+| `SUP-012` | Open | What is the complete installed cost of a used machine? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
+| `SUP-013` | Open | How should auction purchases differ from dealer purchases? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
+| `SUP-014` | Open | Which regions have the strongest used-equipment ecosystems? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
+| `SUP-015` | Open | When is a used machine better than a new, leased, or outsourced capability? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
+| `SUP-016` | Open | What acceptance test must a used machine pass? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
+| `SUP-017` | Open | How should used-equipment opportunities be tracked? | [suppliers-and-procurement.md](topics/suppliers-and-procurement.md) |
 | `SUS-001` | Open | How are material yield, scrap, energy, coolant, support material, coatings, and shipping impact considered? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `SUS-002` | Open | Can customers choose lower-impact materials or processes? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `SUS-003` | Open | How are scrap and failed parts recycled or disposed? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
