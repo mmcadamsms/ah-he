@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 475
+**Indexed questions:** 482
 
 ## Index
 
@@ -29,6 +29,7 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `AIA-009` | Open | How are customer-facing explanations kept accurate but understandable? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `AIA-010` | Open | Where can AI allow a small company to perform at the level of a much larger organization? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `AIA-011` | Open | Which AI-assisted capabilities create durable advantage rather than temporary novelty? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `AIA-012` | Open | When can camera and AI observations be trusted for operational decisions? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `APR-001` | Open | What exactly must the customer approve before purchase? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `APR-002` | Open | Is there a separate approval for requirements, concept, final design, material, finish, manufacturing plan, price, and delivery? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `APR-003` | Open | What visualizations or evidence are required for informed approval? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
@@ -310,6 +311,10 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `MFG-018` | Open | What must be true before a legacy machine can run with reduced supervision? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MFG-019` | Open | How should retrofit automation performance and ROI be measured? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MFG-020` | Open | How does a retrofitted cell degrade safely when automation fails? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-021` | Open | How should low-cost technology identify manufacturing bottlenecks? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-022` | Open | How should candidate automation investments be ranked by ROI? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-023` | Open | How do we verify that an automation improvement removed the real bottleneck? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-024` | Open | How do we prevent local optimization from making total shop flow worse? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MKT-001` | Open | Where are the most customers for subtractively and additively manufactured parts? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-002` | Open | Which industries buy the relevant custom parts? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-003` | Open | Which customer types best fit the initial business? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
@@ -364,6 +369,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `PLT-012` | Open | Which actual machine, process, image, video, and inspection records should be retained for part reproducibility? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PLT-013` | Open | How should the platform integrate heterogeneous legacy machine controls and add-on automation? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PLT-014` | Open | What common machine-state and job interface should every retrofit expose? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `PLT-015` | Open | What low-cost observability architecture supports bottleneck analysis? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
+| `PLT-016` | Open | How are bottleneck evidence, recommendations, approvals, and outcomes traced? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PRI-001` | Open | Which activities are charged separately: discovery, design, engineering analysis, prototypes, tooling, manufacturing, finishing, inspection, assembly, and delivery? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-002` | Open | What can be estimated automatically, and what requires a human quote? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-003` | Open | How are uncertainty and contingency represented? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |

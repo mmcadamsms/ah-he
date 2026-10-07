@@ -15,6 +15,9 @@ requirements or completed discovery answers.
 - Capital efficiency may come from selectively purchasing older machinery and
   adding safe, modular automation rather than buying only new integrated
   equipment.
+- Off-the-shelf, low-TCO observation technology should continuously identify
+  operational bottlenecks and prioritize automation investments by measured,
+  risk-adjusted ROI.
 - The business thesis includes US manufacturing reshoring as AI, automation,
   and robotics reduce the importance of low-cost labor arbitrage.
 - Customer visibility throughout the process is a core product principle.

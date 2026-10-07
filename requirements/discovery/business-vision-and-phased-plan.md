@@ -28,6 +28,7 @@ plans over time.
 | Honor God and family | Stated principle |
 | Create opportunities to employ family | Stated principle requiring governance |
 | Incessant emphasis on automation | Stated principle requiring practical definition |
+| Prefer off-the-shelf, low-TCO technology to observe work, identify bottlenecks, and prioritize the highest-return automation improvement | Stated operating principle |
 | Customer always knows where the part is | Stated customer-experience principle |
 | Reproducible history of how each part was made | Stated operating principle |
 | AI lets a small company perform above its apparent size | Strategic hypothesis |
@@ -155,6 +156,33 @@ The proposed differentiator is therefore:
 > Buy selectively, integrate intelligently, automate incrementally, measure
 > the real result, and retain humans for judgment, setup, maintenance, quality,
 > exception handling, and safety-critical decisions.
+
+### Bottleneck-driven automation investment
+
+The business must use practical, off-the-shelf, low-total-cost technology to
+observe actual work and identify where time, labor, machine capacity, quality,
+or flow is being lost.
+
+Potential observation sources include:
+
+- ordinary industrial or commercial cameras;
+- edge vision models;
+- machine-state signals;
+- inexpensive sensors;
+- operator interaction and waiting;
+- job and material timestamps;
+- alarms and downtime;
+- queue and work-in-process levels;
+- inspection and scrap data;
+- energy and spindle-load data; and
+- structured employee observations.
+
+The system should then compare candidate interventions and recommend the next
+piece of automation with the strongest risk-adjusted return. A camera or AI
+classification is evidence to validate, not an unquestioned fact. The business
+must be able to explain which bottleneck was detected, how it was measured,
+what alternatives were considered, and whether the intervention actually
+improved the process after deployment.
 
 ## Potential Market Position
 

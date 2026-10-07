@@ -185,6 +185,39 @@ Define safe stop, alarm, part retention, tool and spindle state, loss of
 communications, sensor failure, robot or feeder fault, power recovery, manual
 fallback, restart authorization, and evidence needed before resuming.
 
+### MFG-021 — How should low-cost technology identify manufacturing bottlenecks?
+
+**State:** Open
+
+Compare cameras and AI vision with machine signals, sensors, timestamps,
+operator input, WIP, queues, alarms, inspection, scrap, energy, and maintenance
+data. Define the minimum evidence required before labeling an activity as a
+bottleneck.
+
+### MFG-022 — How should candidate automation investments be ranked by ROI?
+
+**State:** Open
+
+Include throughput, attended labor, setup, quality, scrap, safety, lead time,
+reliability, maintenance, flexibility, integration cost, recurring software
+cost, useful life, utilization, financing, and downside risk.
+
+### MFG-023 — How do we verify that an automation improvement removed the real bottleneck?
+
+**State:** Open
+
+Require before-and-after baselines, comparable product mix, confidence bounds,
+new-constraint detection, quality and safety checks, employee feedback, and a
+defined review period.
+
+### MFG-024 — How do we prevent local optimization from making total shop flow worse?
+
+**State:** Open
+
+Evaluate whether faster output at one station increases downstream queues,
+inventory, handling, inspection load, maintenance, scrap, or delivery
+variability.
+
 ## CNC Planning, Workholding, and Tooling
 
 ### CNC-001 — Which machine configurations are initially supported?

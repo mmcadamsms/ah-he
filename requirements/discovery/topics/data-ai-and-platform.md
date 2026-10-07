@@ -107,6 +107,23 @@ Potential states include unavailable, idle, setup, ready, running, waiting for
 material, waiting for operator, inspection, blocked, faulted, maintenance,
 complete, and safely stopped.
 
+### PLT-015 — What low-cost observability architecture supports bottleneck analysis?
+
+**State:** Open
+
+Define cameras, sensors, edge devices, machine adapters, event schemas,
+timestamps, retention, privacy, networking, offline buffering, calibration,
+health monitoring, and the relationship between raw evidence and derived
+events.
+
+### PLT-016 — How are bottleneck evidence, recommendations, approvals, and outcomes traced?
+
+**State:** Open
+
+The platform should preserve the baseline, evidence, model or rule version,
+candidate interventions, ROI assumptions, human decision, implementation,
+post-change measurements, and final conclusion.
+
 ## AI and Automation Boundaries
 
 ### AIA-001 — Which tasks are suitable for generative AI versus deterministic engineering software?
@@ -152,3 +169,11 @@ complete, and safely stopped.
 ### AIA-011 — Which AI-assisted capabilities create durable advantage rather than temporary novelty?
 
 **State:** Open
+
+### AIA-012 — When can camera and AI observations be trusted for operational decisions?
+
+**State:** Open
+
+Account for occlusion, lighting, camera movement, changing layouts, PPE,
+similar-looking states, privacy, model drift, rare events, false positives,
+false negatives, and independent validation.
