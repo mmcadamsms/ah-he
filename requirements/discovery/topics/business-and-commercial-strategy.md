@@ -84,6 +84,14 @@ These are discovery questions, not approved requirements. Question IDs are perma
 
 **State:** Open
 
+### BIZ-020 — When is break-even or small-loss work strategically preferable to idle capacity?
+
+**State:** Open
+
+Compare cash contribution, available capacity, learning value, repeatability,
+customer value, opportunity cost, liability, distraction, and the probability
+of reaching normal margin.
+
 ## Customer Approval and Commercial Commitment
 
 ### APR-001 — What exactly must the customer approve before purchase?
@@ -168,6 +176,14 @@ These are discovery questions, not approved requirements. Question IDs are perma
 
 **State:** Open
 
+### PRI-012 — What financial guardrails apply to learning jobs?
+
+**State:** Open
+
+Define variable-cost coverage, expected loss, maximum loss, monthly learning
+budget, cash reserve, approval authority, payment terms, customer concentration,
+price-expiration terms, and stop conditions.
+
 ## Scheduling and Capacity
 
 ### SCH-001 — How is a promised delivery date calculated?
@@ -225,5 +241,17 @@ These are discovery questions, not approved requirements. Question IDs are perma
 **State:** Open
 
 ### LRN-007 — How do prototype lessons become requirements and tests?
+
+**State:** Open
+
+### LRN-008 — Which repeated jobs provide the highest-value learning for tuning the shop and automation?
+
+**State:** Open
+
+### LRN-009 — How many repetitions are required before claiming that cost, quality, or attended labor improved?
+
+**State:** Open
+
+### LRN-010 — When has a learning job graduated to normal commercial pricing?
 
 **State:** Open

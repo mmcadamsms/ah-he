@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 515
+**Indexed questions:** 520
 
 ## Index
 
@@ -75,6 +75,7 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `BIZ-017` | Open | What capability-acquisition sequence allows the business to reach break-even or positive cash flow with acceptable risk? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `BIZ-018` | Open | Should laser cutting be the first major production capability? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `BIZ-019` | Open | What should a year-two or year-three vision video demonstrate and validate? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `BIZ-020` | Open | When is break-even or small-loss work strategically preferable to idle capacity? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `CAD-001` | Open | Which native and neutral CAD formats will be accepted? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
 | `CAD-002` | Open | When must customers export STEP rather than submit a native CAD format? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
 | `CAD-003` | Open | How are units detected and confirmed? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
@@ -306,6 +307,9 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `LRN-005` | Open | What data should every prototype collect? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `LRN-006` | Open | What outcome means continue, change direction, or stop? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `LRN-007` | Open | How do prototype lessons become requirements and tests? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `LRN-008` | Open | Which repeated jobs provide the highest-value learning for tuning the shop and automation? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `LRN-009` | Open | How many repetitions are required before claiming that cost, quality, or attended labor improved? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `LRN-010` | Open | When has a learning job graduated to normal commercial pricing? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `MAT-001` | Open | Which material families and grades are initially supported? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MAT-002` | Open | When may the system recommend a material versus requiring qualified-human selection? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MAT-003` | Open | How are strength, corrosion, temperature, wear, weight, cost, availability, machinability, printability, weldability, and appearance traded off? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
@@ -415,6 +419,7 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `PRI-009` | Open | Can customers choose cost, speed, quality, or risk profiles? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-010` | Open | What data is needed to compare estimated and actual cost? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-011` | Open | What is the projected ROI for each phase, major machine, facility investment, and automation capability? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `PRI-012` | Open | What financial guardrails apply to learning jobs? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `QUA-001` | Open | What is the default inspection level? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-002` | Open | Which dimensions, datums, finishes, and functional characteristics are critical? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-003` | Open | Who creates and approves the inspection plan? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |

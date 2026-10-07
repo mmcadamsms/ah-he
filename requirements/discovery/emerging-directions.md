@@ -18,6 +18,9 @@ requirements or completed discovery answers.
 - Off-the-shelf, low-TCO observation technology should continuously identify
   operational bottlenecks and prioritize automation investments by measured,
   risk-adjusted ROI.
+- Early repetitive work may be accepted at break-even or a small, controlled
+  loss when it produces measurable learning and a credible path to lower future
+  cost and sustainable margin.
 - The business thesis includes US manufacturing reshoring as AI, automation,
   and robotics reduce the importance of low-cost labor arbitrage.
 - Customer visibility throughout the process is a core product principle.

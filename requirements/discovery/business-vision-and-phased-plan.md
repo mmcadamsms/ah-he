@@ -37,6 +37,7 @@ plans over time.
 | Small/medium runs plus custom metal work form an attractive niche | Strategic hypothesis |
 | Fast turnaround, high quality, and competitive price can coexist | Strategic hypothesis |
 | Established job shops with temporary overflow may be practical first customers for a new supplier without a reputation | Strategic hypothesis |
+| Early repeat work at break-even or a small controlled loss may be more valuable than idle capacity when it generates reusable learning and lowers future cost | Stated early-stage strategy requiring financial guardrails |
 | Begin physical production with a laser cutter | Candidate capacity-ramp choice |
 | Year-two/year-three equipment list | Candidate target state |
 | Virtual systems should lead physical build-out | Open sequencing decision |
@@ -219,6 +220,40 @@ inspection evidence, and cash flow. However, accepting lower initial margins
 must be a deliberate customer-acquisition investment with limits. The business
 must avoid becoming permanently dependent on low-margin, last-minute,
 high-liability work that stronger shops do not want.
+
+### Learning work and repetition
+
+In the early business, an empty shop creates little production learning.
+Repeated real work can expose:
+
+- quoting errors;
+- setup and fixture problems;
+- operator-attendance requirements;
+- tooling and consumable cost;
+- material yield;
+- quality variation;
+- queue and layout problems;
+- maintenance weaknesses;
+- automation bottlenecks;
+- customer communication needs; and
+- differences between estimated and actual cost.
+
+The intended strategy is to prefer suitable repetitive work at break-even or a
+small, explicitly capped loss over avoidable idle capacity when the work is
+safe, collectable, strategically relevant, and likely to reduce future cost.
+
+This is not permission to chase revenue at any price. Every learning job should
+have:
+
+- a defined learning objective;
+- an expected and maximum loss;
+- adequate cash coverage;
+- normal safety and quality standards;
+- a repeatable process or capability being developed;
+- data collection;
+- a post-job review;
+- an expected path to normal margin; and
+- a stop condition if learning, customer quality, or economics do not improve.
 
 The concept is loosely analogous to the ease and speed associated with
 SendCutSend, while potentially expanding into broader machining, fabrication,
