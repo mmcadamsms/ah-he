@@ -10,3 +10,4 @@ financial risk.
 
 - [Customer Credit and Payment Risk](customer-credit-and-payment-risk.md)
 - [Customer Returns and Acceptance Risk](customer-returns-and-acceptance-risk.md)
+- [Shipment Evidence and Carrier Performance](shipment-evidence-and-carrier-performance.md)

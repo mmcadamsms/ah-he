@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 566
+**Indexed questions:** 575
 
 ## Index
 
@@ -304,6 +304,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `LIF-009` | Open | How is responsibility for a returned part classified? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `LIF-010` | Open | How should customer-specific return patterns affect future work? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `LIF-011` | Open | When should a return trigger corrective action or a broader product review? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-012` | Open | What evidence is required to distinguish manufacturing defects from shipping or handling damage? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-013` | Open | How should inadequate outbound or return packaging affect responsibility? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `LOG-001` | Open | Where are shipping costs to customers high or low across the United States? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LOG-002` | Open | What representative shipment profiles should be modeled? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LOG-003` | Open | When does dimensional weight control instead of actual weight? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
@@ -336,6 +338,13 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `LOG-030` | Open | What complete outbound-cost formula should be used? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LOG-031` | Open | What shipping data should the platform retain? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LOG-032` | Open | How should shipping estimates be validated? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
+| `LOG-033` | Open | What photo or video evidence should be captured before outbound shipment? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
+| `LOG-034` | Open | What evidence should be required when a customer reports shipping damage? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
+| `LOG-035` | Open | How should return shipping be documented? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
+| `LOG-036` | Open | How are outbound and return carrier events linked to the same part and return case? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
+| `LOG-037` | Open | How should carrier performance be measured in both directions? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
+| `LOG-038` | Open | When should shock, tilt, temperature, humidity, or tamper indicators be used? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
+| `LOG-039` | Open | When is continuous video excessive compared with staged photographs? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LRN-001` | Open | What is the next smallest prototype that answers a meaningful business question? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `LRN-002` | Open | Which assumptions are most dangerous if wrong? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `LRN-003` | Open | Which assumptions can be tested with customer interviews rather than software? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |

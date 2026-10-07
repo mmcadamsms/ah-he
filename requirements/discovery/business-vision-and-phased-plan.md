@@ -346,6 +346,12 @@ geometry, identity, pricing, and process details must not be exposed to another
 customer merely because the system uses privacy-controlled historical
 comparisons internally.
 
+The production history should continue through fulfillment and returns. Where
+appropriate, retain evidence of final condition, packaging, carrier handoff,
+delivery, customer-reported condition, return packaging, return carrier, and
+inbound unpacking so shipping damage can be distinguished from manufacturing
+nonconformance or damage that occurred after delivery.
+
 ### Continuous improvement
 
 Every completed part should create structured learning:

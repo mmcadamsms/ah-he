@@ -429,6 +429,64 @@ Record:
 Compare estimated and actual cost, transit, damage, and accessorials by carrier,
 service, lane, package profile, customer type, season, and origin.
 
+## Shipment Evidence and Two-Way Carrier Performance
+
+### LOG-033 — What photo or video evidence should be captured before outbound shipment?
+
+**State:** Open
+
+Potential evidence includes final part condition, identifying marks, quantity,
+critical surfaces, protective materials, corrosion protection, blocking and
+bracing, container condition, closure, labels, weight, dimensions, pallet or
+crate, tamper evidence, and carrier handoff.
+
+### LOG-034 — What evidence should be required when a customer reports shipping damage?
+
+**State:** Open
+
+Request packaging condition, label and tracking, all package faces, visible
+impact or puncture, internal protection, part condition before removal, damaged
+areas, missing items, delivery notation, and date/time. Requirements must be
+reasonable and must not prevent urgent customer assistance.
+
+### LOG-035 — How should return shipping be documented?
+
+**State:** Open
+
+Record return authorization, responsible party, packaging instructions,
+provided label, return carrier and service, tracking, declared value, pickup,
+customer packaging evidence, delivery, receiving condition, and inbound
+unpacking evidence.
+
+### LOG-036 — How are outbound and return carrier events linked to the same part and return case?
+
+**State:** Open
+
+Link order, shipment, package, carrier, tracking, part or serial, return
+authorization, replacement shipment, claim, and final disposition.
+
+### LOG-037 — How should carrier performance be measured in both directions?
+
+**State:** Open
+
+Track cost, on-time pickup, transit, on-time delivery, scan gaps, loss, damage,
+claims, claim payment, denial reason, customer experience, and performance by
+lane, service, package type, weight, dimensions, value, and season.
+
+### LOG-038 — When should shock, tilt, temperature, humidity, or tamper indicators be used?
+
+**State:** Open
+
+Compare evidence value, part risk, customer requirement, sensor cost, false
+indication, data retention, and carrier-claim usefulness.
+
+### LOG-039 — When is continuous video excessive compared with staged photographs?
+
+**State:** Open
+
+Use risk-based evidence that balances proof, labor, storage, privacy,
+customer-property confidentiality, and practical claim requirements.
+
 ## Research Sources
 
 Potential evidence includes:

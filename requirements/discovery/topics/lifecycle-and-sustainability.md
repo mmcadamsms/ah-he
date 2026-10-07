@@ -83,6 +83,22 @@ Define thresholds based on severity, recurrence, affected quantity, safety,
 customer impact, process similarity, and risk to parts already delivered or in
 production.
 
+### LIF-012 — What evidence is required to distinguish manufacturing defects from shipping or handling damage?
+
+**State:** Open
+
+Compare final inspection, prepack condition, packaging, outbound handoff,
+delivery, customer opening, installation, return packaging, return transit, and
+inbound unpacking evidence.
+
+### LIF-013 — How should inadequate outbound or return packaging affect responsibility?
+
+**State:** Open
+
+Consider who selected packaging, whether instructions were followed, whether
+packaging was reusable, carrier handling, customer repacking, and whether the
+original packaging was retained.
+
 ## Sustainability and Waste
 
 ### SUS-001 — How are material yield, scrap, energy, coolant, support material, coatings, and shipping impact considered?
