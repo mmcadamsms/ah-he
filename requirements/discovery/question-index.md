@@ -6,7 +6,7 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 556
+**Indexed questions:** 566
 
 ## Index
 
@@ -300,6 +300,10 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `LIF-005` | Open | How are field failures investigated? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `LIF-006` | Open | Will the business notify customers of later-discovered issues affecting delivered products? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `LIF-007` | Open | How are replacement parts and design obsolescence handled? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-008` | Open | How many parts does each customer return, and what does each return cost? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-009` | Open | How is responsibility for a returned part classified? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-010` | Open | How should customer-specific return patterns affect future work? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
+| `LIF-011` | Open | When should a return trigger corrective action or a broader product review? | [lifecycle-and-sustainability.md](topics/lifecycle-and-sustainability.md) |
 | `LOG-001` | Open | Where are shipping costs to customers high or low across the United States? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LOG-002` | Open | What representative shipment profiles should be modeled? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
 | `LOG-003` | Open | When does dimensional weight control instead of actual weight? | [freight-shipping-and-customer-delivery.md](topics/freight-shipping-and-customer-delivery.md) |
@@ -456,6 +460,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `PRI-012` | Open | What financial guardrails apply to learning jobs? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-013` | Open | How should historical part actuals influence a new quote? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `PRI-014` | Open | How are manufacturing cost, target margin, market price, and prior customer price kept separate? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `PRI-015` | Open | How should expected return, rework, and customer-acceptance cost affect a quote? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
+| `PRI-016` | Open | How are stricter customer expectations priced transparently? | [business-and-commercial-strategy.md](topics/business-and-commercial-strategy.md) |
 | `QUA-001` | Open | What is the default inspection level? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-002` | Open | Which dimensions, datums, finishes, and functional characteristics are critical? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-003` | Open | Who creates and approves the inspection plan? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
@@ -466,6 +472,10 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `QUA-008` | Open | What records are retained, for how long, and for whom? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-009` | Open | How are destructive tests, life tests, pressure tests, load tests, and environmental tests priced? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-010` | Open | When is independent third-party testing required? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `QUA-011` | Open | What customer-specific acceptance profile should be retained? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `QUA-012` | Open | How are tolerances and surface finishes made sufficiently explicit before quoting? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `QUA-013` | Open | How are customer and supplier measurement methods reconciled? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `QUA-014` | Open | When does a customer's acceptance history justify additional inspection or approval steps? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `SAF-001` | Open | Which decisions must always be made or approved by a qualified human? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |
 | `SAF-002` | Open | How are hazards identified across design, manufacturing, use, maintenance, and disposal? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |
 | `SAF-003` | Open | How is severity distinguished from probability and detectability? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |

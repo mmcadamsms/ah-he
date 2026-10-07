@@ -366,6 +366,40 @@ variability.
 
 **State:** Open
 
+### QUA-011 — What customer-specific acceptance profile should be retained?
+
+**State:** Open
+
+Potential attributes include tolerance interpretation, surface-finish
+expectation, cosmetic sensitivity, edge and burr standard, color and texture,
+measurement method, sampling, documentation, first-article expectations,
+packaging, response to deviations, and prior return reasons.
+
+### QUA-012 — How are tolerances and surface finishes made sufficiently explicit before quoting?
+
+**State:** Open
+
+Capture dimensional tolerance, geometric tolerance, datum scheme, roughness,
+lay, waviness, machining marks, polishing, coating, visual standard, sample,
+inspection method, and whether unspecified surfaces use a documented default.
+
+### QUA-013 — How are customer and supplier measurement methods reconciled?
+
+**State:** Open
+
+Address datum setup, temperature, instrument, contact method, filtering,
+measurement location, sampling, uncertainty, rounding, calibration, and
+disagreement resolution.
+
+### QUA-014 — When does a customer's acceptance history justify additional inspection or approval steps?
+
+**State:** Open
+
+Possible controls include requirements review, signed visual sample, first
+article, source inspection, increased sampling, 100-percent inspection,
+photographs, measurement report, retained sample, or explicit deviation
+approval.
+
 ## Assembly
 
 ### ASM-001 — Will the business ship individual parts, kits, subassemblies, complete assemblies, or all of these?

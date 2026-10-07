@@ -200,6 +200,22 @@ Prior customer payment can inform willingness to pay and commercial strategy,
 but it must not overwrite the current cost estimate or reveal confidential
 customer pricing.
 
+### PRI-015 — How should expected return, rework, and customer-acceptance cost affect a quote?
+
+**State:** Open
+
+Use relevant part, process, and customer history while separating business-
+caused nonconformance from ambiguous requirements, shipping, application, or
+customer-caused events.
+
+### PRI-016 — How are stricter customer expectations priced transparently?
+
+**State:** Open
+
+Price the actual requirement: tighter tolerance, finish, cosmetic standard,
+inspection, documentation, first article, packaging, or approval—not an
+unexplained surcharge for the customer's reputation.
+
 ## Scheduling and Capacity
 
 ### SCH-001 — How is a promised delivery date calculated?
