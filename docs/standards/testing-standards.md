@@ -43,7 +43,7 @@
 ./gradlew test jacocoTestReport
 
 # Single service
-./gradlew :services:web-api:test
+./gradlew :backend:web-api:test
 ```
 
 ## CI Enforcement

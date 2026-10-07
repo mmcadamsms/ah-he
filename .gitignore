@@ -33,9 +33,9 @@ Thumbs.db
 local.properties
 
 # iOS
-iosApp/Pods/
-iosApp/*.xcworkspace
-iosApp/build/
+clients/ios/Pods/
+clients/ios/*.xcworkspace
+clients/ios/build/
 DerivedData/
 xcuserdata/
 

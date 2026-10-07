@@ -17,8 +17,8 @@ experience being validated.
 
 The prototype will use:
 
-- a React/TypeScript single-page application in `services/web-ux`;
-- a Spring Boot API in `services/web-api`;
+- a React/TypeScript single-page application in `clients/web`;
+- a Spring Boot API in `backend/web-api`;
 - an in-process bounded asynchronous executor for planning and simulation;
 - domain packages for intake, geometry, planning, G-code, and simulation;
 - an in-memory job repository behind a repository interface;
@@ -32,7 +32,7 @@ verifier, or production CAM engine. The generated code cannot be sent to a
 machine.
 
 When durability or scale is required, the asynchronous orchestration can move
-to `services/background-worker` with a durable queue and shared database while
+to `backend/background-worker` with a durable queue and shared database while
 preserving the REST model and domain interfaces.
 
 ## Consequences
@@ -45,4 +45,3 @@ preserving the REST model and domain interfaces.
 - Native CAD formats require later vendor SDK or licensed translation work.
 - Production use requires approved CAM, postprocessing, collision verification,
   machinist review, and a separate controlled deployment path.
-

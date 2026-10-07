@@ -66,13 +66,16 @@ ah-he/
 │       ├── deploying/           #   Being deployed
 │       ├── validating/          #   Under validation
 │       └── completed/           #   Done
-├── services/                    # Containerized backend (Java)
-│   ├── web-ux/                  # Web frontend service
-│   ├── web-api/                 # REST API service
-│   └── background-worker/       # Async job processor
-├── androidApp/                  # Android application (Kotlin)
-├── iosApp/                      # iOS application (Swift)
-├── shared/                      # Shared Kotlin Multiplatform code
+├── clients/                     # User-facing delivery channels
+│   ├── web/                     # Web client (React/TypeScript + local static runtime)
+│   ├── android/                 # Android client (Kotlin/Compose)
+│   └── ios/                     # iOS client (Swift/SwiftUI)
+├── backend/                     # Independently deployable server runtimes
+│   ├── web-api/                 # Java/Spring Boot REST API
+│   ├── background-worker/       # Async job processor
+│   └── geometry-cam-worker/     # Python CAD-kernel worker
+├── common/                      # Reusable non-deployable code and contracts
+│   └── kotlin/                  # Shared Kotlin Multiplatform code
 ├── infrastructure/              # Docker & CI configuration
 ├── build.gradle.kts             # Root Gradle build
 ├── settings.gradle.kts          # Gradle module settings
@@ -89,6 +92,11 @@ ah-he/
 | Shared Logic | Kotlin Multiplatform |
 | Containers | Docker, Docker Compose |
 | Build System | Gradle (Kotlin DSL) |
+
+Code is grouped by runtime boundary rather than by customer/staff/supplier
+persona. Role-specific experiences can share the same clients and backend
+services while business and operational knowledge stays in `requirements/`
+and `docs/`.
 
 ## Getting Started
 

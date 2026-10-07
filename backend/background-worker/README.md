@@ -10,7 +10,7 @@ Async job processor for long-running tasks: notifications, report generation, sc
 ## Running Locally
 
 ```bash
-./gradlew :services:background-worker:bootRun
+./gradlew :backend:background-worker:bootRun
 ```
 
 ## Docker

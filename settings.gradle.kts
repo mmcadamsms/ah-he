@@ -1,14 +1,16 @@
 rootProject.name = "ah-he"
 
-// Backend services
-include(":services:web-ux")
-include(":services:web-api")
-include(":services:background-worker")
+// Client applications
+include(":clients:web")
+include(":clients:android")
+include(":clients:ios")
 
-// Mobile & shared
-include(":androidApp")
-include(":iosApp")
-include(":shared")
+// Backend runtimes
+include(":backend:web-api")
+include(":backend:background-worker")
+
+// Cross-platform shared code
+include(":common:kotlin")
 
 pluginManagement {
     repositories {

@@ -9,11 +9,11 @@ Native iOS client for the ah-he platform, built with Swift and SwiftUI.
 
 ## Building
 
-Open `iosApp/iosApp.xcodeproj` in Xcode (macOS required).
+Open `clients/ios/iosApp.xcodeproj` in Xcode (macOS required).
 
 ## Project Structure
 ```
-iosApp/
+clients/ios/
 ├── iosApp/
 │   ├── ContentView.swift
 │   ├── iOSApp.swift
