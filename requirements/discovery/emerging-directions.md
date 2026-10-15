@@ -24,6 +24,11 @@ requirements or completed discovery answers.
 - A privacy-controlled digital inventory of prior parts and actual production
   outcomes should improve future estimating, planning, and quoting through
   explainable historical analogs.
+- Inventory and WIP should retain an accountable chain of custody showing when
+  and where each item moved and the responsible employee, automation, vendor,
+  carrier, or integration.
+- Planning should project material, tooling, fixture, equipment, and location
+  needs by operation and need-by time before production reaches a shortage.
 - The business thesis includes US manufacturing reshoring as AI, automation,
   and robotics reduce the importance of low-cost labor arbitrage.
 - Customer visibility throughout the process is a core product principle.
@@ -41,3 +46,4 @@ Related requirements:
 - [Draft Business Vision and Phased Plan](business-vision-and-phased-plan.md)
 - [CNC Manufacturing Automation Prototype](../functional-areas/manufacturing-automation/cnc-prototype.md)
 - [Geometry-Driven Prismatic 3+2 CAM](../functional-areas/manufacturing-automation/geometry-driven-3plus2-cam.md)
+- [Inventory, Material Movement, Tooling, and Equipment Lifecycle Management](../functional-areas/manufacturing-automation/inventory-tooling-and-equipment-lifecycle.md)

@@ -31,8 +31,16 @@ plans over time.
 | Prefer off-the-shelf, low-TCO technology to observe work, identify bottlenecks, and prioritize the highest-return automation improvement | Stated operating principle |
 | Customer always knows where the part is | Stated customer-experience principle |
 | Reproducible history of how each part was made | Stated operating principle |
+| Internal inventory must track raw stock, tooling life and location, fixtures, tools, spares, and equipment throughout their lifecycles | Stated operating principle |
+| Every controlled movement must identify when and where it occurred and the responsible employee, automation, vendor, carrier, or integration | Stated operating principle |
+| Future jobs must project what resources will be needed, where, and by when before production reaches the point of need | Stated operating principle |
 | AI lets a small company perform above its apparent size | Strategic hypothesis |
+| AI will displace portions of knowledge work faster than physical production work | Strategic hypothesis |
+| Manipulating atoms remains a steeper AI and automation challenge than manipulating information | Strategic hypothesis |
 | US reshoring will accelerate with AI and robotics | Strategic hypothesis |
+| Aggressive automation can make US manufacturing competitive by continually reducing direct labor as a share of total effort | Strategic hypothesis |
+| A growing manufacturer may hold employment relatively steady while increasing output through automation | Strategic hypothesis |
+| Scale and automation can increase value and margin produced per employee despite global price pressure | Strategic hypothesis |
 | Older machinery plus carefully engineered retrofit automation can create a capital-efficient competitive advantage | Strategic hypothesis |
 | Small/medium runs plus custom metal work form an attractive niche | Strategic hypothesis |
 | Fast turnaround, high quality, and competitive price can coexist | Strategic hypothesis |
@@ -88,6 +96,47 @@ They must not remain slogans whose practical meaning changes from one decision
 to another.
 
 ## Strategic Thesis
+
+### Why this business now
+
+The motivation for exploring this business rests on five connected strategic
+hypotheses:
+
+1. **AI will displace portions of knowledge work.** Software and AI will make
+   many virtual, analytical, administrative, and creative tasks less
+   labor-intensive. A durable business should use that leverage rather than
+   depend solely on selling human knowledge work that AI can increasingly
+   reproduce.
+2. **Pushing atoms is harder than pushing electrons.** AI can transform
+   information quickly, but reliable work in the physical world still requires
+   machines, materials, facilities, energy, logistics, process knowledge,
+   sensing, maintenance, safety, and exception handling. More capable robots
+   are coming, but physical production remains a steeper hurdle than virtual or
+   thought work.
+3. **Automation could enable substantial US manufacturing reshoring.** If
+   automation continually reduces manufacturing labor toward a smaller share
+   of the total effort, US producers may become competitive for work that would
+   otherwise flow to lower-labor-cost economies.
+4. **Output may grow faster than headcount.** A growing manufacturing company
+   may reach a capable, stable workforce and then use automation to produce
+   more with that team rather than increasing labor in direct proportion to
+   revenue or throughput.
+5. **A small company can punch above its weight.** Global price pressure will
+   remain, including pressure to compete with the least expensive production
+   economies. If the company scales automation aggressively and responsibly,
+   however, output, value added, and margin per employee may rise enough to
+   support stronger employee earnings and a healthier business.
+
+Together, these hypotheses suggest a company that combines AI-leveraged
+knowledge work with increasingly automated physical production. The intended
+advantage is not eliminating people. It is building a capable team whose
+judgment, craft, maintenance, customer understanding, and exception handling
+are amplified by systems that steadily remove repetitive effort and increase
+the amount each employee can accomplish.
+
+This argument is a thesis to validate, not a forecast to present as fact.
+Business planning and promotional materials should identify the evidence,
+assumptions, risks, capital requirements, and time horizon behind each claim.
 
 ### AI leverage
 
@@ -270,6 +319,11 @@ business model or capabilities should copy another company.
 The customer should always know where the part is within the general shop
 flow.
 
+Internally, the business should retain a more detailed accountable work trail:
+confirmed location, custody, responsible employee or automation, completed
+operation, movement time, and next expected step. A planned move must not be
+mistaken for a physically confirmed move.
+
 The experience may include:
 
 - a clear view of the shop's general work stages;
@@ -302,7 +356,7 @@ Proposed levels of detail:
 2. **Moderate:** setup, machine, material, tooling, outside processing, and
    inspection summary.
 3. **Detailed:** operation sequence, parameters, measurements, revisions, and
-   approvals.
+   approvals, including responsible people or automation and item movements.
 4. **Full detail:** actual NC/G-code used, detailed machine and environmental
    logs where available, images, video, temperatures, motor output, inspection
    evidence, and other traceable production records.
@@ -495,6 +549,7 @@ sequencing research.
 | Three-axis CNC mill | Product mix, cost, simplicity, redundancy, fixture strategy |
 | CNC lathe | Diameter/length range, live tooling, bar feeding, automation, demand |
 | Mill and lathe tooling | Initial package, tool management, holders, workholding, inventory |
+| Inventory and movement-management system | Stock and WIP identity, accountable movement history, future need-by projection, reservations, tool assemblies, tool life, machine and crib locations, refurbishment, fixtures, spares, and equipment |
 | Packing station | Packaging profiles, corrosion control, scales, labels, shipping systems |
 | Laser cutter | Material/thickness range, sheet handling, gas, extraction, nesting, utilization |
 | Welding station | Processes, qualifications, ventilation, fixturing, fire protection |
@@ -558,6 +613,8 @@ The intended work includes:
 - modeling the business virtually before committing physical capital;
 - developing low-total-cost-of-ownership front-end systems;
 - developing low-total-cost-of-ownership back-end control systems;
+- developing inventory, tool-life, material-traceability, refurbishment, and
+  asset-location controls;
 - simulating customer and internal flows;
 - testing automation and visibility concepts; and
 - preserving a path from prototype software to durable operating systems.
@@ -570,6 +627,7 @@ The intended work includes:
 - [Customer Intent and Experience](topics/customer-intent-and-experience.md)
 - [Engineering, CAD, and Product Development](topics/engineering-cad-and-product-development.md)
 - [Manufacturing Processes and Quality](topics/manufacturing-processes-and-quality.md)
+- [Inventory, Tooling, and Asset Management](topics/inventory-tooling-and-asset-management.md)
 - [People and Operating Model](topics/people-and-operating-model.md)
 - [Workforce Cost and Labor Markets](topics/workforce-cost-and-labor-markets.md)
 - [Industrial Geography and Domestic Supply Chain](topics/industrial-geography-and-domestic-supply-chain.md)

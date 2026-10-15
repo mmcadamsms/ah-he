@@ -27,6 +27,7 @@ capture.
 | **Technical and product** | Engineering, CAD, revisions, deliverables, design approval | [Engineering, CAD, and product development](topics/engineering-cad-and-product-development.md) |
 | **Data, AI, and platform** | Customer IP, architecture, integrations, automation boundaries, auditability | [Data, AI, and platform](topics/data-ai-and-platform.md) |
 | **Manufacturing and quality** | Materials, process selection, CNC, additive, finishing, inspection, assembly | [Manufacturing processes and quality](topics/manufacturing-processes-and-quality.md) |
+| **Inventory, movement, tooling, and assets** | Raw stock, WIP, accountable movements, future need-by demand, remnants, tool life, refurbishment, fixtures, spares, and equipment | [Inventory, tooling, and asset management](topics/inventory-tooling-and-asset-management.md) |
 | **Suppliers and procurement** | Supplier qualification, subcontracting, outside processing, purchased components | [Suppliers and procurement](topics/suppliers-and-procurement.md) |
 | **People and operating model** | Roles, qualifications, training, organization, support, operational resilience | [People and operating model](topics/people-and-operating-model.md) |
 | **Workforce and labor markets** | Labor cost, skill availability, reliability, productivity, recruiting, retention | [Workforce cost and labor markets](topics/workforce-cost-and-labor-markets.md) |
@@ -60,6 +61,7 @@ Prefixes identify the subject, not the team that must answer it:
 | `CUS`, `MKT`, `TRU`, `CRD` | Customer, demand, market geography, trust, credit, and payment |
 | `ENG`, `CAD`, `PLT` | Technical and product |
 | `MFG`, `CNC`, `ADD`, `FIN`, `QUA`, `ASM`, `OPS` | Manufacturing and operations |
+| `INV` | Inventory, accountable movement, WIP, future demand, tool life, refurbishment, locations, and asset management |
 | `HUM`, `LAB` | Human, employee, workforce, labor markets, and organization |
 | `GEO`, `SUP`, `MAT`, `INP`, `LOG` | Geography, suppliers, materials, energy, input costs, freight, and delivery |
 | `TAX`, `PRI`, `SCH` | Tax, financial, pricing, and scheduling |
