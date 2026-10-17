@@ -15,15 +15,19 @@ answer:
 1. Where can this type of business produce durable economic value?
 2. Which customers should the direct-to-customer model serve, and what story
    should it tell them?
-3. Where should the business operate after considering customers, inputs,
-   outputs, costs, regulation, and resilience?
-4. How can the business enter the market and progress from virtual capability
+3. How can the business enter the market and progress from virtual capability
    to increasingly automated physical production without taking on excessive
    complexity too early?
+4. Where should the business operate after considering the selected customer,
+   operating stage, owned capabilities, inputs, outputs, costs, regulation, and
+   resilience?
 
 Each paper should state a defensible position while preserving the evidence,
 assumptions, contrary evidence, uncertainty, and tests capable of changing the
 position.
+
+The current corpus assessment and prioritized work sequence are in
+[Manufacturing Business Requirements Review and Next Steps](../discovery/manufacturing-business-review-and-next-steps.md).
 
 ## Planned Sequence
 
@@ -31,12 +35,16 @@ position.
 |---|---|---|
 | 0 | [Manufacturing Margin Pools and Market Attractiveness](01-margin-pools-and-market-attractiveness.md) | Which additive, subtractive, fabrication, finishing, treatment, assembly, or creative niches combine attractive margin and market opportunity? |
 | 1 | [Target Customer Story](02-target-customer-story.md) | Who is the first target customer, what problem is solved, and why should that customer trust and buy from the business? |
-| 2 | [Target Business Location](03-target-business-location.md) | Which regions and sites best support the selected customer and operating model? |
-| 3 | [Market Entry and Crawl-Walk-Run](04-market-entry-and-crawl-walk-run.md) | How should the business enter, validate, add physical capabilities, and scale automation? |
+| 2 | [Market Entry and Crawl-Walk-Run](04-market-entry-and-crawl-walk-run.md) | How should the business enter, validate, add physical capabilities, and scale automation? |
+| 3 | [Target Business Location](03-target-business-location.md) | Which regions and sites best support the selected customer and operating model? |
 
 The sequence is directional rather than strictly linear. Later research may
 require an earlier paper to be revised. No paper becomes permanent doctrine
 merely because it was written first.
+
+Location research may begin earlier to identify hard constraints, but detailed
+site ranking should follow the customer and market-entry decisions so it does
+not optimize for a facility or process the business may not own.
 
 ## Shared Evidence Rules
 

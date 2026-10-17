@@ -1,8 +1,11 @@
-# People and Operating Model Questions
+# People and Organization Questions
 
 ## Purpose
 
-Questions about roles, employment, qualifications, training, working conditions, organizational process, support, and operational resilience.
+Questions about roles, employment, qualifications, training, working
+conditions, organization, support, and human resilience. Production planning
+and shop-control questions are maintained in
+[Production Planning and Shop Operations](production-planning-and-shop-operations.md).
 
 These are discovery questions, not approved requirements. Question IDs are permanent and canonical in this file.
 
@@ -72,40 +75,14 @@ These are discovery questions, not approved requirements. Question IDs are perma
 
 **State:** Open
 
-## Operations and Organizational Process
-
-### OPS-001 — Which roles are needed initially?
+### HUM-017 — Which engineering, manufacturing, sales, finance, quality, safety, maintenance, and leadership competencies do the founders already possess and which are missing?
 
 **State:** Open
 
-### OPS-002 — Which responsibilities require engineering, machining, quality, welding, procurement, legal, or customer-service qualifications?
+### HUM-018 — Which missing competency creates the first mandatory employee, contractor, adviser, or partner role?
 
 **State:** Open
 
-### OPS-003 — What work instructions and checklists are mandatory?
-
-**State:** Open
-
-### OPS-004 — How are training and authorization tracked?
-
-**State:** Open
-
-### OPS-005 — What business hours and support commitments are offered?
-
-**State:** Open
-
-### OPS-006 — How are project ownership and handoffs managed?
-
-**State:** Open
-
-### OPS-007 — Which operational metrics matter?
-
-**State:** Open
-
-### OPS-008 — What failure modes could stop the business, and what contingency plans are required?
-
-**State:** Open
-
-### OPS-009 — What must be documented so the business does not depend on tacit knowledge?
+### HUM-019 — How many machines, cells, jobs, customers, or shifts can one qualified person safely and reliably support at each business stage?
 
 **State:** Open

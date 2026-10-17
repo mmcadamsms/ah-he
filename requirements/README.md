@@ -28,6 +28,9 @@ become requirements live in [discovery/](discovery/). This area is an
 intentional free-flow backlog for uncertainty, alternatives, and topics that
 must not be mistaken for approved product behavior.
 
+The current portfolio assessment and recommended decision sequence are in
+[Manufacturing Business Review and Next Steps](discovery/manufacturing-business-review-and-next-steps.md).
+
 When a question is answered, record the decision and promote any resulting
 behavior into the appropriate document under `functional-areas/`.
 

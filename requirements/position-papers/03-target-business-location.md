@@ -3,7 +3,7 @@
 ## Status
 
 - **Status:** Planned
-- **Sequence:** 2
+- **Sequence:** 3
 - **Decision:** Which regions and sites best support the selected customer and
   operating model?
 
@@ -118,6 +118,8 @@ The paper must produce:
 - [Raw Materials, Energy, and Input Costs](../discovery/topics/raw-materials-energy-and-input-costs.md)
 - [Suppliers and Procurement](../discovery/topics/suppliers-and-procurement.md)
 - [Facility, Site, Utilities, and Layout](../discovery/topics/facility-site-utilities-and-layout.md)
+- [Maintenance, Reliability, and Continuity](../discovery/topics/maintenance-reliability-and-continuity.md)
+- [Financial Model and Capital Readiness](../discovery/topics/financial-model-and-capital-readiness.md)
 - [Tax, Finance, and Capital](../discovery/topics/tax-finance-and-capital.md)
 - [Workforce Cost and Labor Markets](../discovery/topics/workforce-cost-and-labor-markets.md)
 - [Freight, Shipping, and Customer Delivery](../discovery/topics/freight-shipping-and-customer-delivery.md)
