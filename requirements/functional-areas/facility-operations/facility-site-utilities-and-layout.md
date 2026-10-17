@@ -36,6 +36,8 @@ layout and utility model for the initial and target facility.
 - staffing, shifts, visitors, and customer access;
 - receiving, shipping, vehicle, and rigging profiles;
 - automation, robot, guarding, and material-presentation needs;
+- human/automation zone boundaries, states, transition controls, occupancy,
+  intervention, and safe-route needs;
 - inspection and metrology environment;
 - IT, cameras, edge devices, and security;
 - zoning, building, fire, environmental, accessibility, and insurer
@@ -143,6 +145,11 @@ weighted score.
    invalidates measurement.
 9. Include housekeeping, waste, spill, and maintenance access.
 10. Preserve expansion paths for utilities and material flow.
+11. Avoid making routine human access or emergency egress depend on passage
+    through an active automation-only hazard zone.
+12. Reserve space for fixed guarding, validated dynamic safeguards, access
+    control, intervention staging, warning devices, safe reset locations, and
+    alternate pedestrian and emergency routes.
 
 ## Employee and Customer Facilities
 
@@ -211,6 +218,9 @@ Reject or escalate a site when:
 9. No site is recommended with an unresolved mandatory gate.
 10. The approved layout and utility model are revision controlled as equipment
     and phases change.
+11. Automation-zone layouts identify state-dependent human routes, protected
+    crossings, intervention access, alternate egress, and adjacent-zone
+    dependencies.
 
 ## Out of Scope
 
@@ -228,5 +238,6 @@ Reject or escalate a site when:
 - [Draft Business Vision and Phased Plan](../../discovery/business-vision-and-phased-plan.md)
 - [Business Climate and Community Acceptance](../../discovery/topics/business-climate-and-community-acceptance.md)
 - [Raw Materials, Energy, and Input Costs](../../discovery/topics/raw-materials-energy-and-input-costs.md)
+- [Human and Automation Zone Safety and Scheduling](human-automation-zone-safety-and-scheduling.md)
 - [Freight, Shipping, and Customer Delivery](../../discovery/topics/freight-shipping-and-customer-delivery.md)
 - [Insurance and Risk Financing](../../discovery/topics/insurance-and-risk-financing.md)

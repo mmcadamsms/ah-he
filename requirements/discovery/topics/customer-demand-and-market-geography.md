@@ -511,6 +511,74 @@ Potential contents:
 - terms and payment information; and
 - representative sample work.
 
+### MKT-042 — How much does customer proximity influence supplier selection for each target segment and service?
+
+**State:** Open
+
+### MKT-043 — Which customer interactions materially benefit from same-day travel, plant visits, local pickup, source inspection, installation, or in-person problem solving?
+
+**State:** Open
+
+### MKT-044 — How do part value density, size, weight, fragility, urgency, quantity, and return risk change shipping sensitivity?
+
+**State:** Open
+
+### MKT-045 — When will a customer prefer a higher-quality or lower-cost remote supplier over a nearby supplier?
+
+**State:** Open
+
+### MKT-046 — What practical service radius applies to prototypes, urgent replacement parts, recurring production, large fabrications, assemblies, and design collaboration?
+
+**State:** Open
+
+### MKT-047 — How should customer interviews and lost-quote data test the assumption that cost and quality matter more than proximity?
+
+**State:** Open
+
+### MKT-048 — What is the total, serviceable, and realistically attainable market for each candidate manufacturing niche?
+
+**State:** Open
+
+### MKT-049 — Which candidate niches combine strong margin with enough demand to support required utilization and capital?
+
+**State:** Open
+
+### MKT-050 — Which apparently high-margin niches are too small, concentrated, slow-growing, regulated, or difficult for a new entrant?
+
+**State:** Open
+
+### MKT-051 — Which large manufacturing markets are too commoditized, price-sensitive, or capital-intensive to produce attractive returns?
+
+**State:** Open
+
+### MKT-052 — How quickly could the reachable demand in each candidate niche become saturated for a small but growing supplier?
+
+**State:** Open
+
+### MKT-053 — Which end markets are growing faster than qualified supplier capacity?
+
+**State:** Open
+
+### MKT-054 — When does customer backlog or insufficient incumbent capacity make buyers more willing to qualify a new supplier?
+
+**State:** Open
+
+### MKT-055 — How can the business distinguish a structural supplier-capacity shortage from a temporary cyclical backlog?
+
+**State:** Open
+
+### MKT-056 — Which growing industries generate outsourced work that matches the planned capabilities rather than work that remains captive or inaccessible?
+
+**State:** Open
+
+### MKT-057 — Which capacity-constrained work is attractive, and which work is available only because established suppliers reject its margin, quality, liability, or customer risk?
+
+**State:** Open
+
+### MKT-058 — What evidence would show that the business can continue adding customers and market share after winning its first capacity-driven orders?
+
+**State:** Open
+
 ## Market Size and Economics
 
 ### MKT-026 — How should addressable market size be measured?

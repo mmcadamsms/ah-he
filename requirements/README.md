@@ -11,7 +11,7 @@ Product requirements are organized by **functional area** — logical groupings 
 | [user-management](functional-areas/user-management/) | User accounts, roles, profiles, authentication |
 | [approvals](functional-areas/approvals/) | Approval workflows, chains, delegation, escalation |
 | [notifications](functional-areas/notifications/) | Email, push, in-app notification delivery |
-| [manufacturing-automation](functional-areas/manufacturing-automation/) | CAD intake, manufacturing planning, machine simulation, and production visibility |
+| [manufacturing-automation](functional-areas/manufacturing-automation/) | CAD intake, manufacturing planning, inventory and tooling lifecycle, machine simulation, and production visibility |
 | [commercial-operations](functional-areas/commercial-operations/) | Customer credit, payment terms, quoting controls, collections, and commercial risk |
 | [facility-operations](functional-areas/facility-operations/) | Site selection, utilities, shop layout, receiving, employee space, safety, and expansion |
 
@@ -50,3 +50,10 @@ See
 [Requirements Documentation Standards](../docs/standards/requirements-standards.md)
 for the required structure, traceability rules, assumption handling, and review
 checklist.
+
+## Position Papers
+
+Strategic business research deliverables and their ordered frameworks live in
+[position-papers](position-papers/). Discovery questions feed those papers,
+but the papers have their own top-level area because they synthesize evidence
+and state a reasoned position rather than serving as question backlogs.

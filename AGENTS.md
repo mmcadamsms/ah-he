@@ -21,6 +21,7 @@
 | Requirements standards | [docs/standards/requirements-standards.md](docs/standards/requirements-standards.md) |
 | Product requirements | [requirements/](requirements/) |
 | Open business and product questions | [requirements/discovery/](requirements/discovery/) |
+| Business position papers | [requirements/position-papers/](requirements/position-papers/) |
 | Agent workflow prompts | [requirements/prompts/](requirements/prompts/) |
 | Web client | [clients/web/](clients/web/) |
 | Android client | [clients/android/](clients/android/) |

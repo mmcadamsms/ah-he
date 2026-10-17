@@ -92,6 +92,56 @@ Compare cash contribution, available capacity, learning value, repeatability,
 customer value, opportunity cost, liability, distraction, and the probability
 of reaching normal margin.
 
+### BIZ-021 — Which additive, subtractive, fabrication, finishing, treatment, assembly, and creative-metal niches combine the most attractive margin and market opportunity?
+
+**State:** Open
+
+The answer should become an evidence-based position paper rather than a list of
+anecdotes. Compare business archetypes, service lines, addressable market,
+growth, attainable share, required capabilities, durability of margin, capital
+intensity, working capital, risk, cash generation, and fit with the
+automation-first strategy.
+
+### BIZ-022 — What does "direct to customer" mean for this business, and which intermediaries are intentionally removed or retained?
+
+**State:** Open
+
+### BIZ-023 — What is the target customer story from initial problem through approved design, production, delivery, support, and repeat order?
+
+**State:** Open
+
+### BIZ-024 — What is the narrowest market-entry wedge that creates meaningful customer value and organizational learning?
+
+**State:** Open
+
+### BIZ-025 — Which market-entry model should be used first: design service, managed outsourcing, partner manufacturing, marketplace, overflow supplier, one owned capability, acquisition, or another approach?
+
+**State:** Open
+
+### BIZ-026 — Which parts of the customer promise must be owned directly, and which may be delivered by qualified partners during each stage?
+
+**State:** Open
+
+### BIZ-027 — How should business complexity be assessed across customers, engineering, software, production, facilities, quality, safety, supply chain, workforce, capital, and compliance?
+
+**State:** Open
+
+### BIZ-028 — Where does excellence at moving information and coordinating work materially reduce the difficulty of moving physical products?
+
+**State:** Open
+
+### BIZ-029 — Which physical-world constraints remain difficult even with excellent AI, software, data, and workflow automation?
+
+**State:** Open
+
+### BIZ-030 — What measurable gates define crawl, walk, and run for this business?
+
+**State:** Open
+
+### BIZ-031 — What stop, pivot, outsource, partner, acquire, or delay criteria apply at each stage?
+
+**State:** Open
+
 ## Customer Approval and Commercial Commitment
 
 ### APR-001 — What exactly must the customer approve before purchase?
@@ -215,6 +265,30 @@ customer-caused events.
 Price the actual requirement: tighter tolerance, finish, cosmetic standard,
 inspection, documentation, first article, packaging, or approval—not an
 unexplained surcharge for the customer's reputation.
+
+### PRI-017 — Which machine-shop and fabrication activities produce attractive gross margin, contribution margin, cash flow, and return on invested capital?
+
+**State:** Open
+
+### PRI-018 — How should owner compensation, unpaid owner labor, deferred maintenance, and replacement capital be normalized before comparing reported shop profit?
+
+**State:** Open
+
+### PRI-019 — Which margin advantages are durable rather than temporary results of backlogs, emergency pricing, scarce capacity, or underinvestment?
+
+**State:** Open
+
+### PRI-020 — How do utilization, setup intensity, repetition, automation, engineering content, urgency, tolerance, certification, and customer switching cost affect margin?
+
+**State:** Open
+
+### PRI-021 — Which financial and operational benchmarks are comparable across shops of different size, service mix, equipment age, geography, and owner involvement?
+
+**State:** Open
+
+### PRI-022 — Which government, trade-association, commercial, transaction, interview, and actual operating data should support the margin position paper?
+
+**State:** Open
 
 ## Scheduling and Capacity
 

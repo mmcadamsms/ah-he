@@ -119,6 +119,42 @@ spending, transparent safety and environmental practices, appearance,
 responsiveness to concerns, charitable involvement, and honest communication
 about jobs and impacts.
 
+### BCL-011 — Which jurisdictions provide predictable lawful operating discretion for owners and managers?
+
+**State:** Open
+
+Evaluate the ability to manage staffing, schedules, investment, production,
+maintenance, expansion, and customer commitments within applicable safety,
+employee, environmental, tax, and contractual requirements.
+
+### BCL-012 — How should regulatory burden be measured without relying on political reputation or slogans?
+
+**State:** Open
+
+### BCL-013 — What are the actual cost, elapsed time, renewal cycle, inspection frequency, and professional-support requirements for permits and compliance?
+
+**State:** Open
+
+### BCL-014 — How consistent are interpretations, inspections, enforcement, appeals, and management-of-change expectations?
+
+**State:** Open
+
+### BCL-015 — Which state and local rules most affect management flexibility, operating hours, staffing, scheduling, automation, expansion, and process changes?
+
+**State:** Open
+
+### BCL-016 — How likely are material regulatory, tax, zoning, environmental, labor, or permitting changes after the business commits capital?
+
+**State:** Open
+
+### BCL-017 — How should the business distinguish reasonable protections from requirements that add cost without proportionate reduction of risk?
+
+**State:** Open
+
+The analysis must use qualified legal, safety, environmental, operational, and
+financial evidence rather than assuming that every requirement is either
+beneficial or unnecessary.
+
 ## Cross-Topic References
 
 - [Industrial Geography and Domestic Supply Chain](industrial-geography-and-domestic-supply-chain.md)

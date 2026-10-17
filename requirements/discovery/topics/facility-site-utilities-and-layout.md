@@ -588,6 +588,34 @@ tax, utility, building, safety, community, expansion, and resilience criteria.
 Verify utilities, grounding, ventilation, fire systems, structural capacity,
 egress, environmental controls, communications, safety systems, and permits.
 
+### FAC-067 — What do suitable starter machine-shop and fabrication buildings cost to lease or buy in each candidate region?
+
+**State:** Open
+
+### FAC-068 — How should advertised rent or purchase price be converted into total usable and production-ready occupancy cost?
+
+**State:** Open
+
+Include usable square footage, common-area charges, property tax, insurance,
+maintenance, utilities, required improvements, permitting, professional
+design, financing, downtime, and restoration obligations.
+
+### FAC-069 — How do regional construction and fit-out costs differ for power, slab, doors, docks, cranes, ventilation, fire protection, compressed air, drainage, HVAC, security, and offices?
+
+**State:** Open
+
+### FAC-070 — Which regions have an adequate supply of small industrial buildings that already meet the minimum mandatory gates?
+
+**State:** Open
+
+### FAC-071 — How do vacancy, lease terms, landlord cooperation, expansion space, and time-to-occupancy change the practical building cost?
+
+**State:** Open
+
+### FAC-072 — When is a cheaper building uneconomic because of utility upgrades, process restrictions, poor flow, insufficient expansion, or delayed startup?
+
+**State:** Open
+
 ## Cross-Topic References
 
 - [Business Climate and Community Acceptance](business-climate-and-community-acceptance.md)

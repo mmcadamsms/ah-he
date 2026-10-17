@@ -46,6 +46,11 @@ Where available and permitted, retain:
 - quantity and batch structure;
 - physical setups, orientations, workholding, and work offsets;
 - operation sequence;
+- actual material, WIP, and finished-part movement history;
+- responsible employee, automation, vendor, carrier, or integration for
+  controlled operations and handoffs;
+- planned versus actual location, custody, operation start, completion, and
+  queue time;
 - machines;
 - tools, holders, inserts, fixtures, and consumables;
 - NC/G-code metadata, line count, operation count, tool changes, motion, and
@@ -58,6 +63,9 @@ Where available and permitted, retain:
 - material, tooling, labor, machine, energy, freight, supplier, and overhead
   cost;
 - quoted and actual lead time;
+- projected resource needs, predicted shortages, and the actual timing of
+  material, tooling, fixture, gauge, equipment, and outside-process
+  availability;
 - customer price, discount, and realized margin;
 - images, video, logs, and inspection evidence according to retention policy;
 - estimate-versus-actual differences; and
