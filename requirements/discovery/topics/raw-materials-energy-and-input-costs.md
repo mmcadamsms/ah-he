@@ -420,6 +420,30 @@ Record:
 Use the data to compare estimates with actual delivered costs and supplier
 performance.
 
+### INP-029 — How sensitive is total delivered raw-material cost to business location for each material, stock form, dimension, and order size?
+
+**State:** Open
+
+### INP-030 — Which materials can be sourced economically nationwide, and which require proximity to mills, service centers, distributors, or specialty suppliers?
+
+**State:** Open
+
+### INP-031 — At what distance, shipment size, or product value does raw-material freight become a material share of usable input cost?
+
+**State:** Open
+
+### INP-032 — How do regional stock availability, minimum orders, cut-to-size service, certifications, lead time, and expedite options change required inventory?
+
+**State:** Open
+
+### INP-033 — Can additional inventory, supplier contracts, or consolidated freight economically substitute for material-source proximity?
+
+**State:** Open
+
+### INP-034 — How should scrap-market depth and recycling value affect regional material economics?
+
+**State:** Open
+
 ## Geographic and Tax Relationships
 
 Coordinate this topic with:

@@ -76,6 +76,6 @@ without confusing planned movements with physically confirmed events.
 - `requirements/discovery/topics/raw-materials-energy-and-input-costs.md`
 
 ---
-**Status:** deploying  
+**Status:** completed  
 **Created:** 2026-10-15  
 **Author:** GitHub Copilot with Mike McAdams

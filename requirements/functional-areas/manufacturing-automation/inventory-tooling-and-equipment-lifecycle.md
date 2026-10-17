@@ -224,6 +224,9 @@ Inventory records must support the applicable subset of:
     to access policy.
 14. Lost, delayed, misrouted, unaccepted, or unexpectedly stationary items must
     create an exception rather than remaining silently at a planned location.
+15. A material, WIP, tool, or equipment movement plan must honor the current
+    and projected human/automation zone states and must not route a person,
+    vehicle, or automation through a zone that does not permit that movement.
 
 ## Raw Material and Stock Rules
 
@@ -368,6 +371,8 @@ Inventory records must support the applicable subset of:
   is physically present solely because a stale digital record says it is.
 - Automation-generated movement records must identify the automation and
   evidence source and must not impersonate a human employee.
+- Inventory and movement scheduling must not override facility zone-safety,
+  access, egress, lockout/tagout, or emergency controls.
 - Financial records and operational records must reconcile without forcing
   one system to discard manufacturing detail needed by the other.
 
@@ -478,3 +483,4 @@ must not be converted into a success-shaped fallback.
 - [Geometry-Driven Prismatic 3+2 CAM](geometry-driven-3plus2-cam.md)
 - [Historical-Part Analog Estimating](historical-part-analog-estimating.md)
 - [Facility, Site, Utilities, and Layout](../facility-operations/facility-site-utilities-and-layout.md)
+- [Human and Automation Zone Safety and Scheduling](../facility-operations/human-automation-zone-safety-and-scheduling.md)

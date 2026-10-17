@@ -34,6 +34,7 @@ plans over time.
 | Internal inventory must track raw stock, tooling life and location, fixtures, tools, spares, and equipment throughout their lifecycles | Stated operating principle |
 | Every controlled movement must identify when and where it occurred and the responsible employee, automation, vendor, carrier, or integration | Stated operating principle |
 | Future jobs must project what resources will be needed, where, and by when before production reaches the point of need | Stated operating principle |
+| Human access and automation must be coordinated through validated facility zone states whose safety controls remain independent from production scheduling | Stated operating principle |
 | AI lets a small company perform above its apparent size | Strategic hypothesis |
 | AI will displace portions of knowledge work faster than physical production work | Strategic hypothesis |
 | Manipulating atoms remains a steeper AI and automation challenge than manipulating information | Strategic hypothesis |
@@ -45,6 +46,7 @@ plans over time.
 | Small/medium runs plus custom metal work form an attractive niche | Strategic hypothesis |
 | Fast turnaround, high quality, and competitive price can coexist | Strategic hypothesis |
 | Established job shops with temporary overflow may be practical first customers for a new supplier without a reputation | Strategic hypothesis |
+| Growing industries whose demand exceeds qualified supplier capacity may be more willing to qualify a responsive new entrant | Strategic hypothesis |
 | Early repeat work at break-even or a small controlled loss may be more valuable than idle capacity when it generates reusable learning and lowers future cost | Stated early-stage strategy requiring financial guardrails |
 | Begin physical production with a laser cutter | Candidate capacity-ramp choice |
 | Year-two/year-three equipment list | Candidate target state |
@@ -550,6 +552,7 @@ sequencing research.
 | CNC lathe | Diameter/length range, live tooling, bar feeding, automation, demand |
 | Mill and lathe tooling | Initial package, tool management, holders, workholding, inventory |
 | Inventory and movement-management system | Stock and WIP identity, accountable movement history, future need-by projection, reservations, tool assemblies, tool life, machine and crib locations, refurbishment, fixtures, spares, and equipment |
+| Minimum shop support infrastructure | Benches, flat fabrication tables, tool storage, abrasive finishing, welding support, material handling, cleaning, rust prevention, chip and swarf handling, housekeeping, downstream forming, and finishing |
 | Packing station | Packaging profiles, corrosion control, scales, labels, shipping systems |
 | Laser cutter | Material/thickness range, sheet handling, gas, extraction, nesting, utilization |
 | Welding station | Processes, qualifications, ventilation, fixturing, fire protection |
@@ -615,6 +618,8 @@ The intended work includes:
 - developing low-total-cost-of-ownership back-end control systems;
 - developing inventory, tool-life, material-traceability, refurbishment, and
   asset-location controls;
+- developing human/automation zone scheduling, access, intervention, and
+  transition visibility without replacing safety-rated controls;
 - simulating customer and internal flows;
 - testing automation and visibility concepts; and
 - preserving a path from prototype software to durable operating systems.
@@ -628,6 +633,9 @@ The intended work includes:
 - [Engineering, CAD, and Product Development](topics/engineering-cad-and-product-development.md)
 - [Manufacturing Processes and Quality](topics/manufacturing-processes-and-quality.md)
 - [Inventory, Tooling, and Asset Management](topics/inventory-tooling-and-asset-management.md)
+- [Minimum Shop Support Capabilities](topics/minimum-shop-support-capabilities.md)
+- [Human and Automation Zone Safety](topics/human-automation-zone-safety.md)
+- [Manufacturing Business Position Paper Series](position-papers/README.md)
 - [People and Operating Model](topics/people-and-operating-model.md)
 - [Workforce Cost and Labor Markets](topics/workforce-cost-and-labor-markets.md)
 - [Industrial Geography and Domestic Supply Chain](topics/industrial-geography-and-domestic-supply-chain.md)

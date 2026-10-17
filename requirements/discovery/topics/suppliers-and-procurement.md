@@ -244,3 +244,27 @@ Evaluate:
 
 Do not select a machine for low purchase price if its age, condition, control,
 or safety architecture makes dependable automation uneconomical.
+
+### SUP-019 — How does candidate-facility location affect freight, rigging, crane, permit, escort, insurance, unloading, and commissioning cost for key equipment?
+
+**State:** Open
+
+### SUP-020 — Which machine sizes, weights, origins, routes, and building constraints can cause transport and installation to rival or exceed purchase price?
+
+**State:** Open
+
+### SUP-021 — Which regions provide enough machine dealers, auctions, OEM support, riggers, technicians, rebuilders, and spare parts to lower installed cost and downtime?
+
+**State:** Open
+
+### SUP-022 — How many representative equipment moves should be quoted before comparing candidate regions?
+
+**State:** Open
+
+### SUP-023 — When does a distant low-price machine remain economical after inspection, decommissioning, loading, freight, unloading, repairs, and acceptance?
+
+**State:** Open
+
+### SUP-024 — How should future relocation, resale, and equipment-removal cost influence the initial facility and machine choice?
+
+**State:** Open

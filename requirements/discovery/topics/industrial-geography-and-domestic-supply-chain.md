@@ -144,6 +144,38 @@ Determine when customers require US-melted, US-poured, US-extruded,
 US-manufactured, Buy America, Buy American, DFARS-compliant, conflict-mineral,
 recycled-content, or other provenance claims.
 
+## Integrated Location Economics
+
+### GEO-011 — What integrated location model should compare customer access, outbound shipping, materials, installed equipment, buildings, taxes, regulation, labor, utilities, and resilience?
+
+**State:** Open
+
+### GEO-012 — Which location costs are one-time, fixed, variable, step-fixed, volume-dependent, or risk-contingent?
+
+**State:** Open
+
+### GEO-013 — How should location priorities change among design-only, prototype machining, laser fabrication, mixed job-shop, and automation-intensive scenarios?
+
+**State:** Open
+
+### GEO-014 — Which variables are large enough to reverse a candidate-region ranking?
+
+**State:** Open
+
+Use sensitivity and break-even analysis rather than one fixed set of weights.
+
+### GEO-015 — Which factors should be mandatory gates rather than tradeable weighted criteria?
+
+**State:** Open
+
+### GEO-016 — How should region, metropolitan area, municipality, industrial park, and specific property be evaluated as separate decision levels?
+
+**State:** Open
+
+### GEO-017 — What actual quotes, interviews, trial shipments, customer tests, and property due diligence are required before recommending a location?
+
+**State:** Open
+
 ## Research Standards for This Topic
 
 Future answers should:
@@ -170,6 +202,7 @@ This topic may eventually produce:
 - a domestic raw-material source map;
 - a supplier and outside-process directory;
 - a shortlist of candidate operating regions;
+- an integrated margin and location position paper;
 - location-selection criteria and weighted scoring;
 - supply-chain risks and mitigation options; and
 - formal sourcing, provenance, and supplier requirements.

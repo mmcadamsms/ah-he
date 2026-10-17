@@ -29,6 +29,14 @@ requirements or completed discovery answers.
   carrier, or integration.
 - Planning should project material, tooling, fixture, equipment, and location
   needs by operation and need-by time before production reaches a shortage.
+- Every proposed anchor machine should be evaluated as a complete capability
+  ecosystem that includes preparation, handling, workholding, deburring,
+  cleaning, inspection, maintenance, waste, safety, utilities, space, and
+  downstream processes.
+- Facility zones may change among automation-only, validated shared,
+  human-only, energy-isolated, and emergency states, but production scheduling
+  may only request transitions; validated safety controls and procedures must
+  authorize them.
 - The business thesis includes US manufacturing reshoring as AI, automation,
   and robotics reduce the importance of low-cost labor arbitrage.
 - Customer visibility throughout the process is a core product principle.
@@ -47,3 +55,5 @@ Related requirements:
 - [CNC Manufacturing Automation Prototype](../functional-areas/manufacturing-automation/cnc-prototype.md)
 - [Geometry-Driven Prismatic 3+2 CAM](../functional-areas/manufacturing-automation/geometry-driven-3plus2-cam.md)
 - [Inventory, Material Movement, Tooling, and Equipment Lifecycle Management](../functional-areas/manufacturing-automation/inventory-tooling-and-equipment-lifecycle.md)
+- [Minimum Shop Support Capability Questions](topics/minimum-shop-support-capabilities.md)
+- [Human and Automation Zone Safety and Scheduling](../functional-areas/facility-operations/human-automation-zone-safety-and-scheduling.md)
