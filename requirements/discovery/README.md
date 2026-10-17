@@ -17,11 +17,31 @@ answer every open question at once.
 1. Read the
    [Manufacturing Business Review and Next Steps](manufacturing-business-review-and-next-steps.md)
    for the current assessment and priority sequence.
-2. Use the
+2. Select a bounded packet of canonical questions for the next decision and
+   answer those questions with evidence in their topic files.
+3. Use the
    [Manufacturing Business Position Papers](../position-papers/README.md) to
-   convert the highest-value questions into evidence-based decisions.
-3. Use this directory's topic files for the canonical question record.
-4. Promote only answered, approved behavior into `functional-areas/`.
+   synthesize the answered packet into an evidence-based position.
+4. Use this directory's topic files for the canonical question and answer
+   record.
+5. Promote only answered, approved behavior into `functional-areas/`.
+
+## Question-First Workflow
+
+Position papers are synthesis artifacts, not substitutes for discovery.
+Complete this loop for each major decision:
+
+1. **Select a question packet.** Choose only the canonical questions needed to
+   make the next decision.
+2. **Answer the questions.** Record evidence, assumptions, alternatives,
+   uncertainty, and the current answer under each question ID.
+3. **Resolve readiness.** Mark each question `Answered`, `Deferred`,
+   `Converted`, or still `Exploring`; identify any unanswered question that
+   blocks synthesis.
+4. **Write the position paper.** Compare the answered evidence, reconcile
+   conflicts, state a position, and define tests capable of changing it.
+5. **Promote consequences.** Convert approved operational or product behavior
+   into requirements, ADRs, prompts, experiments, or other follow-through.
 
 ## Decision Sequence
 

@@ -16,6 +16,10 @@ commercial-risk, and automation coverage. Its primary weakness is not lack of
 questions; it is the absence of a disciplined way to decide **which questions
 must be answered next**.
 
+The immediate work is therefore to answer prioritized question packets. A
+position paper is written only after its prerequisite questions have
+sufficient answers and evidence to support synthesis.
+
 Before this review, the corpus contained **1,105 canonical questions and all
 1,105 were `Open`**. Questions required before the first customer interview sat
 beside questions for facility-wide robotics, regulated quality systems, and
@@ -88,18 +92,18 @@ canonical parser confirmed the correct baseline was 1,105 questions, not 856.
 
 | Order | Work | Required output or exit criterion |
 |---|---|---|
-| 1 | Execute Position Paper 01 | Rank 5-8 process-by-market wedges using market size, reachable demand, contribution margin, required utilization, capital, qualification, risk, and defensibility; select at most three for customer testing |
-| 2 | Execute Position Paper 02 | Select a primary and secondary customer; complete 20-30 structured interviews and obtain real RFQs, quote requests, or paid tests that expose buying criteria and first-order trust barriers |
-| 3 | Define Day-1 exclusions | Record prohibited products, regulated work, unsupported claims, data restrictions, and mandatory human/legal/quality review gates |
-| 4 | Execute Position Paper 04 | Decide whether the crawl stage is design/coordination, partner manufacturing, overflow supply, one owned process, acquisition, or another model; define stop and advancement gates |
-| 5 | Build the integrated financial model | Produce 36-month base, downside, and delayed-ramp cash scenarios with startup uses, owner labor, working capital, debt service, maintenance, replacement capital, and shutdown reserves |
-| 6 | Create a benchmark part and quote library | Collect normalized market price, lead-time, scope, and quality evidence for representative additive, machining, turning, and fabrication parts |
-| 7 | Decide the role of additive and fabrication | For each, choose among internal support capability, outsourced customer offering, first owned production capability, later capability, or explicit exclusion |
-| 8 | Cost complete capability ecosystems | For the top two owned-capability candidates, include preparation, handling, tooling, metrology, maintenance, utilities, waste, safety, software, staffing, and outside processes |
-| 9 | Map founder capability and first hires | Identify which qualified decisions the founders can own, which expertise must be contracted, and the first mandatory employee or partner |
-| 10 | Define customer approval and inspection envelopes | Specify what is approved before release and what tolerances, materials, processes, records, and claims the initial operation can actually verify |
-| 11 | Execute Position Paper 03 | Shortlist regions and properties only after the customer, entry model, first capability, staffing, utilities, and capital assumptions are bounded |
-| 12 | Audit discovery-to-requirement traceability | Mark reviewed questions `Answered`, `Converted`, `Deferred`, or `Superseded`; link converted questions to the requirements that implement them |
+| 1 | Triage the existing corpus | Identify duplicates, already-converted questions, and the 25-40 questions that form the first economic-wedge packet; do not attempt to answer all 1,175 questions |
+| 2 | Answer the economic-wedge questions | Answer the selected `BIZ`, `PRI`, `MKT`, `BEN`, `FNC`, `MFG`, `CNC`, `ADD`, and `FAB` questions using market data, real quotes, interviews, calculations, contrary evidence, and explicit uncertainty |
+| 3 | Build the supporting evidence artifacts | Produce the benchmark part library, normalized external quotes, complete capability-ecosystem costs, and 36-month financial scenarios required by the packet |
+| 4 | Update the canonical question records | Record answers and evidence under each ID; mark questions `Answered`, `Exploring`, `Deferred`, `Converted`, or `Superseded`; identify unresolved blockers |
+| 5 | Write Position Paper 01 | Only after steps 1-4, synthesize the answered packet into a ranked process-by-market position and select at most three wedges for customer testing |
+| 6 | Select and answer the target-customer packet | Answer the relevant `BIZ`, `MKT`, `GTM`, `CUS`, `TRU`, `CRD`, and `APR` questions through 20-30 interviews, RFQs, quote requests, or paid tests |
+| 7 | Write Position Paper 02 | Synthesize the answered customer packet into a primary customer, secondary customer, initial offer, trust model, acquisition hypothesis, and stop conditions |
+| 8 | Answer the Day-1 boundary questions | Resolve prohibited work, regulated products, unsupported claims, data restrictions, inspection limits, and mandatory human, legal, safety, and quality review |
+| 9 | Select and answer the market-entry packet | Answer ownership, outsourcing, supplier, operating, staffing, cash, maintenance, quality, and crawl-stage questions; map founder capabilities and first mandatory hires |
+| 10 | Write Position Paper 04 | Synthesize the answered entry packet into crawl, walk, and run boundaries with measurable advancement, pause, pivot, and stop gates |
+| 11 | Select and answer the location packet | Answer only the location questions implied by the chosen customer, entry model, first capability, workforce, utilities, logistics, risk, and capital assumptions |
+| 12 | Write Position Paper 03 | Synthesize the answered location packet into a regional shortlist and property-level validation plan |
 
 ## Defer Until the Evidence Supports It
 
@@ -128,4 +132,5 @@ The most consequential items for review are:
 3. whether market entry should precede detailed location ranking;
 4. whether the new topic splits are useful without creating too much
    documentation overhead; and
-5. whether the next substantive work should begin with Position Paper 01.
+5. whether the next substantive work should begin with triaging and answering
+   the economic-wedge question packet.

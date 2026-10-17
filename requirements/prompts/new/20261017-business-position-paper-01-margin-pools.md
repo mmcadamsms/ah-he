@@ -6,24 +6,27 @@
 
 ## Objective
 
-Research and write an evidence-based position on which additive,
-subtractive, fabrication, finishing, treatment, assembly, and creative
-metalwork niches combine attractive and durable economics with a sufficiently
-large, growing, reachable, and defensible market.
+Select and answer the canonical economic-wedge question packet, then synthesize
+those answers into an evidence-based position on which additive, subtractive,
+fabrication, finishing, treatment, assembly, and creative-metalwork niches
+combine attractive and durable economics with a sufficiently large, growing,
+reachable, and defensible market.
 
 ## Acceptance Criteria
 
-1. Candidate niches are compared using normalized economics and addressable
+1. The prerequisite canonical questions are identified and answered in their
+   discovery topic files with evidence, uncertainty, and updated states.
+2. Candidate niches are compared using normalized economics and addressable
    market evidence.
-2. Heat treatment, coatings, specialist processes, and integrated offerings
+3. Heat treatment, coatings, specialist processes, and integrated offerings
    are evaluated on complete cost rather than price alone.
-3. Durable margin is distinguished from false or temporary margin.
-4. An initial economic wedge and tests are recommended.
-5. A margin-versus-market matrix distinguishes attractive combinations from
+4. Durable margin is distinguished from false or temporary margin.
+5. An initial economic wedge and tests are recommended.
+6. A margin-versus-market matrix distinguishes attractive combinations from
    high-margin small niches and large low-margin commodities.
-6. A process-by-end-market matrix compares saturation, growth, customer depth,
+7. A process-by-end-market matrix compares saturation, growth, customer depth,
    supplier capacity, qualification barriers, and room to gain share.
-7. The paper tests whether growth industries with insufficient qualified
+8. The paper tests whether growth industries with insufficient qualified
    capacity provide a practical entry path for a new supplier.
 
 ## Scope
@@ -47,7 +50,8 @@ large, growing, reachable, and defensible market.
 
 ## Dependencies
 
-- Business, pricing, market, manufacturing, and finance discovery topics.
+- Answered business, pricing, market, manufacturing, benchmarking, and finance
+  question packet.
 
 ---
 **Status:** new  
