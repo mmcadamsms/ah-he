@@ -50,8 +50,8 @@ Partial directions already established in conversation are recorded separately
 in [Emerging Directions](emerging-directions.md). The current business concept,
 values, strategic hypotheses, and phased plan are preserved in
 [Draft Business Vision and Phased Plan](business-vision-and-phased-plan.md).
-The planned succession of business analyses is defined in the
-[Manufacturing Business Position Paper Series](position-papers/README.md).
+The planned succession of business analyses is maintained in the dedicated
+[Manufacturing Business Position Papers](../position-papers/README.md) area.
 
 ## Question Prefixes
 

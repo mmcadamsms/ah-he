@@ -2,7 +2,7 @@
 
 ## Requirement Reference
 
-- **Discovery Plan:** `requirements/discovery/position-papers/01-margin-pools-and-market-attractiveness.md`
+- **Position Paper Plan:** `requirements/position-papers/01-margin-pools-and-market-attractiveness.md`
 
 ## Objective
 

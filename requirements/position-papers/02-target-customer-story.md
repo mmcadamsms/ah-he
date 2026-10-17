@@ -94,9 +94,9 @@ The paper must produce:
 
 ## Canonical Questions
 
-- [Business and Commercial Strategy](../topics/business-and-commercial-strategy.md)
-- [Customer Demand and Market Geography](../topics/customer-demand-and-market-geography.md)
-- [Customer Intent and Experience](../topics/customer-intent-and-experience.md)
-- [Customer Credit and Payment Risk](../topics/customer-credit-and-payment-risk.md)
-- [Engineering, CAD, and Product Development](../topics/engineering-cad-and-product-development.md)
-- [Freight, Shipping, and Customer Delivery](../topics/freight-shipping-and-customer-delivery.md)
+- [Business and Commercial Strategy](../discovery/topics/business-and-commercial-strategy.md)
+- [Customer Demand and Market Geography](../discovery/topics/customer-demand-and-market-geography.md)
+- [Customer Intent and Experience](../discovery/topics/customer-intent-and-experience.md)
+- [Customer Credit and Payment Risk](../discovery/topics/customer-credit-and-payment-risk.md)
+- [Engineering, CAD, and Product Development](../discovery/topics/engineering-cad-and-product-development.md)
+- [Freight, Shipping, and Customer Delivery](../discovery/topics/freight-shipping-and-customer-delivery.md)

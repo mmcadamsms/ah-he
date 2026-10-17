@@ -2,7 +2,7 @@
 
 ## Requirement Reference
 
-- **Discovery Plan:** `requirements/discovery/position-papers/04-market-entry-and-crawl-walk-run.md`
+- **Position Paper Plan:** `requirements/position-papers/04-market-entry-and-crawl-walk-run.md`
 
 ## Objective
 

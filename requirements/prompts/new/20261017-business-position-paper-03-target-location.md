@@ -2,7 +2,7 @@
 
 ## Requirement Reference
 
-- **Discovery Plan:** `requirements/discovery/position-papers/03-target-business-location.md`
+- **Position Paper Plan:** `requirements/position-papers/03-target-business-location.md`
 
 ## Objective
 

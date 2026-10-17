@@ -635,7 +635,7 @@ The intended work includes:
 - [Inventory, Tooling, and Asset Management](topics/inventory-tooling-and-asset-management.md)
 - [Minimum Shop Support Capabilities](topics/minimum-shop-support-capabilities.md)
 - [Human and Automation Zone Safety](topics/human-automation-zone-safety.md)
-- [Manufacturing Business Position Paper Series](position-papers/README.md)
+- [Manufacturing Business Position Papers](../position-papers/README.md)
 - [People and Operating Model](topics/people-and-operating-model.md)
 - [Workforce Cost and Labor Markets](topics/workforce-cost-and-labor-markets.md)
 - [Industrial Geography and Domestic Supply Chain](topics/industrial-geography-and-domestic-supply-chain.md)

@@ -112,12 +112,12 @@ The paper must produce:
 
 ## Canonical Questions
 
-- [Industrial Geography and Domestic Supply Chain](../topics/industrial-geography-and-domestic-supply-chain.md)
-- [Customer Demand and Market Geography](../topics/customer-demand-and-market-geography.md)
-- [Business Climate and Community Acceptance](../topics/business-climate-and-community-acceptance.md)
-- [Raw Materials, Energy, and Input Costs](../topics/raw-materials-energy-and-input-costs.md)
-- [Suppliers and Procurement](../topics/suppliers-and-procurement.md)
-- [Facility, Site, Utilities, and Layout](../topics/facility-site-utilities-and-layout.md)
-- [Tax, Finance, and Capital](../topics/tax-finance-and-capital.md)
-- [Workforce Cost and Labor Markets](../topics/workforce-cost-and-labor-markets.md)
-- [Freight, Shipping, and Customer Delivery](../topics/freight-shipping-and-customer-delivery.md)
+- [Industrial Geography and Domestic Supply Chain](../discovery/topics/industrial-geography-and-domestic-supply-chain.md)
+- [Customer Demand and Market Geography](../discovery/topics/customer-demand-and-market-geography.md)
+- [Business Climate and Community Acceptance](../discovery/topics/business-climate-and-community-acceptance.md)
+- [Raw Materials, Energy, and Input Costs](../discovery/topics/raw-materials-energy-and-input-costs.md)
+- [Suppliers and Procurement](../discovery/topics/suppliers-and-procurement.md)
+- [Facility, Site, Utilities, and Layout](../discovery/topics/facility-site-utilities-and-layout.md)
+- [Tax, Finance, and Capital](../discovery/topics/tax-finance-and-capital.md)
+- [Workforce Cost and Labor Markets](../discovery/topics/workforce-cost-and-labor-markets.md)
+- [Freight, Shipping, and Customer Delivery](../discovery/topics/freight-shipping-and-customer-delivery.md)

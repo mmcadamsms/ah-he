@@ -2,7 +2,7 @@
 
 ## Requirement Reference
 
-- **Discovery Plan:** `requirements/discovery/position-papers/02-target-customer-story.md`
+- **Position Paper Plan:** `requirements/position-papers/02-target-customer-story.md`
 
 ## Objective
 

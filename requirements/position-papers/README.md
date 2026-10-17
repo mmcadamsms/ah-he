@@ -1,4 +1,4 @@
-# Manufacturing Business Position Paper Series
+# Manufacturing Business Position Papers
 
 ## Status
 

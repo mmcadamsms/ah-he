@@ -169,12 +169,12 @@ The paper must:
 
 ## Canonical Questions
 
-- [Business and Commercial Strategy](../topics/business-and-commercial-strategy.md)
-- [Customer Demand and Market Geography](../topics/customer-demand-and-market-geography.md)
-- [Customer Intent and Experience](../topics/customer-intent-and-experience.md)
-- [Manufacturing Processes and Quality](../topics/manufacturing-processes-and-quality.md)
-- [Data, AI, and Platform](../topics/data-ai-and-platform.md)
-- [Minimum Shop Support Capabilities](../topics/minimum-shop-support-capabilities.md)
-- [Human and Automation Zone Safety](../topics/human-automation-zone-safety.md)
-- [People and Operating Model](../topics/people-and-operating-model.md)
-- [Tax, Finance, and Capital](../topics/tax-finance-and-capital.md)
+- [Business and Commercial Strategy](../discovery/topics/business-and-commercial-strategy.md)
+- [Customer Demand and Market Geography](../discovery/topics/customer-demand-and-market-geography.md)
+- [Customer Intent and Experience](../discovery/topics/customer-intent-and-experience.md)
+- [Manufacturing Processes and Quality](../discovery/topics/manufacturing-processes-and-quality.md)
+- [Data, AI, and Platform](../discovery/topics/data-ai-and-platform.md)
+- [Minimum Shop Support Capabilities](../discovery/topics/minimum-shop-support-capabilities.md)
+- [Human and Automation Zone Safety](../discovery/topics/human-automation-zone-safety.md)
+- [People and Operating Model](../discovery/topics/people-and-operating-model.md)
+- [Tax, Finance, and Capital](../discovery/topics/tax-finance-and-capital.md)

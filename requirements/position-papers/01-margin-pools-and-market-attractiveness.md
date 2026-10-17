@@ -260,9 +260,9 @@ The paper must:
 
 ## Canonical Questions
 
-- [Business and Commercial Strategy](../topics/business-and-commercial-strategy.md)
-- [Customer Demand and Market Geography](../topics/customer-demand-and-market-geography.md)
-- [Manufacturing Processes and Quality](../topics/manufacturing-processes-and-quality.md)
-- [External Pricing and Competitive Benchmarking](../topics/external-pricing-and-competitive-benchmarking.md)
-- [Tax, Finance, and Capital](../topics/tax-finance-and-capital.md)
-- [Minimum Shop Support Capabilities](../topics/minimum-shop-support-capabilities.md)
+- [Business and Commercial Strategy](../discovery/topics/business-and-commercial-strategy.md)
+- [Customer Demand and Market Geography](../discovery/topics/customer-demand-and-market-geography.md)
+- [Manufacturing Processes and Quality](../discovery/topics/manufacturing-processes-and-quality.md)
+- [External Pricing and Competitive Benchmarking](../discovery/topics/external-pricing-and-competitive-benchmarking.md)
+- [Tax, Finance, and Capital](../discovery/topics/tax-finance-and-capital.md)
+- [Minimum Shop Support Capabilities](../discovery/topics/minimum-shop-support-capabilities.md)

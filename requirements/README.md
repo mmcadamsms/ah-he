@@ -50,3 +50,10 @@ See
 [Requirements Documentation Standards](../docs/standards/requirements-standards.md)
 for the required structure, traceability rules, assumption handling, and review
 checklist.
+
+## Position Papers
+
+Strategic business research deliverables and their ordered frameworks live in
+[position-papers](position-papers/). Discovery questions feed those papers,
+but the papers have their own top-level area because they synthesize evidence
+and state a reasoned position rather than serving as question backlogs.
