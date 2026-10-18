@@ -17,31 +17,40 @@ answer every open question at once.
 1. Read the
    [Manufacturing Business Review and Next Steps](manufacturing-business-review-and-next-steps.md)
    for the current assessment and priority sequence.
-2. Select a bounded packet of canonical questions for the next decision and
+2. Conduct the
+   [Manufacturing Business Learning Tour](manufacturing-business-learning-tour.md)
+   to gain broad cross-domain insight and identify surprising dependencies.
+3. Select a bounded packet of canonical questions for the next decision and
    answer those questions with evidence in their topic files.
-3. Use the
+4. Use the
    [Manufacturing Business Position Papers](../position-papers/README.md) to
    synthesize the answered packet into an evidence-based position.
-4. Use this directory's topic files for the canonical question and answer
+5. Use this directory's topic files for the canonical question and answer
    record.
-5. Promote only answered, approved behavior into `functional-areas/`.
+6. Promote only answered, approved behavior into `functional-areas/`.
 
-## Question-First Workflow
+## Learning-Tour and Question-First Workflow
 
 Position papers are synthesis artifacts, not substitutes for discovery.
 Complete this loop for each major decision:
 
-1. **Select a question packet.** Choose only the canonical questions needed to
-   make the next decision.
-2. **Answer the questions.** Record evidence, assumptions, alternatives,
+1. **Take a learning tour.** Use the full corpus for a breadth-first pass that
+   records provisional insights, contradictions, vocabulary, evidence sources,
+   and promising or implausible paths.
+2. **Select a question packet.** Use tour insights to choose only the canonical
+   questions needed to make the next decision.
+3. **Answer the questions.** Record evidence, assumptions, alternatives,
    uncertainty, and the current answer under each question ID.
-3. **Resolve readiness.** Mark each question `Answered`, `Deferred`,
+4. **Resolve readiness.** Mark each question `Answered`, `Deferred`,
    `Converted`, or still `Exploring`; identify any unanswered question that
    blocks synthesis.
-4. **Write the position paper.** Compare the answered evidence, reconcile
+5. **Write the position paper.** Compare the answered evidence, reconcile
    conflicts, state a position, and define tests capable of changing it.
-5. **Promote consequences.** Convert approved operational or product behavior
+6. **Promote consequences.** Convert approved operational or product behavior
    into requirements, ADRs, prompts, experiments, or other follow-through.
+
+The learning tour is repeated when later evidence exposes a blind spot, but it
+must not replace focused answering or become an indefinite survey.
 
 ## Decision Sequence
 
@@ -50,6 +59,7 @@ through decisions that reduce risk in dependency order:
 
 | Gate | Decision | Primary discovery areas |
 |---|---|---|
+| **0. Learning tour** | Build broad understanding, expose dependencies, and select the first focused question packet | All discovery topics at orientation depth |
 | **1. Economic wedge** | Select a reachable process-by-market niche with plausible margin and demand | Business strategy, market geography, additive/manufacturing processes, external benchmarks, financial model |
 | **2. Customer and route to market** | Define the first customer, offer, trust proof, acquisition channel, and paid test | Customer demand, customer experience, sales and go-to-market, credit |
 | **3. Operating model** | Decide what is owned, outsourced, staffed, controlled, and measured in the crawl stage | Suppliers, production operations, people, data and AI |

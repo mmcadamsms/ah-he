@@ -30,6 +30,8 @@ must not be mistaken for approved product behavior.
 
 The current portfolio assessment and recommended decision sequence are in
 [Manufacturing Business Review and Next Steps](discovery/manufacturing-business-review-and-next-steps.md).
+The breadth-first discovery method is defined in the
+[Manufacturing Business Learning Tour](discovery/manufacturing-business-learning-tour.md).
 
 When a question is answered, record the decision and promote any resulting
 behavior into the appropriate document under `functional-areas/`.

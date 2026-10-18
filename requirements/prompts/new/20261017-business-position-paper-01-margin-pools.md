@@ -50,8 +50,8 @@ reachable, and defensible market.
 
 ## Dependencies
 
-- Answered business, pricing, market, manufacturing, benchmarking, and finance
-  question packet.
+- Manufacturing-business learning-tour findings and an answered business,
+  pricing, market, manufacturing, benchmarking, and finance question packet.
 
 ---
 **Status:** new  

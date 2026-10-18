@@ -34,12 +34,15 @@ The current corpus assessment and prioritized work sequence are in
 A position-paper prompt does not begin by researching the paper directly.
 Before drafting:
 
-1. identify the bounded canonical question packet needed for the decision;
-2. answer those questions in `requirements/discovery/topics/` with sources,
+1. use the
+   [Manufacturing Business Learning Tour](../discovery/manufacturing-business-learning-tour.md)
+   to gain broad context and identify the most important dependencies;
+2. identify the bounded canonical question packet needed for the decision;
+3. answer those questions in `requirements/discovery/topics/` with sources,
    calculations, interviews, quotes, experiments, and explicit uncertainty;
-3. update each question state and follow-through;
-4. identify any unanswered blocker; and
-5. begin synthesis only when the packet contains enough evidence to compare
+4. update each question state and follow-through;
+5. identify any unanswered blocker; and
+6. begin synthesis only when the packet contains enough evidence to compare
    alternatives and state a conditional position.
 
 The paper then summarizes and reconciles the durable question-level record. It

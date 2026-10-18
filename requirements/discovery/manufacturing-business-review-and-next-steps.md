@@ -16,9 +16,11 @@ commercial-risk, and automation coverage. Its primary weakness is not lack of
 questions; it is the absence of a disciplined way to decide **which questions
 must be answered next**.
 
-The immediate work is therefore to answer prioritized question packets. A
-position paper is written only after its prerequisite questions have
-sufficient answers and evidence to support synthesis.
+The immediate work is therefore a broad learning tour across the question
+corpus, followed by prioritized question packets. The tour creates context and
+reveals what deserves deeper study; it does not require final answers to every
+question. A position paper is written only after its prerequisite focused
+questions have sufficient answers and evidence to support synthesis.
 
 Before this review, the corpus contained **1,105 canonical questions and all
 1,105 were `Open`**. Questions required before the first customer interview sat
@@ -70,7 +72,8 @@ canonical parser confirmed the correct baseline was 1,105 questions, not 856.
 
 ## Refactor Included in This PR
 
-- Added a six-gate business decision sequence to `discovery/README.md`.
+- Added a learning-tour gate before the six business decision gates in
+  `discovery/README.md`.
 - Split additive questions into a dedicated topic and expanded design, build,
   feedstock, safety, qualification, postprocessing, and ownership economics.
 - Added dedicated topics for:
@@ -92,18 +95,18 @@ canonical parser confirmed the correct baseline was 1,105 questions, not 856.
 
 | Order | Work | Required output or exit criterion |
 |---|---|---|
-| 1 | Triage the existing corpus | Identify duplicates, already-converted questions, and the 25-40 questions that form the first economic-wedge packet; do not attempt to answer all 1,175 questions |
-| 2 | Answer the economic-wedge questions | Answer the selected `BIZ`, `PRI`, `MKT`, `BEN`, `FNC`, `MFG`, `CNC`, `ADD`, and `FAB` questions using market data, real quotes, interviews, calculations, contrary evidence, and explicit uncertainty |
-| 3 | Build the supporting evidence artifacts | Produce the benchmark part library, normalized external quotes, complete capability-ecosystem costs, and 36-month financial scenarios required by the packet |
-| 4 | Update the canonical question records | Record answers and evidence under each ID; mark questions `Answered`, `Exploring`, `Deferred`, `Converted`, or `Superseded`; identify unresolved blockers |
-| 5 | Write Position Paper 01 | Only after steps 1-4, synthesize the answered packet into a ranked process-by-market position and select at most three wedges for customer testing |
-| 6 | Select and answer the target-customer packet | Answer the relevant `BIZ`, `MKT`, `GTM`, `CUS`, `TRU`, `CRD`, and `APR` questions through 20-30 interviews, RFQs, quote requests, or paid tests |
-| 7 | Write Position Paper 02 | Synthesize the answered customer packet into a primary customer, secondary customer, initial offer, trust model, acquisition hypothesis, and stop conditions |
-| 8 | Answer the Day-1 boundary questions | Resolve prohibited work, regulated products, unsupported claims, data restrictions, inspection limits, and mandatory human, legal, safety, and quality review |
-| 9 | Select and answer the market-entry packet | Answer ownership, outsourcing, supplier, operating, staffing, cash, maintenance, quality, and crawl-stage questions; map founder capabilities and first mandatory hires |
-| 10 | Write Position Paper 04 | Synthesize the answered entry packet into crawl, walk, and run boundaries with measurable advancement, pause, pivot, and stop gates |
-| 11 | Select and answer the location packet | Answer only the location questions implied by the chosen customer, entry model, first capability, workforce, utilities, logistics, risk, and capital assumptions |
-| 12 | Write Position Paper 03 | Synthesize the answered location packet into a regional shortlist and property-level validation plan |
+| 1 | Design the first learning tour | Define the people, facilities, topics, quotes, datasets, visits, and small experiments needed for a broad orientation across the business system |
+| 2 | Conduct the learning tour | Record provisional insight, vocabulary, contradictions, evidence leads, and changed assumptions under canonical question IDs across every major discovery domain |
+| 3 | Publish learning-tour findings and triage | Produce an insight map, identify duplicates and already-converted questions, explain plausible and implausible paths, and select the 25-40 questions in the first economic-wedge packet |
+| 4 | Answer the economic-wedge questions | Deeply answer the selected `BIZ`, `PRI`, `MKT`, `BEN`, `FNC`, `MFG`, `CNC`, `ADD`, and `FAB` questions using market data, real quotes, interviews, calculations, contrary evidence, and explicit uncertainty |
+| 5 | Build the supporting evidence artifacts | Produce the benchmark part library, normalized external quotes, complete capability-ecosystem costs, and 36-month financial scenarios required by the packet |
+| 6 | Update the canonical question records | Record answers and evidence under each ID; mark questions `Answered`, `Exploring`, `Deferred`, `Converted`, or `Superseded`; identify unresolved blockers |
+| 7 | Write Position Paper 01 | Only after steps 1-6, synthesize the answered packet into a ranked process-by-market position and select at most three wedges for customer testing |
+| 8 | Select and answer the target-customer packet | Answer the relevant `BIZ`, `MKT`, `GTM`, `CUS`, `TRU`, `CRD`, and `APR` questions through 20-30 interviews, RFQs, quote requests, or paid tests |
+| 9 | Write Position Paper 02 | Synthesize the answered customer packet into a primary customer, secondary customer, initial offer, trust model, acquisition hypothesis, and stop conditions |
+| 10 | Answer the Day-1 boundary and market-entry packets | Resolve prohibited work, claims, data, inspection, human-review, ownership, outsourcing, staffing, cash, maintenance, quality, supplier, and crawl-stage questions |
+| 11 | Write Position Paper 04 | Synthesize the answered entry packet into crawl, walk, and run boundaries with measurable advancement, pause, pivot, and stop gates |
+| 12 | Answer location questions and write Position Paper 03 | Use the chosen customer, entry model, first capability, workforce, utilities, logistics, risk, and capital assumptions to answer the location packet before synthesizing a shortlist |
 
 ## Defer Until the Evidence Supports It
 
@@ -132,5 +135,5 @@ The most consequential items for review are:
 3. whether market entry should precede detailed location ranking;
 4. whether the new topic splits are useful without creating too much
    documentation overhead; and
-5. whether the next substantive work should begin with triaging and answering
-   the economic-wedge question packet.
+5. whether the next substantive work should be designing and conducting the
+   first manufacturing-business learning tour.
