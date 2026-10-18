@@ -23,10 +23,14 @@ then collects tagged replies into a local Markdown feedback collection.
 ## Verification
 
 - [x] Offline suite: `pwsh -NoProfile -File .\scripts\tests\discovery-mail.tests.ps1`
-      (16 behavior tests, including a fake Outlook object model).
+      (17 behavior tests, including a fake Outlook object model).
 - [x] PowerShell syntax, changed relative Markdown links, and whitespace checks.
-- [ ] Live Outlook send/receive and interactive scheduled-task execution:
-      explicit user desktop validation; no real mail sent or task installed.
+- [x] User-authorized live desktop round trip on 2026-10-18: one isolated
+      LIF-016 email confirmed in Sent Items; one reply imported from
+      `Inbox\myself`, grouped under its question, with quoted research removed.
+      Repeated collection across processes preserved identical Markdown and
+      did not duplicate the reply. Personal feedback remains outside git.
+- [ ] Interactive scheduled-task execution: no daily task installed.
 
 ---
 **Status:** deploying

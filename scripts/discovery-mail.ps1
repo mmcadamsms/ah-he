@@ -98,6 +98,20 @@ function Read-DiscoveryMailState {
         $state.NextIndex -gt $state.Questions.Count) {
         throw 'Unsupported or corrupt campaign state. Restore a known-good backup; do not reinitialize.'
     }
+    # ConvertFrom-Json can hydrate ISO strings as DateTime; keep the persisted
+    # representation consistent with freshly collected records on PowerShell 7.2+.
+    foreach ($record in @($state) + @($state.Attempts) + @($state.Replies)) {
+        foreach ($field in @('CreatedUtc', 'LastScanUtc', 'ConfirmedUtc', 'ReceivedUtc')) {
+            if ($record.ContainsKey($field) -and $record[$field]) {
+                $record[$field] = ([DateTimeOffset]$record[$field]).ToUniversalTime().ToString('o')
+            }
+        }
+    }
+    foreach ($reply in $state.Replies) {
+        $feedback = Get-DiscoveryReplyText $reply.Body
+        $reply.FeedbackText = $feedback.Text
+        $reply.Extraction = $feedback.Extraction
+    }
     return $state
 }
 
@@ -226,6 +240,9 @@ function Get-DiscoveryReplyText {
     if ($feedback -match '(?m)^[ \t]*>') {
         $feedback = [regex]::Replace($feedback, '(?m)^[ \t]*>[^\n]*(?:\n|$)', '')
         $stripped = $true
+    }
+    if ($end -lt $text.Length) {
+        $feedback = [regex]::Replace($feedback.TrimEnd(), '(?m)(?:^|\n)[ \t]*_{5,}[ \t]*$', '')
     }
     return @{
         Text = $feedback.Trim()

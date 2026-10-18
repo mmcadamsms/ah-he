@@ -93,6 +93,8 @@ business approval.
   automatically submit the question again.
 - A queued send blocks new submissions without blocking reply collection.
 - Duplicate replies appear once, including after a restart or full rescan.
+- With no new replies, regenerating feedback after a state reload produces
+  identical Markdown, including timestamp formatting.
 - Unknown markers and other senders are ignored; multiline feedback survives.
 - Common quoted-email sections are excluded from Markdown; raw messages remain
   recoverable and multiple replies are grouped under the same question.

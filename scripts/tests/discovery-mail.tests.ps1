@@ -220,6 +220,7 @@ Not part of the prior question.
     Test-Behavior 'response extraction removes common quotes without changing raw replies' {
         foreach ($case in @(
             @("My feedback.`r`n`r`nFrom: sender@example.org`r`nSent: Wednesday`r`nTo: reader@example.net`r`nSubject: Original`r`nOriginal research.", 'My feedback.'),
+            @("My feedback.`r`n`r`n________________________________`r`nFrom: sender@example.org`r`nSent: Wednesday`r`nTo: reader@example.net`r`nSubject: Original`r`nOriginal research.", 'My feedback.'),
             @("My feedback.`n-----Original Message-----`nOriginal research.", 'My feedback.'),
             @("My feedback.`nOn Wed, Jul 1, someone wrote:`n> Original research.", 'My feedback.'),
             @("> Original research.`nMy inline feedback.`n> More original research.", 'My inline feedback.'),
@@ -242,6 +243,25 @@ Not part of the prior question.
         $feedback = [IO.File]::ReadAllText((Join-Path $s.Directory 'feedback.md'))
         Assert-True ($feedback.Contains('Specific response.')) 'response exported'
         Assert-True (-not $feedback.Contains('Do not repeat original research.')) 'original research excluded'
+    }
+
+    Test-Behavior 'feedback timestamps and content remain stable after JSON reload and repeated collection' {
+        $s = New-TestScenario
+        Invoke-TestCycle $s
+        $s.Fake.Messages = @(@{
+            Key = '<stable@example.net>'; Sender = 'reader@example.net'
+            Subject = "RE: $($s.State.Attempts[0].Subject)"
+            ReceivedUtc = '2026-07-01T15:02:00.1234567+00:00'
+            Folder = 'Inbox\myself'; Body = 'Preserve this response.'
+        })
+        Invoke-TestCycle $s -At '2026-07-01T15:05:00Z' -CollectOnly
+        $path = Join-Path $s.Directory 'feedback.md'
+        $before = [IO.File]::ReadAllText($path)
+        $s.State = Read-DiscoveryMailState $s.Directory
+        Assert-True ($s.State.Replies[0].ReceivedUtc -is [string]) 'reloaded timestamp is a string'
+        Invoke-TestCycle $s -At '2026-07-01T15:10:00Z' -CollectOnly
+        Assert-Equal ([IO.File]::ReadAllText($path)) $before 'identical Markdown after restart'
+        Assert-Equal $s.State.Replies.Count 1 'one reply after re-import'
     }
 
     Test-Behavior 'saved replies repair a failed Markdown projection' {
