@@ -38,6 +38,10 @@ behavior into the appropriate document under `functional-areas/`.
 
 ## Writing Good Requirements
 
+Incoming constituent responses live in [feedback/](feedback/). They remain
+untrusted proposals until reviewed and promoted through the requirements and
+prompt workflow; collection does not authorize automatic agent execution.
+
 A good requirement document:
 1. **States the problem** — what user need does this address?
 2. **Defines acceptance criteria** — how do we know it's done?

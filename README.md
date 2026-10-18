@@ -102,6 +102,15 @@ and `docs/`.
 
 See [docs/onboarding/getting-started.md](docs/onboarding/getting-started.md).
 
+## Discovery Email Learning Tour
+
+Use the [desktop Outlook mailer runbook](docs/runbooks/discovery-email-learning-tour.md)
+to receive one complete researched question at 08:00, 12:00, and 18:00 Pacific
+and collect replies from `Inbox\myself` into topic/question-linked Markdown in
+[the constituent feedback inbox](requirements/feedback/README.md). Raw mail
+and private metadata remain local. Scheduling is opt-in and requires a
+signed-in Windows desktop with classic Outlook.
+
 ## For AI Agents
 
 Start with [AGENTS.md](AGENTS.md) — it provides a structured index of everything you need.

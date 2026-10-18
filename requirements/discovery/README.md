@@ -9,6 +9,11 @@ Discovery questions are not approved requirements. They capture uncertainty
 that must be discussed, researched, tested, or decided before implementation
 or business execution depends on it.
 
+Research answers and independent reviews must follow the
+[Discovery Research Standards](../../docs/standards/discovery-research-standards.md).
+The completed first-pass coverage and review results are summarized in
+[Manufacturing Learning-Tour Research Summary](manufacturing-learning-tour-research-summary.md).
+
 ## Start Here
 
 The corpus is intentionally broad, but the business should not attempt to
