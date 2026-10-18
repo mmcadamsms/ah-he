@@ -70,9 +70,10 @@ function New-TestScenario {
 }
 
 function Invoke-TestCycle {
-    param($Scenario, [string]$At = '2026-07-01T15:00:00Z', [switch]$CollectOnly, [switch]$FullRescan)
+    param($Scenario, [string]$At = '2026-07-01T15:00:00Z', [switch]$CollectOnly, [switch]$FullRescan,
+        [string]$RepositoryRoot)
     Invoke-DiscoveryMailCycle $Scenario.State $Scenario.Directory $Scenario.Transport `
-        ([DateTimeOffset]$At) -CollectOnly:$CollectOnly -FullRescan:$FullRescan
+        ([DateTimeOffset]$At) -CollectOnly:$CollectOnly -FullRescan:$FullRescan -RepositoryRoot $RepositoryRoot
 }
 
 try {
@@ -262,6 +263,108 @@ Not part of the prior question.
         Invoke-TestCycle $s -At '2026-07-01T15:10:00Z' -CollectOnly
         Assert-Equal ([IO.File]::ReadAllText($path)) $before 'identical Markdown after restart'
         Assert-Equal $s.State.Replies.Count 1 'one reply after re-import'
+    }
+
+    Test-Behavior 'repository collection keeps multiple responses and traceability without private mail metadata' {
+        $s = New-TestScenario
+        Invoke-TestCycle $s
+        $attempt = $s.State.Attempts[0]
+        $first = @{
+            Key = '<repository-one@example.net>'; Sender = 'reader@example.net'
+            Subject = "RE: $($attempt.Subject)"; ReceivedUtc = '2026-07-01T15:02:00.0000000+00:00'
+            Folder = 'Inbox\myself'; Body = "First public response.`n-----Original Message-----`nPrivate quoted research."
+        }
+        $second = $first.Clone(); $second.Key = '<repository-two@example.net>'
+        $second.Body = 'Second public response.'
+        $s.Fake.Messages = @($first, $second)
+        $repository = Join-Path $s.Directory 'repository'
+        Invoke-TestCycle $s -At '2026-07-01T15:05:00Z' -CollectOnly -RepositoryRoot $repository
+        $path = Join-Path $repository "requirements\feedback\inbox\discovery-$($s.State.Campaign).md"
+        $before = [IO.File]::ReadAllText($path)
+        foreach ($expected in @('First public response.', 'Second public response.', '### TST-001',
+            '#### Response 2', 'Feedback ID:', 'requirements\discovery\topics\test.md', 'UNTRUSTED EMAIL CONTENT')) {
+            Assert-True ($before.Contains($expected)) "repository includes $expected"
+        }
+        foreach ($private in @($first.Key, $second.Key, $first.Sender, $first.Subject,
+            $first.Folder, $attempt.Token, 'Private quoted research.')) {
+            Assert-True (-not $before.Contains($private)) "repository excludes private metadata or quoted research"
+        }
+        $ids = [regex]::Matches($before, 'Feedback ID: `([a-f0-9]{64})`')
+        Assert-Equal $ids.Count 2 'each response has a stable opaque ID'
+        Assert-True ($ids[0].Value -cne $ids[1].Value) 'separate message identities stay distinct'
+        $s.State = Read-DiscoveryMailState $s.Directory
+        Invoke-TestCycle $s -At '2026-07-01T15:10:00Z' -CollectOnly -RepositoryRoot $repository
+        Assert-Equal ([IO.File]::ReadAllText($path)) $before 'repository output stable after restart'
+        Assert-Equal $s.State.Replies.Count 2 'no duplicate import'
+    }
+
+    Test-Behavior 'offline export backfills existing campaigns without modifying progress or accessing Outlook' {
+        $repository = Join-Path $testRoot 'offline-export'
+        $scriptPath = Join-Path $PSScriptRoot '..\discovery-mail.ps1'
+        $paths = @()
+        foreach ($number in @(1, 2)) {
+            $s = New-TestScenario
+            Invoke-TestCycle $s
+            $s.Fake.Messages = @(@{
+                Key = "<backfill-$number@example.net>"; Sender = 'reader@example.net'
+                Subject = "RE: $($s.State.Attempts[0].Subject)"; ReceivedUtc = '2026-07-01T15:02:00Z'
+                Folder = 'Inbox\myself'; Body = "Backfilled response $number."
+            })
+            Invoke-TestCycle $s -At '2026-07-01T15:05:00Z' -CollectOnly
+            $path = Join-Path $repository "requirements\feedback\inbox\discovery-$($s.State.Campaign).md"
+            $paths += $path
+            $statePath = Join-Path $s.Directory 'state.json'
+            $before = [IO.File]::ReadAllText($statePath)
+            & $scriptPath -Action ExportFeedback -StateDirectory $s.Directory -RepositoryRoot $repository -WhatIf
+            Assert-True (-not [IO.File]::Exists($path)) 'WhatIf prevents export'
+            & $scriptPath -Action ExportFeedback -StateDirectory $s.Directory -RepositoryRoot $repository
+            Assert-True ([IO.File]::ReadAllText($path).Contains("Backfilled response $number.")) 'existing response exported'
+            Assert-Equal ([IO.File]::ReadAllText($statePath)) $before 'offline export never modifies delivery or scan state'
+        }
+        Assert-True ([IO.File]::Exists($paths[0]) -and [IO.File]::Exists($paths[1])) 'campaign files coexist'
+        Assert-True ($paths[0] -cne $paths[1]) 'campaigns never share a filename'
+    }
+
+    Test-Behavior 'repository export failure retains imported replies for repair' {
+        $s = New-TestScenario
+        Invoke-TestCycle $s
+        $s.Fake.Messages = @(@{
+            Key = '<repair-export@example.net>'; Sender = 'reader@example.net'
+            Subject = "RE: $($s.State.Attempts[0].Subject)"; ReceivedUtc = '2026-07-01T15:02:00Z'
+            Folder = 'Inbox\myself'; Body = 'Recover this repository response.'
+        })
+        $repository = Join-Path $s.Directory 'repository'
+        $parent = Join-Path $repository 'requirements\feedback'
+        $null = [IO.Directory]::CreateDirectory($parent)
+        $blocked = Join-Path $parent 'inbox'
+        [IO.File]::WriteAllText($blocked, 'An existing file blocks directory creation.')
+        Assert-Throws {
+            Invoke-TestCycle $s -At '2026-07-01T15:05:00Z' -CollectOnly -RepositoryRoot $repository
+        } '.*'
+        $s.State = Read-DiscoveryMailState $s.Directory
+        Assert-Equal $s.State.Replies.Count 1 'reply committed before export failure'
+        [IO.File]::Delete($blocked)
+        Invoke-TestCycle $s -At '2026-07-01T15:10:00Z' -CollectOnly -RepositoryRoot $repository
+        $path = Join-Path $blocked "discovery-$($s.State.Campaign).md"
+        Assert-True ([IO.File]::ReadAllText($path).Contains('Recover this repository response.')) 'next run repairs export'
+        Assert-Equal $s.State.Replies.Count 1 'repair never duplicates response'
+    }
+
+    Test-Behavior 'repository export skips empty campaigns and rejects unsafe campaign filenames' {
+        $s = New-TestScenario
+        $repository = Join-Path $s.Directory 'repository'
+        Write-DiscoveryMailFeedback $s.State $s.Directory $repository
+        Assert-True (-not [IO.Directory]::Exists($repository)) 'no empty inbox export'
+        $s.State.Replies = @(@{
+            Key = '<unsafe@example.net>'; Token = 'fake'; Sender = 'reader@example.net'
+            QuestionId = 'TST-001'; Subject = 'test'; ReceivedUtc = '2026-07-01T15:00:00Z'
+            Folder = 'Inbox\myself'; Body = 'Feedback'; FeedbackText = 'Feedback'; Extraction = 'test'
+        })
+        $s.State.Campaign = '..\escape'
+        Assert-Throws {
+            Write-DiscoveryMailFeedback $s.State $s.Directory $repository
+        } 'Invalid campaign ID'
+        Assert-True (-not [IO.Directory]::Exists($repository)) 'unsafe ID never creates repository directories'
     }
 
     Test-Behavior 'saved replies repair a failed Markdown projection' {

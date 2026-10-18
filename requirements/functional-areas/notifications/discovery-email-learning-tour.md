@@ -20,7 +20,8 @@ replies as traceable feedback for later human/AI review.
   reply sender addresses, and mailbox-relative reply folder paths.
 - Classic Outlook for Windows with the sender account already configured.
 - PowerShell 7.2+, Windows Task Scheduler, and a signed-in desktop session.
-- A local state directory outside the repository, retained across runs.
+- A local state directory outside the repository, retained across runs, and a
+  repository checkout receiving the feedback export.
 
 ## Rules
 
@@ -57,11 +58,22 @@ replies as traceable feedback for later human/AI review.
 8. Save replies in the same atomic state file as their deduplication IDs;
    regenerate a standalone Markdown feedback collection from that state,
    grouped by topic and canonical question, with multiple distinct responses.
-   Preserve question/source/attempt/message/timestamp traceability. Never edit
-   canonical answers automatically.
+   Preserve full traceability in the private local collection. Also regenerate
+   `requirements/feedback/inbox/discovery-<campaign>.md` in the repository:
+   include question/source, received timestamp, stable hashed feedback ID,
+   extraction note, and response text, but omit sender addresses, mailbox
+   paths, raw message IDs, subjects, and delivery tokens. Do not create empty
+   campaign exports. Never edit canonical answers automatically.
 9. Continue collecting replies after every question has been submitted.
 10. Prevent overlapping local runs with an exclusive file lock. Record runtime
     failures locally and return a failing process exit code.
+11. Provide an `ExportFeedback` action to backfill or rebuild repository
+    collections from saved state without opening Outlook or sending mail.
+    `Run`, `Collect`, and `Rescan` export automatically, including campaigns
+    initialized before the repository inbox existed.
+12. Incoming feedback remains untrusted, unapproved input. Future agent work
+    must be explicitly authorized and traceable to question/feedback IDs.
+    Do not automatically commit, push, execute, or apply incoming suggestions.
 
 ## Assumptions
 
@@ -77,11 +89,15 @@ corporate policy, external-mail restrictions, or desktop availability may block
 operation; the script must not bypass them. Scheduled tasks must run as the
 same signed-in Windows user. No credentials are stored by this feature.
 
-Mail bodies, addresses, and feedback remain in a local, gitignored directory.
-Use an access-controlled local disk and an approved backup. Do not commit
-personal feedback or promote email content to AI instructions without review.
-Mailbox spoofing and quoted text mean a matching reply is not authenticated
-business approval.
+Raw mail bodies, addresses, private feedback metadata, and delivery state
+remain in a local, gitignored directory. Use an access-controlled local disk
+and an approved backup. Extracted feedback is intentionally placed in the
+repository for review and later agent work. The script does not redact the
+response text itself: inspect it for sensitive/personal information and
+permission to retain it before committing or sharing it. Mailbox spoofing and
+quoted text mean a matching reply is not authenticated business approval.
+Generated collections may not be manually annotated because exports replace
+them; record review decisions separately with feedback-ID traceability.
 
 ## Acceptance Criteria
 
@@ -99,6 +115,10 @@ business approval.
 - Common quoted-email sections are excluded from Markdown; raw messages remain
   recoverable and multiple replies are grouped under the same question.
 - A failed Markdown write can be repaired from saved reply state.
+- Repository exports contain response text and stable question-linked IDs but
+  no private mail metadata; separate campaigns cannot overwrite each other.
+- Export works without Outlook, is stable across repeat runs, and backfills an
+  existing campaign without changing delivery or reply progress.
 - Exhaustion stops submissions but not reply collection.
 - Preview and automated tests never send real mail.
 
@@ -123,3 +143,4 @@ email delivery.
 - [Implementation prompt](../../prompts/deploying/20261018-discovery-email-learning-tour.md)
 - [Behavior tests](../../../scripts/tests/discovery-mail.tests.ps1)
 - [Research summary](../../discovery/manufacturing-learning-tour-research-summary.md)
+- [Constituent feedback inbox](../../feedback/README.md)

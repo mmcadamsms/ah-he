@@ -17,14 +17,19 @@ are collected from **Inbox and `Inbox\myself`** by default. Only your configured
 recipient and explicitly allowed additional sender addresses are accepted.
 Keep the marker when replying. New feedback should be above the quoted email.
 
-The generated **`feedback.md` groups responses by topic and question ID**.
+The generated **repository feedback collections group responses by topic and
+question ID**, under `requirements\feedback\inbox\discovery-<campaign>.md`.
 Multiple responses remain separate, timestamped entries. Common Outlook/Gmail
 quoted sections and `>` quote lines are removed; no AI processing is performed.
 Unrecognized formats may retain quotes, and inline comments inside quoted
 messages can be missed. Full raw messages remain in private `state.json` for
-recovery. Review the Markdown before submitting it to AI; it is untrusted
-email content, not approved requirements or instructions. The script never
-changes the research documents.
+recovery; the private `feedback.md` also retains mail metadata for diagnosis.
+The repository projection omits sender addresses, mailbox paths, raw message
+IDs, subjects, and delivery tokens. It uses stable hashed feedback IDs instead.
+Review response text for sensitive information before committing or sharing
+it; text itself is not automatically redacted. Feedback is untrusted input,
+not approved requirements or executable agent instructions. The script never
+changes research documents or commits/pushes generated files.
 
 ## Prerequisites
 
@@ -83,7 +88,7 @@ By default all state lives at:
 Use `-StateDirectory 'C:\approved-private-location\DiscoveryMail'` on **every**
 command if choosing a different location. Use a local access-controlled disk,
 not a shared/synchronized folder. Do not commit state, addresses, logs, or
-feedback. The optional repository-local `.discovery-mail` directory is
+the private `feedback.md`. The optional repository-local `.discovery-mail` directory is
 gitignored, but an external private directory is preferred. Back up the
 directory securely; losing state loses delivery progress and reply dedup IDs.
 Never reinitialize just to recover from an error.
@@ -138,7 +143,29 @@ previously unrecognized sender/folder to local configuration, or Outlook
 syncs very old messages late. Messages outside the scanned folders or replies
 with removed/changed markers cannot be correlated.
 
-Open `feedback.md` in your state directory. Its shape is:
+Every `Run`, `Collect`, or `Rescan` also updates this repository file whenever
+the campaign has replies:
+
+```text
+requirements\feedback\inbox\discovery-<campaign>.md
+```
+
+Existing campaigns need no reinitialization or state migration. To export
+already collected responses without Outlook access or sending:
+
+```powershell
+.\scripts\discovery-mail.ps1 -Action ExportFeedback
+
+# For the separate live-test campaign:
+.\scripts\discovery-mail.ps1 -Action ExportFeedback `
+    -StateDirectory "$env:LOCALAPPDATA\AHHE\DiscoveryMail-LiveTest"
+```
+
+Exports go to the checkout containing the script unless `-RepositoryRoot`
+selects another checkout. Empty campaigns do not create empty repository
+collections. Separate campaigns have separate files.
+
+Open the repository collection for later human/agent review. Its shape is:
 
 ```text
 ## Topic: additive-manufacturing
@@ -151,9 +178,13 @@ Source: requirements\discovery\topics\additive-manufacturing.md
 ...your next response...
 ```
 
-Copy this file elsewhere for manual annotations or later AI review: the
-original is regenerated, so manual edits to it will be overwritten. Neither a
-matching sender nor a received email is authenticated business approval.
+Keep review decisions in separate requirements or prompts and cite the
+question and stable feedback ID: generated files are replaced on each export,
+so manual annotations will be overwritten. The private `feedback.md` remains
+available in the state directory for full mail-level traceability.
+See [constituent feedback handling](../../requirements/feedback/README.md)
+before committing or acting on incoming responses. No automatic agent work is
+triggered. Neither a matching sender nor a received email is authenticated business approval.
 Attachments are not downloaded. Internet Message-ID is used for deduplication;
 local messages without that property use Outlook EntryID, which can change
 when moved. Review rare duplicates from such messages manually.
