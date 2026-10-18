@@ -2,7 +2,10 @@
 
 ## Purpose
 
-Questions about materials, process selection, CNC, additive manufacturing, finishing, inspection, assembly, packaging, and delivery readiness.
+Questions about materials, cross-process selection, CNC, finishing, inspection,
+assembly, packaging, and delivery readiness. Additive-specific design,
+operations, safety, qualification, and economics are maintained in
+[Additive Manufacturing](additive-manufacturing.md).
 
 These are discovery questions, not approved requirements. Question IDs are permanent and canonical in this file.
 
@@ -218,6 +221,14 @@ Evaluate whether faster output at one station increases downstream queues,
 inventory, handling, inspection load, maintenance, scrap, or delivery
 variability.
 
+### MFG-025 — How are printed, cast, forged, welded, repaired, or otherwise near-net workpieces registered, probed, and represented as starting stock for downstream machining?
+
+**State:** Open
+
+### MFG-026 — How are allowances, datum strategy, distortion, process ownership, inspection, and traceability transferred across additive, subtractive, forming, welding, heat treatment, and finishing steps?
+
+**State:** Open
+
 ## CNC Planning, Workholding, and Tooling
 
 ### CNC-001 — Which machine configurations are initially supported?
@@ -268,29 +279,19 @@ variability.
 
 **State:** Open
 
-## Additive Manufacturing
-
-### ADD-001 — Which additive processes and materials are initially supported?
+### CNC-013 — Which turning, mill-turn, Swiss, grinding, EDM, and other subtractive process families belong in the initial or partner capability envelope?
 
 **State:** Open
 
-### ADD-002 — How are orientation, support, anisotropy, warpage, shrinkage, porosity, and surface finish incorporated?
+### CNC-014 — How are bar stock, remnants, collets, chucks, jaws, tailstocks, steady rests, sub-spindle transfer, cutoff, part catching, and chip control planned for turned work?
 
 **State:** Open
 
-### ADD-003 — When is additive appropriate for a functional final part versus a prototype, pattern, fixture, or visual model?
+### CNC-015 — When may probing or tool measurement update offsets automatically, and which results require a stop, quarantine, or qualified-human review?
 
 **State:** Open
 
-### ADD-004 — What postprocessing is required?
-
-**State:** Open
-
-### ADD-005 — How are build failures and material-property uncertainty priced and communicated?
-
-**State:** Open
-
-### ADD-006 — What dimensional and mechanical validation is required?
+### CNC-016 — What representative test parts and process-capability evidence establish the real size, tolerance, finish, material, and unattended-operation envelope of each machine?
 
 **State:** Open
 

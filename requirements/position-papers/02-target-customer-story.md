@@ -96,6 +96,7 @@ The paper must produce:
 
 - [Business and Commercial Strategy](../discovery/topics/business-and-commercial-strategy.md)
 - [Customer Demand and Market Geography](../discovery/topics/customer-demand-and-market-geography.md)
+- [Sales and Go-to-Market](../discovery/topics/sales-and-go-to-market.md)
 - [Customer Intent and Experience](../discovery/topics/customer-intent-and-experience.md)
 - [Customer Credit and Payment Risk](../discovery/topics/customer-credit-and-payment-risk.md)
 - [Engineering, CAD, and Product Development](../discovery/topics/engineering-cad-and-product-development.md)

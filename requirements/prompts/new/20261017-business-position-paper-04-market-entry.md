@@ -6,17 +6,20 @@
 
 ## Objective
 
-Assess the complexity of entering a direct-to-customer physical-products
-business and recommend evidence-based crawl, walk, and run stages that use
-software, AI, partners, and progressively owned manufacturing capability.
+Select and answer the canonical market-entry question packet, then assess the
+complexity of entering a direct-to-customer physical-products business and
+recommend evidence-based crawl, walk, and run stages.
 
 ## Acceptance Criteria
 
-1. Complexity is assessed across the complete business system.
-2. Market-entry models are compared.
-3. Crawl, walk, and run stages define customer, capability, staffing, capital,
+1. The prerequisite canonical questions are answered in their discovery topic
+   files with customer, supplier, operating, staffing, financial, maintenance,
+   quality, and safety evidence.
+2. Complexity is assessed across the complete business system.
+3. Market-entry models are compared.
+4. Crawl, walk, and run stages define customer, capability, staffing, capital,
    safety, quality, software, and supplier boundaries.
-4. Advancement gates and stop or pivot criteria are measurable.
+5. Advancement gates and stop or pivot criteria are measurable.
 
 ## Scope
 
@@ -40,7 +43,8 @@ software, AI, partners, and progressively owned manufacturing capability.
 
 ## Dependencies
 
-- Position Papers 01 through 03 and the phased business plan.
+- Position Papers 01 and 02, the phased business plan, and an answered
+  market-entry question packet. Position Paper 03 follows this paper.
 
 ---
 **Status:** new  

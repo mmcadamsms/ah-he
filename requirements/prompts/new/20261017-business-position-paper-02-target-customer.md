@@ -6,15 +6,18 @@
 
 ## Objective
 
-Define the initial direct-to-customer target, customer problem, offer, journey,
-trust model, and reason to buy.
+Select and answer the canonical target-customer question packet, then define
+the initial direct-to-customer target, customer problem, offer, journey, trust
+model, and reason to buy.
 
 ## Acceptance Criteria
 
-1. One primary and one secondary target customer are selected.
-2. The initial offer and exclusions are explicit.
-3. The full customer journey and trust evidence are defined.
-4. Paid market tests and stop conditions are recommended.
+1. The prerequisite canonical questions are answered in their discovery topic
+   files through interviews, RFQs, quote requests, or paid experiments.
+2. One primary and one secondary target customer are selected.
+3. The initial offer and exclusions are explicit.
+4. The full customer journey and trust evidence are defined.
+5. Paid market tests and stop conditions are recommended.
 
 ## Scope
 
@@ -36,7 +39,8 @@ trust model, and reason to buy.
 
 ## Dependencies
 
-- Position Paper 01 and customer discovery topics.
+- Position Paper 01 and an answered customer, market, go-to-market, trust,
+  credit, and approval question packet.
 
 ---
 **Status:** new  

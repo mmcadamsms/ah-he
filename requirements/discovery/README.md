@@ -9,6 +9,64 @@ Discovery questions are not approved requirements. They capture uncertainty
 that must be discussed, researched, tested, or decided before implementation
 or business execution depends on it.
 
+## Start Here
+
+The corpus is intentionally broad, but the business should not attempt to
+answer every open question at once.
+
+1. Read the
+   [Manufacturing Business Review and Next Steps](manufacturing-business-review-and-next-steps.md)
+   for the current assessment and priority sequence.
+2. Conduct the
+   [Manufacturing Business Learning Tour](manufacturing-business-learning-tour.md)
+   to gain broad cross-domain insight and identify surprising dependencies.
+3. Select a bounded packet of canonical questions for the next decision and
+   answer those questions with evidence in their topic files.
+4. Use the
+   [Manufacturing Business Position Papers](../position-papers/README.md) to
+   synthesize the answered packet into an evidence-based position.
+5. Use this directory's topic files for the canonical question and answer
+   record.
+6. Promote only answered, approved behavior into `functional-areas/`.
+
+## Learning-Tour and Question-First Workflow
+
+Position papers are synthesis artifacts, not substitutes for discovery.
+Complete this loop for each major decision:
+
+1. **Take a learning tour.** Use the full corpus for a breadth-first pass that
+   records provisional insights, contradictions, vocabulary, evidence sources,
+   and promising or implausible paths.
+2. **Select a question packet.** Use tour insights to choose only the canonical
+   questions needed to make the next decision.
+3. **Answer the questions.** Record evidence, assumptions, alternatives,
+   uncertainty, and the current answer under each question ID.
+4. **Resolve readiness.** Mark each question `Answered`, `Deferred`,
+   `Converted`, or still `Exploring`; identify any unanswered question that
+   blocks synthesis.
+5. **Write the position paper.** Compare the answered evidence, reconcile
+   conflicts, state a position, and define tests capable of changing it.
+6. **Promote consequences.** Convert approved operational or product behavior
+   into requirements, ADRs, prompts, experiments, or other follow-through.
+
+The learning tour is repeated when later evidence exposes a blind spot, but it
+must not replace focused answering or become an indefinite survey.
+
+## Decision Sequence
+
+The topic catalog is organized by subject, while business work should proceed
+through decisions that reduce risk in dependency order:
+
+| Gate | Decision | Primary discovery areas |
+|---|---|---|
+| **0. Learning tour** | Build broad understanding, expose dependencies, and select the first focused question packet | All discovery topics at orientation depth |
+| **1. Economic wedge** | Select a reachable process-by-market niche with plausible margin and demand | Business strategy, market geography, additive/manufacturing processes, external benchmarks, financial model |
+| **2. Customer and route to market** | Define the first customer, offer, trust proof, acquisition channel, and paid test | Customer demand, customer experience, sales and go-to-market, credit |
+| **3. Operating model** | Decide what is owned, outsourced, staffed, controlled, and measured in the crawl stage | Suppliers, production operations, people, data and AI |
+| **4. First physical capability** | Select one coherent capability and its complete support, quality, maintenance, and safety ecosystem | Manufacturing, additive, shop support, reliability, standards, safety |
+| **5. Location and capital** | Choose a region, site, financing plan, and downside limits after the operating model is known | Facility, geography, workforce, inputs, logistics, tax, finance, insurance |
+| **6. Scale and automation** | Add capabilities or automation only after demand, process capability, cash, and organizational readiness are demonstrated | Inventory, scheduling, zones, bottleneck automation, lifecycle, platform |
+
 ## Topic Index
 
 Questions are organized first by broad topic area and then by more specific
@@ -18,6 +76,7 @@ capture.
 | Broad topic area | Typical questions | Current location |
 |---|---|---|
 | **Business and commercial** | Business model, initial offering, approvals, pricing, scheduling, learning | [Business and commercial strategy](topics/business-and-commercial-strategy.md) |
+| **Sales and go-to-market** | Positioning, channels, lead qualification, funnel, acquisition economics, commercial experiments | [Sales and go-to-market](topics/sales-and-go-to-market.md) |
 | **External pricing and competitive benchmarks** | Comparable quote baskets, marketplace pricing, scope normalization, make/buy signals, permitted access | [External pricing and competitive benchmarking](topics/external-pricing-and-competitive-benchmarking.md) |
 | **Business climate and community** | Zoning, permitting, local acceptance, economic development, industrial compatibility | [Business climate and community acceptance](topics/business-climate-and-community-acceptance.md) |
 | **Facility, utilities, and layout** | Square footage, power, loading, water, air, gases, employee areas, safety, and expansion | [Facility, site, utilities, and layout](topics/facility-site-utilities-and-layout.md) |
@@ -26,15 +85,20 @@ capture.
 | **Customer intent and experience** | Requirements discovery, assumptions, communication, trust, visibility | [Customer intent and experience](topics/customer-intent-and-experience.md) |
 | **Technical and product** | Engineering, CAD, revisions, deliverables, design approval | [Engineering, CAD, and product development](topics/engineering-cad-and-product-development.md) |
 | **Data, AI, and platform** | Customer IP, architecture, integrations, automation boundaries, auditability | [Data, AI, and platform](topics/data-ai-and-platform.md) |
-| **Manufacturing and quality** | Materials, process selection, CNC, additive, finishing, inspection, assembly | [Manufacturing processes and quality](topics/manufacturing-processes-and-quality.md) |
+| **Manufacturing and quality** | Materials, process selection, CNC, finishing, inspection, assembly | [Manufacturing processes and quality](topics/manufacturing-processes-and-quality.md) |
+| **Additive manufacturing** | Additive fit, design rules, build preparation, feedstock, safety, qualification, postprocessing, economics | [Additive manufacturing](topics/additive-manufacturing.md) |
+| **Fabrication, forming, and welding** | Sheet, plate, tube, nesting, bending, welding, process control, ecosystem economics | [Fabrication, forming, and welding](topics/fabrication-forming-and-welding.md) |
+| **Production planning and shop operations** | Work release, travelers, finite capacity, WIP, dispatch, handoffs, actual cost, operating reviews | [Production planning and shop operations](topics/production-planning-and-shop-operations.md) |
 | **Inventory, movement, tooling, and assets** | Raw stock, WIP, accountable movements, future need-by demand, remnants, tool life, refurbishment, fixtures, spares, and equipment | [Inventory, tooling, and asset management](topics/inventory-tooling-and-asset-management.md) |
+| **Maintenance, reliability, and continuity** | Asset criticality, preventive maintenance, serviceability, spares, downtime, recovery, alternate capacity | [Maintenance, reliability, and continuity](topics/maintenance-reliability-and-continuity.md) |
 | **Minimum shop support capabilities** | Support equipment, benches, abrasive finishing, cleaning, swarf, welding, laser/forming dependencies, coatings, supplies, space, safety, and readiness | [Minimum shop support capabilities](topics/minimum-shop-support-capabilities.md) |
 | **Human and automation zone safety** | Automation-only, shared, human-only, energy-isolated, and emergency zones; transitions, access, routes, scheduling, priority, interventions, and egress | [Human and automation zone safety](topics/human-automation-zone-safety.md) |
 | **Suppliers and procurement** | Supplier qualification, subcontracting, outside processing, purchased components | [Suppliers and procurement](topics/suppliers-and-procurement.md) |
-| **People and operating model** | Roles, qualifications, training, organization, support, operational resilience | [People and operating model](topics/people-and-operating-model.md) |
+| **People and organization** | Roles, qualifications, training, organization, working conditions, human resilience | [People and organization](topics/people-and-operating-model.md) |
 | **Workforce and labor markets** | Labor cost, skill availability, reliability, productivity, recruiting, retention | [Workforce cost and labor markets](topics/workforce-cost-and-labor-markets.md) |
 | **Supply chain, geography, and logistics** | Industrial clusters, domestic materials, wholesale inputs, fuel, electricity, freight, customer delivery | [Industrial geography](topics/industrial-geography-and-domestic-supply-chain.md), [raw materials and energy](topics/raw-materials-energy-and-input-costs.md), and [freight and shipping](topics/freight-shipping-and-customer-delivery.md) |
-| **Tax, financial, and capital** | Tax structure, unit economics, cash flow, equipment investment, financing, incentives | [Tax, finance, and capital](topics/tax-finance-and-capital.md) |
+| **Financial model and capital readiness** | Integrated financial statements, unit economics, cash runway, working capital, financing, downside gates | [Financial model and capital readiness](topics/financial-model-and-capital-readiness.md) |
+| **Tax and incentives** | Entity structure, tax obligations, depreciation, exemptions, nexus, incentives | [Tax, finance, and capital](topics/tax-finance-and-capital.md) |
 | **Insurance and risk financing** | Workers' compensation, property concentration, equipment breakdown, interruption, cyber, product liability | [Insurance and risk financing](topics/insurance-and-risk-financing.md) |
 | **Standards and certifications** | Quality systems, industry approvals, process accreditation, personnel qualification, safety, metrology, and compliance | [Standards, certifications, and quality systems](topics/standards-certifications-and-quality-systems.md) |
 | **Legal, safety, and compliance** | Liability, regulation, prohibited work, insurance, safe human oversight | [Legal, safety, and compliance](topics/legal-safety-and-compliance.md) |
@@ -59,18 +123,18 @@ Prefixes identify the subject, not the team that must answer it:
 
 | Prefix examples | Topic |
 |---|---|
-| `BIZ`, `APR`, `BCL` | Business model, commercial approval, and business climate |
+| `BIZ`, `APR`, `BCL`, `GTM` | Business model, commercial approval, business climate, sales, and go-to-market |
 | `BEN` | External pricing, market quotes, and competitive benchmarking |
 | `FAC` | Facility, site, utilities, building systems, and physical layout |
 | `CUS`, `MKT`, `TRU`, `CRD` | Customer, demand, market geography, trust, credit, and payment |
 | `ENG`, `CAD`, `PLT` | Technical and product |
-| `MFG`, `CNC`, `ADD`, `FIN`, `QUA`, `ASM`, `OPS` | Manufacturing and operations |
+| `MFG`, `CNC`, `ADD`, `FAB`, `FIN`, `QUA`, `ASM`, `OPS`, `REL` | Manufacturing, operations, and reliability |
 | `INV` | Inventory, accountable movement, WIP, future demand, tool life, refurbishment, locations, and asset management |
 | `SHP` | Minimum shop support equipment, supplies, process dependencies, utilities, space, safety, and readiness |
 | `ZON` | Human and automation zones, state transitions, access, routing, scheduling, priority, intervention, and emergency behavior |
 | `HUM`, `LAB` | Human, employee, workforce, labor markets, and organization |
 | `GEO`, `SUP`, `MAT`, `INP`, `LOG` | Geography, suppliers, materials, energy, input costs, freight, and delivery |
-| `TAX`, `PRI`, `SCH` | Tax, financial, pricing, and scheduling |
+| `FNC`, `TAX`, `PRI`, `SCH` | Financial modeling, tax, pricing, and scheduling |
 | `INS` | Insurance, risk transfer, and risk financing |
 | `STD` | Standards, certification, accreditation, qualification, and compliance |
 | `LEG`, `SAF` | Legal, safety, and compliance |
@@ -92,6 +156,9 @@ Keep this area easy to use:
 6. Record partial answers, competing options, assumptions, and evidence
    without forcing an early decision.
 7. Do not silently turn an unanswered question into a product assumption.
+8. Keep only the questions needed for the current decision wave active; leave
+   later questions open without allowing them to block the next evidence-
+   producing step.
 
 ## Canonical Question and Duplicate Rules
 

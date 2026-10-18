@@ -6,18 +6,30 @@ This is the canonical cross-topic index for discovery questions. Every question 
 
 This file is generated from headings in `topics/*.md`. Do not use exact wording alone for duplicate detection; review aliases, related questions, and neighboring topics.
 
-**Indexed questions:** 1105
+**Indexed questions:** 1175
 
 ## Index
 
 | ID | State | Canonical question | Topic file |
 |---|---|---|---|
-| `ADD-001` | Open | Which additive processes and materials are initially supported? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
-| `ADD-002` | Open | How are orientation, support, anisotropy, warpage, shrinkage, porosity, and surface finish incorporated? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
-| `ADD-003` | Open | When is additive appropriate for a functional final part versus a prototype, pattern, fixture, or visual model? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
-| `ADD-004` | Open | What postprocessing is required? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
-| `ADD-005` | Open | How are build failures and material-property uncertainty priced and communicated? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
-| `ADD-006` | Open | What dimensional and mechanical validation is required? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `ADD-001` | Open | Which additive processes and materials are initially supported? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-002` | Open | How are orientation, support, anisotropy, warpage, shrinkage, porosity, and surface finish incorporated? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-003` | Open | When is additive appropriate for a functional final part versus a prototype, pattern, fixture, or visual model? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-004` | Open | What postprocessing is required? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-005` | Open | How are build failures and material-property uncertainty priced and communicated? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-006` | Open | What dimensional and mechanical validation is required? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-007` | Open | Which additive use cases provide a defensible advantage over machining, molding, casting, fabrication, or an external print service? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-008` | Open | What build envelope, feature size, tolerance, surface, quantity, and lead-time limits define the initial additive capability? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-009` | Open | Which additive design rules must be checked before quoting and customer approval? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-010` | Open | How are build orientation, support strategy, nesting, lot segregation, witness coupons, and downstream machining approved and recorded? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-011` | Open | Which postprocessing steps must be available in-house or through qualified partners before an additive capability is marketable? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-012` | Open | How are additive feedstock identity, lot traceability, storage, conditioning, shelf life, contamination, recovery, and reuse controlled? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-013` | Open | What powder, resin, gas, fume, fire, explosion, static, toxicity, housekeeping, and waste controls are required for each candidate process? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-014` | Open | How are machines, parameter sets, software versions, materials, operators, and postprocessing routes qualified and change-controlled? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-015` | Open | Which in-process monitoring, coupon testing, dimensional inspection, nondestructive evaluation, and destructive testing are required by application risk? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-016` | Open | What complete cost model captures preparation, machine time, warmup, cooldown, inert gas, feedstock loss, labor, failed builds, postprocessing, inspection, maintenance, and working capital? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-017` | Open | Which utilization, yield, repeat demand, qualification, and postprocessing thresholds justify owning an additive process instead of outsourcing it? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
+| `ADD-018` | Open | How will actual build success, property variation, lead time, total cost, and customer acceptance determine whether the additive offering expands, changes, or stops? | [additive-manufacturing.md](topics/additive-manufacturing.md) |
 | `AIA-001` | Open | Which tasks are suitable for generative AI versus deterministic engineering software? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `AIA-002` | Open | How are hallucinations or unsupported claims detected? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `AIA-003` | Open | When must the system say it does not know? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
@@ -147,6 +159,10 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `CNC-010` | Open | How are probing, work offsets, tool offsets, runout, warmup, and inspection represented? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `CNC-011` | Open | Which remaining-stock and collision checks are required? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `CNC-012` | Open | How are feeds, speeds, tool life, coolant, chip evacuation, and material variability calibrated? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `CNC-013` | Open | Which turning, mill-turn, Swiss, grinding, EDM, and other subtractive process families belong in the initial or partner capability envelope? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `CNC-014` | Open | How are bar stock, remnants, collets, chucks, jaws, tailstocks, steady rests, sub-spindle transfer, cutoff, part catching, and chip control planned for turned work? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `CNC-015` | Open | When may probing or tool measurement update offsets automatically, and which results require a stop, quarantine, or qualified-human review? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `CNC-016` | Open | What representative test parts and process-capability evidence establish the real size, tolerance, finish, material, and unattended-operation envelope of each machine? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `CRD-001` | Open | How should a customer's past payment history affect future work and payment terms? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
 | `CRD-002` | Open | Which internal payment metrics should be retained? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
 | `CRD-003` | Open | How should legitimate invoice disputes affect payment history? | [customer-credit-and-payment-risk.md](topics/customer-credit-and-payment-risk.md) |
@@ -215,6 +231,14 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `ENG-010` | Open | Can approval be conditional, and how are the conditions tracked? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
 | `ENG-011` | Open | What changes after approval require reapproval and a new price or schedule? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
 | `ENG-012` | Open | How do we prevent a visual rendering from being mistaken for a fully engineered design? | [engineering-cad-and-product-development.md](topics/engineering-cad-and-product-development.md) |
+| `FAB-001` | Open | Which sheet, plate, tube, sawing, cutting, forming, welding, and fabrication processes are initially supported? | [fabrication-forming-and-welding.md](topics/fabrication-forming-and-welding.md) |
+| `FAB-002` | Open | What material, thickness, tube profile, part size, bend, weld, tolerance, quantity, and cosmetic limits define the initial fabrication envelope? | [fabrication-forming-and-welding.md](topics/fabrication-forming-and-welding.md) |
+| `FAB-003` | Open | Which fabricated products and end markets offer enough repeat demand, value density, and differentiation to justify the capability? | [fabrication-forming-and-welding.md](topics/fabrication-forming-and-welding.md) |
+| `FAB-004` | Open | How are sheet and tube nesting, grain direction, common-line cutting, kerf, lead-ins, tabs, small features, tip-up risk, remnants, and mixed-customer material segregation controlled? | [fabrication-forming-and-welding.md](topics/fabrication-forming-and-welding.md) |
+| `FAB-005` | Open | How are bend allowance, bend deduction, K-factor, tooling, springback, reliefs, sequencing, and collision risk validated before release? | [fabrication-forming-and-welding.md](topics/fabrication-forming-and-welding.md) |
+| `FAB-006` | Open | How are fit-up, tack sequence, heat input, distortion, weld procedure, welder qualification, inspection, and post-weld correction controlled? | [fabrication-forming-and-welding.md](topics/fabrication-forming-and-welding.md) |
+| `FAB-007` | Open | What complete ecosystem cost includes material handling, gas, extraction, deburring, forming, welding, inspection, finishing, consumables, scrap, maintenance, and floor space? | [fabrication-forming-and-welding.md](topics/fabrication-forming-and-welding.md) |
+| `FAB-008` | Open | Which demand, utilization, yield, changeover, outside-process, and quality thresholds justify owning each fabrication process rather than outsourcing it? | [fabrication-forming-and-welding.md](topics/fabrication-forming-and-welding.md) |
 | `FAC-001` | Open | What does the physical space need in order to run this business? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
 | `FAC-002` | Open | How much total square footage is required at each business phase? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
 | `FAC-003` | Open | What utilization and storage assumptions determine square footage? | [facility-site-utilities-and-layout.md](topics/facility-site-utilities-and-layout.md) |
@@ -294,6 +318,16 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `FIN-005` | Open | What certifications or process records are retained? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `FIN-006` | Open | How are cosmetic standards represented and approved? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `FIN-007` | Open | Which treatments introduce environmental, safety, or regulatory constraints? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `FNC-001` | Open | What integrated income-statement, balance-sheet, and cash-flow model is required for each crawl, walk, and run scenario? | [financial-model-and-capital-readiness.md](topics/financial-model-and-capital-readiness.md) |
+| `FNC-002` | Open | What startup uses of cash and sources of funds are required before the first order, first owned capability, and first expansion? | [financial-model-and-capital-readiness.md](topics/financial-model-and-capital-readiness.md) |
+| `FNC-003` | Open | What fixed, variable, step-fixed, pass-through, maintenance, replacement-capital, and owner-labor costs belong in each scenario? | [financial-model-and-capital-readiness.md](topics/financial-model-and-capital-readiness.md) |
+| `FNC-004` | Open | What unit economics and break-even utilization apply by service, process, customer type, and order profile? | [financial-model-and-capital-readiness.md](topics/financial-model-and-capital-readiness.md) |
+| `FNC-005` | Open | How do deposits, receivables, inventory, WIP, supplier terms, scrap, rework, and outside processing determine the cash-conversion cycle and peak working-capital need? | [financial-model-and-capital-readiness.md](topics/financial-model-and-capital-readiness.md) |
+| `FNC-006` | Open | How much cash runway and contingency reserve are required under base, downside, delayed-ramp, and equipment-failure cases? | [financial-model-and-capital-readiness.md](topics/financial-model-and-capital-readiness.md) |
+| `FNC-007` | Open | Which equity, owner capital, bank debt, equipment finance, lease, seller finance, grants, or partner structures fit each stage? | [financial-model-and-capital-readiness.md](topics/financial-model-and-capital-readiness.md) |
+| `FNC-008` | Open | What debt-service coverage, collateral, covenant, guarantee, and liquidity constraints would each financing option impose? | [financial-model-and-capital-readiness.md](topics/financial-model-and-capital-readiness.md) |
+| `FNC-009` | Open | What financial gates must be met before hiring, leasing space, buying equipment, internalizing an outside process, or adding automation? | [financial-model-and-capital-readiness.md](topics/financial-model-and-capital-readiness.md) |
+| `FNC-010` | Open | What stop, pause, sell, outsource, or wind-down thresholds protect the owner and business when demand, margin, cash, or execution differs from plan? | [financial-model-and-capital-readiness.md](topics/financial-model-and-capital-readiness.md) |
 | `GEO-001` | Open | Where are the industrial powerhouses in the USA? | [industrial-geography-and-domestic-supply-chain.md](topics/industrial-geography-and-domestic-supply-chain.md) |
 | `GEO-002` | Open | Where are the manufacturing powerhouses in the USA? | [industrial-geography-and-domestic-supply-chain.md](topics/industrial-geography-and-domestic-supply-chain.md) |
 | `GEO-003` | Open | Where are manufacturers' raw materials made in the USA? | [industrial-geography-and-domestic-supply-chain.md](topics/industrial-geography-and-domestic-supply-chain.md) |
@@ -311,6 +345,18 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `GEO-015` | Open | Which factors should be mandatory gates rather than tradeable weighted criteria? | [industrial-geography-and-domestic-supply-chain.md](topics/industrial-geography-and-domestic-supply-chain.md) |
 | `GEO-016` | Open | How should region, metropolitan area, municipality, industrial park, and specific property be evaluated as separate decision levels? | [industrial-geography-and-domestic-supply-chain.md](topics/industrial-geography-and-domestic-supply-chain.md) |
 | `GEO-017` | Open | What actual quotes, interviews, trial shipments, customer tests, and property due diligence are required before recommending a location? | [industrial-geography-and-domestic-supply-chain.md](topics/industrial-geography-and-domestic-supply-chain.md) |
+| `GTM-001` | Open | What narrow offer, proof, and call to action should be presented to the first target customer? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-002` | Open | Which customer pains are urgent and expensive enough to produce a near-term buying decision? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-003` | Open | Which claims can the business credibly make before it has extensive production history, references, or certifications? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-004` | Open | Which acquisition channels can reach the first customers: direct outreach, referrals, local networks, distributors, digital content, marketplaces, partnerships, or existing job shops? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-005` | Open | What qualification criteria distinguish a useful lead from work that is unsafe, unprofitable, uncollectable, outside capability, or strategically distracting? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-006` | Open | What stages, owners, evidence, and exit criteria define the path from lead through quote, first order, qualification, and repeat business? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-007` | Open | Which reasons for no-quote, lost quote, delayed decision, and lost customer must be recorded? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-008` | Open | What customer-acquisition cost, sales effort, quote effort, conversion rate, sales cycle, order value, repeat rate, and lifetime value are acceptable for each target segment? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-009` | Open | How will paid pilots, sample parts, first-article work, guarantees, deposits, and references reduce first-order risk without creating an unsustainable sales subsidy? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-010` | Open | What evidence and thresholds determine whether to scale, revise, or stop a channel, segment, offer, or customer-acquisition experiment? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-011` | Open | Which master terms, purchase-order clauses, blanket orders, release schedules, price locks, warranties, indemnities, and liability terms are acceptable or require review? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
+| `GTM-012` | Open | In partner-manufacturing or broker models, is the business acting as principal or agent, and can markup cover engineering, quality, late delivery, defects, customer support, and payment risk? | [sales-and-go-to-market.md](topics/sales-and-go-to-market.md) |
 | `HUM-001` | Open | Which people and roles are required for the first commercially viable version of the business? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
 | `HUM-002` | Open | Which work should be performed by employees, contractors, specialist firms, suppliers, or software automation? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
 | `HUM-003` | Open | Which roles require licensed engineers, experienced machinists, welders, quality professionals, designers, salespeople, or other qualifications? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
@@ -327,6 +373,9 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `HUM-014` | Open | Which performance measures encourage quality, safety, and learning rather than only speed or utilization? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
 | `HUM-015` | Open | What parts of the customer relationship should always feel human even when much of the process is automated? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
 | `HUM-016` | Open | How should employing family members be governed, compensated, evaluated, and separated from family relationships? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
+| `HUM-017` | Open | Which engineering, manufacturing, sales, finance, quality, safety, maintenance, and leadership competencies do the founders already possess and which are missing? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
+| `HUM-018` | Open | Which missing competency creates the first mandatory employee, contractor, adviser, or partner role? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
+| `HUM-019` | Open | How many machines, cells, jobs, customers, or shifts can one qualified person safely and reliably support at each business stage? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
 | `INP-001` | Open | Where can the business find reasonably priced wholesale steel, aluminum, fuel, and electricity? | [raw-materials-energy-and-input-costs.md](topics/raw-materials-energy-and-input-costs.md) |
 | `INP-002` | Open | Which steel products will the business buy most often? | [raw-materials-energy-and-input-costs.md](topics/raw-materials-energy-and-input-costs.md) |
 | `INP-003` | Open | When should steel be purchased from a mill, master distributor, service center, or local supplier? | [raw-materials-energy-and-input-costs.md](topics/raw-materials-energy-and-input-costs.md) |
@@ -609,6 +658,8 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `MFG-022` | Open | How should candidate automation investments be ranked by ROI? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MFG-023` | Open | How do we verify that an automation improvement removed the real bottleneck? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MFG-024` | Open | How do we prevent local optimization from making total shop flow worse? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-025` | Open | How are printed, cast, forged, welded, repaired, or otherwise near-net workpieces registered, probed, and represented as starting stock for downstream machining? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `MFG-026` | Open | How are allowances, datum strategy, distortion, process ownership, inspection, and traceability transferred across additive, subtractive, forming, welding, heat treatment, and finishing steps? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `MKT-001` | Open | Where are the most customers for subtractively and additively manufactured parts? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-002` | Open | Which industries buy the relevant custom parts? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-003` | Open | Which customer types best fit the initial business? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
@@ -667,15 +718,23 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `MKT-056` | Open | Which growing industries generate outsourced work that matches the planned capabilities rather than work that remains captive or inaccessible? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-057` | Open | Which capacity-constrained work is attractive, and which work is available only because established suppliers reject its margin, quality, liability, or customer risk? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
 | `MKT-058` | Open | What evidence would show that the business can continue adding customers and market share after winning its first capacity-driven orders? | [customer-demand-and-market-geography.md](topics/customer-demand-and-market-geography.md) |
-| `OPS-001` | Open | Which roles are needed initially? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
-| `OPS-002` | Open | Which responsibilities require engineering, machining, quality, welding, procurement, legal, or customer-service qualifications? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
-| `OPS-003` | Open | What work instructions and checklists are mandatory? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
-| `OPS-004` | Open | How are training and authorization tracked? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
-| `OPS-005` | Open | What business hours and support commitments are offered? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
-| `OPS-006` | Open | How are project ownership and handoffs managed? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
-| `OPS-007` | Open | Which operational metrics matter? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
-| `OPS-008` | Open | What failure modes could stop the business, and what contingency plans are required? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
-| `OPS-009` | Open | What must be documented so the business does not depend on tacit knowledge? | [people-and-operating-model.md](topics/people-and-operating-model.md) |
+| `OPS-001` | Superseded | Which roles are needed initially? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-002` | Open | Which responsibilities require engineering, machining, quality, welding, procurement, legal, or customer-service qualifications? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-003` | Open | What work instructions and checklists are mandatory? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-004` | Superseded | How are training and authorization tracked? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-005` | Open | What business hours and support commitments are offered? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-006` | Open | How are project ownership and handoffs managed? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-007` | Open | Which operational metrics matter? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-008` | Open | What failure modes could stop the business, and what contingency plans are required? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-009` | Open | What must be documented so the business does not depend on tacit knowledge? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-010` | Open | What information must be complete before an order is accepted, released to engineering, or released to production? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-011` | Open | How are routing, job travelers, revisions, material, tooling, programs, inspection, outside processes, packaging, and required approvals controlled for each job? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-012` | Open | How are finite capacity, bottlenecks, setup families, material availability, maintenance, outside-process queues, and due dates used to release and dispatch work? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-013` | Open | What WIP limits, queue rules, expedite authority, and exception signals prevent the shop from starting more work than it can finish reliably? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-014` | Open | How are partial quantities, first articles, holds, nonconformances, rework, scrap, and replacement work reflected in job status and schedule commitments? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-015` | Open | What shift, employee, automation, supplier, and customer handoff information must be recorded so work does not lose context? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-016` | Open | How are actual setup, run, attended labor, material, tooling, outside service, inspection, downtime, scrap, and rework captured at job close? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
+| `OPS-017` | Open | Which daily, weekly, and monthly reviews turn safety, quality, delivery, cost, cash, capacity, and maintenance evidence into assigned corrective action? | [production-planning-and-shop-operations.md](topics/production-planning-and-shop-operations.md) |
 | `PLT-001` | Open | What is the authoritative digital thread for a project? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PLT-002` | Open | Which objects require immutable revision history? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
 | `PLT-003` | Open | How are requirements, CAD revisions, approvals, quotes, manufacturing plans, inspection records, and shipments linked? | [data-ai-and-platform.md](topics/data-ai-and-platform.md) |
@@ -735,6 +794,17 @@ This file is generated from headings in `topics/*.md`. Do not use exact wording 
 | `QUA-017` | Open | When may dimensional measurements be corrected to the 20°C reference temperature? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-018` | Open | How do coolant temperature and machine warmup affect process control? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
 | `QUA-019` | Open | Which jobs require thermal compensation, in-process probing, or temperature-conditioned inspection? | [manufacturing-processes-and-quality.md](topics/manufacturing-processes-and-quality.md) |
+| `REL-001` | Open | Which machines, utilities, controls, software, tools, gauges, and supplier capabilities are critical to revenue, safety, quality, or delivery? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
+| `REL-002` | Open | What preventive, condition-based, predictive, calibration, cleaning, lubrication, and statutory maintenance is required for each critical asset? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
+| `REL-003` | Open | How are maintenance intervals adjusted using duty cycle, environment, failure history, condition evidence, and manufacturer guidance? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
+| `REL-004` | Open | Which maintenance work requires employees, OEM service, independent specialists, integrators, electricians, riggers, calibration providers, or other qualified parties? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
+| `REL-005` | Open | Which critical spares, backups, consumables, parameter files, licenses, manuals, and recovery tools must be held or rapidly available? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
+| `REL-006` | Open | Which failure, downtime, mean-time-between-failure, mean-time-to-repair, repeat-fault, and maintenance-compliance measures are decision-useful? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
+| `REL-007` | Open | How are serviceability, parts availability, control obsolescence, vendor support, and repair lead time included in equipment selection and replacement? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
+| `REL-008` | Open | What safe diagnostic, repair, test, recommissioning, and production-release evidence is required after maintenance or a failure? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
+| `REL-009` | Open | What alternate machine, outside supplier, manual fallback, spare utility, data recovery, or customer-communication plan exists for each critical dependency? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
+| `REL-010` | Open | How often must continuity and recovery plans be exercised, and what results require capital, process, supplier, or inventory changes? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
+| `REL-011` | Open | What safe dwell state, alarm escalation, on-call response time, remote-diagnostic boundary, and site-response capability are required for reduced-attendance or unattended operation? | [maintenance-reliability-and-continuity.md](topics/maintenance-reliability-and-continuity.md) |
 | `SAF-001` | Open | Which decisions must always be made or approved by a qualified human? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |
 | `SAF-002` | Open | How are hazards identified across design, manufacturing, use, maintenance, and disposal? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |
 | `SAF-003` | Open | How is severity distinguished from probability and detectability? | [legal-safety-and-compliance.md](topics/legal-safety-and-compliance.md) |

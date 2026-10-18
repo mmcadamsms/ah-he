@@ -3,7 +3,7 @@
 ## Status
 
 - **Status:** Planned
-- **Sequence:** 3
+- **Sequence:** 2
 - **Decision:** How should the business enter, validate, add physical
   capabilities, and scale automation without taking on excessive complexity?
 
@@ -171,10 +171,16 @@ The paper must:
 
 - [Business and Commercial Strategy](../discovery/topics/business-and-commercial-strategy.md)
 - [Customer Demand and Market Geography](../discovery/topics/customer-demand-and-market-geography.md)
+- [Sales and Go-to-Market](../discovery/topics/sales-and-go-to-market.md)
 - [Customer Intent and Experience](../discovery/topics/customer-intent-and-experience.md)
 - [Manufacturing Processes and Quality](../discovery/topics/manufacturing-processes-and-quality.md)
+- [Additive Manufacturing](../discovery/topics/additive-manufacturing.md)
+- [Fabrication, Forming, and Welding](../discovery/topics/fabrication-forming-and-welding.md)
+- [Production Planning and Shop Operations](../discovery/topics/production-planning-and-shop-operations.md)
+- [Maintenance, Reliability, and Continuity](../discovery/topics/maintenance-reliability-and-continuity.md)
 - [Data, AI, and Platform](../discovery/topics/data-ai-and-platform.md)
 - [Minimum Shop Support Capabilities](../discovery/topics/minimum-shop-support-capabilities.md)
 - [Human and Automation Zone Safety](../discovery/topics/human-automation-zone-safety.md)
 - [People and Operating Model](../discovery/topics/people-and-operating-model.md)
+- [Financial Model and Capital Readiness](../discovery/topics/financial-model-and-capital-readiness.md)
 - [Tax, Finance, and Capital](../discovery/topics/tax-finance-and-capital.md)
