@@ -26,6 +26,9 @@ Thumbs.db
 .env
 .env.local
 
+# Local discovery-mail state and personal feedback
+.discovery-mail/
+
 # Kotlin
 *.kotlin_module
 

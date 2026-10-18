@@ -5,7 +5,8 @@ Multi-channel notification delivery — email, push notifications (mobile), and 
 
 ## Requirements
 
-_Add requirement documents to this directory as `.md` files._
+- [Discovery email learning tour](discovery-email-learning-tour.md) - local,
+  stateful Outlook delivery and topic/question-linked reply collection.
 
 ### Planned
 - Email notifications
