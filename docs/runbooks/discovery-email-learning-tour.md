@@ -56,6 +56,12 @@ display its command window one last time; subsequent launches have no visible
 console and should not steal focus. Triggers, principal, settings, enabled
 state, frozen questions, feedback, and delivery progress are preserved.
 
+Windows may show a short account name in the task's `Principal.UserId`.
+The helper verifies an otherwise unrecognized display name against the exported
+task registration's qualified account or SID, rather than accepting a matching
+username alone. Interactive logon, limited privileges, and the expected single
+action are still required.
+
 Reply requests become available on that first updated poll, including replies
 to questions sent before the update. Previously collected feedback is not
 reinterpreted as a command. No manual state migration, task re-registration,
@@ -261,6 +267,23 @@ Check status and the last Task Scheduler result:
 Get-ScheduledTaskInfo -TaskName 'AHHE Discovery Learning Tour'
 Get-Content "$env:LOCALAPPDATA\AHHE\DiscoveryMail\errors.log" -Tail 20
 ```
+
+If repeated visible windows accompany `Refusing to change task ... ownership or
+principal is not recognized`, the migration is failing before Outlook access.
+Inspect both the displayed principal and its registered identity:
+
+```powershell
+$task = Get-ScheduledTask -TaskPath '\' -TaskName 'AHHE Discovery Learning Tour'
+$task.Principal | Format-List UserId, LogonType, RunLevel
+$registration = [xml](Export-ScheduledTask -TaskPath '\' -TaskName $task.TaskName)
+$registration.Task.Principals.Principal | Format-List UserId
+```
+
+A short displayed name alone is not a foreign owner. An up-to-date helper checks
+the registration before rejecting it. If the registered identity is different
+or cannot be verified, investigate rather than bypassing the ownership check,
+recreating the task, or reinitializing the campaign. Inspect the task action
+paths to confirm the scheduler uses the checkout you updated.
 
 `ConfirmedSent` means the script found the message in Sent Items or an operator
 explicitly confirmed it. It does **not** mean delivered or read. A question
