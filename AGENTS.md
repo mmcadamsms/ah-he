@@ -32,6 +32,7 @@
 | Geometry/CAM worker | [backend/geometry-cam-worker/](backend/geometry-cam-worker/) |
 | Shared KMP module | [common/kotlin/](common/kotlin/) |
 | Operational runbooks | [docs/runbooks/](docs/runbooks/) |
+| Proposed low-cost blob logging | [requirements/functional-areas/observability/low-cost-azure-blob-logging.md](requirements/functional-areas/observability/low-cost-azure-blob-logging.md) |
 | CNC cycle-time model | [docs/manufacturing/umc-750-cycle-time-model.md](docs/manufacturing/umc-750-cycle-time-model.md) |
 
 ## Agent Workflow
