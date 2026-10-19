@@ -111,6 +111,11 @@ and collect replies from `Inbox\myself` into topic/question-linked Markdown in
 and private metadata remain local. Scheduling is opt-in and requires a
 signed-in Windows desktop with classic Outlook.
 
+Scheduled polls launch without a command window. Reply with `MORE QUESTIONS`
+on its own line to request one extra question; `Start`/`Stop` resumes or pauses
+saved progress. The first updated poll upgrades an existing recognized task
+automatically, without reinitializing the campaign.
+
 ## For AI Agents
 
 Start with [AGENTS.md](AGENTS.md) — it provides a structured index of everything you need.

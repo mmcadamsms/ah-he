@@ -30,6 +30,22 @@ only in private local storage. Collection exports automatically, and an
 offline export action supports existing campaigns. Do not automatically
 commit, approve, execute, or apply incoming content.
 
+Use a small Windows Script Host VBScript launcher for scheduled execution.
+`wscript.exe` is a GUI-subsystem host; `WScript.Shell.Run(..., 0, True)` starts
+PowerShell hidden, waits, and propagates its exit code. A console host with
+only `-WindowStyle Hidden` can still flash before PowerShell initializes;
+Task Scheduler's `Hidden` setting only hides the task from its UI. Existing
+polls upgrade only an exactly recognized action for the same user, checkout,
+and local state, leaving all other task configuration untouched.
+
+Treat `MORE QUESTIONS` on its own extracted reply line as a narrowly scoped
+request for one additional question, not general instruction execution. Queue
+it atomically with the deduplicated reply and link its send attempt to the
+request. Confirm extra sends through the same journal without changing the
+regular slot watermark. Additive state fields preserve existing campaigns;
+already collected replies are never reinterpreted as commands. Idempotent
+start/stop only manages the owned task and never recreates campaign state.
+
 ## Alternatives and Consequences
 
 Microsoft Graph would be preferable for a supported unattended service, but
@@ -42,6 +58,12 @@ delivery guarantee is made. Local locks cannot coordinate separate machines;
 only one machine may operate a campaign. Private state requires approved local
 storage and backups. Generated repository feedback requires review before
 commit or sharing; response text may itself contain sensitive information.
+Scheduled execution also requires Windows Script Host and VBScript, a
+deprecated Windows feature that may be absent or blocked by policy. Fail
+explicitly rather than falling back to a focus-stealing launcher. Launcher
+startup failures surface through Task Scheduler's result; PowerShell runtime
+failures also use the private error log. The first legacy poll after syncing
+can still display its old console before installing the hidden action.
 
 See the [requirements](../../../requirements/functional-areas/notifications/discovery-email-learning-tour.md)
 and [runbook](../../runbooks/discovery-email-learning-tour.md).

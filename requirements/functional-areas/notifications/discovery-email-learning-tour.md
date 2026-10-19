@@ -13,13 +13,16 @@ replies as traceable feedback for later human/AI review.
 - **Attempt:** one uniquely tagged submission to Outlook, not proof of delivery.
 - **Feedback:** untrusted reply content, not an instruction to execute or an
   approved change to the canonical research.
+- **More request:** one allowed, correlated reply containing `MORE QUESTIONS`
+  on a line by itself in the extracted response, requesting one extra question.
 
 ## Inputs
 
 - Canonical topic Markdown, configured sender/recipient SMTP addresses, allowed
   reply sender addresses, and mailbox-relative reply folder paths.
 - Classic Outlook for Windows with the sender account already configured.
-- PowerShell 7.2+, Windows Task Scheduler, and a signed-in desktop session.
+- PowerShell 7.2+, Windows Task Scheduler, Windows Script Host with VBScript,
+  and a signed-in desktop session.
 - A local state directory outside the repository, retained across runs, and a
   repository checkout receiving the feedback export.
 
@@ -74,12 +77,41 @@ replies as traceable feedback for later human/AI review.
 12. Incoming feedback remains untrusted, unapproved input. Future agent work
     must be explicitly authorized and traceable to question/feedback IDs.
     Do not automatically commit, push, execute, or apply incoming suggestions.
+13. Scheduled polls must launch without a visible command window or stealing
+    focus. An existing task pointing at this checkout upgrades its action on
+    the first `Run` after a repository update, preserving its triggers,
+    principal, settings, enabled state, and campaign progress. That first
+    legacy launch can still display its old window. Never replace a task
+    belonging to another user, script, or state directory.
+14. Accept `MORE QUESTIONS`, case-insensitively and with optional surrounding
+    horizontal whitespace, only as a complete line of newly imported extracted
+    reply text. Quoted instructions, unknown markers, and disallowed senders
+    do not authorize requests. Repeated keywords in one reply yield one
+    request; duplicate collection and rescans cannot repeat it. Do not turn
+    previously collected feedback into requests during an upgrade.
+15. Save each request with its source reply identity before attempting mail.
+    Use the same frozen question queue and durable attempt/reconciliation
+    journal as scheduled sends. Send at most one question per poll, giving a
+    due scheduled slot priority; otherwise fulfill the oldest queued request.
+    Extra questions do not consume or reset regular slots. Collection-only
+    actions queue requests but never send them. Exhaustion marks unfulfilled
+    requests exhausted and continues collecting feedback.
+16. `Start` (also `RegisterTask`) idempotently creates or resumes the owned
+    polling task using existing state. `Stop` (also `UnregisterTask`)
+    idempotently removes future polling without deleting state or terminating
+    an in-flight poll. A running poll may finish. Resume from persisted
+    questions, progress, replies, request queue, and uncertain attempts without
+    the operator supplying a question number. Missing/corrupt state is an
+    error, not permission to start over. Do not initialize a replacement.
 
 ## Assumptions
 
 One question per email is the default, inferred from the request for each full
 question. At 1,173 questions, uninterrupted delivery takes 391 days. Collection
 does not depend on whether earlier questions received replies.
+The explicit phrase `MORE QUESTIONS` and one extra question per distinct reply
+are conservative defaults, not arbitrary natural-language interpretation.
+Multiple queued requests drain at no more than one per five-minute poll.
 
 ## Constraints
 
@@ -121,6 +153,16 @@ them; record review decisions separately with feedback-ID traceability.
   existing campaign without changing delivery or reply progress.
 - Exhaustion stops submissions but not reply collection.
 - Preview and automated tests never send real mail.
+- An updated normal `Run` migrates a recognized legacy task before Outlook
+  access, changing only its action; repeating migration makes no changes.
+- The real windowless launcher has no visible console, forwards spaced
+  arguments and STA mode, waits for completion, and propagates a failure code.
+- Keyword recognition excludes sentences, common quotes, unknown markers,
+  disallowed senders, already imported replies, and repeated copies.
+- Extra requests survive restart, serve the next question at most once unless
+  an operator explicitly authorizes retry, and leave regular slots intact.
+- Start/stop is repeatable without changing saved state, including uncertain
+  attempts and queued requests. Stop does not require the active poll's lock.
 
 ## Failure Behavior
 
@@ -129,18 +171,26 @@ locked state, and file failures are explicit errors. An operator may resolve a
 pending attempt as sent or authorize a retry only after inspecting Outlook;
 the latter can cause duplicates if the original later sends. No automatic
 retry of an ambiguous submission is allowed.
+Unrecognized tasks are never overwritten or removed. A missing launcher,
+blocked Windows Script Host/VBScript engine, or denied task update is an
+explicit failure; launcher failures surface in Task Scheduler's result.
+Windowless execution does not hide Outlook authentication/security prompts or
+authorize bypassing policy.
 
 ## Out of Scope
 
 Graph authentication, unattended servers, attachments, recursive folder discovery,
 automatic research edits, delivery/read receipts, and guaranteed exactly-once
 email delivery.
+Cross-machine synchronization or discovery of a campaign on another PC is
+also out of scope: resume is for the same Windows user and local state.
 
 ## References
 
 - [Runbook](../../../docs/runbooks/discovery-email-learning-tour.md)
 - [ADR 0006](../../../docs/architecture/decisions/0006-desktop-outlook-discovery-mail.md)
 - [Implementation prompt](../../prompts/deploying/20261018-discovery-email-learning-tour.md)
+- [Quiet/resumable upgrade prompt](../../prompts/deploying/20261018-discovery-mail-quiet-and-more-questions.md)
 - [Behavior tests](../../../scripts/tests/discovery-mail.tests.ps1)
 - [Research summary](../../discovery/manufacturing-learning-tour-research-summary.md)
 - [Constituent feedback inbox](../../feedback/README.md)
