@@ -97,6 +97,17 @@ function Get-ScheduledTask {
     param([string]$TaskPath)
     if ($null -ne $script:scheduler.Task) { return $script:scheduler.Task }
 }
+function Export-ScheduledTask {
+    [CmdletBinding()]
+    param([string]$TaskName, [string]$TaskPath)
+    $task = $script:scheduler.Task
+    Assert-Equal $TaskName $task.TaskName 'only the named task registration is read'
+    Assert-Equal $TaskPath '\' 'only the root task registration is read'
+    $userId = $task.Principal.UserId
+    if ($null -ne $task.PSObject.Properties['RegisteredUserId']) { $userId = $task.RegisteredUserId }
+    return '<Task xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task"><Principals><Principal><UserId>' +
+        [Security.SecurityElement]::Escape($userId) + '</UserId></Principal></Principals></Task>'
+}
 function New-ScheduledTaskAction {
     param([string]$Execute, [string]$Argument)
     return [pscustomobject]@{ Execute = $Execute; Arguments = $Argument }
@@ -683,11 +694,15 @@ Not part of the prior question.
         Register-DiscoveryMailTask $name $s.Directory $scriptPath
         $task = $script:scheduler.Task
         $task.Actions = @([pscustomobject]@{ Execute = $definition.LegacyExecute; Arguments = $definition.LegacyArguments })
+        $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+        $task.Principal.UserId = ($identity.Name -split '\\')[-1]
+        $task | Add-Member -NotePropertyName RegisteredUserId `
+            -NotePropertyValue $identity.User.Value
         $task.State = 'Disabled'
         $configuration = @($task.Triggers, $task.Principal, $task.Settings) | ConvertTo-Json -Depth 10
         $stateBefore = [IO.File]::ReadAllText((Join-Path $s.Directory 'state.json'))
         Register-DiscoveryMailTask $name $s.Directory $scriptPath -UpgradeOnly
-        Assert-Equal $script:scheduler.Updated 1 'legacy action upgraded'
+        Assert-Equal $script:scheduler.Updated 1 'legacy action upgraded using the registered SID despite a short display name'
         Assert-Equal $task.Actions[0].Execute $definition.Execute 'scheduled entry is the GUI host'
         Assert-Equal $task.Actions[0].Arguments $definition.Arguments 'all launcher arguments preserved'
         Assert-Equal $task.State 'Disabled' 'automatic migration never enables a stopped task'
@@ -712,6 +727,38 @@ Not part of the prior question.
         Invoke-TestCycle $s -At '2026-07-01T15:10:00Z'
         Assert-Equal $s.State.NextIndex 1 'prior uncertain submission is reconciled, not repeated'
         Assert-Equal $s.State.Attempts[1].QuestionId 'TST-002' 'queued extra resumes at the next question'
+    }
+
+    Test-Behavior 'short task names cannot bypass registered ownership or principal safety checks' {
+        $s = New-TestScenario
+        $scriptPath = Join-Path $root 'scripts\discovery-mail.ps1'
+        $name = 'AHHE Discovery Learning Tour'
+        $script:scheduler = @{ Task = $null; Registered = 0; Updated = 0; Enabled = 0; Removed = 0 }
+        Register-DiscoveryMailTask $name $s.Directory $scriptPath
+        $task = $script:scheduler.Task
+        $definition = Get-DiscoveryMailTaskDefinition $name $s.Directory $scriptPath
+        $task.Actions = @([pscustomobject]@{ Execute = $definition.LegacyExecute; Arguments = $definition.LegacyArguments })
+        $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+        $task.Principal.UserId = ($identity.Name -split '\\')[-1]
+        $task | Add-Member -NotePropertyName RegisteredUserId -NotePropertyValue 'S-1-0-0'
+        $before = [IO.File]::ReadAllText((Join-Path $s.Directory 'state.json'))
+        foreach ($registeredId in @('S-1-0-0', "OTHER\$($task.Principal.UserId)", 'unresolved-account', '')) {
+            $task.RegisteredUserId = $registeredId
+            Assert-Throws { Register-DiscoveryMailTask $name $s.Directory $scriptPath -UpgradeOnly } 'ownership'
+            Assert-Throws { Unregister-DiscoveryMailTask $name $s.Directory $scriptPath } 'ownership'
+        }
+        $task.RegisteredUserId = $identity.User.Value
+        $task.Principal.LogonType = 'Password'
+        Assert-Throws { Register-DiscoveryMailTask $name $s.Directory $scriptPath -UpgradeOnly } 'ownership'
+        $task.Principal.LogonType = 'Interactive'
+        $task.Principal.RunLevel = 'Highest'
+        Assert-Throws { Register-DiscoveryMailTask $name $s.Directory $scriptPath -UpgradeOnly } 'ownership'
+        $task.Principal.RunLevel = 'Limited'
+        $task.Actions += $task.Actions[0]
+        Assert-Throws { Register-DiscoveryMailTask $name $s.Directory $scriptPath -UpgradeOnly } 'ownership'
+        Assert-Equal $script:scheduler.Updated 0 'unverified or unsafe tasks are never migrated'
+        Assert-Equal $script:scheduler.Removed 0 'unverified tasks are never removed'
+        Assert-Equal ([IO.File]::ReadAllText((Join-Path $s.Directory 'state.json'))) $before 'failed ownership checks preserve campaign state'
     }
 
     Test-Behavior 'task management refuses foreign actions principals and missing state' {

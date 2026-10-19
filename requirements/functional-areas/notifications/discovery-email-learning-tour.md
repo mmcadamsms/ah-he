@@ -83,6 +83,10 @@ replies as traceable feedback for later human/AI review.
     principal, settings, enabled state, and campaign progress. That first
     legacy launch can still display its old window. Never replace a task
     belonging to another user, script, or state directory.
+    Task Scheduler may display an unqualified account name. In that case,
+    verify the exported task registration identifies the current user's
+    qualified account or SID; a matching username suffix alone is insufficient.
+    Continue requiring one action, interactive logon, and limited run level.
 14. Accept `MORE QUESTIONS`, case-insensitively and with optional surrounding
     horizontal whitespace, only as a complete line of newly imported extracted
     reply text. Quoted instructions, unknown markers, and disallowed senders
@@ -155,6 +159,9 @@ them; record review decisions separately with feedback-ID traceability.
 - Preview and automated tests never send real mail.
 - An updated normal `Run` migrates a recognized legacy task before Outlook
   access, changing only its action; repeating migration makes no changes.
+- Short principal display names do not block an owned task whose exported
+  registration identifies the current user. Foreign or unresolved identities,
+  noninteractive/elevated principals, and multiple actions remain rejected.
 - The real windowless launcher has no visible console, forwards spaced
   arguments and STA mode, waits for completion, and propagates a failure code.
 - Keyword recognition excludes sentences, common quotes, unknown markers,
@@ -191,6 +198,7 @@ also out of scope: resume is for the same Windows user and local state.
 - [ADR 0006](../../../docs/architecture/decisions/0006-desktop-outlook-discovery-mail.md)
 - [Implementation prompt](../../prompts/deploying/20261018-discovery-email-learning-tour.md)
 - [Quiet/resumable upgrade prompt](../../prompts/deploying/20261018-discovery-mail-quiet-and-more-questions.md)
+- [Task-principal compatibility fix](../../prompts/deploying/20261019-discovery-mail-task-principal.md)
 - [Behavior tests](../../../scripts/tests/discovery-mail.tests.ps1)
 - [Research summary](../../discovery/manufacturing-learning-tour-research-summary.md)
 - [Constituent feedback inbox](../../feedback/README.md)

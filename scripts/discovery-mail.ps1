@@ -565,8 +565,18 @@ function Assert-DiscoveryMailTaskOwnership {
     $identity = [Security.Principal.WindowsIdentity]::GetCurrent().Name
     $sid = [Security.Principal.WindowsIdentity]::GetCurrent().User.Value
     $actions = @($Task.Actions)
-    if ($actions.Count -ne 1 -or $Task.Principal.UserId -notin @($identity, $sid) -or
-        $Task.Principal.LogonType -ne 'Interactive' -or $Task.Principal.RunLevel -ne 'Limited') {
+    if ($actions.Count -ne 1 -or $Task.Principal.LogonType -ne 'Interactive' -or
+        $Task.Principal.RunLevel -ne 'Limited') {
+        throw "Refusing to change task '$($Task.TaskName)': its ownership or principal is not recognized."
+    }
+    $owned = $Task.Principal.UserId -in @($identity, $sid)
+    if (-not $owned) {
+        # Task Scheduler can abbreviate the displayed account name; check its registered identity.
+        [xml]$registration = Export-ScheduledTask -TaskName $Task.TaskName -TaskPath '\' -ErrorAction Stop
+        $principals = @($registration.Task.Principals.Principal)
+        $owned = $principals.Count -eq 1 -and [string]$principals[0].UserId -in @($identity, $sid)
+    }
+    if (-not $owned) {
         throw "Refusing to change task '$($Task.TaskName)': its ownership or principal is not recognized."
     }
     $action = $actions[0]
