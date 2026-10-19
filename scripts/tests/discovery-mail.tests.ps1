@@ -56,6 +56,10 @@ function New-TestScenario {
             param($Attempt)
             $saved = Read-DiscoveryMailState $directory
             Assert-Equal $saved.PendingToken $Attempt.Token 'journal is durable before send'
+            if ($Attempt.RequestKey) {
+                $request = Get-DiscoveryMoreRequest $saved $Attempt
+                Assert-Equal $request.Status 'Pending' 'request and attempt are durable together before send'
+            }
             $fake.Sends++
             if ($fake.Fail) { throw 'Simulated Outlook failure' }
         }.GetNewClosure()
@@ -74,6 +78,69 @@ function Invoke-TestCycle {
         [string]$RepositoryRoot)
     Invoke-DiscoveryMailCycle $Scenario.State $Scenario.Directory $Scenario.Transport `
         ([DateTimeOffset]$At) -CollectOnly:$CollectOnly -FullRescan:$FullRescan -RepositoryRoot $RepositoryRoot
+}
+
+function New-TestReply {
+    param($Scenario, [string]$Body = 'MORE QUESTIONS', [string]$Key = '<more@example.net>',
+        [string]$ReceivedUtc = '2026-07-01T15:02:00Z')
+    return @{
+        Key = $Key; Sender = 'reader@example.net'
+        Subject = "RE: $($Scenario.State.Attempts[0].Subject)"
+        ReceivedUtc = $ReceivedUtc; Folder = 'Inbox\myself'; Body = $Body
+    }
+}
+
+# Scheduler commands are fakes throughout this suite, including CLI entry tests.
+$script:scheduler = @{ Task = $null; Registered = 0; Updated = 0; Enabled = 0; Removed = 0 }
+function Get-ScheduledTask {
+    [CmdletBinding()]
+    param([string]$TaskPath)
+    if ($null -ne $script:scheduler.Task) { return $script:scheduler.Task }
+}
+function New-ScheduledTaskAction {
+    param([string]$Execute, [string]$Argument)
+    return [pscustomobject]@{ Execute = $Execute; Arguments = $Argument }
+}
+function New-ScheduledTaskTrigger {
+    param([switch]$Once, $At, $RepetitionInterval)
+    return [pscustomobject]@{ At = $At; RepetitionInterval = $RepetitionInterval }
+}
+function New-ScheduledTaskPrincipal {
+    param([string]$UserId, [string]$LogonType, [string]$RunLevel)
+    return [pscustomobject]@{ UserId = $UserId; LogonType = $LogonType; RunLevel = $RunLevel }
+}
+function New-ScheduledTaskSettingsSet {
+    param([switch]$StartWhenAvailable, [string]$MultipleInstances, [switch]$AllowStartIfOnBatteries,
+        [switch]$DontStopIfGoingOnBatteries, $ExecutionTimeLimit)
+    return [pscustomobject]@{ MultipleInstances = $MultipleInstances; ExecutionTimeLimit = $ExecutionTimeLimit }
+}
+function Register-ScheduledTask {
+    param([string]$TaskName, $Action, $Trigger, $Principal, $Settings, [string]$Description)
+    if ($script:scheduler.Task) { throw 'Test task already exists' }
+    $script:scheduler.Registered++
+    $script:scheduler.Task = [pscustomobject]@{
+        TaskName = $TaskName; Actions = @($Action); Triggers = @($Trigger)
+        Principal = $Principal; Settings = $Settings; State = 'Ready'
+    }
+}
+function Set-ScheduledTask {
+    [CmdletBinding()]
+    param([string]$TaskName, [string]$TaskPath, $Action)
+    Assert-Equal $TaskName $script:scheduler.Task.TaskName 'only the named task is updated'
+    $script:scheduler.Updated++
+    $script:scheduler.Task.Actions = @($Action)
+}
+function Enable-ScheduledTask {
+    [CmdletBinding()]
+    param([string]$TaskName, [string]$TaskPath)
+    $script:scheduler.Enabled++
+    $script:scheduler.Task.State = 'Ready'
+}
+function Unregister-ScheduledTask {
+    [CmdletBinding(SupportsShouldProcess)]
+    param([string]$TaskName, [string]$TaskPath)
+    $script:scheduler.Removed++
+    $script:scheduler.Task = $null
 }
 
 try {
@@ -331,7 +398,7 @@ Not part of the prior question.
         $s.Fake.Messages = @(@{
             Key = '<repair-export@example.net>'; Sender = 'reader@example.net'
             Subject = "RE: $($s.State.Attempts[0].Subject)"; ReceivedUtc = '2026-07-01T15:02:00Z'
-            Folder = 'Inbox\myself'; Body = 'Recover this repository response.'
+            Folder = 'Inbox\myself'; Body = "Recover this repository response.`nMORE QUESTIONS"
         })
         $repository = Join-Path $s.Directory 'repository'
         $parent = Join-Path $repository 'requirements\feedback'
@@ -343,11 +410,13 @@ Not part of the prior question.
         } '.*'
         $s.State = Read-DiscoveryMailState $s.Directory
         Assert-Equal $s.State.Replies.Count 1 'reply committed before export failure'
+        Assert-Equal $s.State.MoreRequests.Count 1 'request committed atomically with reply before export failure'
         [IO.File]::Delete($blocked)
         Invoke-TestCycle $s -At '2026-07-01T15:10:00Z' -CollectOnly -RepositoryRoot $repository
         $path = Join-Path $blocked "discovery-$($s.State.Campaign).md"
         Assert-True ([IO.File]::ReadAllText($path).Contains('Recover this repository response.')) 'next run repairs export'
         Assert-Equal $s.State.Replies.Count 1 'repair never duplicates response'
+        Assert-Equal $s.State.MoreRequests.Count 1 'repair never duplicates request'
     }
 
     Test-Behavior 'repository export skips empty campaigns and rejects unsafe campaign filenames' {
@@ -462,6 +531,282 @@ Not part of the prior question.
             New-DiscoveryMailState $s.State.Questions 'sender@example.org' 'reader@example.net' `
                 @() @('..\OtherMailbox') ([DateTimeOffset]::UtcNow)
         } 'mailbox-relative'
+    }
+
+    Test-Behavior 'reply command requires an allowed correlated standalone unquoted line' {
+        $s = New-TestScenario
+        Invoke-TestCycle $s
+        $bodies = @(
+            'Please send MORE QUESTIONS.',
+            "My feedback.`n-----Original Message-----`nMORE QUESTIONS",
+            "My feedback.`nOn Wed, Jul 1, someone wrote:`nMORE QUESTIONS",
+            "> MORE QUESTIONS`nMy feedback.",
+            "My feedback.`nFrom: sender@example.org`nSent: Wednesday`nTo: reader@example.net`nSubject: Original`nMORE QUESTIONS",
+            "My feedback.`n  more questions `nMORE QUESTIONS"
+        )
+        $s.Fake.Messages = @(for ($i = 0; $i -lt $bodies.Count; $i++) {
+            New-TestReply $s $bodies[$i] "<keyword-$i@example.net>"
+        })
+        $stranger = New-TestReply $s -Key '<stranger-command@example.net>'
+        $stranger.Sender = 'stranger@example.net'
+        $unknown = New-TestReply $s -Key '<unknown-command@example.net>'
+        $unknown.Subject = '[AHHE:unknown]'
+        $s.Fake.Messages += @($stranger, $unknown)
+        Invoke-TestCycle $s -At '2026-07-01T15:05:00Z' -CollectOnly
+        Assert-Equal $s.State.MoreRequests.Count 1 'only the new unquoted command authorizes one request'
+        Assert-Equal $s.State.MoreRequests[0].Key '<keyword-5@example.net>' 'request links to exact reply'
+        Assert-Equal $s.State.MoreRequests[0].Status 'Queued' 'collect queues without sending'
+        Assert-Equal $s.Fake.Sends 1 'collect-only never sends extra mail'
+        Assert-Equal $s.State.Replies.Count 6 'all allowed feedback retained'
+        $s.State = Read-DiscoveryMailState $s.Directory
+        Invoke-TestCycle $s -At '2026-07-01T15:10:00Z' -FullRescan -CollectOnly
+        Assert-Equal $s.State.MoreRequests.Count 1 'restart and rescan cannot repeat the request'
+    }
+
+    Test-Behavior 'extra requests drain oldest first outside slots without consuming regular delivery' {
+        $s = New-TestScenario -Count 5
+        Invoke-TestCycle $s
+        $s.Fake.Status = 'Sent'
+        Invoke-TestCycle $s -At '2026-07-01T15:05:00Z'
+        $s.Fake.Messages = @(
+            (New-TestReply $s -Key '<newer@example.net>' -ReceivedUtc '2026-07-01T15:09:00Z'),
+            (New-TestReply $s -Key '<older@example.net>' -ReceivedUtc '2026-07-01T15:08:00Z')
+        )
+        Invoke-TestCycle $s -At '2026-07-01T15:10:00Z'
+        Assert-Equal $s.Fake.Sends 2 'only one extra send per poll'
+        $saved = Read-DiscoveryMailState $s.Directory
+        Assert-Equal $saved.Attempts[1].RequestKey '<older@example.net>' 'oldest request served first'
+        Assert-Equal @($saved.MoreRequests | Where-Object Status -CEQ 'Pending').Count 1 'request journal saved before send'
+        $s.State = $saved
+        Invoke-TestCycle $s -At '2026-07-01T15:15:00Z'
+        Assert-Equal $s.Fake.Sends 3 'next poll can serve another request'
+        Assert-Equal $s.State.Attempts[2].RequestKey '<newer@example.net>' 'newer request follows'
+        Invoke-TestCycle $s -At '2026-07-01T15:20:00Z'
+        Assert-Equal $s.Fake.Sends 3 'repeated import cannot send again'
+        Assert-Equal @($s.State.MoreRequests | Where-Object Status -CEQ 'Sent').Count 2 'both requests confirmed'
+        Assert-Equal $s.State.LastSlot '2026-07-01T08:00' 'extras never change scheduled slot'
+        Invoke-TestCycle $s -At '2026-07-01T19:00:00Z'
+        Assert-Equal $s.Fake.Sends 4 'noon still sends its regular question'
+        Assert-Equal $s.State.Attempts[3].QuestionId 'TST-004' 'one shared question queue'
+    }
+
+    Test-Behavior 'due schedule takes priority while extra requests also work before morning' {
+        $s = New-TestScenario -Count 5
+        Invoke-TestCycle $s
+        $s.Fake.Status = 'Sent'
+        $s.Fake.Messages = @((New-TestReply $s))
+        Invoke-TestCycle $s -At '2026-07-01T19:00:00Z'
+        Assert-Equal $s.Fake.Sends 2 'one send when both triggers are eligible'
+        Assert-Equal $s.State.Attempts[1].Slot '2026-07-01T12:00' 'due schedule has priority'
+        Assert-Equal $s.State.MoreRequests[0].Status 'Queued' 'extra remains queued'
+        Invoke-TestCycle $s -At '2026-07-02T13:00:00Z'
+        Assert-Equal $s.Fake.Sends 3 'extra can run before the next morning slot'
+        Assert-Equal $s.State.Attempts[2].Slot 'ON-DEMAND' 'no catch-up of missed evening slot'
+    }
+
+    Test-Behavior 'uncertain extra sends stay pending across restarts and operator recovery' {
+        $s = New-TestScenario
+        Invoke-TestCycle $s
+        $s.Fake.Status = 'Sent'
+        $s.Fake.Messages = @((New-TestReply $s))
+        $s.Fake.Fail = $true
+        Assert-Throws { Invoke-TestCycle $s -At '2026-07-01T15:05:00Z' } 'Simulated Outlook failure'
+        $s.State = Read-DiscoveryMailState $s.Directory
+        $s.Fake.Fail = $false
+        $s.Fake.Status = 'Outbox'
+        Invoke-TestCycle $s -At '2026-07-01T15:10:00Z'
+        Assert-Equal $s.Fake.Sends 2 'outbox blocks another submission'
+        $s.Fake.Status = 'Missing'
+        Assert-Throws { Invoke-TestCycle $s -At '2026-07-01T15:15:00Z' } 'automatic resend is blocked'
+        $options = @{
+            Action = 'ResolvePending'; StateDirectory = $s.Directory; RepositoryRoot = $root
+            TaskName = 'Test only'; PendingToken = $s.State.PendingToken; Resolution = 'Retry'
+        }
+        Invoke-DiscoveryMailCommand $options 'unused.ps1' { $true }
+        $s.State = Read-DiscoveryMailState $s.Directory
+        Assert-Equal $s.State.MoreRequests[0].Status 'Queued' 'explicit retry requeues the same request'
+        Invoke-TestCycle $s -At '2026-07-01T15:20:00Z'
+        Assert-Equal $s.Fake.Sends 3 'one explicitly authorized retry'
+        Assert-Equal $s.State.Attempts[2].RequestKey $s.State.Attempts[1].RequestKey 'retry keeps its source request'
+        $options.PendingToken = $s.State.PendingToken; $options.Resolution = 'Sent'
+        Invoke-DiscoveryMailCommand $options 'unused.ps1' { $true }
+        $s.State = Read-DiscoveryMailState $s.Directory
+        Assert-Equal $s.State.MoreRequests[0].Status 'Sent' 'operator confirmation fulfills once'
+        Assert-Equal $s.State.NextIndex 2 'progress advances once for the extra'
+        Assert-Equal $s.State.LastSlot '2026-07-01T08:00' 'operator confirmation preserves regular slot'
+    }
+
+    Test-Behavior 'legacy state keeps its snapshot and progress without interpreting old feedback as commands' {
+        $s = New-TestScenario
+        Invoke-TestCycle $s
+        $s.Fake.Status = 'Sent'
+        $s.Fake.Messages = @((New-TestReply $s))
+        Invoke-TestCycle $s -At '2026-07-01T15:05:00Z' -CollectOnly
+        $null = $s.State.Remove('MoreRequests')
+        foreach ($attempt in $s.State.Attempts) { $null = $attempt.Remove('RequestKey') }
+        Save-DiscoveryMailState $s.State $s.Directory
+        $before = [IO.File]::ReadAllText((Join-Path $s.Directory 'state.json'))
+        $s.State = Read-DiscoveryMailState $s.Directory
+        Assert-Equal $s.State.MoreRequests.Count 0 'legacy upgrade does not create retroactive commands'
+        Assert-Equal ([IO.File]::ReadAllText((Join-Path $s.Directory 'state.json'))) $before 'reading never overwrites legacy state'
+        $originalCampaign = $s.State.Campaign
+        Invoke-TestCycle $s -At '2026-07-01T15:10:00Z'
+        Assert-Equal $s.State.Campaign $originalCampaign 'same campaign'
+        Assert-Equal $s.State.NextIndex 1 'same progress'
+        Assert-Equal $s.State.LastSlot '2026-07-01T08:00' 'same slot watermark'
+        Assert-Equal $s.State.MoreRequests.Count 0 'rescanned legacy reply stays deduplicated'
+        Assert-Equal $s.Fake.Sends 1 'upgrade does not submit another question'
+    }
+
+    Test-Behavior 'exhaustion settles requests and still retains later responses' {
+        $s = New-TestScenario -Count 1
+        Invoke-TestCycle $s
+        $s.Fake.Status = 'Sent'
+        $s.Fake.Messages = @((New-TestReply $s))
+        Invoke-TestCycle $s -At '2026-07-01T15:05:00Z'
+        $s.State = Read-DiscoveryMailState $s.Directory
+        Assert-Equal $s.State.MoreRequests[0].Status 'Exhausted' 'no phantom pending request at queue end'
+        Assert-Equal $s.State.Replies.Count 1 'request feedback still collected'
+        Invoke-TestCycle $s -At '2026-07-01T19:00:00Z'
+        Assert-Equal $s.Fake.Sends 1 'no send beyond the frozen queue'
+    }
+
+    Test-Behavior 'legacy task upgrades only its action and start stop resume preserve uncertain progress' {
+        $s = New-TestScenario
+        Invoke-TestCycle $s
+        $s.Fake.Messages = @((New-TestReply $s))
+        Invoke-TestCycle $s -At '2026-07-01T15:05:00Z' -CollectOnly
+        $scriptPath = Join-Path $root 'scripts\discovery-mail.ps1'
+        $name = 'AHHE Discovery Learning Tour'
+        $definition = Get-DiscoveryMailTaskDefinition $name $s.Directory $scriptPath
+        $script:scheduler = @{ Task = $null; Registered = 0; Updated = 0; Enabled = 0; Removed = 0 }
+        Register-DiscoveryMailTask $name $s.Directory $scriptPath
+        $task = $script:scheduler.Task
+        $task.Actions = @([pscustomobject]@{ Execute = $definition.LegacyExecute; Arguments = $definition.LegacyArguments })
+        $task.State = 'Disabled'
+        $configuration = @($task.Triggers, $task.Principal, $task.Settings) | ConvertTo-Json -Depth 10
+        $stateBefore = [IO.File]::ReadAllText((Join-Path $s.Directory 'state.json'))
+        Register-DiscoveryMailTask $name $s.Directory $scriptPath -UpgradeOnly
+        Assert-Equal $script:scheduler.Updated 1 'legacy action upgraded'
+        Assert-Equal $task.Actions[0].Execute $definition.Execute 'scheduled entry is the GUI host'
+        Assert-Equal $task.Actions[0].Arguments $definition.Arguments 'all launcher arguments preserved'
+        Assert-Equal $task.State 'Disabled' 'automatic migration never enables a stopped task'
+        Assert-Equal (@($task.Triggers, $task.Principal, $task.Settings) | ConvertTo-Json -Depth 10) $configuration 'all other configuration preserved'
+        Register-DiscoveryMailTask $name $s.Directory $scriptPath -UpgradeOnly
+        Assert-Equal $script:scheduler.Updated 1 'upgrade is idempotent'
+        $options = @{ Action = 'Start'; StateDirectory = $s.Directory; RepositoryRoot = $root; TaskName = $name }
+        Invoke-DiscoveryMailCommand $options $scriptPath { $true }
+        Invoke-DiscoveryMailCommand $options $scriptPath { $true }
+        Assert-Equal $script:scheduler.Enabled 1 'start resumes once'
+        $options.Action = 'Stop'
+        $lock = [IO.File]::Open((Join-Path $s.Directory 'campaign.lock'), 'OpenOrCreate', 'ReadWrite', 'None')
+        try { Invoke-DiscoveryMailCommand $options $scriptPath { $true } } finally { $lock.Dispose() }
+        Invoke-DiscoveryMailCommand $options $scriptPath { $true }
+        Assert-Equal $script:scheduler.Removed 1 'stop is idempotent and does not need the active campaign lock'
+        $options.Action = 'Start'
+        Invoke-DiscoveryMailCommand $options $scriptPath { $true }
+        Assert-Equal $script:scheduler.Registered 2 'resume recreates the poller only'
+        Assert-Equal ([IO.File]::ReadAllText((Join-Path $s.Directory 'state.json'))) $stateBefore 'all progress and pending requests byte-for-byte unchanged'
+        $s.State = Read-DiscoveryMailState $s.Directory
+        $s.Fake.Status = 'Sent'
+        Invoke-TestCycle $s -At '2026-07-01T15:10:00Z'
+        Assert-Equal $s.State.NextIndex 1 'prior uncertain submission is reconciled, not repeated'
+        Assert-Equal $s.State.Attempts[1].QuestionId 'TST-002' 'queued extra resumes at the next question'
+    }
+
+    Test-Behavior 'task management refuses foreign actions principals and missing state' {
+        $s = New-TestScenario
+        $scriptPath = Join-Path $root 'scripts\discovery-mail.ps1'
+        $name = 'AHHE Discovery Learning Tour'
+        $script:scheduler = @{ Task = $null; Registered = 0; Updated = 0; Enabled = 0; Removed = 0 }
+        Register-DiscoveryMailTask $name $s.Directory $scriptPath -UpgradeOnly
+        Assert-Equal $script:scheduler.Registered 0 'manual Run does not install a task'
+        Register-DiscoveryMailTask $name $s.Directory $scriptPath
+        $task = $script:scheduler.Task
+        $task.Actions[0].Arguments += ' -Unexpected'
+        Assert-Throws { Register-DiscoveryMailTask $name $s.Directory $scriptPath } 'not recognized'
+        Assert-Throws { Unregister-DiscoveryMailTask $name $s.Directory $scriptPath } 'not recognized'
+        $definition = Get-DiscoveryMailTaskDefinition $name $s.Directory $scriptPath
+        $task.Actions[0].Arguments = $definition.Arguments
+        $task.Principal.UserId = 'another-user'
+        Assert-Throws { Register-DiscoveryMailTask $name $s.Directory $scriptPath -UpgradeOnly } 'ownership'
+        Assert-Equal $script:scheduler.Updated 0 'foreign tasks untouched'
+        $script:scheduler.Task = $null
+        $options = @{ Action = 'Start'; StateDirectory = (Join-Path $testRoot 'missing-state'); RepositoryRoot = $root; TaskName = $name }
+        Assert-Throws { Invoke-DiscoveryMailCommand $options $scriptPath { $true } } 'Run Initialize first'
+        Assert-Equal $script:scheduler.Registered 1 'missing state never registers a new campaign'
+        $scriptPath = Join-Path $s.Directory 'absent\discovery-mail.ps1'
+        Assert-Throws { Register-DiscoveryMailTask $name $s.Directory $scriptPath } 'launcher is unavailable'
+        Assert-Throws { Get-DiscoveryMailTaskDefinition 'bad%name' $s.Directory $scriptPath } 'Invalid task argument'
+        $options.StateDirectory = $s.Directory
+        $realScript = Join-Path $root 'scripts\discovery-mail.ps1'
+        & $realScript -Action Start -StateDirectory $s.Directory -WhatIf
+        & $realScript -Action Stop -StateDirectory $s.Directory -WhatIf
+        Assert-Equal $script:scheduler.Task $null 'WhatIf does not touch scheduler'
+    }
+
+    Test-Behavior 'an existing scheduled Run self-upgrades before Outlook access without changing campaign state' {
+        $s = New-TestScenario
+        $scriptPath = Join-Path $root 'scripts\discovery-mail.ps1'
+        $name = 'AHHE Discovery Learning Tour'
+        $script:scheduler = @{ Task = $null; Registered = 0; Updated = 0; Enabled = 0; Removed = 0 }
+        Register-DiscoveryMailTask $name $s.Directory $scriptPath
+        $definition = Get-DiscoveryMailTaskDefinition $name $s.Directory $scriptPath
+        $legacyAction = [pscustomobject]@{ Execute = $definition.LegacyExecute; Arguments = $definition.LegacyArguments }
+        $script:scheduler.Task.Actions = @($legacyAction)
+        function New-OutlookTransport { param($Config); throw 'Stopped at the fake Outlook boundary' }
+        $options = @{
+            Action = 'Run'; StateDirectory = $s.Directory
+            RepositoryRoot = (Join-Path $s.Directory 'repository'); TaskName = $name
+        }
+        $before = [IO.File]::ReadAllText((Join-Path $s.Directory 'state.json'))
+        Assert-Throws { Invoke-DiscoveryMailCommand $options $scriptPath { $true } } 'fake Outlook boundary'
+        Assert-Equal $script:scheduler.Updated 1 'normal Run installs its own hidden action'
+        Assert-Equal ([IO.File]::ReadAllText((Join-Path $s.Directory 'state.json'))) $before 'upgrade does not reset or advance campaign'
+        $script:scheduler.Task.Actions = @($legacyAction)
+        $options.Action = 'Collect'
+        Assert-Throws { Invoke-DiscoveryMailCommand $options $scriptPath { $true } } 'fake Outlook boundary'
+        Assert-Equal $script:scheduler.Updated 1 'collection-only action does not manage scheduled tasks'
+    }
+
+    Test-Behavior 'windowless launcher forwards spaced arguments waits and propagates the child exit code' {
+        $directory = Join-Path $testRoot 'launcher spaced paths'
+        $null = [IO.Directory]::CreateDirectory($directory)
+        $fixture = Join-Path $directory 'harmless child.ps1'
+        [IO.File]::WriteAllText($fixture, @'
+param([string]$Action, [string]$StateDirectory, [string]$TaskName)
+$ErrorActionPreference = 'Stop'
+Add-Type -TypeDefinition @"
+using System;
+using System.Runtime.InteropServices;
+public static class DiscoveryLauncherProbe {
+    [DllImport("kernel32.dll")] public static extern IntPtr GetConsoleWindow();
+    [DllImport("user32.dll")] public static extern bool IsWindowVisible(IntPtr window);
+}
+"@
+$visible = [DiscoveryLauncherProbe]::IsWindowVisible([DiscoveryLauncherProbe]::GetConsoleWindow())
+Start-Sleep -Milliseconds 150
+@{ Visible = $visible; Action = $Action; Directory = $StateDirectory; Task = $TaskName;
+   Apartment = [Threading.Thread]::CurrentThread.ApartmentState.ToString() } |
+    ConvertTo-Json | Set-Content -LiteralPath (Join-Path $StateDirectory 'probe.json')
+exit 23
+'@)
+        $launcher = Join-Path $root 'scripts\discovery-mail-launcher.vbs'
+        [IO.File]::Copy($launcher, (Join-Path $directory 'discovery-mail-launcher.vbs'))
+        foreach ($stateDirectory in @($directory, "$directory\")) {
+            $definition = Get-DiscoveryMailTaskDefinition 'Test task with spaces' $stateDirectory $fixture
+            $process = Start-Process -FilePath $definition.Execute -ArgumentList $definition.Arguments -PassThru -Wait
+            Assert-Equal $process.ExitCode 23 'launcher propagates nonzero child exit code'
+            $probe = [IO.File]::ReadAllText((Join-Path $directory 'probe.json')) | ConvertFrom-Json
+            Assert-Equal $probe.Visible $false 'PowerShell console is not visible'
+            Assert-Equal $probe.Action 'Run' 'scheduled action forwarded'
+            Assert-Equal $probe.Directory $stateDirectory 'spaced state path and trailing separator forwarded'
+            Assert-Equal $probe.Task 'Test task with spaces' 'task name forwarded'
+            Assert-Equal $probe.Apartment 'STA' 'Outlook-compatible apartment'
+        }
+        $invalid = Start-Process -FilePath (Join-Path $env:WINDIR 'System32\wscript.exe') `
+            -ArgumentList "//B //Nologo `"$launcher`"" -PassThru -Wait
+        Assert-Equal $invalid.ExitCode 2 'invalid launcher invocation fails'
     }
 
     Test-Behavior 'Outlook adapter selects explicit account, folders, plain text, and sent copy' {

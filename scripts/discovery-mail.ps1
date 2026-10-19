@@ -2,7 +2,7 @@
 [CmdletBinding(SupportsShouldProcess)]
 param(
     [ValidateSet('Initialize', 'Preview', 'Run', 'Collect', 'Rescan', 'ExportFeedback', 'Status',
-        'RegisterTask', 'UnregisterTask', 'ResolvePending')]
+        'Start', 'Stop', 'RegisterTask', 'UnregisterTask', 'ResolvePending')]
     [string]$Action = 'Status',
     [string]$StateDirectory = (Join-Path $env:LOCALAPPDATA 'AHHE\DiscoveryMail'),
     [string]$RepositoryRoot = (Split-Path -Parent $PSScriptRoot),
@@ -100,7 +100,8 @@ function Read-DiscoveryMailState {
     }
     # ConvertFrom-Json can hydrate ISO strings as DateTime; keep the persisted
     # representation consistent with freshly collected records on PowerShell 7.2+.
-    foreach ($record in @($state) + @($state.Attempts) + @($state.Replies)) {
+    if (-not $state.ContainsKey('MoreRequests')) { $state.MoreRequests = @() }
+    foreach ($record in @($state) + @($state.Attempts) + @($state.Replies) + @($state.MoreRequests)) {
         foreach ($field in @('CreatedUtc', 'LastScanUtc', 'ConfirmedUtc', 'ReceivedUtc')) {
             if ($record.ContainsKey($field) -and $record[$field]) {
                 $record[$field] = ([DateTimeOffset]$record[$field]).ToUniversalTime().ToString('o')
@@ -143,6 +144,7 @@ function New-DiscoveryMailState {
         PendingToken = $null
         Attempts = @()
         Replies = @()
+        MoreRequests = @()
         LastScanUtc = $null
     }
 }
@@ -164,7 +166,7 @@ function Get-DiscoveryMailSlot {
 }
 
 function New-DiscoveryMailAttempt {
-    param($State, [string]$Slot, [DateTimeOffset]$Now)
+    param($State, [string]$Slot, [DateTimeOffset]$Now, [string]$RequestKey)
     $question = $State.Questions[$State.NextIndex]
     $token = [guid]::NewGuid().ToString('N')
     $marker = "[AHHE:$($State.Campaign):$($question.Id):$token]"
@@ -174,6 +176,7 @@ function New-DiscoveryMailAttempt {
         Token = $token
         QuestionId = $question.Id
         Slot = $Slot
+        RequestKey = $RequestKey
         CreatedUtc = $Now.ToUniversalTime().ToString('o')
         Status = 'Pending'
         Marker = $marker
@@ -187,6 +190,7 @@ Pacific slot: $Slot
 Reply to this message and keep the [AHHE:...] marker in the subject.
 Your response will be collected by topic/question for later review.
 Common quoted-email sections are removed; keep new feedback above the quoted email.
+For one extra question, add MORE QUESTIONS on a line by itself in your reply.
 Research is a first pass, not an approved business or professional decision.
 
 $($question.Markdown)
@@ -210,12 +214,27 @@ function Complete-DiscoveryMailAttempt {
     if ($Attempt.QuestionId -cne $State.Questions[$State.NextIndex].Id) {
         throw 'Pending question does not match campaign progress.'
     }
+    if ($Attempt.ContainsKey('RequestKey') -and $Attempt.RequestKey) {
+        $request = Get-DiscoveryMoreRequest $State $Attempt
+        $request.Status = 'Sent'
+    } else {
+        $State.LastSlot = $Attempt.Slot
+    }
     $Attempt.Status = 'Sent'
     $Attempt.ConfirmedUtc = $Now.ToUniversalTime().ToString('o')
     $Attempt.Confirmation = $Confirmation
-    $State.LastSlot = $Attempt.Slot
     $State.NextIndex++
     $State.PendingToken = $null
+}
+
+function Get-DiscoveryMoreRequest {
+    param($State, $Attempt)
+    $found = @($State.MoreRequests | Where-Object Key -CEQ $Attempt.RequestKey)
+    if ($found.Count -ne 1 -or $found[0].Status -ne 'Pending' -or
+        $found[0].AttemptToken -cne $Attempt.Token) {
+        throw 'Corrupt extra-question request journal. Restore a known-good state backup.'
+    }
+    return $found[0]
 }
 
 function Get-DiscoveryReplyText {
@@ -275,6 +294,14 @@ function Import-DiscoveryMailReplies {
             Body = $message.Body
             FeedbackText = $feedback.Text
             Extraction = $feedback.Extraction
+        }
+        if ($feedback.Text -match '(?im)^[ \t]*MORE QUESTIONS[ \t]*$') {
+            $State.MoreRequests += @{
+                Key = $message.Key
+                ReceivedUtc = $message.ReceivedUtc
+                Status = 'Queued'
+                AttemptToken = $null
+            }
         }
         $seen[$message.Key] = $true
     }
@@ -382,10 +409,27 @@ function Invoke-DiscoveryMailCycle {
             throw "Attempt $($pending.Token) is $status. Inspect Outlook, then use ResolvePending; automatic resend is blocked."
         }
     }
-    if ($CollectOnly -or $State.NextIndex -ge $State.Questions.Count) { return }
+    if ($CollectOnly) { return }
+    $requests = @($State.MoreRequests | Where-Object Status -CEQ 'Queued' | Sort-Object ReceivedUtc, Key)
+    if ($State.NextIndex -ge $State.Questions.Count) {
+        if ($requests.Count -gt 0) {
+            foreach ($request in $requests) { $request.Status = 'Exhausted' }
+            Save-DiscoveryMailState $State $Directory
+        }
+        return
+    }
     $slot = Get-DiscoveryMailSlot $State $Now
-    if (-not $slot) { return }
-    $attempt = New-DiscoveryMailAttempt $State $slot $Now
+    $requestKey = $null
+    if (-not $slot) {
+        if ($requests.Count -eq 0) { return }
+        $slot = 'ON-DEMAND'
+        $requestKey = $requests[0].Key
+    }
+    $attempt = New-DiscoveryMailAttempt $State $slot $Now $requestKey
+    if ($requestKey) {
+        $requests[0].Status = 'Pending'
+        $requests[0].AttemptToken = $attempt.Token
+    }
     $State.Attempts += $attempt
     $State.PendingToken = $attempt.Token
     Save-DiscoveryMailState $State $Directory
@@ -492,14 +536,72 @@ function New-OutlookTransport {
     return @{ Send = $send; FindAttempt = $find; ReadReplies = $read }
 }
 
-function Register-DiscoveryMailTask {
+function Get-DiscoveryMailTaskDefinition {
     param([string]$Name, [string]$Directory, [string]$ScriptPath)
-    if (-not $IsWindows) { throw 'Task registration requires Windows.' }
-    if ($Directory -match '["\r\n]' -or $ScriptPath -match '["\r\n]') { throw 'Invalid task argument path.' }
+    foreach ($value in @($Name, $Directory, $ScriptPath, $PSHOME)) {
+        if ([string]::IsNullOrWhiteSpace($value) -or $value -match '["\r\n%]') {
+            throw 'Invalid task argument; paths and names must not contain quotes, newlines, or percent signs.'
+        }
+    }
+    $launcher = Join-Path (Split-Path -Parent $ScriptPath) 'discovery-mail-launcher.vbs'
+    $arguments = @($launcher, (Join-Path $PSHOME 'pwsh.exe'), $ScriptPath, $Directory, $Name) |
+        ForEach-Object { '"' + $_ + '"' }
+    return @{
+        Execute = Join-Path $env:WINDIR 'System32\wscript.exe'
+        Arguments = '//B //Nologo ' + ($arguments -join ' ')
+        LegacyExecute = Join-Path $PSHOME 'pwsh.exe'
+        LegacyArguments = "-NoProfile -NonInteractive -STA -File `"$ScriptPath`" -Action Run -StateDirectory `"$Directory`""
+        Launcher = $launcher
+    }
+}
+
+function Get-DiscoveryMailScheduledTask {
+    param([string]$Name)
+    return Get-ScheduledTask -TaskPath '\' -ErrorAction Stop | Where-Object TaskName -CEQ $Name
+}
+
+function Assert-DiscoveryMailTaskOwnership {
+    param($Task, $Definition)
     $identity = [Security.Principal.WindowsIdentity]::GetCurrent().Name
-    $executable = Join-Path $PSHOME 'pwsh.exe'
-    $arguments = "-NoProfile -NonInteractive -STA -File `"$ScriptPath`" -Action Run -StateDirectory `"$Directory`""
-    $taskAction = New-ScheduledTaskAction -Execute $executable -Argument $arguments
+    $sid = [Security.Principal.WindowsIdentity]::GetCurrent().User.Value
+    $actions = @($Task.Actions)
+    if ($actions.Count -ne 1 -or $Task.Principal.UserId -notin @($identity, $sid) -or
+        $Task.Principal.LogonType -ne 'Interactive' -or $Task.Principal.RunLevel -ne 'Limited') {
+        throw "Refusing to change task '$($Task.TaskName)': its ownership or principal is not recognized."
+    }
+    $action = $actions[0]
+    $legacy = $action.Execute -ieq $Definition.LegacyExecute -and $action.Arguments -ceq $Definition.LegacyArguments
+    $current = $action.Execute -ieq $Definition.Execute -and $action.Arguments -ceq $Definition.Arguments
+    if (-not $legacy -and -not $current) {
+        throw "Refusing to change task '$($Task.TaskName)': its script, state directory, or action is not recognized."
+    }
+    return $legacy
+}
+
+function Register-DiscoveryMailTask {
+    param([string]$Name, [string]$Directory, [string]$ScriptPath, [switch]$UpgradeOnly)
+    if (-not $IsWindows) { throw 'Task registration requires Windows.' }
+    $definition = Get-DiscoveryMailTaskDefinition $Name $Directory $ScriptPath
+    $task = Get-DiscoveryMailScheduledTask $Name
+    if ($null -eq $task -and $UpgradeOnly) { return }
+    $legacy = $false
+    if ($null -ne $task) { $legacy = Assert-DiscoveryMailTaskOwnership $task $definition }
+    if (-not (Test-Path -LiteralPath $definition.Execute) -or -not (Test-Path -LiteralPath $definition.Launcher)) {
+        throw 'Windowless task launcher is unavailable. Windows Script Host and discovery-mail-launcher.vbs are required.'
+    }
+    if ($null -ne $task) {
+        if ($legacy) {
+            $action = New-ScheduledTaskAction -Execute $definition.Execute -Argument $definition.Arguments
+            Set-ScheduledTask -TaskName $Name -TaskPath '\' -Action $action -ErrorAction Stop | Out-Null
+            Write-Host "Upgraded '$Name' to a windowless launcher; campaign progress is unchanged."
+        }
+        if (-not $UpgradeOnly -and $task.State -eq 'Disabled') {
+            Enable-ScheduledTask -TaskName $Name -TaskPath '\' -ErrorAction Stop | Out-Null
+        }
+        return
+    }
+    $identity = [Security.Principal.WindowsIdentity]::GetCurrent().Name
+    $taskAction = New-ScheduledTaskAction -Execute $definition.Execute -Argument $definition.Arguments
     $trigger = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) `
         -RepetitionInterval (New-TimeSpan -Minutes 5)
     $principal = New-ScheduledTaskPrincipal -UserId $identity -LogonType Interactive -RunLevel Limited
@@ -511,12 +613,28 @@ function Register-DiscoveryMailTask {
     Write-Host "Registered '$Name' for $identity. Requires a signed-in desktop and classic Outlook."
 }
 
+function Unregister-DiscoveryMailTask {
+    param([string]$Name, [string]$Directory, [string]$ScriptPath)
+    $task = Get-DiscoveryMailScheduledTask $Name
+    if ($null -eq $task) { return }
+    $definition = Get-DiscoveryMailTaskDefinition $Name $Directory $ScriptPath
+    $null = Assert-DiscoveryMailTaskOwnership $task $definition
+    Unregister-ScheduledTask -TaskName $Name -TaskPath '\' -Confirm:$false -ErrorAction Stop
+}
+
 function Invoke-DiscoveryMailCommand {
     param([hashtable]$Options, [string]$ScriptPath, [scriptblock]$Approve)
     $directory = [IO.Path]::GetFullPath($Options.StateDirectory)
     $null = [IO.Directory]::CreateDirectory($directory)
     $lock = $null
     try {
+        if ($Options.Action -in @('Stop', 'UnregisterTask')) {
+            if (& $Approve $Options.TaskName 'Remove Outlook polling task (preserve state and allow an active poll to finish)') {
+                Unregister-DiscoveryMailTask $Options.TaskName $directory $ScriptPath
+                Write-Host 'Polling stopped; saved progress is preserved. An active poll may finish.'
+            }
+            return
+        }
         $lock = [IO.File]::Open((Join-Path $directory 'campaign.lock'), 'OpenOrCreate', 'ReadWrite', 'None')
         $now = [DateTimeOffset]::UtcNow
         if ($Options.Action -eq 'Initialize') {
@@ -532,12 +650,6 @@ function Invoke-DiscoveryMailCommand {
             Write-Host "Initialized $($questions.Count) questions. No mail sent. State: $directory"
             return
         }
-        if ($Options.Action -eq 'UnregisterTask') {
-            if (& $Approve $Options.TaskName 'Remove Outlook polling task (preserve state)') {
-                Unregister-ScheduledTask -TaskName $Options.TaskName -Confirm:$false
-            }
-            return
-        }
         $state = Read-DiscoveryMailState $directory
         switch ($Options.Action) {
             'Preview' {
@@ -551,6 +663,7 @@ function Invoke-DiscoveryMailCommand {
                     ConfirmedSent = $state.NextIndex
                     TotalQuestions = $state.Questions.Count
                     Replies = $state.Replies.Count
+                    QueuedMoreQuestions = @($state.MoreRequests | Where-Object Status -CEQ 'Queued').Count
                     LastSlot = $state.LastSlot
                     PendingToken = $state.PendingToken
                     LastScanUtc = $state.LastScanUtc
@@ -564,9 +677,10 @@ function Invoke-DiscoveryMailCommand {
                     Write-Host "Exported $($state.Replies.Count) responses for campaign $($state.Campaign). No Outlook access or mail sent."
                 }
             }
-            'RegisterTask' {
+            { $_ -in @('Start', 'RegisterTask') } {
                 if (& $Approve $Options.TaskName 'Register interactive Outlook polling task') {
                     Register-DiscoveryMailTask $Options.TaskName $directory $ScriptPath
+                    Write-Host "Polling enabled for campaign $($state.Campaign); resuming at $($state.NextIndex) confirmed questions. No progress reset."
                 }
             }
             'ResolvePending' {
@@ -579,6 +693,11 @@ function Invoke-DiscoveryMailCommand {
                     if ($Options.Resolution -eq 'Sent') {
                         Complete-DiscoveryMailAttempt $state $attempt $now 'Operator'
                     } else {
+                        if ($attempt.ContainsKey('RequestKey') -and $attempt.RequestKey) {
+                            $request = Get-DiscoveryMoreRequest $state $attempt
+                            $request.Status = 'Queued'
+                            $request.AttemptToken = $null
+                        }
                         $attempt.Status = 'RetryAuthorized'
                         $state.PendingToken = $null
                     }
@@ -587,6 +706,9 @@ function Invoke-DiscoveryMailCommand {
             }
             default {
                 if (-not (& $Approve $directory "$($Options.Action) Outlook mail and collect replies")) { return }
+                if ($Options.Action -eq 'Run') {
+                    Register-DiscoveryMailTask $Options.TaskName $directory $ScriptPath -UpgradeOnly
+                }
                 Write-DiscoveryMailFeedback $state $directory $Options.RepositoryRoot
                 $transport = New-OutlookTransport $state.Config
                 Invoke-DiscoveryMailCycle $state $directory $transport $now `

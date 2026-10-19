@@ -16,6 +16,8 @@ Replies carrying the unique `[AHHE:campaign:question:attempt]` subject marker
 are collected from **Inbox and `Inbox\myself`** by default. Only your configured
 recipient and explicitly allowed additional sender addresses are accepted.
 Keep the marker when replying. New feedback should be above the quoted email.
+Add **`MORE QUESTIONS` on a line by itself** in a reply to request one extra
+question, in addition to the regular schedule.
 
 The generated **repository feedback collections group responses by topic and
 question ID**, under `requirements\feedback\inbox\discovery-<campaign>.md`.
@@ -34,6 +36,8 @@ changes research documents or commits/pushes generated files.
 ## Prerequisites
 
 - Windows and **PowerShell 7.2+** (`pwsh.exe`).
+- Windows Script Host (`wscript.exe`) with VBScript available and permitted
+  by local policy for windowless scheduled polls.
 - **Classic Outlook**, signed in with the sending account configured.
   New Outlook and Outlook on the web do not support this COM integration.
 - Permission under your organization's policies to send this material to the
@@ -41,6 +45,25 @@ changes research documents or commits/pushes generated files.
 - Keep this checkout and script path stable while the task is registered.
 - An awake, signed-in desktop. A locked but signed-in session can run, but
   Outlook security/authentication prompts may require you to unlock it.
+
+## Upgrade an Already Running Campaign
+
+Sync the updated repository into the **same checkout the scheduled task
+already uses**. Do not initialize again, move the checkout, or delete local
+state. On its next five-minute poll, the existing `Run` action automatically
+switches the task to the bundled windowless launcher. The old action may
+display its command window one last time; subsequent launches have no visible
+console and should not steal focus. Triggers, principal, settings, enabled
+state, frozen questions, feedback, and delivery progress are preserved.
+
+Reply requests become available on that first updated poll, including replies
+to questions sent before the update. Previously collected feedback is not
+reinterpreted as a command. No manual state migration, task re-registration,
+or additional sender/recipient configuration is needed.
+
+A disabled or removed task cannot upgrade itself because it is not running.
+To resume it using existing progress, run `Start` as shown below. This resumes
+the same Windows user's local campaign, not a campaign on another computer.
 
 ## Initialize and Preview (No Mail Sent)
 
@@ -98,13 +121,23 @@ Never reinitialize just to recover from an error.
 Register the task from the same signed-in Windows user that owns Outlook:
 
 ```powershell
-pwsh -NoProfile -STA -File .\scripts\discovery-mail.ps1 -Action RegisterTask
+pwsh -NoProfile -STA -File .\scripts\discovery-mail.ps1 -Action Start
 ```
 
 The task polls every five minutes, starting about a minute after registration.
 It runs only for the interactive user, without storing a password or elevating.
-It does not overwrite an existing task with the same name. Confirm its
-presence in Windows Task Scheduler under `AHHE Discovery Learning Tour`.
+`Start` is idempotent: it creates a missing poller, resumes a disabled one, or
+keeps the existing one. It always reads saved campaign progress and never
+initializes or resets the question queue. `RegisterTask` remains an alias.
+Confirm its presence in Windows Task Scheduler under `AHHE Discovery Learning
+Tour`. A task with an unrecognized user, action, script, or state path is
+rejected rather than overwritten.
+
+The action uses `wscript.exe` and the bundled `discovery-mail-launcher.vbs`
+to start PowerShell hidden and wait for completion. Its exit code propagates
+to Task Scheduler. Do not remove the launcher or disable Windows security
+controls to run it. If Windows Script Host/VBScript is unavailable or blocked,
+resolve that through approved controls; no visible-console fallback is used.
 
 The script calculates Pacific slots itself; Task Scheduler's local time zone
 does not control email times. Sends normally occur at the first poll after a
@@ -122,6 +155,36 @@ pwsh -NoProfile -STA -File .\scripts\discovery-mail.ps1 -Action Run
 `-WhatIf` on `Run` prevents Outlook access and sending. Use `Preview` to see
 the next email. Initialization and task registration are opt-in; repository
 tests and implementation do not send anything.
+
+## Request More Questions by Reply
+
+Reply to any campaign email, retain its `[AHHE:...]` subject marker, and write
+your feedback above the quoted original. Include this line in your new text:
+
+```text
+MORE QUESTIONS
+```
+
+The phrase is case-insensitive; surrounding spaces are allowed. It must be a
+whole line, not part of a sentence. One reply requests **one extra question**,
+even if the phrase appears several times. Send a new reply for another one.
+The original quote alone does not request anything. The sender must still
+match the configured recipient or an explicitly allowed reply sender.
+
+Requests are saved with the deduplicated reply, survive stop/start and crashes,
+and use the next unsent question in the same frozen queue. There is at most
+one submission per five-minute poll. A due regular slot takes priority; an
+extra is sent on a later poll once pending Outlook submissions are reconciled.
+Outside regular slots, an extra normally starts on the next successful poll,
+including before 08:00. Multiple requests are served oldest first. Extras
+do not consume or shift the 08:00/12:00/18:00 schedule.
+
+`Collect` and `Rescan` only queue requests; the next `Run` can send them.
+Repeated scans cannot repeat a request. At campaign exhaustion, requests are
+marked `Exhausted` locally without sending or creating a separate
+acknowledgment email. `Status` includes `QueuedMoreQuestions`; `PendingToken`
+continues to show any uncertain submission. The keyword remains in the
+collected response text for traceability.
 
 ## Feedback Collection
 
@@ -150,7 +213,7 @@ the campaign has replies:
 requirements\feedback\inbox\discovery-<campaign>.md
 ```
 
-Existing campaigns need no reinitialization or state migration. To export
+Existing campaigns need no reinitialization or manual state migration. To export
 already collected responses without Outlook access or sending:
 
 ```powershell
@@ -241,12 +304,30 @@ when possible; an unavailable disk can also prevent error logging.
 ## Pause or Stop
 
 ```powershell
-.\scripts\discovery-mail.ps1 -Action UnregisterTask
+.\scripts\discovery-mail.ps1 -Action Stop
 ```
 
-This preserves all progress and feedback. Register again to resume, with no
-catch-up burst. After the last question, the task intentionally remains active
-to collect late replies; unregister it when you are done collecting.
+This idempotently removes the polling task, without deleting local state or
+terminating a running poll. An already running poll may finish, including a
+send it has started. `UnregisterTask` remains an alias.
+
+To resume later, without knowing the current question number:
+
+```powershell
+.\scripts\discovery-mail.ps1 -Action Start
+.\scripts\discovery-mail.ps1 -Action Status
+```
+
+The script reuses the frozen queue, confirmed position, pending-send journal,
+feedback, and queued extra requests. Missing/corrupt state is an error, never
+a reset. Do not run `Initialize` again. If you originally chose a custom
+`-StateDirectory` or `-TaskName`, continue supplying it. A repository sync
+does not synchronize private campaign state between PCs; only one PC may
+operate a campaign.
+
+Regular missed slots still do not create catch-up bursts. After the last
+question, the task intentionally remains active to collect late replies;
+stop it when you are done collecting.
 
 ## Offline Verification
 
@@ -255,6 +336,9 @@ pwsh -NoProfile -File .\scripts\tests\discovery-mail.tests.ps1
 ```
 
 Tests use temporary fixtures and fake mail transport, never live Outlook.
+Scheduler behavior uses fakes, and a harmless child process verifies the real
+windowless launcher, including its console visibility and exit code. No
+test installs a scheduled task or operates a real campaign.
 Actual corporate-policy approval, sending, reply routing to `Inbox\myself`,
 security prompts, and Task Scheduler execution need user desktop validation.
 
