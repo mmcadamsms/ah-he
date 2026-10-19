@@ -78,7 +78,7 @@ See [ADR 0005](docs/architecture/decisions/0005-organize-code-by-runtime-boundar
 |---------|----------|
 | Authentication | TBD — likely OAuth 2.0 / OIDC |
 | Authorization | Role-based with hierarchy-aware rules |
-| Observability | Structured logging, metrics, distributed tracing |
+| Observability | Structured logging, metrics, distributed tracing; [blob-first logging proposal](requirements/functional-areas/observability/low-cost-azure-blob-logging.md) (not implemented) |
 | Configuration | Environment-based, 12-factor style |
 | Data persistence | TBD — relational DB for transactional data |
 | Messaging | TBD — message queue for async workflows |
