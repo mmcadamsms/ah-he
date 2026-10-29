@@ -11,11 +11,21 @@ Product requirements are organized by **functional area** — logical groupings 
 | [user-management](functional-areas/user-management/) | User accounts, roles, profiles, authentication |
 | [approvals](functional-areas/approvals/) | Approval workflows, chains, delegation, escalation |
 | [notifications](functional-areas/notifications/) | Email, push, in-app notification delivery |
-| [manufacturing-automation](functional-areas/manufacturing-automation/) | CAD intake, manufacturing planning, inventory and tooling lifecycle, machine simulation, and production visibility |
+| [manufacturing-automation](functional-areas/manufacturing-automation/) | CAD intake, planning, CNC verification, workholding assessment, machine care, in-process inspection, and inventory/tooling lifecycle |
 | [commercial-operations](functional-areas/commercial-operations/) | Customer credit, payment terms, quoting controls, collections, and commercial risk |
 | [facility-operations](functional-areas/facility-operations/) | Site selection, utilities, shop layout, receiving, employee space, safety, and expansion |
 
 > Add new functional areas as the product grows. Each area gets its own directory under `functional-areas/`.
+
+### Progressive Manufacturing Verification
+
+New requirements/design, with runtime implementation deferred:
+
+- [CNC Verification, Cutting Engagement, and Above-Zero Dry Runs](functional-areas/manufacturing-automation/cnc-program-verification-and-cutting-engagement.md)
+- [Pass-by-Pass Workholding Assessment](functional-areas/manufacturing-automation/pass-by-pass-workholding-analysis.md)
+- [Machine Maintenance and Care](functional-areas/manufacturing-automation/machine-maintenance-and-care.md)
+- [In-Process Inspection](functional-areas/manufacturing-automation/in-process-inspection-and-progressive-verification.md)
+- [Proposed Integration Design](../docs/manufacturing/progressive-manufacturing-verification-design.md)
 
 ## Agent Prompt Workflow
 

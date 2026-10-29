@@ -129,6 +129,21 @@ If no feasible way exists to hold the part while exposing the remaining
 features, the system must report an unresolved workholding problem rather than
 emit a nominal second setup.
 
+## Workholding Assessment and In-Process Verification
+
+Geometric reachability and retained contact area alone do not establish
+adequate workholding. Apply
+[Pass-by-Pass Workholding Assessment](pass-by-pass-workholding-analysis.md)
+to supported candidates through the actual ordered cuts and changing stock.
+An unresolved or inadequate candidate is not feasible merely because it has
+fewer re-clamps or a shorter cycle.
+
+Plan [In-Process Inspection](in-process-inspection-and-progressive-verification.md)
+while required features remain accessible and before downstream operations
+depend on them. Predicted geometry and operator-stop acknowledgements are not
+actual inspection evidence. Required machine/fixture readiness follows
+[Machine Maintenance and Care](machine-maintenance-and-care.md).
+
 ## CAM Operations
 
 For the supported prismatic scope, generate geometry-following:
@@ -143,6 +158,19 @@ For the supported prismatic scope, generate geometry-following:
 
 Every path must retain its source feature, setup, orientation, tool, holder,
 feed/speed calculation, engagement limits, and safety/retract strategy.
+Required inspection checkpoints are part of the route and its dependencies,
+not only a final inspection appended after machining.
+
+## Final-Program Verification
+
+Apply [CNC Program Verification](cnc-program-verification-and-cutting-engagement.md)
+to the final posted NC, not only the intended CAM paths. Evaluate evolving
+stock, cut quantities/engagement, gouges, swept tool/holder/fixture/machine
+collisions, and supported process limits with explicit coverage. Animation is
+not proof that a rapid, index, or heavy cut is acceptable.
+Where a qualified above-zero dry-run method is supported, plan and verify its
+non-cutting context separately; it must not replace production-program
+verification or alter production offsets without controlled restoration.
 
 ## Program Bundle
 
@@ -170,6 +198,13 @@ Produce one NC program per physical setup. Each bundle includes:
    stock or uncut regions.
 7. Tests include known one-setup and multi-setup fixtures with expected setup
    counts and feature coverage.
+8. A candidate with unsupported or failed required workholding assessment is
+   unresolved/rejected, not selected as feasible on cycle time or setup count.
+9. A feature used for later location/clamping has its required physical
+   inspection accepted before the dependent setup is released.
+10. Final-program verification diagnoses collisions, gouges, and excessive or
+    unsupported engagement against the actual posted NC and configured setup;
+    its stock history also drives required workholding assessment.
 
 ## Out of Scope for This Increment
 
@@ -178,3 +213,7 @@ Produce one NC program per physical setup. Each bundle includes:
 - automatic custom fixture design;
 - tolerance-stack and metrology-plan generation; and
 - production execution without qualified CAM/post/verification approval.
+
+Detailed inspection planning and workholding-load analysis are specified in
+the linked requirements for subsequent implementation; this document does not
+claim that the current prototype already implements those capabilities.

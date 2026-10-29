@@ -289,6 +289,14 @@ Inventory records must support the applicable subset of:
    revisions, storage location, inspection status, and disposition rules.
 5. Maintenance spares must be distinguishable from production material and
    reserved when required for critical equipment recovery.
+6. Apply [Machine Maintenance and Care](machine-maintenance-and-care.md) to
+   production and support machines using the same asset identity, resource
+   demand, qualification, and accountable history. Missing care plans or
+   required completion/release evidence must not imply qualified availability.
+7. Inspection equipment and measured part/WIP history must support
+   [In-Process Inspection](in-process-inspection-and-progressive-verification.md),
+   including calibration status, characteristic/operation traceability,
+   containment, and preserved nonconformance dispositions.
 
 ## Planning, Purchasing, and Cost Rules
 
@@ -481,6 +489,9 @@ must not be converted into a success-shaped fallback.
 - [Raw Materials, Energy, and Input Cost Questions](../../discovery/topics/raw-materials-energy-and-input-costs.md)
 - [Suppliers and Procurement Questions](../../discovery/topics/suppliers-and-procurement.md)
 - [Geometry-Driven Prismatic 3+2 CAM](geometry-driven-3plus2-cam.md)
+- [Machine Maintenance and Care](machine-maintenance-and-care.md)
+- [In-Process Inspection](in-process-inspection-and-progressive-verification.md)
+- [Pass-by-Pass Workholding Assessment](pass-by-pass-workholding-analysis.md)
 - [Historical-Part Analog Estimating](historical-part-analog-estimating.md)
 - [Facility, Site, Utilities, and Layout](../facility-operations/facility-site-utilities-and-layout.md)
 - [Human and Automation Zone Safety and Scheduling](../facility-operations/human-automation-zone-safety-and-scheduling.md)
