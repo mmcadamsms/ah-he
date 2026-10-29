@@ -33,6 +33,7 @@
 | Shared KMP module | [common/kotlin/](common/kotlin/) |
 | Operational runbooks | [docs/runbooks/](docs/runbooks/) |
 | CNC cycle-time model | [docs/manufacturing/umc-750-cycle-time-model.md](docs/manufacturing/umc-750-cycle-time-model.md) |
+| CNC verification, workholding, machine care, and in-process inspection (proposed) | [docs/manufacturing/progressive-manufacturing-verification-design.md](docs/manufacturing/progressive-manufacturing-verification-design.md) |
 
 ## Agent Workflow
 
