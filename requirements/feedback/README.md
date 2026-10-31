@@ -16,8 +16,11 @@ Multiple replies to a question remain separate entries.
 
 The collector omits sender addresses, mailbox paths, raw message IDs, mail
 subjects, delivery tokens, and quoted research from this repository projection
-where its quote parser recognizes the original. Private raw email and delivery
-state remain outside git. Response text itself is not automatically redacted:
+where its quote parser recognizes the original. It also removes standalone
+English Outlook Android/iOS signature lines and unwraps Safe Links to their
+HTTP(S) destination URLs without retaining wrapper tracking metadata.
+Private raw email and delivery state remain outside git.
+Response text itself is not automatically redacted:
 review new feedback for secrets, personal information, quoted material, and
 permission to retain it before committing or sharing it.
 
@@ -58,6 +61,10 @@ Use `-StateDirectory` for a nondefault campaign. `-RepositoryRoot` chooses the
 checkout receiving the export; it defaults to the checkout containing the
 script. A campaign without replies does not create an empty inbox file.
 Nothing is automatically committed or pushed.
+
+Later polls continue updating the same campaign file after it is committed
+or merged, preserving earlier responses; new feedback remains a local change
+until reviewed and included in another PR.
 
 ## Starting Record
 

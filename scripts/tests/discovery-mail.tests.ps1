@@ -376,6 +376,49 @@ Not part of the prior question.
         Assert-Equal $s.State.Replies.Count 2 'no duplicate import'
     }
 
+    Test-Behavior 'repository export strips mobile signatures and Safe Links tracking without changing private replies' {
+        $s = New-TestScenario
+        Invoke-TestCycle $s
+        $link = 'https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fexample.org%2Fevidence%3Fa%3D1%26b%3D2&data=reader%40example.net&sdata=private-tracking'
+        $raw = "Keep this evidence <$link>.`r`nGet Outlook for Android <$link>`r`nKeep text after the signature.`r`nGet Outlook for iOS https://example.org/app"
+        $s.Fake.Messages = @(New-TestReply $s -Body $raw -ReceivedUtc '2026-07-01T15:02:00.0000000+00:00')
+        $repository = Join-Path $s.Directory 'repository'
+        Invoke-TestCycle $s -At '2026-07-01T15:05:00Z' -CollectOnly -RepositoryRoot $repository
+        $path = Join-Path $repository "requirements\feedback\inbox\discovery-$($s.State.Campaign).md"
+        $before = [IO.File]::ReadAllText($path)
+        Assert-True ($before.Contains('Keep this evidence <https://example.org/evidence?a=1&b=2>.')) 'destination and query retained'
+        Assert-True ($before.Contains('Keep text after the signature.')) 'later response text retained'
+        foreach ($private in @('Get Outlook for', 'safelinks.protection.outlook.com', 'reader%40example.net', 'private-tracking')) {
+            Assert-True (-not $before.Contains($private)) 'signature and wrapper metadata excluded'
+        }
+        $s.State = Read-DiscoveryMailState $s.Directory
+        Assert-Equal $s.State.Replies[0].Body $raw 'raw reply unchanged'
+        Assert-True ($s.State.Replies[0].FeedbackText.Contains($link)) 'private extracted reply unchanged'
+        Assert-True ([IO.File]::ReadAllText((Join-Path $s.Directory 'feedback.md')).Contains($link)) 'private collection retains metadata'
+        Assert-Equal $s.State.MoreRequests.Count 0 'cleanup does not queue requests'
+        Invoke-TestCycle $s -At '2026-07-01T15:10:00Z' -CollectOnly -RepositoryRoot $repository
+        Assert-Equal ([IO.File]::ReadAllText($path)) $before 'cleaned existing campaign stays stable after reload'
+        $s.Fake.Messages += New-TestReply $s -Body 'A later response.' -Key '<later@example.net>'
+        Invoke-TestCycle $s -At '2026-07-01T15:15:00Z' -CollectOnly -RepositoryRoot $repository
+        $after = [IO.File]::ReadAllText($path)
+        Assert-True ($after.Contains('A later response.') -and $after.Contains('#### Response 2')) 'later replies update the same file'
+        Assert-True ($after.Contains('Keep text after the signature.')) 'prior feedback preserved'
+    }
+
+    Test-Behavior 'repository cleanup preserves ordinary text and rejects unexportable Safe Links destinations' {
+        $text = "Discuss Get Outlook for Android here.`nhttps://example.org/?data=public`nGet Outlook for Android is not a signature."
+        Assert-Equal (Get-DiscoveryRepositoryReplyText $text) $text 'ordinary text and links are unchanged'
+        Assert-Equal (Get-DiscoveryRepositoryReplyText "Feedback.  `n  Indented continuation.`t`nMore.") `
+            "Feedback.`n  Indented continuation.`nMore." 'trailing whitespace normalized without removing indentation'
+        Assert-Equal (Get-DiscoveryRepositoryReplyText "Get Outlook for Android`nGet Outlook for iOS") '' 'signature-only reply becomes empty'
+        foreach ($query in @('data=private', 'url=ftp%3A%2F%2Fexample.org', 'url=https%3A%2F%2Fuser%3Apassword%40example.org',
+            'url=https%3A%2F%2Fexample.org&url=https%3A%2F%2Fother.example.org')) {
+            Assert-Throws {
+                Get-DiscoveryRepositoryReplyText "https://nam06.safelinks.protection.outlook.com/?$query"
+            } 'Cannot export a Safe Links wrapper'
+        }
+    }
+
     Test-Behavior 'offline export backfills existing campaigns without modifying progress or accessing Outlook' {
         $repository = Join-Path $testRoot 'offline-export'
         $scriptPath = Join-Path $PSScriptRoot '..\discovery-mail.ps1'

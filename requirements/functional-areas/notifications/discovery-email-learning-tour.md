@@ -66,7 +66,14 @@ replies as traceable feedback for later human/AI review.
    include question/source, received timestamp, stable hashed feedback ID,
    extraction note, and response text, but omit sender addresses, mailbox
    paths, raw message IDs, subjects, and delivery tokens. Do not create empty
-   campaign exports. Never edit canonical answers automatically.
+   campaign exports. Strip standalone English Outlook Android/iOS signature
+   lines and replace Safe Links wrappers with their HTTP(S) destination URLs
+   in repository exports only. Reject missing, ambiguous, invalid, or
+   credential-bearing destinations rather than publishing tracking metadata.
+   Normalize trailing line whitespace in repository response text.
+   Preserve private raw/extracted replies and feedback IDs. Each later poll
+   updates the same campaign file, retaining prior responses.
+   Never edit canonical answers automatically.
 9. Continue collecting replies after every question has been submitted.
 10. Prevent overlapping local runs with an exclusive file lock. Record runtime
     failures locally and return a failing process exit code.
@@ -153,6 +160,10 @@ them; record review decisions separately with feedback-ID traceability.
 - A failed Markdown write can be repaired from saved reply state.
 - Repository exports contain response text and stable question-linked IDs but
   no private mail metadata; separate campaigns cannot overwrite each other.
+- Repository exports remove recognized mobile signatures and Safe Links
+  tracking, preserve destination URLs and surrounding response text, and keep
+  private replies unchanged. Reloads remain stable and later replies update
+  the same campaign file without losing earlier feedback.
 - Export works without Outlook, is stable across repeat runs, and backfills an
   existing campaign without changing delivery or reply progress.
 - Exhaustion stops submissions but not reply collection.
