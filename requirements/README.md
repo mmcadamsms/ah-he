@@ -14,6 +14,7 @@ Product requirements are organized by **functional area** — logical groupings 
 | [manufacturing-automation](functional-areas/manufacturing-automation/) | CAD intake, planning, CNC verification, workholding assessment, machine care, in-process inspection, and inventory/tooling lifecycle |
 | [commercial-operations](functional-areas/commercial-operations/) | Customer credit, payment terms, quoting controls, collections, and commercial risk |
 | [facility-operations](functional-areas/facility-operations/) | Site selection, utilities, shop layout, receiving, employee space, safety, and expansion |
+| [platform-foundation](functional-areas/platform-foundation/) | Shared durable storage, evidence, asynchronous work, access, logging, and recovery |
 
 > Add new functional areas as the product grows. Each area gets its own directory under `functional-areas/`.
 
@@ -35,6 +36,12 @@ It describes high-level requirements, remaining implementation slices, open
 decisions, and dependencies, and distinguishes delivered prototype/email scope
 from requirements-only work. The rank reflects definition and bounded
 implementation readiness, not business priority or production qualification.
+
+The [Unified Operational Platform Design](../docs/architecture/unified-operational-platform-design.md)
+proposes shared Azure-first storage and logging for backlog items 1-5 on
+Kubernetes, with provider boundaries for a later AWS move.
+Its [shared requirement](functional-areas/platform-foundation/unified-operations-storage-and-logging.md)
+and proposed ADR are **for review; implementation waits for user agreement**.
 
 ## Agent Prompt Workflow
 

@@ -85,4 +85,14 @@ See [ADR 0005](docs/architecture/decisions/0005-organize-code-by-runtime-boundar
 
 ## Architecture Decision Records
 
+### Proposed Unified Operational Foundation
+
+[Unified Operational Platform Design](docs/architecture/unified-operational-platform-design.md)
+and [proposed ADR 0009](docs/architecture/decisions/0009-azure-first-portable-operational-platform.md)
+describe Azure Table/Blob/Queue storage, cloud-neutral provider contracts,
+Kubernetes compute and separate diagnostics/business audit for backlog items
+1-5. This is a design for user review, not accepted persistence/messaging/
+identity architecture or implemented runtime behavior; the TBD entries above
+remain unresolved until agreement.
+
 All significant decisions are recorded in [docs/architecture/decisions/](docs/architecture/decisions/).
