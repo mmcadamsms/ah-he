@@ -5,6 +5,10 @@
 **Status:** Proposed for user review; design only. Implementation, deployment,
 spending, and final operating policies require approval.
 
+**Approved logging decision (2026-10-31):** The user selected Grafana Loki
+backed by Azure Blob Storage. Logging product selection is settled; deployment
+sizing, security, retention, recovery and the broader platform design are not.
+
 **Date:** 2026-10-31. **Repository baseline:** `68b1cfb73143e90f35526715252070f698641fcb`
 (main after #12).
 
@@ -20,7 +24,7 @@ registries.
 | Business records | Azure **Table Storage**, not Cosmos DB for Table | Conditional writes and same-partition transactions; no relational joins, secondary indexes, or cross-partition transaction promise. |
 | Documents and evidence | Private immutable application-managed **block blobs** | CAD, certificates, photos, measurements, procedures, quote evidence; metadata and permissions remain in the operational store. |
 | Asynchronous work | Azure **Queue Storage** backed by a transactional outbox | Cheap work notifications; duplicate/out-of-order delivery is normal, not business truth. |
-| Logs | OpenTelemetry-compatible collection -> **Loki TSDB on Blob Storage**, Grafana for staff | Reuse a log engine, including indexing/retention; continuously running compute and WAL storage are real costs. Benchmark before acceptance. |
+| Logs | OpenTelemetry-compatible collection -> **Grafana Loki TSDB on Azure Blob Storage**; Grafana UI proposed for staff | User-approved logging backend. Continuously running compute and WAL storage are real costs; qualify deployment before production. |
 | Recovery | Separate protected Blob backup account plus consistent application checkpoints | Redundancy is not backup; Table records, evidence, configuration, and replay state all matter. |
 | Temporary persistent buffers | Per-writer Kubernetes PVCs; evaluate Azure Files, allow a justified disk exception | Blob/Queue cannot replace a filesystem WAL. Test filesystem semantics, restart, performance, and cost for the selected logging release. |
 | Cloud boundary | Narrow Java ports + Azure adapters; AWS target S3/DynamoDB/SQS | Preserves domain semantics, not drop-in SDK/API compatibility. Migration and conformance tests are necessary. |
@@ -54,8 +58,8 @@ The earlier logging proposal is still open in
 [requirement at the reviewed commit](https://github.com/mmcadamsms/ah-he/blob/4789140c6de84bb462cf944f4aee25ee6d8ebe25/requirements/functional-areas/observability/low-cost-azure-blob-logging.md)
 compares OpenObserve, Loki, Quickwit, and Parquet/DuckDB, including Iceberg/Delta
 publication. This proposal carries forward low-cost commodity storage, correlation,
-bounded buffers, queries near the data, and independent recovery. It recommends
-Loki as the first trial because items 1-5 create an ongoing support/query need.
+bounded buffers, queries near the data, and independent recovery. The user
+selected Loki on Azure Blob for the ongoing support/query need of items 1-5.
 It does not merge #8, accept ADR 0007, or secretly build a second logging lake.
 Reconcile or supersede that proposal explicitly after this design is agreed.
 
@@ -405,8 +409,9 @@ retention and sampling are separate from the durable business change history.
 
 ### Engine Choice, Buffering, and Query Limits
 
-Recommend a version-pinned Loki TSDB trial on Azure Blob, with authenticated
-Grafana staff access. Index only low-cardinality environment/service/domain
+Use the user-selected Grafana Loki with TSDB on Azure Blob. Pin and qualify
+the deployment release; the Grafana staff UI remains part of the proposed
+design. Index only low-cardinality environment/service/domain
 labels; keep request, customer, item, trace, pod-instance and work IDs as
 structured metadata, not high-cardinality labels. Keep Loki private behind an
 authenticated, authorized ingestion/query gateway: the engine is not the
@@ -417,9 +422,12 @@ direct customer log access. Require time/service bounds,
 query concurrency/scan budgets, and visible freshness. Loki does not provide a
 universal arbitrary-text/JSON-field inverted index [S9].
 
-| Option | Assessment / approval gate |
+The alternatives below preserve the selection rationale; they are not an
+invitation to replace the approved backend without further user agreement.
+
+| Option | Assessment / deployment qualification |
 |--------|-----------------------------|
-| **Loki first trial** | Existing log browsing, retention and OTel integration; Azure/S3 backends. Measure steady compute, WAL/PVCs, retention, restart and chosen-release identity support. |
+| **Loki on Azure Blob - selected** | User-approved backend. Measure steady compute, WAL/PVCs, retention, restart and chosen-release identity support before production. |
 | OpenObserve | Alternative if structured SQL/UI materially improves the actual workflow; evaluate metadata/WAL recovery, HA dependencies, supported identity and all-in cost before selection. |
 | Archive-only Blob + occasional query | Lower idle compute candidate, not a complete interactive logging service. Existing exporter/format/query handling still needs validation; do not build a custom ingestion/catalog platform just to minimize the storage bill. |
 | Quickwit / indexed search | Consider only if measured full-text/field needs justify index amplification and metadata/compute dependencies. |
@@ -541,7 +549,7 @@ Only start this sequence after design agreement.
 
 | Stage | Deliverable | Mandatory verification |
 |-------|-------------|------------------------|
-| 0 | Agree design, initial org/workload, authority/policy and retention/recovery targets; spike Table atomic contracts and Loki identity/PVC/cost | Competing writes, timeout-after-commit, dependency fencing, size limits; log ingestion/restart/drop/security tests. Reject provider/product choices that fail. |
+| 0 | Agree remaining design, initial org/workload, authority/policy and retention/recovery targets; spike Table atomic contracts and qualify selected Loki identity/PVC/cost | Competing writes, timeout-after-commit, dependency fencing, size limits; log ingestion/restart/drop/security tests. Block unqualified deployments; backend changes require review. |
 | 1 | Shared ports/Azure adapters, OIDC/access, durable command/change/outbox, evidence lifecycle, basic telemetry and recovery tooling | Azurite/local contract tests plus real Azure identity/private-network/failure tests; idempotency across restarts; tenant isolation; complete checkpoint/restore. |
 | 2 | Inventory/custody/WIP and asset foundation | Concurrent reservation, balanced split/remnant, accepted handoff, unknown/quarantine, preserved corrections and replay; then tooling/demand slices. |
 | 3 | Care and inspection/release | MC/IP acceptance cases; date/DST/meter gaps, support outages, interruption, raw failure retention, sampling and gate invalidation with concurrent changes. |
@@ -560,7 +568,7 @@ been implemented by this proposal.
 |----------|----------------|---------------------------|
 | Initial consistency scope | One organization operational partition; low-volume pilot before scale expansion | Sharded writes need a different transaction/workflow design or a database exception. |
 | Durable storage | Table/Blob/Queue first, no SQL/Cosmos/Service Bus by default | A transactional DB may reduce application engineering for larger relational/cross-scope needs; evaluate total cost rather than forbid it. |
-| Logging | Trial Loki/OTel/Grafana on Blob; not a custom lake or mandatory Azure Monitor indexing | Archive-only reduces fixed compute but loses ready-made browsing/alerts and needs a validated ingestion/query path. |
+| Logging | **Approved: Grafana Loki on Azure Blob.** OTel collection and Grafana UI are proposed integration details; sizing/retention/recovery remain open. | Replacing the selected backend requires further agreement; no custom lake or mandatory Azure Monitor indexed ingestion is implied. |
 | WAL filesystem | Azure Files if proven; explicit Azure Disk exception otherwise | Insisting on only Blob/Table/Queue cannot meet filesystem WAL needs without replacing components. |
 | Identity / roles | Entra staff OIDC, attributable devices/services, separately selected customer onboarding | Production customer return workflow waits for authenticated order ownership. |
 | Workflow depth | Incremental manual evidence first, then selected external adapters and complete remaining rules | First slices are not completion of the full 1-5 requirements. |

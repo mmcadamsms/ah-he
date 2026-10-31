@@ -65,6 +65,12 @@ the design for user changes/agreement; implement only after approval.
 - [Prompt pipeline](../README.md).
 - User review and design agreement before implementation.
 
+## Review Decisions
+
+- 2026-10-31: User approved Grafana Loki backed by Azure Blob Storage for
+  logging. Product selection is settled; broader architecture, deployment
+  details, policies and implementation approval remain pending.
+
 ---
 **Status:** deploying (design-only PR; awaiting user review/agreement, not runtime deployment)
 

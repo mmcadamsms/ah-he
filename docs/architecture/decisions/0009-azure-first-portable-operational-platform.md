@@ -4,6 +4,10 @@
 
 Proposed. User review/agreement is required before implementation or deployment.
 
+The **logging backend subdecision is approved**: on 2026-10-31 the user selected
+Grafana Loki backed by Azure Blob Storage. This does not accept the remaining
+operational storage design or authorize runtime deployment.
+
 ## Context
 
 Backlog items 1-5 require shared durable inventory/asset/custody, care, measured
@@ -30,8 +34,9 @@ remedy dependencies can be guarded atomically. Enforce bounded commands; do not
 claim automatic cross-partition scaling. Review a transactional database
 exception if scope/scale proves unsuitable rather than relax correctness.
 
-Evaluate OpenTelemetry collection with Loki TSDB/Grafana on Azure Blob as the
-first unified diagnostic system, accounting for continuously running compute,
+Use the user-selected Grafana Loki backed by Azure Blob as the unified
+diagnostic backend. Propose OpenTelemetry collection and Grafana staff UI,
+accounting for continuously running compute,
 identity support and per-writer persistent WAL/buffers. Do not build a bespoke
 Parquet/catalog/search platform by default. Business audit commits with business
 state, outside the diagnostic pipeline.
@@ -57,7 +62,8 @@ semantic tests before portability is claimed.
   cross-domain holds/remedies harder to reconcile.
 - **Custom log lake / alpha Blob exporter as production default:** Lower idle
   compute is possible but ingestion/recovery/query maturity and engineering
-  burden must be measured. Existing engine trial comes first.
+  burden informed the selection; Loki is the approved backend. Deployment
+  qualification remains required and any replacement needs further agreement.
 - **Provider-agnostic generic CRUD:** Conceals atomicity, identity, queue and
   lifecycle differences; explicit capability contracts are safer.
 

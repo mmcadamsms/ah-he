@@ -2,6 +2,10 @@
 
 **Status:** Proposed design for review; no runtime implementation or deployment.
 
+**Approved subdecision:** Grafana Loki backed by Azure Blob Storage for unified
+software logging, selected by the user on 2026-10-31. Broader design agreement
+and deployment qualification remain pending.
+
 ## Problem
 
 Inventory/custody, machine care, in-process inspection, benchmark quotes and
@@ -94,9 +98,10 @@ diagnostic loss bounds, region/redundancy and total-cost budget.
 15. **UF-15 - Separate audit.** Business history must persist with its command
     regardless of logging availability. No debug sampler or diagnostic
     retention policy deletes required quality/maintenance/financial history.
-16. **UF-16 - Existing engines first.** Evaluate Loki on Blob against
-    appropriate alternatives and archive-only compute. Do not build a
-    custom log catalog/search lake without a measured, approved justification.
+16. **UF-16 - Selected logging backend.** Use Grafana Loki backed by Azure
+    Blob Storage for unified software logs. Qualify the selected release,
+    identity, buffering, retention/recovery and total cost before production.
+    Replacing Loki or adding a separate custom log lake requires further review.
 17. **UF-17 - Explicit operations.** Expose outbox age, failed writes/scans,
     telemetry loss, WAL condition, backup age and query freshness through a
     health/alert path independent of successful log ingestion.
