@@ -18,3 +18,6 @@ _Add requirement documents to this directory as `.md` files._
 ## Related Areas
 - [Approvals](../approvals/) — approval chains reference user roles
 - [Notifications](../notifications/) — user preferences drive notification delivery
+- [Actor and beneficiary operation context](../platform-foundation/actor-and-beneficiary-operation-context.md)
+  — customer-provisioned membership and bounded representation/authority in the
+  proposed operational platform; not a completed identity implementation

@@ -6,6 +6,9 @@ This directory contains detailed architecture documentation for the ah-he platfo
 
 - [overview.md](overview.md) — Detailed component architecture
 - [decisions/](decisions/) — Architecture Decision Records (ADRs)
+- [Unified operational platform](unified-operational-platform-design.md) —
+  proposed Azure-first portable storage, logging and Kubernetes design for
+  backlog items 1-5; awaiting user agreement before implementation.
 
 ## Adding an ADR
 
