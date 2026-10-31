@@ -307,6 +307,28 @@ function Import-DiscoveryMailReplies {
     }
 }
 
+function Get-DiscoveryRepositoryReplyText {
+    param([string]$Text)
+    $text = $Text.Replace("`r`n", "`n").Replace("`r", "`n")
+    $text = [regex]::Replace($text,
+        '(?im)^[ \t]*Get Outlook for (?:Android|iOS)(?:[ \t]+(?:<https?://[^\s<>]+>|https?://[^\s<>]+))?[ \t]*(?:\n|$)', '')
+    $text = [regex]::Replace($text,
+        '(?i)https?://[a-z0-9.-]+\.safelinks\.protection\.outlook\.com/[^\s<>]+', {
+            param($Match)
+            $wrapper = [Uri]$Match.Value
+            $targets = @($wrapper.Query.TrimStart('?').Split('&') | Where-Object { $_ -cmatch '^url=' })
+            if ($targets.Count -ne 1) { throw 'Cannot export a Safe Links wrapper without one destination URL.' }
+            $decoded = [Uri]::UnescapeDataString($targets[0].Substring(4))
+            $destination = $null
+            if (-not [Uri]::TryCreate($decoded, [UriKind]::Absolute, [ref]$destination) -or
+                $destination.Scheme -notin @('http', 'https') -or $destination.UserInfo) {
+                throw 'Cannot export a Safe Links wrapper with an invalid or credential-bearing destination URL.'
+            }
+            return $destination.AbsoluteUri
+        })
+    return ([regex]::Replace($text, '(?m)[ \t]+$', '')).Trim()
+}
+
 function Get-DiscoveryMailFeedbackText {
     param($State, [switch]$RepositoryExport)
     $lines = [System.Collections.Generic.List[string]]::new()
@@ -352,15 +374,20 @@ function Get-DiscoveryMailFeedbackText {
                 }
                 $lines.Add("- Extraction: $($reply.Extraction)")
                 $lines.Add('')
+                $feedbackText = if ($RepositoryExport) {
+                    Get-DiscoveryRepositoryReplyText $reply.FeedbackText
+                } else {
+                    $reply.FeedbackText
+                }
                 # A fence longer than any input run prevents email text from closing it.
-                $runs = [regex]::Matches($reply.FeedbackText, '`+')
+                $runs = [regex]::Matches($feedbackText, '`+')
                 $longest = 2
                 foreach ($run in $runs) { $longest = [Math]::Max($longest, $run.Length) }
                 $fence = ('`' * ($longest + 1)) -join ''
                 $lines.Add($fence + 'text')
-                $lines.Add($reply.FeedbackText)
+                $lines.Add($feedbackText)
                 $lines.Add($fence)
-                if ([string]::IsNullOrWhiteSpace($reply.FeedbackText)) {
+                if ([string]::IsNullOrWhiteSpace($feedbackText)) {
                     $lines.Add('No new response text detected. Review the raw message in local state.')
                 }
             }

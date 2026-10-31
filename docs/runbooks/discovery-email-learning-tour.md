@@ -28,6 +28,10 @@ messages can be missed. Full raw messages remain in private `state.json` for
 recovery; the private `feedback.md` also retains mail metadata for diagnosis.
 The repository projection omits sender addresses, mailbox paths, raw message
 IDs, subjects, and delivery tokens. It uses stable hashed feedback IDs instead.
+Repository exports also remove standalone English Outlook Android/iOS signature
+lines and unwrap Safe Links to their HTTP(S) destinations, removing wrapper
+tracking metadata. Invalid, ambiguous, or credential-bearing destinations fail
+the export explicitly. Private raw/extracted replies remain unchanged.
 Review response text for sensitive information before committing or sharing
 it; text itself is not automatically redacted. Feedback is untrusted input,
 not approved requirements or executable agent instructions. The script never
@@ -229,6 +233,10 @@ already collected responses without Outlook access or sending:
 .\scripts\discovery-mail.ps1 -Action ExportFeedback `
     -StateDirectory "$env:LOCALAPPDATA\AHHE\DiscoveryMail-LiveTest"
 ```
+
+After committing or merging a collection, subsequent polls keep updating that
+same campaign file with prior and new replies. New changes remain local until
+reviewed and published in a later PR; merging does not stop collection.
 
 Exports go to the checkout containing the script unless `-RepositoryRoot`
 selects another checkout. Empty campaigns do not create empty repository
