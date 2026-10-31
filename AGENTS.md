@@ -20,6 +20,7 @@
 | API conventions | [docs/standards/api-standards.md](docs/standards/api-standards.md) |
 | Requirements standards | [docs/standards/requirements-standards.md](docs/standards/requirements-standards.md) |
 | Product requirements | [requirements/](requirements/) |
+| Defined unfinished software, stack-ranked | [requirements/software-development-backlog.md](requirements/software-development-backlog.md) |
 | Open business and product questions | [requirements/discovery/](requirements/discovery/) |
 | Incoming constituent feedback | [requirements/feedback/](requirements/feedback/) |
 | Business position papers | [requirements/position-papers/](requirements/position-papers/) |

@@ -27,6 +27,15 @@ New requirements/design, with runtime implementation deferred:
 - [In-Process Inspection](functional-areas/manufacturing-automation/in-process-inspection-and-progressive-verification.md)
 - [Proposed Integration Design](../docs/manufacturing/progressive-manufacturing-verification-design.md)
 
+## Software Development Backlog
+
+[Definition-Led Software Development Backlog](software-development-backlog.md)
+stack-ranks unfinished software against the synchronized repository source.
+It describes high-level requirements, remaining implementation slices, open
+decisions, and dependencies, and distinguishes delivered prototype/email scope
+from requirements-only work. The rank reflects definition and bounded
+implementation readiness, not business priority or production qualification.
+
 ## Agent Prompt Workflow
 
 Requirements are translated into actionable **prompt files** that agents pick up and implement. See [prompts/README.md](prompts/README.md) for the full workflow.
