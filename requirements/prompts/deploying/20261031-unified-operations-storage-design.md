@@ -6,6 +6,7 @@
 - [Shared requirement](../../functional-areas/platform-foundation/unified-operations-storage-and-logging.md).
 - [Design deliverable](../../../docs/architecture/unified-operational-platform-design.md).
 - [ADR 0009](../../../docs/architecture/decisions/0009-azure-first-portable-operational-platform.md).
+- [Actor and beneficiary context](../../functional-areas/platform-foundation/actor-and-beneficiary-operation-context.md).
 
 ## Objective
 
@@ -28,6 +29,9 @@ the design for user changes/agreement; implement only after approval.
    numerical targets awaiting approval are visible.
 6. Documentation is navigable, validated and presented in a design-only PR;
    no implementation or cloud spending is performed before agreement.
+7. Every business operation distinguishes actor/affiliation/representation
+   authority, beneficiary/purpose, subject and economic allocation, preserving
+   context through work/history and protecting customer-provisioned access.
 
 ## Scope
 
@@ -70,6 +74,10 @@ the design for user changes/agreement; implement only after approval.
 - 2026-10-31: User approved Grafana Loki backed by Azure Blob Storage for
   logging. Product selection is settled; broader architecture, deployment
   details, policies and implementation approval remain pending.
+- 2026-10-31: User requires first-class actors and beneficiaries for business
+  operations, including customer-provisioned users, internal customer-serving
+  staff and shared business benefit. Added shared context requirements and
+  design; implementation remains gated on broader agreement.
 
 ---
 **Status:** deploying (design-only PR; awaiting user review/agreement, not runtime deployment)

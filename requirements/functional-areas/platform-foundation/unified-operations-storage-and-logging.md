@@ -38,11 +38,16 @@ Present the design for user changes/agreement before implementation.
   promising impossible cross-provider equivalence.
 - **Diagnostic loss budget:** Approved telemetry loss allowance; does not permit
   losing required business history.
+- **Operation context:** Actor roles, affiliations/representation authority,
+  beneficiary/purpose, subjects and causation, independently validated.
+- **Beneficiary:** Business/customer/order/line/job served by an operation;
+  not necessarily the payer, resource owner or source of authority.
 
 ## Inputs
 
 The five linked domain requirements; operating organization/customer/actor
-identities; approved policies, units/currencies and revisions; storage/identity/
+identities, affiliations/representation grants and beneficiary/subject links;
+approved policies, units/currencies and revisions; storage/identity/
 network environment; artifacts and access/retention classification; expected
 concurrency, throughput, evidence/log volume and queries; recovery targets,
 diagnostic loss bounds, region/redundancy and total-cost budget.
@@ -115,6 +120,22 @@ diagnostic loss bounds, region/redundancy and total-cost budget.
 20. **UF-20 - Cloud move.** Prove destination semantic contracts and a fenced
     export/import/cutover with balances, hashes, access and replay verification.
     Never describe replacing a connection string as a completed migration.
+21. **UF-21 - Actor and beneficiary.** Apply the shared
+    [operation-context requirement](actor-and-beneficiary-operation-context.md)
+    to every business operation, including customer-provisioned users, internal
+    actors and named services/devices. Beneficiary is independent of actor,
+    represented party, subject, ownership and payer.
+22. **UF-22 - Shared benefit.** Support business/shared-capability, customer,
+    order/line/job and permitted multi-beneficiary purposes. Unknown receiving
+    association remains explicit; business context is not permission to refund.
+23. **UF-23 - Authority at action.** Validate current local membership,
+    representation and beneficiary/subject relationships under commit guards;
+    credential validity/revocation latency follows explicit identity policy.
+    Provisioning and beneficiary attribution cannot mint customer/staff privileges.
+24. **UF-24 - Context continuity.** Persist actor/authority/beneficiary snapshots
+    with effects and preserve them across queues, retries, corrections and
+    cloud migration. Worker identity is distinct from the initiating human;
+    diagnostic context is redacted and does not become an access grant.
 
 ## Assumptions
 
@@ -156,6 +177,10 @@ diagnostic loss bounds, region/redundancy and total-cost budget.
 | UF-AC-12 | Table/AWS conformance and fenced migration preserve the same declared atomicity, access and replay outcomes before portability is claimed. |
 | UF-AC-13 | All five domain suites reference the original requirements, explicitly tracking first-slice versus full completion and missing external capabilities. |
 | UF-AC-14 | Representative contention, volume, query and recovery tests record total cost/resource use and reject unqualified hot-partition/log-engine configurations. |
+| UF-AC-15 | A customer-provisioned user and an employee serving the same order retain distinct actors and verified authority with the same validated beneficiary. |
+| UF-AC-16 | Shared maintenance/backup and unidentified receiving use explicit business purposes without fictitious orders or unauthorized financial release. |
+| UF-AC-17 | Concurrent local grant revocation or changed customer/order relationship rejects a stale action; queue replay cannot change representation/beneficiary intent. |
+| UF-AC-18 | Beneficiary views/history preserve context and corrections without granting other-customer access, leaking credentials or assigning automatic charges. |
 
 ## Failure Behavior
 
@@ -178,6 +203,7 @@ operating policies; multi-cloud active-active writes; claiming measured savings.
 - [Unified design and authoritative provider sources](../../../docs/architecture/unified-operational-platform-design.md).
 - [Proposed ADR 0009](../../../docs/architecture/decisions/0009-azure-first-portable-operational-platform.md).
 - [Design/review prompt](../../prompts/deploying/20261031-unified-operations-storage-design.md).
+- [Actor and beneficiary operation context](actor-and-beneficiary-operation-context.md).
 - [1: Inventory and lifecycle](../manufacturing-automation/inventory-tooling-and-equipment-lifecycle.md).
 - [2: Machine care](../manufacturing-automation/machine-maintenance-and-care.md).
 - [3: In-process inspection](../manufacturing-automation/in-process-inspection-and-progressive-verification.md).

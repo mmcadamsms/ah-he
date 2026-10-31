@@ -8,6 +8,10 @@ The **logging backend subdecision is approved**: on 2026-10-31 the user selected
 Grafana Loki backed by Azure Blob Storage. This does not accept the remaining
 operational storage design or authorize runtime deployment.
 
+The user also requires actors and beneficiaries as first-class participants
+in business operations. The representation/authority/subject/context model
+below refines that requirement; the overall design remains under review.
+
 ## Context
 
 Backlog items 1-5 require shared durable inventory/asset/custody, care, measured
@@ -46,6 +50,15 @@ scopes, protected evidence lifecycle, independent backup and reconciled external
 effects. AWS S3/DynamoDB/SQS adapters and a fenced migration must pass the same
 semantic tests before portability is claimed.
 
+Require a shared operation context across all domains: stable actor principals,
+affiliation, applicable represented party/authority, explicit primary/additional
+beneficiaries and purpose, affected subjects and causation. Customer-provisioned
+users and internal staff retain distinct identities. Business/shared capability
+is a valid beneficiary without inventing an order; beneficiary is not permission,
+ownership, payer or automatic cost allocation. Validate current local grants/
+relationships with command effects and preserve context through audit/outbox,
+workers, corrections and migration.
+
 ## Alternatives and Tradeoffs
 
 - **SQL/PostgreSQL first:** Easier cross-entity transactions/queries; a valid
@@ -83,6 +96,7 @@ implementation prompts for the complete domain requirements.
 
 - [Unified design](../unified-operational-platform-design.md).
 - [Shared requirements](../../../requirements/functional-areas/platform-foundation/unified-operations-storage-and-logging.md).
+- [Actor and beneficiary context](../../../requirements/functional-areas/platform-foundation/actor-and-beneficiary-operation-context.md).
 - [Ranked backlog](../../../requirements/software-development-backlog.md).
 - [Runtime boundaries](0005-organize-code-by-runtime-boundary.md).
 - [Separated manufacturing evidence proposal](0008-separate-manufacturing-evidence-from-playback.md).

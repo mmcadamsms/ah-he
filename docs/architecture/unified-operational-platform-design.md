@@ -104,9 +104,15 @@ actor. Organization and customer are distinct: an operating organization can
 serve many customers. Actor identity comes from verified credentials; requester,
 performer, confirmer, approver, device, and service roles remain separate.
 
+Every business operation also carries explicit beneficiary context. Actor,
+representation, beneficiary, subject and ownership are independent concepts;
+neither a user/customer identity nor an order ID can stand in for all of them.
+
 | Shared object | Required information / ownership |
 |---------------|----------------------------------|
 | Customer / order / line | Verified/imported source, revision, customer access grant, part/revision, fulfilled/eligible quantity, monetary breakdown/currency, payment references and policy references; no payment secrets |
+| Principal / affiliation / authority | Stable human/service/device identity, verified credential mapping, business/customer membership, scoped role/delegation/service authority and effective revisions |
+| Operation context | Executing/requesting/approving principals, represented party/authority, primary/additional beneficiaries, purpose, affected subjects, causal operation and validation revisions |
 | Part / job / operation | Drawing/model revision, ordered route and scope, planned versus actual state, original production references; simulated jobs cannot silently become actual production |
 | Controlled item / lot / asset | Category, ownership, units, lot/serial, condition, confirmed location/custody, qualification, reservations, genealogy |
 | Location / handling unit | Hierarchy, contents, origin/destination, requested/confirmed/accepted handoff and safety restrictions |
@@ -116,13 +122,108 @@ performer, confirmer, approver, device, and service roles remain separate.
 | RMA / package / remedy | Order-line allocation, package sequence, credentials/execution facts, receipt/quarantine, identity, inspection, responsibility, itemized calculation and remaining remedy allocation |
 | Hold / release | Subject, scope, reason, dependency versions, approver, expiry, evidence; release is a command decision, never a Boolean copied from a log |
 | Artifact | Owner/access class, media type/size/hash, scan state, immutable provider object version, lifecycle/hold status, linked records |
-| Command receipt / change event / outbox | Idempotency digest and result, changed revisions, actor/reason, transactional post-images or reconstructible change set, consumer work state |
+| Command receipt / change event / outbox | Idempotency digest and result, changed revisions, immutable actor/representation/beneficiary context, transactional post-images or reconstructible change set, consumer work state |
 
 Use exact decimal quantities and money with explicit unit/currency and approved
 rounding/conversion rules, not binary floating-point balances. Store provider-
 neutral decimal representations in Tables; do not coerce arbitrary precision
 into its limited scalar types. Observations preserve the submitted precision,
 units, and original evidence. Unknown is a state, not zero or accepted.
+
+### Actor, Representation, and Beneficiary Context
+
+The user identified both sides as required participants in all business
+operations. Use **beneficiary** for the receiving side, matching the examples
+of customer, customer order and shop/business. The field expresses purpose or
+intended benefit, not necessarily who pays.
+
+| Context dimension | Meaning | Example |
+|-------------------|---------|---------|
+| Operating business | Data/operational boundary | The shop operating the system |
+| Actor | Who actually requested/performed/approved this step | Customer-provisioned user, internal employee, named worker service or device |
+| Affiliation | Actor's verified membership/ownership | Employee of shop; invited member of customer account |
+| Represented party / authority | For whom the actor is permitted to act and under what grant | Employee processes a customer return under internal business authority |
+| Beneficiary | Who/what the action serves | Customer, order/line/job, or the shared business capability |
+| Subject | What is changed/observed/accessed | Stock unit, compressor, measured bore, quote, package |
+| Ownership / payer / allocation | Separate property or economic facts | Customer-owned stock; business-paid freight; approved shared overhead |
+
+Proposed versioned `OperationContext` fields:
+
+```text
+contextId, schemaVersion, businessId, operationId, action, purpose
+executingPrincipalId, initiatingPrincipalId, actorRoleReferences
+representedPartyId (when applicable), authorityId/revision
+primaryBeneficiary { kind, id }, additionalBeneficiaries[]
+subjectReferences[], relationship/authority validation revisions
+causedByOperationId, recordedAt, occurredAt, allocationReference (optional)
+```
+
+Required principals resolve through authenticated mappings; requester/performer/
+confirmer/approver remain separate. A customer's administrator can provision
+users and bounded roles only inside that verified customer account. An internal
+employee serving a customer remains an employee, using a checked internal grant;
+the system does not pretend the employee logged in as the customer's user.
+Scheduled work has a stable executing service/device principal and explicit
+business mandate, not an anonymous `SYSTEM` actor.
+
+Require a primary typed beneficiary and purpose for every business operation;
+allow additional validated beneficiaries. Initial kinds are business, customer,
+order, order line and job, with checked parent links. Business-level work serves
+shared capability without enumerating all customers or inventing an order.
+Beneficiary lists are bounded by the existing command limits. Resource ownership
+and action permissions still govern each affected subject.
+
+| Workflow | Actor / representation example | Beneficiary / subject example |
+|----------|--------------------------------|-------------------------------|
+| 1: Stock/WIP | Employee or receiving device acts under inventory authority | Order/job benefits; actual stock/WIP is the subject; customer ownership remains separate |
+| 2: Care | Maintainer performs and qualified reviewer releases; scheduler has its own principal | Business/shared capability benefits; compressor is subject, not a fictitious customer |
+| 3: Inspection | Inspector measures; independent approver where required | Validated order/job benefits; part/characteristic is subject; benefiting customer cannot self-accept without authority |
+| 4: Benchmarks | Authorized commercial reviewer | Business market knowledge benefits; owned benchmark/quote is subject |
+| 5: Returns | Customer-provisioned user requests; employee inspects; authorized executor handles remedy | Verified customer/order/line benefits; RMA/package is subject; payer/refund method follows separate policy |
+| Platform work | Named backup/reconciliation service | Business continuity benefits; checkpoint/work state is subject |
+
+For unidentified receiving, use the real business beneficiary of quarantine
+and record unresolved customer/order association. That is an explicit receiving
+purpose, not a fallback permitting refunds. Mixed/shared customer work retains
+authorized internal attribution while each customer's view hides other
+customers. Intended benefit never grants access, consent, monetary liability or
+an automatic cost split.
+
+The API validates this context rather than trusting a client-supplied actor,
+on-behalf-of party or beneficiary. Guard current authority and parent-link
+revisions with committing effects, including authoritative customer membership/
+role grants stored in the operational scope. Identity-provider credential
+validity is checked at request/worker execution; it cannot be made atomic with
+a Table transaction. Locally authoritative grant revocations participate in
+commit guards; external revocation latency/session lifetime needs an explicit
+security policy, not an instant cross-system revocation claim.
+
+Persist the validated snapshot with the command/change/work/approval; heads
+reference their creating/latest operation rather than overwriting all historical
+actor context. Queue envelopes carry an operation/work reference and safe trace
+context, not credentials or complete personal/beneficiary lists. Workers load
+the committed context, keep the originating actor/causation, record their own
+executing principal and recheck action authority. Automatic follow-up is permitted
+only by explicit service policy, not by inheriting a former user's privilege.
+
+Command digests include representation and beneficiary intent; replay cannot
+change either silently. Reassociation/corrections create new history while
+retaining prior context and then-valid authority versions. Imported performer
+claims retain provenance/verification status separate from the authenticated
+importing principal. Read/search purpose can be business- or customer-scoped
+without manufacturing a mutation per returned row; sensitive read/export audit
+follows its approved policy.
+
+Beneficiary/actor views are rebuildable keyed projections, never authorization
+or release authority. Loki receives safe opaque operation/context references
+and low-cardinality business/domain classification, not personal principal
+details, grant tokens or customer beneficiary labels. Backups and AWS migration
+preserve context, authority references and corrections.
+
+The [operation-context requirement](../../requirements/functional-areas/platform-foundation/actor-and-beneficiary-operation-context.md)
+defines acceptance cases for customer provisioning, internal representation,
+shared work, invalid/revoked grants, replay, unknown receiving and privacy.
+This refines the data/authorization design without approving implementation.
 
 ## Storage Layout and Atomic Boundary
 
@@ -155,6 +256,7 @@ H!inventory!<id>         authoritative item head
 H!asset!<id>             qualification/hold authority
 H!orderline!<id>         return/remedy allocation authority
 H!inspection!<id>        measured result/revision
+X!<operation-id>         immutable validated actor/beneficiary operation context
 E!<aggregate-id>!<rev>   immutable change with transaction ID
 C!<command-id>           durable command digest/result
 O!<work-id>              pending/blocked/completed consumer obligations
@@ -179,17 +281,21 @@ provide a separate tamper/recovery boundary.
 
 ### Authoritative Command Protocol
 
-1. Authenticate, authorize action and customer scope, validate schema/policy,
-   and resolve organization from trusted access context.
+1. Authenticate, resolve operating organization and principal affiliations,
+   validate actor/representation/beneficiary/subject context and current action
+   authority, then validate schema/policy. Client context is requested intent,
+   not trusted identity or permission.
 2. Require stable `Idempotency-Key` for mutating commands. Persist its caller/
-   action/scope binding, canonical request digest, target, and result in the same
+   action/scope binding, canonical request digest including representation/
+   beneficiary intent, target, and result in the same
    operational partition. A reused key with different intent is a conflict.
 3. Read authoritative heads and all prerequisites, not dashboard projections.
    Evaluate exact quantity, qualification, evidence, policy, clock/expiry, and
    applicable version rules.
 4. Submit one conditional partition transaction: guard the open scope fence,
    mutate affected heads, fence
-   dependency heads, insert audit/change rows, command result, and outbox work.
+   dependency heads including applicable authority/relationship guards, insert
+   validated operation context, audit/change rows, command result, and outbox work.
    All read dependencies influencing a release/allocation must be included
    with expected-version guards. In Tables, a conditional replacement of the
    relevant head can serve as that guard even if its business fields do not
