@@ -5,6 +5,9 @@ Reusable, non-deployable code and contracts live here.
 ## Current Modules
 
 - `kotlin/` — Kotlin Multiplatform models, networking, and shared logic
+- `operations/` — Shared Java domain workflows, conditional storage/evidence/
+  transport ports and Azure adapters consumed by the API and worker.
+  See the [pilot runbook](../docs/runbooks/operational-workflows.md).
 
 Code belongs here only when multiple consumers benefit and dependency
 direction remains explicit. Do not use `common/` as a miscellaneous folder for

@@ -8,3 +8,32 @@ spring:
 manufacturing:
   simulation:
     tick-ms: ${SIMULATION_TICK_MS:100}
+operations:
+  provider: ${OPERATIONS_PROVIDER:azure}
+  enabled: ${OPERATIONS_ENABLED:false}
+  business-id: ${OPERATIONS_BUSINESS_ID:}
+  table-endpoint: ${OPERATIONS_TABLE_ENDPOINT:}
+  blob-endpoint: ${OPERATIONS_BLOB_ENDPOINT:}
+  queue-endpoint: ${OPERATIONS_QUEUE_ENDPOINT:}
+  connection-string: ${OPERATIONS_CONNECTION_STRING:}
+  create-local-resources: ${OPERATIONS_CREATE_LOCAL_RESOURCES:false}
+  bootstrap-principal: ${OPERATIONS_BOOTSTRAP_PRINCIPAL:}
+  bootstrap-expires-at: ${OPERATIONS_BOOTSTRAP_EXPIRES_AT:}
+  jwt:
+    issuer: ${OPERATIONS_JWT_ISSUER:}
+    jwk-set-uri: ${OPERATIONS_JWT_JWKS:}
+    audience: ${OPERATIONS_JWT_AUDIENCE:}
+app:
+  environment: ${APP_ENVIRONMENT:local}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: ${OPERATIONS_HEALTH_GROUP:readinessState}

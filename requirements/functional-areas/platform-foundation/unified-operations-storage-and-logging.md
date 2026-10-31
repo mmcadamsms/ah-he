@@ -1,10 +1,12 @@
 # Unified Operations Storage and Logging
 
-**Status:** Proposed design for review; no runtime implementation or deployment.
+**Status:** Initial manual implementation authorized and delivered in source;
+not deployed or complete against every rule/acceptance criterion below.
 
 **Approved subdecision:** Grafana Loki backed by Azure Blob Storage for unified
-software logging, selected by the user on 2026-10-31. Broader design agreement
-and deployment qualification remain pending.
+software logging, selected by the user on 2026-10-31. The same day's implementation
+approval covers initial workflows 1-5; deployment qualification remains pending.
+See [delivered scope and remaining gates](../../../docs/runbooks/operational-workflows.md).
 
 ## Problem
 
@@ -20,7 +22,8 @@ Design one Kubernetes-based operational foundation for
 [backlog items 1-5](../../software-development-backlog.md), initially using Azure
 Storage with a clean provider boundary suitable for a later AWS implementation.
 Unify software diagnostics without confusing logs with durable business audit.
-Present the design for user changes/agreement before implementation.
+Record approval before implementation; distinguish source delivery from
+production/full-requirement acceptance.
 
 ## Terminology
 

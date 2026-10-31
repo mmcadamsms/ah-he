@@ -2,15 +2,12 @@
 
 ## Status
 
-Proposed. User review/agreement is required before implementation or deployment.
-
-The **logging backend subdecision is approved**: on 2026-10-31 the user selected
-Grafana Loki backed by Azure Blob Storage. This does not accept the remaining
-operational storage design or authorize runtime deployment.
-
-The user also requires actors and beneficiaries as first-class participants
-in business operations. The representation/authority/subject/context model
-below refines that requirement; the overall design remains under review.
+Accepted for the bounded initial manual pilot. On 2026-10-31 the user approved
+implementation of backlog items 1-5 using this design, including Loki on Azure
+Blob and first-class actor/beneficiary context. This does not authorize cloud
+spending, production deployment or unselected external/physical integrations.
+See the [implementation runbook](../../runbooks/operational-workflows.md) for
+delivered scope and remaining qualification.
 
 ## Context
 
@@ -19,13 +16,13 @@ inspection, benchmark quotes, and return/remedy records. The user requests
 Kubernetes compute, Azure Storage-first cost choices, unified logging, and
 compartmentalized storage suitable for a later AWS move.
 
-The current prototype is in-memory and has no shared operational ledger.
+The manufacturing prototype is in-memory and is not the operational ledger.
 Azure Table transactions are same-partition, queues can redeliver and expire,
 and neither Blob diagnostics nor cloud redundancy replaces business audit and
 backup. Proposed ADR 0007 remains in separate unmerged PR #8; ADR 0008 keeps
 manufacturing predictions/evidence/release distinct.
 
-## Proposed Decision
+## Decision
 
 Use domain modules in the existing Java API and background worker. Propose
 Azure Table Storage for authoritative records, private block blobs for evidence,
@@ -89,8 +86,9 @@ policies, costs and recovery objectives are explicit acceptance gates.
 
 Nothing here changes accepted ADR 0004/0005 boundaries, accepts ADR 0008,
 merges/supersedes the separate logging PR, or authorizes machine control.
-Following user changes/agreement, update this ADR's status and issue bounded
-implementation prompts for the complete domain requirements.
+The shared library, Azure adapters, API/worker and portal implement initial
+manual slices, not the complete domain requirements. Real cloud IAM/network,
+recovery, WAL, cost and production policies remain acceptance gates.
 
 ## References
 

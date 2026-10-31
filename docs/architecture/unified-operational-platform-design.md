@@ -2,12 +2,17 @@
 
 ## Review Status and Recommendation
 
-**Status:** Proposed for user review; design only. Implementation, deployment,
-spending, and final operating policies require approval.
+**Status:** Accepted for initial manual implementation on 2026-10-31.
+Implementation now includes shared Java ports/Azure adapters, all five bounded
+manual workflows, authenticated API/React UI, worker audit projection and
+Loki/OTel/Azure/Kubernetes configuration. Deployment, spending, production
+qualification and final operating policies are not approved by this status.
+The [runbook](../runbooks/operational-workflows.md) is the canonical delivery
+matrix; later-stage responsibilities below remain the target design.
 
 **Approved logging decision (2026-10-31):** The user selected Grafana Loki
 backed by Azure Blob Storage. Logging product selection is settled; deployment
-sizing, security, retention, recovery and the broader platform design are not.
+sizing, security, retention and recovery still require deployment qualification.
 
 **Date:** 2026-10-31. **Repository baseline:** `68b1cfb73143e90f35526715252070f698641fcb`
 (main after #12).
@@ -61,7 +66,7 @@ publication. This proposal carries forward low-cost commodity storage, correlati
 bounded buffers, queries near the data, and independent recovery. The user
 selected Loki on Azure Blob for the ongoing support/query need of items 1-5.
 It does not merge #8, accept ADR 0007, or secretly build a second logging lake.
-Reconcile or supersede that proposal explicitly after this design is agreed.
+Reconcile or supersede that separate proposal explicitly; it has not been merged.
 
 ## Runtime and Dependency Structure
 
@@ -93,8 +98,8 @@ or derive business identity from a blob path. Keep the geometry worker unchanged
 unless an approved integration requires it. Shared Java contracts/adapters belong
 in `common/` only when API and worker actually consume them; follow
 [ADR 0005](decisions/0005-organize-code-by-runtime-boundary.md). The background
-worker currently has no application implementation; its README is not an
-already functioning durable processor.
+worker implements outbox reconciliation/audit projection only; due jobs, scan
+execution and external effects in the diagram remain future work.
 
 ## Shared Business Model
 
@@ -242,10 +247,11 @@ regions are deployment configuration, not domain contracts.
 
 Azure Tables transactions require the same table and PartitionKey, with at most
 100 entities and 4 MiB total; individual entities also have limits [S1, S2].
-Proposal: impose a conservative **64 KiB serialized record** and **90 mutations /
+Implementation imposes **24 KiB UTF-8 JSON per record** and **90 mutations /
 512 KiB commit** application limit, including audit, receipt, outbox, and
 dependency fences. These are reviewable portability/test limits, not Azure
-service limits or observed workload figures. Larger objects go to Blob; larger
+service limits or observed workload figures. The record cap also stays below
+Azure's UTF-16 string-property limit. Larger objects go to Blob; larger
 business changes become explicitly staged work, not batches falsely presented
 as one transaction. Reject an unsupported atomic command before mutation.
 
@@ -651,7 +657,8 @@ not a problem to fix by discarding atomicity.
 
 ## Implementation Sequence and Verification Gates
 
-Only start this sequence after design agreement.
+The user approved the initial manual sequence on 2026-10-31. Full acceptance
+gates below remain required; passing local slices is not production completion.
 
 | Stage | Deliverable | Mandatory verification |
 |-------|-------------|------------------------|
@@ -664,9 +671,10 @@ Only start this sequence after design agreement.
 | 6 | Selected carrier/QR/freight/payment adapters and remaining domain automation | Sandbox/provider idempotency/reconciliation, cancellation races, return/financial status truth; full linked requirement acceptance without production-control claims. |
 | 7 | AWS proof and scale/recovery qualification | Same semantic suite on AWS adapter, export/import hash and balance checks, rebuilt projections, no double dispatch after cutover; acceptance before saying “swappable.” |
 
-Design/documentation checks are not execution of these tests. No infrastructure,
-schemas, Java ports, migrations, policy engine, dashboards or provider adapter has
-been implemented by this proposal.
+Local domain/API/UI and actual Azurite adapter tests cover the implemented
+slices. Bicep compilation and pinned logging configuration validation do not
+prove deployed Azure/Kubernetes behavior. Full backup/restore, AWS migration,
+dashboards/alerts and remaining integrations are not implemented.
 
 ## Decisions Requested at Review
 
@@ -686,7 +694,8 @@ Sources checked 2026-10-31; connector maturity/configuration must be rechecked f
 the pinned implementation release.
 
 - [Shared requirements](../../requirements/functional-areas/platform-foundation/unified-operations-storage-and-logging.md).
-- [Proposed ADR 0009](decisions/0009-azure-first-portable-operational-platform.md).
+- [Accepted pilot ADR 0009](decisions/0009-azure-first-portable-operational-platform.md).
+- [Implementation and production gates](../runbooks/operational-workflows.md).
 - [Design/review prompt](../../requirements/prompts/deploying/20261031-unified-operations-storage-design.md).
 - [S1: Azure Table entity-group transaction limits](https://learn.microsoft.com/en-us/rest/api/storageservices/performing-entity-group-transactions).
 - [S2: Table data model and entity/property limits](https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-the-table-service-data-model).

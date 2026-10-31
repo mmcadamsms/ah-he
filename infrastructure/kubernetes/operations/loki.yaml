@@ -1,0 +1,51 @@
+auth_enabled: true
+server:
+  http_listen_port: 3100
+common:
+  path_prefix: /var/loki
+  replication_factor: 1
+  ring:
+    kvstore:
+      store: inmemory
+schema_config:
+  configs:
+    - from: "2026-01-01"
+      store: tsdb
+      object_store: azure
+      schema: v13
+      index:
+        prefix: operations_
+        period: 24h
+storage_config:
+  azure:
+    account_name: ${LOKI_AZURE_ACCOUNT}
+    container_name: loki
+    use_federated_token: true
+  tsdb_shipper:
+    active_index_directory: /var/loki/index
+    cache_location: /var/loki/cache
+ingester:
+  wal:
+    enabled: true
+    dir: /var/loki/wal
+compactor:
+  working_directory: /var/loki/compactor
+  retention_enabled: true
+  delete_request_store: azure
+limits_config:
+  retention_period: 720h
+  allow_structured_metadata: true
+  ingestion_rate_mb: 2
+  ingestion_burst_size_mb: 4
+  max_query_lookback: 720h
+  max_query_length: 168h
+  otlp_config:
+    resource_attributes:
+      ignore_defaults: true
+      attributes_config:
+        - action: index_label
+          attributes: [service.name, deployment.environment.name]
+        - action: structured_metadata
+          attributes: [k8s.namespace.name]
+analytics:
+  reporting_enabled: false

@@ -1,0 +1,12 @@
+<configuration>
+  <springProperty name="environmentName" source="app.environment" defaultValue="local"/>
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+      <customFields>{"service.name":"background-worker","deployment.environment.name":"${environmentName}","schema.version":1}</customFields>
+    </encoder>
+  </appender>
+  <logger name="com.azure" level="WARN"/>
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>

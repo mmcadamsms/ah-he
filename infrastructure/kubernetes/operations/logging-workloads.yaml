@@ -1,0 +1,168 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: operations-loki
+  namespace: operations
+  annotations:
+    azure.workload.identity/client-id: REPLACE_LOKI_CLIENT_ID
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: loki
+  namespace: operations
+spec:
+  serviceName: loki
+  replicas: 1
+  selector:
+    matchLabels: {app: loki}
+  template:
+    metadata:
+      labels: {app: loki, azure.workload.identity/use: "true"}
+    spec:
+      serviceAccountName: operations-loki
+      nodeSelector: {ahhe-operational-logs: "true"}
+      securityContext: {runAsNonRoot: true, runAsUser: 10001, fsGroup: 10001}
+      containers:
+        - name: loki
+          image: grafana/loki:3.7.9
+          args: [-config.file=/etc/loki/loki.yaml, -config.expand-env=true]
+          env:
+            - name: LOKI_AZURE_ACCOUNT
+              value: REPLACE_LOG_ACCOUNT
+          ports: [{name: http, containerPort: 3100}]
+          resources:
+            requests: {cpu: 250m, memory: 512Mi}
+            limits: {cpu: "1", memory: 1Gi}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          volumeMounts:
+            - {name: config, mountPath: /etc/loki, readOnly: true}
+            - {name: data, mountPath: /var/loki}
+          readinessProbe:
+            httpGet: {path: /ready, port: http}
+      volumes:
+        - name: config
+          configMap: {name: loki-config}
+  volumeClaimTemplates:
+    - metadata: {name: data}
+      spec:
+        accessModes: [ReadWriteOnce]
+        storageClassName: REPLACE_QUALIFIED_STORAGE_CLASS
+        resources:
+          requests: {storage: 20Gi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loki
+  namespace: operations
+spec:
+  clusterIP: None
+  selector: {app: loki}
+  ports: [{name: http, port: 3100, targetPort: http}]
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: otel-gateway
+  namespace: operations
+spec:
+  serviceName: otel-gateway
+  replicas: 1
+  selector:
+    matchLabels: {app: otel-gateway}
+  template:
+    metadata:
+      labels: {app: otel-gateway}
+    spec:
+      automountServiceAccountToken: false
+      nodeSelector: {ahhe-operational-logs: "true"}
+      securityContext: {runAsNonRoot: true, runAsUser: 10001, fsGroup: 10001}
+      containers:
+        - name: otel-gateway
+          image: otel/opentelemetry-collector-contrib:0.164.0
+          args: [--config=/etc/otelcol/collector-gateway.yaml]
+          ports:
+            - {name: otlp, containerPort: 4318}
+            - {name: metrics, containerPort: 8888}
+            - {name: health, containerPort: 13133}
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {cpu: 500m, memory: 512Mi}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          volumeMounts:
+            - {name: config, mountPath: /etc/otelcol, readOnly: true}
+            - {name: data, mountPath: /var/otelcol}
+          readinessProbe:
+            httpGet: {path: /, port: health}
+      volumes:
+        - name: config
+          configMap: {name: otel-gateway-config}
+  volumeClaimTemplates:
+    - metadata: {name: data}
+      spec:
+        accessModes: [ReadWriteOnce]
+        storageClassName: REPLACE_QUALIFIED_STORAGE_CLASS
+        resources:
+          requests: {storage: 5Gi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-gateway
+  namespace: operations
+spec:
+  clusterIP: None
+  selector: {app: otel-gateway}
+  ports:
+    - {name: otlp, port: 4318, targetPort: otlp}
+    - {name: metrics, port: 8888, targetPort: metrics}
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: otel-agent
+  namespace: operations
+spec:
+  selector:
+    matchLabels: {app: otel-agent}
+  template:
+    metadata:
+      labels: {app: otel-agent}
+    spec:
+      automountServiceAccountToken: false
+      nodeSelector: {ahhe-operational-logs: "true"}
+      containers:
+        - name: otel-agent
+          image: otel/opentelemetry-collector-contrib:0.164.0
+          args: [--config=/etc/otelcol/collector-agent.yaml]
+          ports:
+            - {name: metrics, containerPort: 8888}
+            - {name: health, containerPort: 13133}
+          resources:
+            requests: {cpu: 50m, memory: 128Mi}
+            limits: {cpu: 250m, memory: 256Mi}
+          securityContext:
+            runAsUser: 0
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          volumeMounts:
+            - {name: config, mountPath: /etc/otelcol, readOnly: true}
+            - {name: podlogs, mountPath: /var/log/pods, readOnly: true}
+            - {name: offsets, mountPath: /var/otelcol}
+          readinessProbe:
+            httpGet: {path: /, port: health}
+      volumes:
+        - name: config
+          configMap: {name: otel-agent-config}
+        - name: podlogs
+          hostPath: {path: /var/log/pods, type: Directory}
+        - name: offsets
+          hostPath: {path: /var/lib/ahhe-otel-logs, type: DirectoryOrCreate}

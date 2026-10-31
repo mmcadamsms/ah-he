@@ -45,6 +45,12 @@ engineering limits, external providers, purchases, or machine-control authority.
 
 ## Stack Rank
 
+**Implementation update (2026-10-31):** Ranks 1-5 now have bounded manual
+Azure-backed API/UI workflows and shared actor/evidence/audit/outbox foundations.
+The table below preserves the original assessment snapshot, not current
+completion status. See the [delivery matrix](../docs/runbooks/operational-workflows.md)
+for implemented capabilities and remaining full-requirement work.
+
 | Rank | Unfinished work | Band | Implementation today | Main reason for position |
 |------|-----------------|------|----------------------|--------------------------|
 | 1 | Inventory, asset identity, custody, and WIP ledger | A | Requirements only | Explicit transaction, genealogy, availability, and reconciliation rules; foundation for several other defined workflows. |
