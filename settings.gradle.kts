@@ -11,6 +11,7 @@ include(":backend:background-worker")
 
 // Cross-platform shared code
 include(":common:kotlin")
+include(":common:operations")
 
 pluginManagement {
     repositories {

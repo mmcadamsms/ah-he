@@ -1,0 +1,60 @@
+name: Operational workflows
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  java:
+    name: Java workflows and Azure adapter
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: microsoft
+          java-version: "21"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Restore pinned Azure emulator
+        run: npm ci --prefix .\infrastructure\local
+      - name: Test workflows, Azure conformance and packaged runtimes
+        run: .\scripts\test-operational-workflows.ps1
+      - name: Preserve Java test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: operational-java-test-reports
+          path: |
+            common\operations\build\reports\tests
+            backend\web-api\build\reports\tests
+            backend\background-worker\build\reports\tests
+          if-no-files-found: warn
+
+  web:
+    name: Web tests, lint and operational build
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Restore web dependencies
+        working-directory: clients\web
+        run: npm ci
+      - name: Test portal and prototype
+        working-directory: clients\web
+        run: npm test
+      - name: Lint web client
+        working-directory: clients\web
+        run: npm run lint
+      - name: Build operational portal
+        run: .\scripts\build-operations-web.ps1

@@ -21,7 +21,9 @@
 | Requirements standards | [docs/standards/requirements-standards.md](docs/standards/requirements-standards.md) |
 | Product requirements | [requirements/](requirements/) |
 | Defined unfinished software, stack-ranked | [requirements/software-development-backlog.md](requirements/software-development-backlog.md) |
-| Unified Azure-first operations storage and logging (proposed) | [docs/architecture/unified-operational-platform-design.md](docs/architecture/unified-operational-platform-design.md) |
+| Unified Azure-first operations storage and logging | [docs/architecture/unified-operational-platform-design.md](docs/architecture/unified-operational-platform-design.md) |
+| Operational workflows: implementation, setup and limits | [docs/runbooks/operational-workflows.md](docs/runbooks/operational-workflows.md) |
+| Shared Java operational contracts/domains/Azure adapters | [common/operations/](common/operations/) |
 | Open business and product questions | [requirements/discovery/](requirements/discovery/) |
 | Incoming constituent feedback | [requirements/feedback/](requirements/feedback/) |
 | Business position papers | [requirements/position-papers/](requirements/position-papers/) |

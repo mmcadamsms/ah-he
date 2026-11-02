@@ -1,7 +1,9 @@
 # Actor and Beneficiary Operation Context
 
-**Status:** Design refinement requested by the user; implementation remains
-gated on agreement of the unified platform design.
+**Status:** Initial command/audit/outbox implementation authorized on 2026-10-31.
+General identity onboarding, multi-affiliation and purpose-attributed read audit
+remain incomplete. See [pilot scope](../../../docs/runbooks/operational-workflows.md);
+the complete rules below remain requirements, not passed acceptance claims.
 
 ## Problem
 

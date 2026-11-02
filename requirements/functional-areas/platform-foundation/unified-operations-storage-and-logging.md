@@ -1,10 +1,12 @@
 # Unified Operations Storage and Logging
 
-**Status:** Proposed design for review; no runtime implementation or deployment.
+**Status:** Initial manual implementation authorized and delivered in source;
+not deployed or complete against every rule/acceptance criterion below.
 
 **Approved subdecision:** Grafana Loki backed by Azure Blob Storage for unified
-software logging, selected by the user on 2026-10-31. Broader design agreement
-and deployment qualification remain pending.
+software logging, selected by the user on 2026-10-31. The same day's implementation
+approval covers initial workflows 1-5; deployment qualification remains pending.
+See [delivered scope and remaining gates](../../../docs/runbooks/operational-workflows.md).
 
 ## Problem
 
@@ -20,7 +22,8 @@ Design one Kubernetes-based operational foundation for
 [backlog items 1-5](../../software-development-backlog.md), initially using Azure
 Storage with a clean provider boundary suitable for a later AWS implementation.
 Unify software diagnostics without confusing logs with durable business audit.
-Present the design for user changes/agreement before implementation.
+Record approval before implementation; distinguish source delivery from
+production/full-requirement acceptance.
 
 ## Terminology
 
@@ -136,6 +139,14 @@ diagnostic loss bounds, region/redundancy and total-cost budget.
     with effects and preserve them across queues, retries, corrections and
     cloud migration. Worker identity is distinct from the initiating human;
     diagnostic context is redacted and does not become an access grant.
+25. **UF-25 - Manual pilot guards.** Consumed/zero-quantity identities cannot
+    change physical custody, including through an earlier movement request.
+    The single-plan care pilot supports one active intervention per asset;
+    interrupted or pending-verification work retains that claim until completed
+    and reviewed, or explicitly failed. Another work record cannot overwrite
+    its hold. Actual inspection timestamps must fall within the gauge's
+    recorded qualification interval, not merely precede its expiry. Quote
+    comparisons require at least two distinct source quotes.
 
 ## Assumptions
 
@@ -181,6 +192,10 @@ diagnostic loss bounds, region/redundancy and total-cost budget.
 | UF-AC-16 | Shared maintenance/backup and unidentified receiving use explicit business purposes without fictitious orders or unauthorized financial release. |
 | UF-AC-17 | Concurrent local grant revocation or changed customer/order relationship rejects a stale action; queue replay cannot change representation/beneficiary intent. |
 | UF-AC-18 | Beneficiary views/history preserve context and corrections without granting other-customer access, leaking credentials or assigning automatic charges. |
+| UF-AC-19 | A movement requested before a complete WIP issue cannot subsequently move the consumed source identity or change the issued child's custody. |
+| UF-AC-20 | Competing care cannot overwrite an interrupted intervention; resuming, completing and reviewing that intervention permits subsequent work without removing an unrelated unfinished hold. |
+| UF-AC-21 | A measurement dated before the gauge's actual qualifying release is rejected even when the gauge is currently qualified; a measurement within its interval remains supported. |
+| UF-AC-22 | Repeating one quote ID cannot satisfy the two-source comparison requirement or create a comparison record. |
 
 ## Failure Behavior
 

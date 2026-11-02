@@ -1,0 +1,10 @@
+{
+  "name": "ah-he-local-storage",
+  "private": true,
+  "devDependencies": {
+    "azurite": "3.35.0"
+  },
+  "scripts": {
+    "storage": "azurite --blobHost 127.0.0.1 --queueHost 127.0.0.1 --tableHost 127.0.0.1 --skipApiVersionCheck"
+  }
+}

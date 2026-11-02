@@ -1,0 +1,38 @@
+.operations-workspace {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+}
+.operations-workspace header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.operations-workspace a { color: var(--mint); }
+.operations-panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.operations-panel label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.operations-panel input, .operations-panel select, .operations-panel textarea {
+  padding: 10px;
+  color: var(--ink);
+  background: #f0f4f5;
+  border-radius: 4px;
+  min-width: 0;
+}
+.operations-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.operations-panel textarea { min-height: 70px; font-family: monospace; }
+.operations-panel button { padding: 10px; margin-right: 10px; margin-top: 8px; }
+.operations-panel pre { overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+.operations-panel summary { cursor: pointer; padding: 12px 0; }
+.operations-success { color: var(--mint); overflow-wrap: anywhere; }

@@ -1,0 +1,199 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: operations
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: operations-settings
+  namespace: operations
+data:
+  APP_ENVIRONMENT: pilot
+  OPERATIONS_ENABLED: "true"
+  OPERATIONS_PROVIDER: azure
+  OPERATIONS_BUSINESS_ID: REPLACE_BUSINESS_ID
+  OPERATIONS_TABLE_ENDPOINT: https://REPLACE_OPS_ACCOUNT.table.core.windows.net
+  OPERATIONS_BLOB_ENDPOINT: https://REPLACE_OPS_ACCOUNT.blob.core.windows.net
+  OPERATIONS_QUEUE_ENDPOINT: https://REPLACE_OPS_ACCOUNT.queue.core.windows.net
+  OPERATIONS_JWT_ISSUER: https://REPLACE_VERIFIED_ISSUER
+  OPERATIONS_JWT_JWKS: https://REPLACE_VERIFIED_JWKS
+  OPERATIONS_JWT_AUDIENCE: REPLACE_API_AUDIENCE
+  OPERATIONS_HEALTH_GROUP: readinessState,operationalStorage
+  OPERATIONS_BOOTSTRAP_PRINCIPAL: REPLACE_ISSUER_SUBJECT_SHA256
+  OPERATIONS_BOOTSTRAP_EXPIRES_AT: REPLACE_APPROVED_UTC_EXPIRY
+  OPERATIONS_WORKER_PRINCIPAL: operations-worker
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: operations-api
+  namespace: operations
+  annotations:
+    azure.workload.identity/client-id: REPLACE_API_CLIENT_ID
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: operations-worker
+  namespace: operations
+  annotations:
+    azure.workload.identity/client-id: REPLACE_WORKER_CLIENT_ID
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-api
+  namespace: operations
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: web-api}
+  template:
+    metadata:
+      labels: {app: web-api, azure.workload.identity/use: "true"}
+    spec:
+      serviceAccountName: operations-api
+      nodeSelector: {ahhe-operational-logs: "true"}
+      securityContext: {runAsNonRoot: true, runAsUser: 10001, fsGroup: 10001}
+      containers:
+        - name: web-api
+          image: REPLACE_REGISTRY/web-api:REPLACE_TAG
+          envFrom: [{configMapRef: {name: operations-settings}}]
+          ports: [{name: http, containerPort: 8080}]
+          resources:
+            requests: {cpu: 250m, memory: 384Mi}
+            limits: {cpu: "1", memory: 768Mi}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          volumeMounts: [{name: temporary, mountPath: /tmp}]
+          startupProbe:
+            httpGet: {path: /actuator/health/liveness, port: http}
+            failureThreshold: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: {path: /actuator/health/liveness, port: http}
+          readinessProbe:
+            httpGet: {path: /actuator/health/readiness, port: http}
+      volumes: [{name: temporary, emptyDir: {sizeLimit: 128Mi}}]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-api
+  namespace: operations
+spec:
+  selector: {app: web-api}
+  ports: [{name: http, port: 8080, targetPort: http}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: background-worker
+  namespace: operations
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: background-worker}
+  template:
+    metadata:
+      labels: {app: background-worker, azure.workload.identity/use: "true"}
+    spec:
+      serviceAccountName: operations-worker
+      nodeSelector: {ahhe-operational-logs: "true"}
+      securityContext: {runAsNonRoot: true, runAsUser: 10001, fsGroup: 10001}
+      containers:
+        - name: background-worker
+          image: REPLACE_REGISTRY/background-worker:REPLACE_TAG
+          envFrom: [{configMapRef: {name: operations-settings}}]
+          ports: [{name: http, containerPort: 8081}]
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {cpu: 500m, memory: 512Mi}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          volumeMounts: [{name: temporary, mountPath: /tmp}]
+          startupProbe:
+            httpGet: {path: /actuator/health/liveness, port: http}
+            failureThreshold: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: {path: /actuator/health/liveness, port: http}
+          readinessProbe:
+            httpGet: {path: /actuator/health/readiness, port: http}
+      volumes: [{name: temporary, emptyDir: {sizeLimit: 128Mi}}]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: background-worker
+  namespace: operations
+spec:
+  selector: {app: background-worker}
+  ports: [{name: http, port: 8081, targetPort: http}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: operations-web
+  namespace: operations
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: operations-web}
+  template:
+    metadata:
+      labels: {app: operations-web}
+    spec:
+      automountServiceAccountToken: false
+      nodeSelector: {ahhe-operational-logs: "true"}
+      securityContext: {runAsNonRoot: true, runAsUser: 101, fsGroup: 101}
+      containers:
+        - name: operations-web
+          image: REPLACE_REGISTRY/operations-web:REPLACE_TAG
+          ports: [{name: http, containerPort: 8080}]
+          resources:
+            requests: {cpu: 50m, memory: 32Mi}
+            limits: {cpu: 200m, memory: 128Mi}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          volumeMounts: [{name: temporary, mountPath: /tmp}]
+          readinessProbe:
+            httpGet: {path: /, port: http}
+      volumes: [{name: temporary, emptyDir: {sizeLimit: 64Mi}}]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: operations-web
+  namespace: operations
+spec:
+  selector: {app: operations-web}
+  ports: [{name: http, port: 8080, targetPort: http}]
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: operations-web
+  namespace: operations
+spec:
+  ingressClassName: REPLACE_APPROVED_INGRESS_CLASS
+  tls:
+    - hosts: [REPLACE_APPROVED_HOST]
+      secretName: REPLACE_EXISTING_TLS_SECRET
+  rules:
+    - host: REPLACE_APPROVED_HOST
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: operations-web
+                port: {name: http}

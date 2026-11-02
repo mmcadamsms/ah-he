@@ -46,6 +46,15 @@ The generated plan and G-code are demonstrative only. They are not safe for
 physical machine execution and do not replace qualified CAM, postprocessing,
 collision verification, or machinist prove-out.
 
+## Operational Workflows
+
+The initial inventory, care, inspection, benchmark and returns workflows have
+an Azure-backed shared ledger and authenticated React portal. See the
+[operational runbook](docs/runbooks/operational-workflows.md) for building,
+identity/grants, manual workflow order, private Kubernetes/Loki configuration
+and explicit production/integration limits. No cloud resources are provisioned
+by source delivery, and the complete ranked requirements are not marked done.
+
 ## Repository Structure
 
 ```

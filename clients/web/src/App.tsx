@@ -2,12 +2,20 @@ import { useEffect, useState } from "react";
 import { getJob, resumeJob, updateSimulationSpeed } from "./api";
 import { IntakeForm } from "./IntakeForm";
 import { JobDashboard } from "./JobDashboard";
+import { OperationsPortal } from "./OperationsPortal";
 import type { ManufacturingJob } from "./types";
 import "./styles.css";
 
 const terminalStatuses = new Set(["COMPLETED", "FAILED"]);
 
 export default function App() {
+  if (window.location.pathname === "/operations" || import.meta.env.VITE_OPERATIONS_ONLY === "true") {
+    return <OperationsPortal />;
+  }
+  return <ManufacturingApp />;
+}
+
+function ManufacturingApp() {
   const [job, setJob] = useState<ManufacturingJob>();
 
   useEffect(() => {
@@ -46,6 +54,7 @@ export default function App() {
           <span>manufacturing visibility prototype</span>
         </div>
         <div className="prototype-pill">LOCAL PROTOTYPE</div>
+        <a href="/operations">Operations workspace</a>
       </nav>
       <section className="hero">
         <div className="hero-copy">
