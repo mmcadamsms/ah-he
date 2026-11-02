@@ -75,9 +75,9 @@ public final class InspectionService {
           requireSubject(unit, input.subjectType(), input.subjectId(), input.reservationId(), plan);
           CareService.requireEligible(unit, plan.gaugeId(), engine.now());
           var gauge = unit.load("asset", plan.gaugeId(), Asset.class);
+          CareService.requireQualifiedAt(unit, gauge, input.measuredAt());
           unit.boundValidity(gauge.qualifiedUntil());
           if (!gauge.qualifiedUntil().isAfter(engine.now())
-              || !input.measuredAt().isBefore(gauge.qualifiedUntil())
               || input.measuredAt().isAfter(engine.now())
               || !input.unit().equals(plan.unit())
               || input.uncertainty().compareTo(plan.maximumUncertainty()) > 0) {
@@ -296,6 +296,7 @@ public final class InspectionService {
     }
     CareService.requireEligible(unit, result.gaugeId(), engine.now());
     var gauge = unit.load("asset", result.gaugeId(), Asset.class);
+    CareService.requireQualifiedAt(unit, gauge, result.measuredAt());
     unit.boundValidity(gauge.qualifiedUntil());
     unit.expect("asset", gauge.id(), result.gaugeRevision());
     InventoryService.evidence(unit, result.evidenceIds(), plan.rawEvidenceRequired());

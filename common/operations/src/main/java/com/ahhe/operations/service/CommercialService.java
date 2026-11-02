@@ -77,10 +77,11 @@ public final class CommercialService {
           Checks.bounded(input.quoteIds(), 10);
           Checks.nonnegative(input.internalCost());
           if (input.quoteIds().size() < 2
+              || java.util.Set.copyOf(input.quoteIds()).size() != input.quoteIds().size()
               || input.adjustments().size() != input.quoteIds().size()
               || input.adjustmentReasons().size() != input.quoteIds().size()) {
             throw new IllegalArgumentException(
-                "Comparison requires 2-10 quotes and aligned explicit adjustments.");
+                "Comparison requires 2-10 distinct quotes and aligned explicit adjustments.");
           }
           var quotes =
               input.quoteIds().stream().map(id -> unit.load("quote", id, Quote.class)).toList();

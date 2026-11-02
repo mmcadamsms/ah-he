@@ -79,6 +79,8 @@ public final class CareService {
                 "New assets are held; future meter readings are not accepted.");
           }
           unit.create("asset", asset.id(), "", asset);
+          unit.create("assetcare", asset.id(), "", "");
+          unit.create("assetqualifiedfrom", asset.id(), "", Instant.EPOCH);
         });
   }
 
@@ -185,11 +187,18 @@ public final class CareService {
           if (!allowed) {
             throw OperationException.unresolved("Invalid or completed maintenance transition.");
           }
+          var activeWork = unit.load("assetcare", asset.id(), String.class);
+          if (!activeWork.isEmpty() && !activeWork.equals(work.id())) {
+            throw OperationException.unresolved(
+                "Another maintenance intervention must be completed and reviewed first.");
+          }
           Checks.text(input.findings(), 1000);
           InventoryService.evidence(
               unit,
               input.evidenceIds(),
               input.status() == WorkStatus.COMPLETED_PENDING_VERIFICATION);
+          unit.update(
+              "assetcare", asset.id(), "", input.status() == WorkStatus.FAILED ? "" : work.id());
           unit.update(
               "carework",
               work.id(),
@@ -241,6 +250,10 @@ public final class CareService {
             throw OperationException.unresolved(
                 "Actual completed work is required before verification.");
           }
+          if (!unit.load("assetcare", asset.id(), String.class).equals(work.id())) {
+            throw OperationException.unresolved(
+                "Only the asset's active maintenance intervention can be released.");
+          }
           Checks.text(input.reason(), 1000);
           InventoryService.evidence(unit, input.evidenceIds(), true);
           if (input.postServiceAccepted()
@@ -254,6 +267,7 @@ public final class CareService {
                 "Post-service qualification or current meter evidence is unresolved.");
           }
           var status = input.postServiceAccepted() ? WorkStatus.RELEASED : WorkStatus.FAILED;
+          unit.update("assetcare", asset.id(), "", "");
           unit.update(
               "carework",
               work.id(),
@@ -284,6 +298,8 @@ public final class CareService {
                   asset.meterObservedAt(),
                   input.qualifiedUntil()));
           if (input.postServiceAccepted()) {
+            unit.load("assetqualifiedfrom", asset.id(), Instant.class);
+            unit.update("assetqualifiedfrom", asset.id(), "", engine.now());
             unit.update(
                 "careplan",
                 plan.id(),
@@ -341,6 +357,14 @@ public final class CareService {
     unit.boundValidity(asset.qualifiedUntil());
     if (plan.mandatory()) {
       unit.boundValidity(eligibility(asset, plan, now).calendarDueAt());
+    }
+  }
+
+  public static void requireQualifiedAt(OperationEngine.Unit unit, Asset asset, Instant measuredAt) {
+    var qualifiedFrom = unit.load("assetqualifiedfrom", asset.id(), Instant.class);
+    if (measuredAt.isBefore(qualifiedFrom) || !measuredAt.isBefore(asset.qualifiedUntil())) {
+      throw OperationException.unresolved(
+          "Measurement timestamp is outside the actual gauge qualification interval.");
     }
   }
 

@@ -45,19 +45,21 @@ engineering limits, external providers, purchases, or machine-control authority.
 
 ## Stack Rank
 
-**Implementation update (2026-10-31):** Ranks 1-5 now have bounded manual
+**Implementation update (2026-11-02):** Ranks 1-5 now have bounded manual
 Azure-backed API/UI workflows and shared actor/evidence/audit/outbox foundations.
-The table below preserves the original assessment snapshot, not current
-completion status. See the [delivery matrix](../docs/runbooks/operational-workflows.md)
-for implemented capabilities and remaining full-requirement work.
+Their recommended first slices and full requirements are not yet complete.
+The rank/definition assessment remains the original snapshot; the implementation
+column reflects current source delivery. See the
+[delivery matrix](../docs/runbooks/operational-workflows.md) for verified scope,
+review fixes and remaining work.
 
 | Rank | Unfinished work | Band | Implementation today | Main reason for position |
 |------|-----------------|------|----------------------|--------------------------|
-| 1 | Inventory, asset identity, custody, and WIP ledger | A | Requirements only | Explicit transaction, genealogy, availability, and reconciliation rules; foundation for several other defined workflows. |
-| 2 | Machine maintenance and care workflow | A | Requirements/design only | Concrete triggers, evidence, due/held states, and restart cases; manual capture can precede integrations. |
-| 3 | In-process inspection and measured release gates | A | Requirements/design only; demo has an inspection task | Explicit checkpoints, measured evidence, containment, and release failures; does not require a mechanics solver to start. |
-| 4 | Owned benchmark and external quote record library | A | Requirements only | A bounded manual-record workflow is defined without selecting or automating external quote providers. |
-| 5 | Return authorization, receiving, and remedy workflow | A | Requirements only | Particularly detailed records and lifecycle; full delivery is blocked by absent order, identity, carrier, and payment foundations. |
+| 1 | Inventory, asset identity, custody, and WIP ledger | A | Partial manual ledger/API/UI; corrections and wider lifecycle remain | Explicit transaction, genealogy, availability, and reconciliation rules; foundation for several other defined workflows. |
+| 2 | Machine maintenance and care workflow | A | Partial manual care/API/UI; downtime, plan amendments and integrations remain | Concrete triggers, evidence, due/held states, and restart cases; manual capture can precede integrations. |
+| 3 | In-process inspection and measured release gates | A | Manual singleton measurement/gates; automatic planning and broader scope remain | Explicit checkpoints, measured evidence, containment, and release failures; does not require a mechanics solver to start. |
+| 4 | Owned benchmark and external quote record library | A | Partial manual library/comparison; complete quote scope and providers remain | A bounded manual-record workflow is defined without selecting or automating external quote providers. |
+| 5 | Return authorization, receiving, and remedy workflow | A | Partial manual RMA/receiving/remedy decisions; broader policy and execution remain | Detailed lifecycle; manual verified order/customer records now exist, but carrier/payment integrations do not. |
 | 6 | Geometry-driven 3+2 CAM: constraints through actual planning | B | Partially implemented | Existing kernel and optimizer give a concrete continuation point; fixture generation, accessibility, integration, and actual CAM remain. |
 | 7 | Shipment identity, custody, and evidence | B | Requirements only | Basic package records are clear; carrier integration and performance analysis need missing order and operating history. |
 | 8 | Customer credit and payment-risk gates | B | Requirements only | Exposure and gating rules are documented; financial sources, thresholds, authorities, and policies are not selected. |
@@ -80,7 +82,8 @@ for implemented capabilities and remaining full-requirement work.
 **Remaining work / first slice:** Build durable controlled-item, asset, location,
 custody, reservation, and movement records. Start with qualified manual
 transactions for receiving, moving, consuming, splitting stock/remnants, and
-transferring WIP. No inventory domain implementation currently exists.
+transferring WIP. Receipt, split consumption, reservation, WIP issue and confirmed
+movement now exist; approved correction/reconciliation transactions remain.
 
 **High-level requirements:** Distinguish inventory classes, ownership, physical
 location, condition, qualification, and planned versus confirmed movement.
@@ -105,8 +108,9 @@ Quarantined or unqualified items cannot satisfy a qualified reservation.
 
 **Remaining work / first slice:** Add revisioned care plans, due evaluation,
 manual work records, downtime, asset holds, and post-service release. Cover both
-production machines and shared support assets; no care scheduler or evidence
-ledger currently exists.
+production machines and shared support assets. The manual evidence ledger and
+calendar/usage eligibility now exist; scheduling, explicit downtime and plan
+amendments remain.
 
 **High-level requirements:** Use approved asset-specific procedures for cleaning,
 oiling, inspection, servicing, and other applicable tasks. Handle calendar,

@@ -16,6 +16,29 @@ completion, deployed infrastructure, or production qualification.
 | 5. Returns | Verified manual order source/window, RMA allocation, one quarantined package, confirmed contents, singleton actual inspection and approved basic remedy allocation | Multi-package/batch methods, freight/fees/rounding policy, cancellation/status breadth, carrier/QR/payment/repair/replacement execution |
 | Diagnostics | Structured Java stdout; pinned Loki-on-Blob and OTel configuration; private Kubernetes services; independent health/Prometheus endpoints | Real Azure identity/network/PVC and failure qualification; approved dashboards, alert destinations, retention/loss budget and recovery tests |
 
+These are **partial implementations of the proposed first slices**, not
+completion of all five backlog acceptance criteria. In particular, approved
+quantity/custody correction transactions, explicit downtime records and plan
+amendments, complete benchmark inspection/packaging/exclusion scope, and broad
+return lifecycle/financial policies remain unfinished. The portal is a generic
+staff/customer command workspace, not a finished task-oriented customer product.
+
+### PR #14 Review Follow-up (2026-11-02)
+
+| Item | Source review and regression evidence |
+|------|---------------------------------------|
+| 1. Inventory | Balanced split/reservation/WIP and custody remain distinct. Fixed confirmation of an old movement after its source stock was consumed; neither request nor confirmation can move a zero-quantity identity. |
+| 2. Care | Fixed overlapping care records overwriting an unfinished hold. One active intervention per asset is guarded atomically, retained through interruption/verification and cleared only on release or explicit failure. |
+| 3. Inspection | Fixed measurement backdating before actual gauge qualification. Qualification start, expiry, current gauge/subject revisions and all declared checkpoints are guarded. |
+| 4. Benchmarks | Fixed self-comparison: at least two distinct quote records are required (not necessarily different providers). Existing raw price, scope differences, reasoned adjustments, internal cost and expiry checks remain separate. |
+| 5. Returns | Existing tests cover unidentified quarantine, exact contents, excess authorization refusal, actual defective-part inspection, itemized allocation and unchanged-key remedy replay. Approvals still do not execute money, labels, repairs or replacements. |
+
+The workflow in `.github/workflows/operations.yml` runs Java/domain/API/worker
+tests and packaged builds against a private ephemeral Azurite instance, plus
+web tests/lint/build. It explicitly fails if the adapter contract was skipped.
+Real Azure/Kubernetes qualification and production acceptance are separate gates;
+repository branch-protection settings must require these jobs before merge.
+
 `APPROVED_EXECUTION_UNAVAILABLE` is intentional: a remedy approval is not a
 refund, carrier label, credit, repair or replacement. No consumer pretends to
 perform these effects. A defective returned part may support a conclusive refund
@@ -38,6 +61,17 @@ npm run lint
 Pop-Location
 .\scripts\build-operations-web.ps1
 ```
+
+For the complete Java check **including the non-skipped Azure adapter contract**:
+
+```powershell
+npm ci --prefix .\infrastructure\local
+.\scripts\test-operational-workflows.ps1
+```
+
+Use PowerShell 7 and Java 21. The script allocates loopback ports, generates
+temporary test-only credentials, verifies emulator readiness and cleans up its
+own emulator process/data; no cloud credentials or deployment are involved.
 
 The build script selects `VITE_OPERATIONS_ONLY=true`. For local React development,
 the existing application exposes the portal at `/operations`. Tokens stay in
@@ -80,6 +114,11 @@ grants, receipts, contexts, outbox and initial audit views are in that same
 partition. Every supported transaction guards the hot `F!scope` row and all
 loaded dependencies. This is a deliberate low-throughput consistency choice,
 not automatic sharding or unlimited scalability.
+
+New asset registration also creates `assetcare` (the active-work claim) and
+`assetqualifiedfrom` (the actual qualification start). An older pre-review
+local database lacks these prerequisites and must be reconciled or recreated
+before qualifying assets; missing records fail closed, not as invented history.
 
 Documents carry schema version 1 and at most **24 KiB UTF-8 JSON**. A commit
 allows **90 mutations / 512 KiB**, including audit and dependency guards.

@@ -422,6 +422,58 @@ class OperationalWorkflowsTest {
   }
 
   @Test
+  void aPendingMovementCannotMoveStockAfterItHasBeenConsumedIntoWip() {
+    qualifiedStock();
+    inventory.move(
+        customer(),
+        new InventoryService.MoveInput(
+            "pending", "stock", revision("inventory", "stock"), "inspection"));
+    inventory.reserve(
+        customer(),
+        new InventoryService.ReserveInput(
+            "all-stock", "stock", revision("inventory", "stock"), "lineA", bd("10")));
+    inventory.issue(
+        customer(),
+        new InventoryService.IssueInput(
+            "all-stock",
+            revision("reservation", "all-stock"),
+            new Inventory(
+                "issued",
+                "customerA",
+                "shop",
+                "WIP",
+                "lot-1",
+                bd("10"),
+                bd("10"),
+                "pieces",
+                "receiving",
+                "admin",
+                Condition.QUALIFIED,
+                List.of("stock")),
+            "Issue all remaining stock"));
+
+    assertThatThrownBy(
+            () ->
+                inventory.accept(
+                    customer(),
+                    new InventoryService.AcceptMovement(
+                        "pending", revision("movement", "pending"))))
+        .isInstanceOf(OperationException.class)
+        .hasMessageContaining("Consumed");
+    assertThat(record("inventory", "stock", Inventory.class).location()).isEqualTo("receiving");
+    assertThat(record("inventory", "issued", Inventory.class).location()).isEqualTo("receiving");
+    assertThat(record("movement", "pending", Movement.class).status()).isEqualTo("REQUESTED");
+    assertThatThrownBy(
+            () ->
+                inventory.move(
+                    customer(),
+                    new InventoryService.MoveInput(
+                        "consumed", "stock", revision("inventory", "stock"), "inspection")))
+        .isInstanceOf(OperationException.class)
+        .hasMessageContaining("Consumed");
+  }
+
+  @Test
   void customerProvisioningAndBeneficiaryDoNotGrantStaffOrOtherCustomerAccess() {
     var customerPrincipal = OperationEngine.principalId("https://issuer.example", "customer-user");
     var customerGrant =
@@ -549,6 +601,164 @@ class OperationalWorkflowsTest {
                         List.of("proof"),
                         "Attempt")))
         .isInstanceOf(OperationException.class);
+  }
+
+  @Test
+  void competingCareCannotOverwriteAnInterruptedInterventionOrReleaseItsHold() {
+    qualifiedAsset("asset");
+    care.work(business(), new CareService.WorkInput("first", "asset-plan"));
+    care.work(business(), new CareService.WorkInput("second", "asset-plan"));
+    care.progress(
+        business(),
+        new CareService.ProgressInput(
+            "first", 1, WorkStatus.IN_PROGRESS, List.of(), "First intervention"));
+    care.progress(
+        business(),
+        new CareService.ProgressInput(
+            "first", 2, WorkStatus.INTERRUPTED, List.of(), "Awaiting completion"));
+    assertThatThrownBy(
+            () ->
+                care.progress(
+                    business(),
+                    new CareService.ProgressInput(
+                        "second", 1, WorkStatus.IN_PROGRESS, List.of(), "Competing intervention")))
+        .isInstanceOf(OperationException.class)
+        .hasMessageContaining("Another maintenance");
+    assertThat(record("asset", "asset", Asset.class).qualified()).isFalse();
+    assertThat(record("asset", "asset", Asset.class).holdReason())
+        .isEqualTo("MAINTENANCE_INTERRUPTED");
+
+    care.progress(
+        business(),
+        new CareService.ProgressInput(
+            "first", 3, WorkStatus.IN_PROGRESS, List.of(), "Resumed same intervention"));
+    care.progress(
+        business(),
+        new CareService.ProgressInput(
+            "first",
+            4,
+            WorkStatus.COMPLETED_PENDING_VERIFICATION,
+            List.of("proof"),
+            "Completed actual work"));
+    care.release(
+        business(),
+        new CareService.ReleaseInput(
+            "first", 5, true, NOW.plusSeconds(86400), List.of("proof"), "Qualified review"));
+    care.work(business(), new CareService.WorkInput("next", "asset-plan"));
+    care.progress(
+        business(),
+        new CareService.ProgressInput(
+            "next", 1, WorkStatus.IN_PROGRESS, List.of(), "Next intervention"));
+    assertThat(record("asset", "asset", Asset.class).qualified()).isFalse();
+    assertThat(record("carework", "first", CareWork.class).status()).isEqualTo(WorkStatus.RELEASED);
+    care.progress(
+        business(),
+        new CareService.ProgressInput(
+            "next", 2, WorkStatus.FAILED, List.of("proof"), "Failed intervention remains held"));
+    care.work(business(), new CareService.WorkInput("after-failure", "asset-plan"));
+    care.progress(
+        business(),
+        new CareService.ProgressInput(
+            "after-failure", 1, WorkStatus.IN_PROGRESS, List.of(), "Corrective intervention"));
+    care.progress(
+        business(),
+        new CareService.ProgressInput(
+            "after-failure",
+            2,
+            WorkStatus.COMPLETED_PENDING_VERIFICATION,
+            List.of("proof"),
+            "Completed corrective procedure"));
+    care.release(
+        business(),
+        new CareService.ReleaseInput(
+            "after-failure",
+            3,
+            false,
+            NOW.plusSeconds(86400),
+            List.of("proof"),
+            "Post-service check failed"));
+    assertThat(record("asset", "asset", Asset.class).qualified()).isFalse();
+    assertThat(record("asset", "asset", Asset.class).holdReason())
+        .isEqualTo("POST_SERVICE_CHECK_FAILED");
+    care.work(business(), new CareService.WorkInput("retry", "asset-plan"));
+    care.progress(
+        business(),
+        new CareService.ProgressInput(
+            "retry", 1, WorkStatus.IN_PROGRESS, List.of(), "Review failure corrective work"));
+  }
+
+  @Test
+  void measurementsCannotBeBackdatedBeforeTheGaugesActualQualification() {
+    inspectionSetup();
+    assertThatThrownBy(
+            () ->
+                inspection.measure(
+                    customer(),
+                    new InspectionService.MeasureInput(
+                        "backdated",
+                        "plan",
+                        1,
+                        "inventory",
+                        "workpiece",
+                        "reservation",
+                        bd("10"),
+                        bd("0.01"),
+                        "mm",
+                        NOW.minusSeconds(1),
+                        List.of("proof"))))
+        .isInstanceOf(OperationException.class)
+        .hasMessageContaining("qualification");
+    assertThat(store.read("shop", OperationEngine.key("inspectionresult", "backdated"))).isEmpty();
+    measure("current", "10");
+    assertThat(record("inspectionresult", "current", InspectionResult.class).disposition())
+        .isEqualTo(Disposition.ACCEPTED);
+    var current = record("inspectionresult", "current", InspectionResult.class);
+    put(
+        "inspectionresult",
+        current.id(),
+        current.customerId(),
+        new InspectionResult(
+            current.id(),
+            current.customerId(),
+            current.planId(),
+            current.planRevision(),
+            current.subjectType(),
+            current.subjectId(),
+            current.subjectRevision(),
+            current.reservationId(),
+            current.reservationRevision(),
+            current.qualityHoldRevision(),
+            current.measuredValue(),
+            current.uncertainty(),
+            current.unit(),
+            current.gaugeId(),
+            current.gaugeRevision(),
+            NOW.minusSeconds(1),
+            current.disposition(),
+            current.evidenceIds()));
+    inspection.gatePlan(
+        customer(),
+        new GatePlan(
+            "gate",
+            "customerA",
+            "lineA",
+            "TRANSFER",
+            "inventory",
+            "workpiece",
+            "machine",
+            List.of("plan")));
+    assertThatThrownBy(
+            () ->
+                inspection.release(
+                    customer(),
+                    new InspectionService.ReleaseInput(
+                        "legacy-backdated",
+                        "gate",
+                        revision("gateplan", "gate"),
+                        List.of("current"))))
+        .isInstanceOf(OperationException.class)
+        .hasMessageContaining("qualification");
+    assertThat(store.read("shop", OperationEngine.key("release", "legacy-backdated"))).isEmpty();
   }
 
   @Test
@@ -695,6 +905,18 @@ class OperationalWorkflowsTest {
     assertThat(comparison.scopeDifferences()).contains("q2: quantity", "q2: lead time");
     assertThat(comparison.rawDeliveredPrices().getFirst()).isEqualByComparingTo("110");
     assertThat(comparison.internalCost()).isEqualByComparingTo("70");
+    assertThatThrownBy(
+            () ->
+                commercial.compare(
+                    business(),
+                    new CommercialService.ComparisonInput(
+                        "self-comparison",
+                        List.of("q1", "q1"),
+                        List.of(BigDecimal.ZERO, BigDecimal.ZERO),
+                        List.of("No adjustment", "No adjustment"),
+                        bd("70"))))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageContaining("distinct");
     commercial.quote(business(), quote("expired", "10", 5, NOW.minusSeconds(1)));
     assertThatThrownBy(
             () ->

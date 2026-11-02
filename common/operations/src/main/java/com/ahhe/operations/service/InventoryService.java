@@ -356,6 +356,7 @@ public final class InventoryService {
           Checks.text(input.destination(), 200);
           var item = unit.load("inventory", input.inventoryId(), Inventory.class);
           unit.expect("inventory", item.id(), input.expectedRevision());
+          requireMovable(item);
           unit.create(
               "movement",
               input.id(),
@@ -383,6 +384,7 @@ public final class InventoryService {
           var movement = unit.load("movement", input.movementId(), Movement.class);
           unit.expect("movement", movement.id(), input.expectedRevision());
           var item = unit.load("inventory", movement.inventoryId(), Inventory.class);
+          requireMovable(item);
           if (!movement.status().equals("REQUESTED")
               || !item.location().equals(movement.origin())) {
             throw OperationException.unresolved(
@@ -532,6 +534,12 @@ public final class InventoryService {
                   reservation.quantity(),
                   "RELEASED"));
         });
+  }
+
+  private void requireMovable(Inventory item) {
+    if (item.condition() == Condition.CONSUMED || item.quantity().signum() == 0) {
+      throw OperationException.unresolved("Consumed stock has no physical quantity to move.");
+    }
   }
 
   private void requireNoQualityHold(OperationEngine.Unit unit, String id) {
