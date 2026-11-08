@@ -14,6 +14,7 @@ Product requirements are organized by **functional area** — logical groupings 
 | [manufacturing-automation](functional-areas/manufacturing-automation/) | CAD intake, planning, CNC verification, workholding assessment, machine care, in-process inspection, and inventory/tooling lifecycle |
 | [commercial-operations](functional-areas/commercial-operations/) | Customer credit, payment terms, quoting controls, collections, and commercial risk |
 | [facility-operations](functional-areas/facility-operations/) | Site selection, utilities, shop layout, receiving, employee space, safety, and expansion |
+| [observability](functional-areas/observability/) | Proposed low-cost service logging, query efficiency, retention, and recovery |
 
 > Add new functional areas as the product grows. Each area gets its own directory under `functional-areas/`.
 
